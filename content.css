@@ -1,0 +1,27 @@
+body {
+	background-color: black;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;;
+}
+
+#header * {
+	padding: 10px;
+	margin: 0 auto;
+}
+
+#content * {
+	padding: 10px;
+	margin: 0 auto;
+}
+
+#content p {
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+
+#footer * {
+	padding: 10px;
+	margin: 0 auto;
+
+}
+
