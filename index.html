@@ -25,12 +25,7 @@
 					<button class="remove" type="button" onclick="removeFinished()"> Remove finished </button>
 				</div>
 				
-				<ul id="items">
-					<li><input type="checkbox" class="option" />A</br></li>
-					<li><input type="checkbox" class="option" />B</br></li>
-					<li><input type="checkbox" class="option" />C</br></li>
-					<li><input type="checkbox" class="option" />C</br></li>					
-				</ul>
+				<ul id="items"></ul>
 
 			</div>
 
@@ -38,6 +33,7 @@
 			<script type="text/javascript">
 			
 			// Creates an item to be appended to the list
+			var idNum = 0;
 			function createItem() {
 				var item = prompt("What's on your mind?");
 				
@@ -54,37 +50,13 @@
 			// Helper function for above
 			function addCheckbox(item) {
 									
-				var output = "<input type='checkbox' class='option'/>" + item + "</br>";
+				var output = "<input type='checkbox' class='check' id=" + idNum + "/>";
+				output += "<label for=" + idNum + " class='label-for-check'>" + item + "</label>";
+				idNum++;
 				return output;
 			}
 			
-			/*
-			// Removes all of the checkboxed items
-			function removeFinished() {
-				var items = $(".option").toArray();
-				for(var i = 0; i < items.length(); i++) {
-					if(items[i].checked) {
-						items.removeChild(
-					}
-				}
-			
-			}
-			*/
-			/*
-			// Crosses out the text for a checkbox
-			$(document).ready(function() {
 
-
-				$(".option").change(function() {
-					var checked = $(this).is(":checked");
-					if(checked) {
-						var text = $(this).text();
-						
-					}
-				});
-			});
-			*/
-			
 			
 			</script>
 

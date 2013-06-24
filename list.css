@@ -16,8 +16,21 @@ ul {
 	margin-left: 50px;
 
 }
- 
-.option {
 
+/* For the checkboxes */
+.check {
+
+
+}
+
+/* For the labels */
+.label-for-check {
+
+
+}
+
+/* For striking through */
+.check:checked + .label-for-check {
+	text-decoration: line-through;
 
 }
