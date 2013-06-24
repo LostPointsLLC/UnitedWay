@@ -6,10 +6,65 @@
 		<!-- Stylesheets -->
 		<link type="text/css" rel="stylesheet" href="boxes.css"/>
 		
+		<!-- Javascript / jQuery -->
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		
 	</head>
 	<body>
 		<div id="container">
-			
+		
+			<input type="checkbox" class="option" />A</br>
+			<input type="checkbox" class="option" />B</br>
+			<input type="checkbox" class="option" />C</br>
+			<input type="checkbox" class="option" />C</br>		
+		
+			<ul id="list"></ul>
+
+				
+				<script type="text/javascript">
+				function createItem() {
+					var item = prompt("What's on your mind?");
+					
+					// Add this item to the list
+					if(item != null && item != "") {
+						
+						var entry = "<li>" + addCheckbox(item) + "</li>";
+						list.appendChild(entry);
+
+						var entry2 = "<li>" + "<input type='checkbox' class='option' />A</br>" + "</li>";
+						list.appendChild(entry2);
+					}
+				
+				}
+				
+				// Creates a checkbox to be appended to the list
+				function addCheckbox(item) {
+										
+					confirm("ARGGG");
+					/*
+					var checkBox = document.createElement("input");
+					checkBox.className += "option";
+					checkBox.type = "checkbox";
+					*/
+					var output = "<input type='checkbox' class='option' />" + item + "</br>";
+					
+					
+					//div.innerHTML=item;
+					
+					return output;
+				}
+				
+				
+				function removeChecked() {
+					// Remove all checked boxes
+				}
+				</script>
+
+				
+				<button class="create" type="button" onclick="createItem()"> Add an item </button>
+				<button class="remove" type="button" onclick="removeChecked()"> Delete an item </button>
+
 		</div> <!-- End container -->
 	</body>
 </html>
