@@ -6,6 +6,8 @@
 		<!-- Stylesheets -->
 		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 		<link type="text/css" rel="stylesheet" href="boxes.css"/>
+		<link type="text/css" rel="stylesheet" href="favorites.css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 		
 		<!-- javascript -->
 		<script type='text/javascript' src='script.js'></script>
@@ -13,17 +15,19 @@
 	
 	<body>
 		<div id="container">
+		
+		
+			<script type="text/javascript">
+			$(document).ready(function() {
+				$(".favorites").click(function() {
+					alert("You clicked me! (Replace with appropriate event handlers later)");
+				});
+			});
+			</script>			
+
 			
-			<div id = "addToFavorites">
+			<div class="favorites"></div>
 
-				<a id="addToFavoritesButton" href="javascript:void(0)" onclick=addFavorites()>
-				<img src="star.jpg" width="50" height="50" title="Add to Favorites"/>
-				</a>
-
-
-			</div>
-			
-			<p id="textOfNews">Text for News Feed</p>
 		</div>
 
 
