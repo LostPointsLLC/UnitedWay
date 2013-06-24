@@ -30,10 +30,8 @@
 					if(item != null && item != "") {
 						
 						var entry = "<li>" + addCheckbox(item) + "</li>";
-						list.appendChild(entry);
+						document.getElementById("list").appendChild(entry);
 
-						var entry2 = "<li>" + "<input type='checkbox' class='option' />A</br>" + "</li>";
-						list.appendChild(entry2);
 					}
 				
 				}
@@ -41,24 +39,11 @@
 				// Creates a checkbox to be appended to the list
 				function addCheckbox(item) {
 										
-					confirm("ARGGG");
-					/*
-					var checkBox = document.createElement("input");
-					checkBox.className += "option";
-					checkBox.type = "checkbox";
-					*/
 					var output = "<input type='checkbox' class='option' />" + item + "</br>";
-					
-					
-					//div.innerHTML=item;
-					
 					return output;
 				}
 				
 				
-				function removeChecked() {
-					// Remove all checked boxes
-				}
 				</script>
 
 				
