@@ -1,8 +1,23 @@
 /* A css file dedicated to styling lists.
  * Copyright June 2013 by Henry Lin
  */
+
+h2 {
+	text-align: center;
+}
  
- .option {
-	
+ul {
  
+	list-style: none;
  }
+ 
+/* For the buttons */
+#options {
+	margin-left: 50px;
+
+}
+ 
+.option {
+
+
+}

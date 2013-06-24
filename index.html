@@ -5,6 +5,7 @@
 		
 		<!-- Stylesheets -->
 		<link type="text/css" rel="stylesheet" href="boxes.css"/>
+		<link type="text/css" rel="stylesheet" href="list.css"/>
 		
 		<!-- Javascript / jQuery -->
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -14,41 +15,81 @@
 	<body>
 		<div id="container">
 		
-			<input type="checkbox" class="option" />A</br>
-			<input type="checkbox" class="option" />B</br>
-			<input type="checkbox" class="option" />C</br>
-			<input type="checkbox" class="option" />C</br>		
+			
+
 		
-			<ul id="list"></ul>
-
+			<div id="list">
+				<h2>The checklist</h2>
+				<div id="options">
+					<button class="create" type="button" onclick="createItem()"> Add an item </button>
+					<button class="remove" type="button" onclick="removeFinished()"> Remove finished </button>
+				</div>
 				
-				<script type="text/javascript">
-				function createItem() {
-					var item = prompt("What's on your mind?");
+				<ul id="items">
+					<li><input type="checkbox" class="option" />A</br></li>
+					<li><input type="checkbox" class="option" />B</br></li>
+					<li><input type="checkbox" class="option" />C</br></li>
+					<li><input type="checkbox" class="option" />C</br></li>					
+				</ul>
+
+			</div>
+
+
+			<script type="text/javascript">
+			
+			// Creates an item to be appended to the list
+			function createItem() {
+				var item = prompt("What's on your mind?");
+				
+				// Add this item to the list
+				if(item != null && item != "") {
 					
-					// Add this item to the list
-					if(item != null && item != "") {
-						
-						var entry = "<li>" + addCheckbox(item) + "</li>";
-						document.getElementById("list").appendChild(entry);
+					var entry = "<li>" + addCheckbox(item) + "</li>";
+					$("#items").append(entry);
 
+				}
+			
+			}
+			
+			// Helper function for above
+			function addCheckbox(item) {
+									
+				var output = "<input type='checkbox' class='option'/>" + item + "</br>";
+				return output;
+			}
+			
+			/*
+			// Removes all of the checkboxed items
+			function removeFinished() {
+				var items = $(".option").toArray();
+				for(var i = 0; i < items.length(); i++) {
+					if(items[i].checked) {
+						items.removeChild(
 					}
-				
 				}
-				
-				// Creates a checkbox to be appended to the list
-				function addCheckbox(item) {
-										
-					var output = "<input type='checkbox' class='option' />" + item + "</br>";
-					return output;
-				}
-				
-				
-				</script>
+			
+			}
+			*/
+			/*
+			// Crosses out the text for a checkbox
+			$(document).ready(function() {
+
+
+				$(".option").change(function() {
+					var checked = $(this).is(":checked");
+					if(checked) {
+						var text = $(this).text();
+						
+					}
+				});
+			});
+			*/
+			
+			
+			</script>
 
 				
-				<button class="create" type="button" onclick="createItem()"> Add an item </button>
-				<button class="remove" type="button" onclick="removeChecked()"> Delete an item </button>
+
 
 		</div> <!-- End container -->
 	</body>
