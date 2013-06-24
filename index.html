@@ -31,9 +31,11 @@
 
 
 			<script type="text/javascript">
+
+			var idNum = 0;
+			var itemList = new Array();
 			
 			// Creates an item to be appended to the list
-			var idNum = 0;
 			function createItem() {
 				var item = prompt("What's on your mind?");
 				
@@ -45,6 +47,8 @@
 
 				}
 			
+				// Sets item bit to zero
+				noCheck(idNum);
 			}
 			
 			// Helper function for above
@@ -56,6 +60,26 @@
 				return output;
 			}
 			
+			// Pass in an index to toggle bit in array to false
+			function noCheck(idNum) {
+				itemList[idNum] = false;
+			}
+			
+			// Pass in an index to toggle bit in array to true
+			function yesCheck(idNum) {
+				itemList[idNum] = true;
+			}
+			
+			// Toggles the checked bit to whatever value
+			$(document).ready(function() {
+				alert("woot!");
+				/*
+				$(".check").change(function() {
+					confirm("Argg!!");
+				});*/
+				
+				
+			});
 
 			
 			</script>
