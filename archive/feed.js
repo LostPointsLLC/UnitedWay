@@ -30,15 +30,9 @@ function rssfeedsetup(){
 function displayfeed(result){
 
 	if (!result.error){
-	
-		// thefeeds is an array of objects that contains the RSS feed information.
-		// thefeeds[i].link is the URL.
-		// thefeeds[i].title is the headline.
 		var thefeeds = result.feed.entries;
 		
-		/* Modifies the rssoutput variable, which will be interpreted as HTML 
-		 * Each iteration appends the headline inside a list item <li>
-		 */
+		/* Modifies the rssoutput variable, which will be interpreted as HTML */
 		for (var i = 0; i < thefeeds.length; i++)
 			rssoutput += "<li><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></li>";
 		rssoutput += "</ul>";

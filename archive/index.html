@@ -28,18 +28,20 @@
 			</div> <!-- End header div -->
 			
 			<div id="content">
+				<h1>Hello world</h1>
+				<p>Hello! This is an example RSS feed! Make sure that you're connected to the internet for the RSS feed to work. You also have to make sure that javascript is working on your system. </p>
+				
 				<h1>RSS Feeds Demonstration</h1>
 				<div id="feed"></div>
 				
 				<!-- The following code below allows me to call a function in feed.js with
 				my own parameters to the function. -->
 				<script src="feed.js"></script>
-				<script>rssfeed(
-					"feed", 
-					"http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 
-					8, 
-					"Champaign Library Events:"
-				);</script>
+				<script>rssfeed("feed", "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 5, "Champaign Library Events:");</script>
+				
+				<!-- Another RSS Feed -->
+				<div id="google"></div>
+				<script src="google.js"></script>
 				
 				
 			</div> <!-- End content div -->
