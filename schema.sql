@@ -5,63 +5,66 @@
  */
 
 create table checklist {
-	tip varchar(225),
-	age int,
-	key id int,
-	category varchar(225),
-	completed bit
+	checklist_tip text,
+	checklist_age int,
+	checklist_id key int,
+	checklist_category varchar(225),
+	checklist_completed bit
 };
 
 create table rss {
-	url varchar(225),
-	title varchar(225),
-	source varchar(225),
-	id int
+	rss_url varchar(225),
+	rss_title varchar(225),
+	rss_source varchar(225),
+	rss_id int
 
 };
 
-create table child {
-	age int,
-	color numeric(20), /* To store a 64 unsigned number for a color */
-	name varchar(225),
-	gender bit, /* 0 for male, 1 for female */
-	id int,
-	parentID int
+create table children {
+	child_age int,
+	child_color text, /* To store a 64 unsigned number for a color */
+	child_name varchar(30),
+	child_gender bit, /* 0 for male, 1 for female */
+	child_id int,
+	child_parentID int
 
 };
 
 create table tips {
-	age int,
-	category varchar(225),
-	id int,
-	title varchar(225)
+	tips_age int,
+	tips_category text,
+	tips_id int,
+	tips_title varchar(225)
 
 };
 
 
 create table favorites {
-	item_type varchar(225),
-	id int,
-	userID int
+	favorites_type varchar(225),
+	favorites_id int,
+	favorites_userID int
 
 };
 
 create table users {
-	name varchar(225),
-	id int,
-	password varchar(225)
+	user_name varchar(30),
+	user_id int,
+	user_email varchar(30),
+	user_password text,
+	user_phone text,
+	user_language varchar(30) /* ENG = English */
 
 };
 
 
 
 create table event {
-	title varchar(225),
+	event_title varchar(225),
 	event_date date,
 	event_time time,
-	place varchar(225),
-	url varchar(225),
-	sponsor varchar(225),
-	id int
+	event_place varchar(225),
+	event_url text,
+	event_sponsor varchar(225),
+	event_id int
 
 };
