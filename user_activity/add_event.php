@@ -12,20 +12,20 @@
 	mysqli_select_db($con, $dbname);
 
 	
-	$id = $_POST['user_id'];
-	$pass = $_POST['user_password'];
-	$phone = $_POST['user_phone'];
-	$first = $_POST['user_first'];
-	$last = $_POST['user_last'];
-	$email = $_POST['user_email'];
-	$language = $_POST['user_language'];
+	$id = $_POST['event_id'];
+	$date = $_POST['event_date'];
+	$time = $_POST['event_time'];
+	$url = $_POST['event_url'];
+	$place = $_POST['event_place'];
+	$title = $_POST['event_title'];
+	$sponsor = $_POST['event_sponsor'];
 	
 	$return_url = "http://localhost/framework/";
 	
 	/* TODO: DEBUG THIS */
 	$insertion = mysqli_query($con, 
-		"INSERT INTO users(user_id, user_password, user_phone, user_first, user_last, user_email, user_language) 
-		VALUES ($id, $pass, $phone, $first, $last, $email, $language)");
+		"INSERT INTO events(event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor) 
+		VALUES ($id, $date, $time, $url, $place, $title, $sponsor)");
 	
 	if($insertion) {
 		echo "<h1>Success! Will redirect in 2 seconds</h1>";

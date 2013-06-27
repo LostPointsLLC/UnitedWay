@@ -25,24 +25,26 @@
 				</div>
 				<p>Please feel free to reach me at halin2@illinois.edu.</p>
 				
-				<!-- These divs will be populated by the below jQuery -->
-				<div id="users"></div>
+				<!-- These divs will be populated by the jQuery below -->
 				<div id="checklist"></div>
 				<div id="rss"></div>
 				<div id="children"></div>
 				<div id="tips"></div>
 				<div id="favorites"></div>
+				<div id="users"></div>
 				<div id="events"></div>
 				
+				<!-- Quickly loads up some html, which contains forms -->
 				<script type='text/javascript'>
 				$(document).ready(function() {
-					$("#users").load("users.html");
-					$("#checklist").load("checklist.html");
-					$("#rss").load("rss.html");
-					$("children").load("children.html");
-					$("tips").load("tips.html");
-					$("favorites").load("favorites.html");
-					$("events").load("events.html");
+
+					$("#checklist").load("user_activity/checklist.html");
+					$("#rss").load("user_activity/rss.html");
+					$("#children").load("user_activity/children.html");
+					$("#tips").load("user_activity/tips.html");
+					$("#favorites").load("user_activity/favorites.html");
+					$("#users").load("user_activity/users.html");
+					$("#events").load("user_activity/events.html");
 				});
 				</script>
 				

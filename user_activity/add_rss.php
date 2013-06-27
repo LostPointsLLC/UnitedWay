@@ -12,20 +12,17 @@
 	mysqli_select_db($con, $dbname);
 
 	
-	$id = $_POST['user_id'];
-	$pass = $_POST['user_password'];
-	$phone = $_POST['user_phone'];
-	$first = $_POST['user_first'];
-	$last = $_POST['user_last'];
-	$email = $_POST['user_email'];
-	$language = $_POST['user_language'];
+	$id = $_POST['rss_id'];
+	$url = $_POST['rss_url'];
+	$title = $_POST['rss_title'];
+	$source = $_POST['rss_source'];
 	
 	$return_url = "http://localhost/framework/";
 	
 	/* TODO: DEBUG THIS */
 	$insertion = mysqli_query($con, 
-		"INSERT INTO users(user_id, user_password, user_phone, user_first, user_last, user_email, user_language) 
-		VALUES ($id, $pass, $phone, $first, $last, $email, $language)");
+		"INSERT INTO rss(rss_id, rss_url, rss_title, rss_source) 
+		VALUES ($id, $url, $title, $source)");
 	
 	if($insertion) {
 		echo "<h1>Success! Will redirect in 2 seconds</h1>";
