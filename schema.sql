@@ -4,26 +4,22 @@
  * object as well.
  */
 
- /* Slight error: I meant to put varchar(255), not varchar(225). 
-  * But it shouldn't make much of a difference
-  */
- 
-create table checklist {
+create table checklist (
 	check_id key int,
-	check_tip text,
 	check_age int,
-	check_category varchar(225),
+	check_tip text,
+	check_category varchar(30),
 	check_completed bit
-};
+);
 
-create table rss {
-	rss_id int
-	rss_url varchar(225),
-	rss_title varchar(225),
-	rss_source varchar(225),
+create table rss (
+	rss_id key int,
+	rss_url text,
+	rss_title varchar(255),
+	rss_source varchar(255)
 
 
-};
+);
 
 create table children {
 	child_id key int,
@@ -39,32 +35,33 @@ create table children {
 create table tips {
 	tip_id key int,
 	tip_age int,
-	tip_category text, /* Maybe should've been varchar? */
-	tip_title varchar(225)
+	tip_category varchar(30),
+	tip_title varchar(255)
 
 };
 
 
-create table favorites {
+create table favorites (
 	fav_id key int,
-	fav_type varchar(20), /* type of object */
-	fav_userID int
+	fav_userID int,
+	fav_type varchar(20) /* type of object */
 
-};
 
-create table users {
+);
+
+create table users (
 	user_id key int,
+	user_password varchar(30),
+	user_phone text, (nullable)
 	user_name varchar(30),
 	user_email varchar(30),
-	user_password text,
-	user_phone text, (nullable)
 	user_language varchar(20) /* ENG = English */
 
-};
+);
 
 
 
-create table events {
+create table events (
 	event_id key int
 	event_date date,
 	event_time time,
@@ -74,4 +71,4 @@ create table events {
 	event_sponsor varchar(225),
 
 
-};
+);
