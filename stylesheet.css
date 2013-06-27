@@ -1,0 +1,203 @@
+.construction {
+	background: url(pictures/construction.png) no-repeat;
+	background-size: 100%;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+
+}
+
+
+.con_title {
+	margin: 30px 0 0 20px;
+
+}
+
+.con_title > h2 {
+	position: relative;
+	margin: -20px 0 0 0;
+	opacity: .5;
+	font-style: italic;
+	font-size: large;
+}
+
+body {
+	background-color: #222222;
+	text-align: justify;
+	font-family:  ubuntu, "Trebuchet MS", sans-serif;
+	
+
+}
+
+#container {
+
+	width: 740px;
+	margin: 20px auto;
+	padding: 8px;
+	
+	border-radius: 3px;
+	background-color: white;
+
+}
+
+/**************************************************/
+
+#header {
+	width: 730px;
+	height: 200px;
+	margin: 0 auto;
+	padding: 5px;
+	
+	background: url(pictures/moonlight.jpg) no-repeat;
+	background-size: 100%;
+
+}
+
+
+#navbar {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 213px; /* For navbar only */
+	margin-left: 2.5375in;
+	width: 210px; /* Must be as big as the number of links */
+	padding: 0;
+	
+	/*background-color: navy; /* To be removed */
+
+	
+}
+#navbar ul {
+	list-style: none;
+	margin-top: -10px;
+
+
+}
+
+#navbar ul li {
+	display: inline;
+	
+	border: solid black 2px;
+	background-color: navy;
+	
+	margin: 0 -5px 0 0;
+	padding: 1px;
+
+}
+
+
+#navbar ul a {
+
+	position: relative;
+	margin: 0 auto;
+	margin: 0 4px 0 4px;
+
+	text-decoration: none;
+	color: white;
+	font-size: small;
+
+	
+}
+
+#navbar ul a:hover {
+	font-weight: bold;
+}
+
+
+#navbar ul li:first-child {
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+	
+}
+
+#navbar ul li:last-child {
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
+
+}
+
+/**************************************************/
+
+#content {
+	width: 730px;
+	margin: 0 auto;
+	/*padding: 10px;*/
+	background-color: #white;
+}
+
+#content p {
+
+	padding: 5px;
+
+
+}
+
+/***************************************************/
+/*#footer * {
+	border: 2px dashed black;
+}*/
+
+
+#foot_navbar {
+	width: 30%;
+	clear: both;
+	background-color: gray;
+	border-radius: 1em;
+	opacity: 0.6;
+	
+	position: relative;
+	margin: 0 auto;
+	/*margin-top: 100px;*/
+	
+	
+	padding: 0;
+	
+	/*background-color: green;*/
+}
+
+#foot_navbar ul {
+	list-style: none;
+	margin-top: 10px;
+	font-size: x-small;
+}
+
+#foot_navbar ul li {
+	display: inline;
+	padding: 5px;
+
+	color: white;
+	border-radius: 5px 5px;
+	margin-left: 0;
+
+}
+
+#foot_navbar ul a {
+	text-decoration: none;
+
+}
+
+#foot_navbar ul a:hover {
+	font-weight: bold;
+
+}
+
+#footer #timestamp {
+	display: inline;
+	position: relative;
+	font-size: x-small;
+	float: right;
+	bottom: 20px;
+}
+
+#footer #credits {
+	
+	position: relative;
+	bottom: 20px;
+	float: left;
+	
+	font-size: x-small;
+}
+
+#footer #credits a {
+
+	text-decoration: none;
+}
