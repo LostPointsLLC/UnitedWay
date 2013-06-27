@@ -53,7 +53,8 @@ create table users (
 	user_id key int,
 	user_password varchar(30),
 	user_phone text,
-	user_name varchar(30),
+	user_first varchar(30),
+	user_last varchar(30),
 	user_email varchar(30),
 	user_language varchar(20) /* ENG = English */
 
@@ -66,9 +67,9 @@ create table events (
 	event_date date,
 	event_time time,
 	event_url text,
-	event_place varchar(225),
-	event_title varchar(225),
-	event_sponsor varchar(225),
+	event_place varchar(255),
+	event_title varchar(255),
+	event_sponsor varchar(255),
 
 
 );
