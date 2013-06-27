@@ -52,7 +52,7 @@ create table favorites (
 create table users (
 	user_id key int,
 	user_password varchar(30),
-	user_phone text, (nullable)
+	user_phone text,
 	user_name varchar(30),
 	user_email varchar(30),
 	user_language varchar(20) /* ENG = English */
