@@ -5,7 +5,8 @@
         <title>Category Progress</title>
 		<link rel="stylesheet" type="text/css" href="index.css" />
     </head>
-	<body>
+    <!-- Call updateProgress from the start-->
+	<body onLoad = "updateProgress()">
 		<div id="header">
 			<div id = "title">Select Child</div>
 			<div id = "icons">
@@ -27,13 +28,15 @@
 				<td>dd</td>
 			</tr>
 			<tr>
-				<td colspan="4"><progress value='50' max='100'></progress></td>
+				<td colspan="4"><progress id = "childProg" value = "0" max='7'></progress></td>
 			</tr>
 		</table>
 		
 		<div id = "line"></div>
-	
         <script type="text/javascript" src = "app.js"></script>
-		
+        <script type="text/javascript" src="phpscript.php"></script>
+		<script type="text/javascript" src = "updateProgress.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script>
     </body>
 </html>
