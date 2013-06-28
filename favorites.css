@@ -1,0 +1,7 @@
+.favorites {
+	background: url(star.jpg) no-repeat;
+	background-size: 100%;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
