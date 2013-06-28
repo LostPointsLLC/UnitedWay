@@ -44,8 +44,8 @@ create table tips {
 create table favorites (
 	fav_id key int,
 	fav_userID int,
-	fav_type varchar(20) /* type of object */
-
+	fav_type varchar(20), /* type of object */
+	fav_typeID int
 
 );
 
