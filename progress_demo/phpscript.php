@@ -1,29 +1,20 @@
 <?php
 header('Content-type: application/javascript');
+
 //Defines the username, password and hostname
 $username = "sql312369";
 $password = "lR6!gD5%";
 $hostname = "sql3.freesqldatabase.com";
+$db = "sql312369";
 
 // Connects to your Database
-$dbhandle = mysql_connect($hostname, $username, $password)or die("Unable to connect to MySQL");
-//echo "Connected to MySQL<br/>";
-
-//selects a database to work with
-$selected = mysql_select_db('sql312369',$dbhandle) 
-  or die("Could not select examples");
-//echo "connected to db<br/>";
+$dbhandle = mysqli_connect($hostname, $username, $password, $db);
 
 //execute the SQL query and fetches the records
-$result = mysql_query("SELECT COUNT(Checked) FROM child WHERE Checked = 1");
-$row = mysql_fetch_assoc($result);
-//echo "Count = ";
-//echo($row['COUNT(Checked)']); //the numerical value of count
+$result = mysqli_query($dbhandle, "SELECT COUNT(Checked) FROM child WHERE Checked = 1");
+$row = mysqli_fetch_assoc($result);
 
-//setting content type using http headers
-/**echo '<script type="text/javascript">';
-echo $row['COUNT(Checked)'];
-echo '</script>';**/
-echo json_encode($row['COUNT(Checked)']);// outputs JSON object containing "3"
-//exit();
+// outputs JSON object containing "3"
+echo json_encode($row['COUNT(Checked)']);
+
 ?>

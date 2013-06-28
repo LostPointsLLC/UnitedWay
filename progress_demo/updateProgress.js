@@ -7,15 +7,4 @@ $.getJSON("http://localhost/progress_demo/phpscript.php",function(data){
   var bar = document.getElementById("childProg");
   bar.value = data;
 });
-//alert(mydata);
 }
-
-/**function updateProgressBar(data){
-	
-	myvar = data;
-
-	//alert(myvar);
-	var bar = document.getElementById("childProg");
-    // updates the value of the progress bar
-    bar.value +=1;
-}**/
