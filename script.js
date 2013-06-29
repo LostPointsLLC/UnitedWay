@@ -40,10 +40,6 @@ function deleteFavorites(userId, type, typeId){
 //display the favorites page
 function displayFavorites(){
 
-	var rssElement = document.createElement("div");
-	var tipElement = document.createElement("div");
-	var eventElement = document.createElement("div");
-
 	var rssPointer = document.getElementById("newsHead");
 	var tipPointer = document.getElementById("tipsHead");
 	var eventPointer = document.getElementById("eventsHead");
@@ -68,6 +64,7 @@ function displayFavorites(){
 	//print out news
 	for(var i = 0; i < rssArray.length; i++) {
 
+		var rssElement = document.createElement("div");
 		var rssTitle = rssArray[i].title;
 		var rssTitleNode = document.createTextNode(rssTitle);
 
@@ -79,6 +76,7 @@ function displayFavorites(){
 	//print out tips	
 	for(var j = 0; j < tipArray.length; j++) {
 
+		var tipElement = document.createElement("div");
 		var tipTitle = tipArray[j].title;
 		var tipTitleNode = document.createTextNode(tipTitle);
 
@@ -90,6 +88,8 @@ function displayFavorites(){
 	//print out events
 	for(var k = 0; k < eventArray.length; k++) {
 
+
+		var eventElement = document.createElement("div");
 		var eventTitle = eventArray[k].title;
 		var eventTitleNode = document.createTextNode(eventTitle);
 
@@ -99,6 +99,3 @@ function displayFavorites(){
 	}
 
 }
-
-//displayFavorites(rssArray, tipArray, eventArray);
-//rssArray, tipArray, eventArray
