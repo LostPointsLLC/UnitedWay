@@ -1,0 +1,48 @@
+#login-wrapper {
+	background: #7ca3dc;
+	width: 350px;
+	height: 600px;
+}
+#titleBar {
+	height: 50px;
+	width: 350px;
+	background: #00549b;
+}
+#mainText {
+	width: 300px;
+	padding-top: 35px;
+	padding-left: 25px;
+	padding-right: 25px;
+	line-height: 1px;
+	margin-bottom: 50px;
+}
+p {
+	font: 12px/18px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	padding-right: 40px;
+}
+#password {
+	height: 50px;
+	width: 350px;
+	background: #fbae42;
+	border-right: medium solid #FFF;
+	border-bottom: medium solid #FFF;
+	border-left: medium solid #FFF;
+}
+#email {
+	height: 50px;
+	width: 350px;
+	background: #f0502f;
+	border: medium solid #FFF;
+}
+h6 {
+	font: 14px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	padding-top: 15px;
+	padding-left: 25px;
+}
+#submit {
+	height: 50px;
+	width: 350px;
+	padding-left: 5px;
+}
