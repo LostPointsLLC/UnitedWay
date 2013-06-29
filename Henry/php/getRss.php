@@ -1,9 +1,7 @@
 <?php
-	
-	session_start();
-	include("connect.php");
-
-	$fav_userID = strip_tags($_POST['userID']);
+	require("connect.php");
+	//$fav_userID = 3;
+	$fav_userID = $_POST['userID'];
 	
 	// Execute the query
 	$query = $con->prepare("
@@ -14,19 +12,28 @@
 			AND favorites.fav_type = 'rss'))
 		WHERE favorites.fav_userID = ?
 	");
-	$userQuery->bind_param('i', $fav_userID); // Sets params to sql query
+	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
 		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source);
 		
-		// Now we need to return this as an RSS array
-		while($row = mysqli_fetch_assoc($query)) {
-			foreach($row as $rss_attr => $rss_val) {
-				/* TODO: THIS PART OF CODE */
-			}
-		}
+		$results = array();
 		
-	
-	
+		// Now we need to return this as an RSS array
+		// $row is an array of a row's items
+		// fetch() changes the query row into php data
+		for($i = 0; $query->fetch(); $i++) {
+			$row = array();
+			$row[0] = $rss_id;
+			$row[1] = $rss_url;
+			$row[2] = $rss_title;
+			$row[3] = $rss_source;
+			
+			$results[$i] = $row;
+		}
+
+		echo json_encode($results);
+		
 	} else echo "alert('Failed to execute RSS query)" . mysqli_error($con);
 
+?>
