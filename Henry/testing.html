@@ -3,15 +3,19 @@
 	<head>
 		<title>Testing</title>
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		
+		<script src="timer/timer_file.js"></script>		<!-- For timing -->
+		<script src="objects.js"></script>				<!-- Include this -->
+		<script src="getFavHeap.js"></script>			<!-- Include this too -->
 	</head>
 
 	<body>
 		<div id="output"></div>
-		<script src="objects.js"></script>
-		<script src="fav_functions.js"></script>
+
 		<script type="text/javascript">
 
 			var heap = getFavHeap(3);
+			//alert(heap.rssArray[0].rss_id);
 			
 		</script>
 	</body>
