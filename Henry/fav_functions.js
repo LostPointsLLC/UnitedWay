@@ -20,7 +20,7 @@ function getRssArray(datastring) {
 	/* Sends a request to the server to get RSS items */
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/teseting/php/getRss.php", 
+		url: "php/getRss.php", 
 		data: datastring,
 		async: false,
 		cache: false,
@@ -53,7 +53,7 @@ function getTipsArray(datastring) {
 	/* Sends request to the server to get tips */
 	return $.ajax({
 		type: "POST",
-		url: "http://localhost/teseting/php/getTips.php",
+		url: "php/getTips.php",
 		data: datastring,
 		async: false,
 		cache: false,
@@ -81,7 +81,7 @@ function getEventsArray(datastring) {
 	/* Sends request to the server to get events */
 	return $.ajax({
 		type: "POST",
-		url: "http://localhost/teseting/php/getEvents.php",
+		url: "php/getEvents.php",
 		data: datastring,
 		cache: false,
 		async: false,
