@@ -1,0 +1,127 @@
+#checklist-main-wrapper {
+	height: 600px;
+	width: 350px;
+	background: #00549b;
+	border-radius: 10px;
+	
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#child p  {
+	padding-top: 7px;
+	font: bold 18px Arial, Helvetica, sans-serif;
+}
+#child-wrapper {
+	height: 100px;
+	width: 350px;
+}
+#home-help-buttons {
+	height: 50px;
+	width: 101px;
+	float: right;
+}
+#home-help-buttons img {
+	padding: 0px;
+	float: right;
+}
+
+#checklist-title {
+	background: #789fcd;
+	height: 50px;
+	width: 350px;
+}
+#Health {
+	height: 100px;
+	width: 344px;
+	border-right: medium solid #769ECF;
+	border-left: medium solid #769ECF;
+	float: left;
+}
+#Health img {
+	padding-top: 25px;
+}
+#Language {
+	height: 100px;
+	width: 344px;
+	border-top: medium solid #769ECF;
+	border-right: medium solid #769ECF;
+	border-left: medium solid #769ECF;
+	float: left;
+}
+#Language img {
+	padding-top: 25px;
+}
+#Social {
+	height: 100px;
+	width: 344px;
+	border-top: medium solid #769ECF;
+	border-right: medium solid #769ECF;
+	border-left: medium solid #769ECF;
+	float: left;
+}
+#Social img {
+	padding-top: 25px;
+}
+#Other {
+	height: 100px;
+	width: 344px;
+	border: medium solid #769ECF;
+	float: left;
+}
+#Other img {
+	padding-top: 25px;
+}
+#child {
+	height: 100px;
+	width: 150px;
+	float: left;
+	margin-left: 50px;
+}
+#child img {
+	padding-top: 10px;
+}
+#right-arrow {
+	height: 50px;
+	width: 50px;
+	float: right;
+}
+#left-arrow {
+	float: left;
+	height: 50px;
+	width: 50px;
+}
+#percentage {
+	height: 50px;
+	width: 50px;
+}
+p {
+	color: #FFF;
+	float: right;
+	font: 10px Arial, Helvetica, sans-serif;
+}
+
+
+
+.progressbar {
+	position: relative;
+	display: block;
+	
+	left: 163px;
+	bottom: 33px;
+	
+	width: 120px;
+	height: 12px;
+}
+
+.percentage {
+	position: relative;
+	display: block;
+	
+	left: 300px;
+	bottom: 45px;
+	
+	font-size: 12px;
+}

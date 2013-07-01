@@ -1,0 +1,43 @@
+var healthTasks = [ "Take pills",
+					"Go to bathroom",
+					"Eat mushrooms",
+					"Exercise daily",
+					"Meditate for an hour",
+					"Get a full body massage",
+					"Drink tea",
+					"Take another nap",
+					"Have some quality time",
+					"Eat a fish" ];
+					
+var languageTasks = [ "Learn English",
+					  "Learn Spanish",
+					  "Learn German",
+					  "Learn Swahili",
+					  "Learn Afikaans",
+					  "Learn Mandarin",
+					  "Learn Japanese",
+					  "Learn Korean",
+					  "Learn Russian",
+					  "Learn Klingon" ];
+					
+var socialTasks = [ "Run for office",
+					"Lead an organization",
+					"Be a project manager",
+					"Found a non-profit organization",
+					"Voluntary work",
+					"Join the red cross",
+					"Join the NAVY SEALS",
+					"Marry a Kennedy",
+					"Skype with the president",
+					"Go to outer space" ];
+					
+var otherTasks = [  "Brew beer",
+					"Do jury duty",
+					"Have some fried chicken",
+					"Learn Sambo",
+					"Teach me how to dougie",
+					"Found a religious cult",
+					"Join the A-team",
+					"Survive a gunshot wound, electrocution, and drowning",
+					"Get on Letterman",
+					"Declare war on France" ];

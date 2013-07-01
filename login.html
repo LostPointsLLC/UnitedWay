@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>United Way: Log in</title>
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/login.css" rel="stylesheet" type="text/css" />
+	</head>
+
+
+	<body>
+
+
+
+
+
+		<div id="login-wrapper">
+		  
+		  
+			<div id="titleBar"><img src="images/welcome-title.png"/></div>
+
+
+			<div id="mainText"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et leo id lacus bibendum pellentesque. Maecenas in blandit lacus. Duis mattis, nunc at pellentesque semper, diam tellus egestas nunc, sit amet tristique nunc sapien id risus. Cras consequat dapibus tellus, et dictum massa pretium eu.  </p>
+			</div>
+	
+
+		
+			<input type="text" class="text-input" id="email" placeholder="Email address"/>
+			<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
+
+			<input type="button" class="button" name="button" Value="Click" onClick="verfiyLogin()"/>
+			<div id="result"></div>
+		
+
+			<!-- end of login-wrapper -->
+			<script type="text/javascript">	// Create HTTP request for server
+			// Sends request to match user input with user data table on Lostpoint Database
+			function verfiyLogin() {
+				var iEmail = document.getElementById("email").value;
+				var iPass = document.getElementById("password").value;
+				// Variables used for XML/HTTP Request.
+				var httpRequest;
+				var loginUrl = "php/mobileLoginHandler.php";
+				var params = "pUser=" + iEmail +"&pPass=" + iPass;
+				
+				// Create XML/HTTP Request object.
+				// Different browsers use different objects!
+				if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+					httpRequest= new XMLHttpRequest();
+					}
+				else
+					{// code for IE6, IE5
+					httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					
+				// Handle PHP returns
+				httpRequest.onreadystatechange=function() {
+					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+						var ret = parseInt(httpRequest.responseText);
+						if (ret == 0) { // unSuccessful Login
+							document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
+						}
+						else { // Successful login	
+							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
+							if(typeof(Storage) !== "undefined"){
+								sessionStorage.pid = ret;
+								document.location.href = "home.html";
+							}
+							else {
+								// Add old client support (cookies) later, browser share for IE 7- 
+								document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+							}
+						}
+					}
+				}
+				
+				// Send the request to server!
+				httpRequest.open("POST",loginUrl,true);
+				httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				httpRequest.send(params);
+			
+			}
+			</script>
+			</div>
+	</body>
+</html>

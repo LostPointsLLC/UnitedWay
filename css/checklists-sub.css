@@ -1,0 +1,98 @@
+.checklist-item-text {
+	color: #FFF;
+	font: 12px/16px Arial, Helvetica, sans-serif;
+	position: relative;
+	float: left;
+}
+
+
+
+#home-help-buttons {
+	height: 50px;
+	width: 101px;
+	float: right;
+}
+#home-help-buttons img {
+	padding: 0px;
+	float: right;
+}
+#health-well-being-wrapper {
+	width: 350px;
+	height: 600px;
+	background: #00549b;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	border-radius: 10px;
+}
+#health-well-being-title {
+	height: 50px;
+	width: 350px;
+	background: #7ca3dc;
+}
+#content-title {
+	height: 75px;
+	width: 350px;
+	border-bottom: thin solid #769ECF;
+}
+#favorite-star-button {
+	height: 25px;
+	width: 25px;
+	float: right;
+	padding-right: 15px;
+	padding-top: 12px;
+}
+#content-title img {
+	padding-top: 20px;
+}
+
+
+.checklist-item {
+	height: 50px;
+	width: 350px;
+	border-bottom: thin solid #769ECF;
+}
+
+/* For striking through */
+.check:checked + .label-for-check {
+	text-decoration: line-through;
+
+}
+
+.label-for-check {
+	color: white;
+	font-size: 14px;
+	position: relative;
+	left: 5px;
+}
+
+#check-box {
+	height: 25px;
+	width: 25px;
+	margin-left: 30px;
+	margin-top: 12px;
+	float: left;
+}
+#checklist-item-text {
+	height: 50px;
+	width: 250px;
+	float: left;
+}
+
+ul {
+	list-style: none;
+
+}
+
+li {
+	margin-top: 6px;
+	margin-bottom: 6px;
+
+}
+
+#left-right #left {
+	position: relative;
+	clear: both;
+	float: bottom;
+
+}
