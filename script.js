@@ -1,6 +1,5 @@
-//<script src="getFavHeap.js"></script>
-
 //favorite object for testing
+/*
 function favObject(type, title, content, url)
 {
 	this.type = type;
@@ -17,56 +16,63 @@ var fav_5 = new favObject("Events", "Buy your daughter a doll!", "Don't");
 var fav_6 = new favObject("Events", "google","google.com");
 
 var rssArray = new Array();
-var tipArray = new Array();
-var eventArray = new Array();
+var tipsArray = new Array();
+var eventsArray = new Array();
 
 rssArray[0] = fav_1;
 rssArray[1] = fav_2;
-tipArray[0] = fav_3;
-tipArray[1] = fav_4;
-eventArray[0] = fav_5;
-eventArray[1] = fav_6;
+tipsArray[0] = fav_3;
+tipsArray[1] = fav_4;
+eventsArray[0] = fav_5;
+eventsArray[1] = fav_6;
 // test object
-
-//this function needs to be the function that stores favorites object into the database
-//for the button that adds favorites
-function addFavorites(userId, type, typeId){
-	alert("Favorites Added!");
-}
-
-//function for the button that deletes the favorites
-//needs to delete the favorite object in the database
-function deleteFavorites(userId, type, typeId){
-	alert("Favorites Deleted!");
-}
+*/
 
 //display the favorites page
-function displayFavorites(){
+function displayFavorites(userID){
 
+	var favHeap = getFavHeap(userID);
+
+	//variables that works as pointers to the top of each list
 	var rssPointer = document.getElementById("newsHead");
-	var tipPointer = document.getElementById("tipsHead");
-	var eventPointer = document.getElementById("eventsHead");
+	var tipsPointer = document.getElementById("tipsHead");
+	var eventsPointer = document.getElementById("eventsHead");
 
 	//print out news
-	for(var i = 0; i < rssArray.length; i++) {
+	for(var i = 0; i < favHeap.rssArray.length; i++) {
 
 		//create new div element
-		var rssElement = document.createElement("div");
+		var rss = document.createElement("div");
+		var rssElement = document.createElement("span");
+	
+		//create delete button img;
+		var deleteRss = document.createElement("img");
+		deleteRss.src = "cross.jpg";
+		deleteRss.style.width = "10px";
+		deleteRss.style.height = "10px";
+		deleteRss.onclick = function(){
+			alert("Favorite deleted!");			
+		}
 
-		//button for rssElement
-		rssElement.onclick = function(){
-			alert("clicked");
-		};
-
-		//get the title		
-		var rssTitle = rssArray[i].title;
+		//get the title
+		var rssTitle = favHeap.rssArray[i].rss_title;
+		//get url
+		var rssUrl = favHeap.rssArray[i].rss_url;
 		
 		//create textNode
 		var rssTitleNode = document.createTextNode(rssTitle);
 		
-		//rssElement.appendChild(rssUrlElement);
+		//button for rssElement
+		rssElement.onclick = function(){
+			window.open(rssUrl);
+		};
+
+		//append title and delete button img
 		rssElement.appendChild(rssTitleNode);
-		rssPointer.parentNode.insertBefore(rssElement, rssPointer.nextSibling);
+		rss.appendChild(rssElement);
+		rss.appendChild(deleteRss);
+
+		rssPointer.parentNode.insertBefore(rss, rssPointer.nextSibling);
 
 		//move the pointer down so that the list would be in order
 		rssPointer = rssPointer.nextSibling;
@@ -74,40 +80,66 @@ function displayFavorites(){
 	}
 
 	//print out tips	
-	for(var j = 0; j < tipArray.length; j++) {
+	for(var j = 0; j < favHeap.tipsArray.length; j++) {
 
-		var tipElement = document.createElement("div");
+		var tips = document.createElement("div");
+		var tipsElement = document.createElement("span");
 
-		tipElement.onclick = function(){
-			alert("clicked");
+		var deleteTip = document.createElement("img");
+		deleteTip.src = "cross.jpg";
+		deleteTip.style.width = "10px";
+		deleteTip.style.height = "10px";
+		deleteTip.onclick = function(){
+			alert("Favorite deleted!");			
+		}
+	
+		var tipsTitle = favHeap.tipsArray[j].tip_title;
+		var tipsTitleNode = document.createTextNode(tipsTitle);
+
+		tipsElement.onclick = function(){
+			window.open();
 		};
 
-		var tipTitle = tipArray[j].title;
-		var tipTitleNode = document.createTextNode(tipTitle);
+		tipsElement.appendChild(tipsTitleNode);
+		tips.appendChild(tipsElement);
+		tips.appendChild(deleteTip);	
 
-		tipElement.appendChild(tipTitleNode);	
-		tipPointer.parentNode.insertBefore(tipElement, tipPointer.nextSibling);
+		tipsPointer.parentNode.insertBefore(tips, tipsPointer.nextSibling);
 
-		tipPointer = tipPointer.nextSibling;
+		tipsPointer = tipsPointer.nextSibling;
 
 	}
 
 	//print out events
-	for(var k = 0; k < eventArray.length; k++) {
+	for(var k = 0; k < favHeap.eventsArray.length; k++) {
 
-		var eventElement = document.createElement("div");
+		var events = document.createElement("div");
+		var eventsElement = document.createElement("span");
 
-		eventElement.onclick = function(){
-			alert("clicked");
+		var deleteEvent = document.createElement("img");
+		deleteEvent.src = "cross.jpg";
+		deleteEvent.style.width = "10px";
+		deleteEvent.style.height = "10px";
+		deleteEvent.onclick = function(){
+			alert("Favorite deleted!");			
+		}
+
+		var eventsTitle = favHeap.eventsArray[k].event_title;
+		var eventsUrl = eventsArray[k].event_url;
+
+		var eventsTitleNode = document.createTextNode(eventsTitle);
+
+		eventsElement.onclick = function(){
+			window.open(eventsUrl);
 		};
 
-		var eventTitle = eventArray[k].title;
-		var eventTitleNode = document.createTextNode(eventTitle);
+		eventsElement.appendChild(eventsTitleNode);
+		events.appendChild(eventsElement);
+		events.appendChild(deleteEvent);
 
-		eventElement.appendChild(eventTitleNode);
-		eventPointer.parentNode.insertBefore(eventElement, eventPointer.nextSibling);
+		eventsPointer.parentNode.insertBefore(events, eventsPointer.nextSibling);
 
-		eventPointer = eventPointer.nextSibling;
+		eventsPointer = eventsPointer.nextSibling;
 
 	}
 

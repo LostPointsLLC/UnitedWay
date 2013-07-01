@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Favorites</title>
+		<title>Favorites Page</title>
 
 		<!-- Stylesheets -->
 		<!--<link type="text/css" rel="stylesheet" href="stylesheet.css"/>-->
@@ -11,16 +11,18 @@
 		
 		<!-- javascript -->
 		<script type='text/javascript' src='script.js'></script>
+		<script type='text/javascript' src="getFavHeap.js"></script>
 	</head>
 	
 	<body>
 			<!-- call display function -->
+			<!-- parameter 1 is just a temporary variable for userID -->
 			<script type="text/javascript">
 				$(document).ready(function() {
 					displayFavorites();
 				});
 			</script>
-			<!-- call display function -->
+			<!-- end of call display function -->
 
 		<!-- button for adding favorites -->	
 		<!-- just need to change the inner fuction (addFavorites()) into deleteFavorites to make the button that deletes favorite items-->
@@ -30,7 +32,7 @@
 				$(document).ready(function() {
 					$(".favoritesButton").click(function() {
 						//need the function to store the favorite object into the database
-						//addFavorites();
+						alert("Favorite Added!");
 					});
 				});
 			</script>			
@@ -41,8 +43,6 @@
 		<!-- end of button -->
 
 	<!-- printing out the favorites objects -->
-
-		
 
 		<div id="title_content">
 			<ul>
