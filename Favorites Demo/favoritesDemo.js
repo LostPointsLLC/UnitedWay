@@ -6,13 +6,13 @@ function favObject(type, title, content, url)
 	this.content = content;
 }
 
-var fav_1 = new favObject("News", "United Way has prescription discount cards", "http://www.news-gazette.com/news/local/2013-05-18/united-way-has-prescription-discount-cards.html");
-var fav_2 = new favObject("News", "Champaign County United Way short of goal by 9 percent", "http://www.news-gazette.com/news/local/2013-04-09/champaign-county-united-way-short-goal-9-percent.html");
-var fav_3 = new favObject("News", "Children's expo Saturday morning at Lincoln Square", "http://www.news-gazette.com/news/business/2013-04-06/childrens-expo-saturday-morning-lincoln-square.html");
+var fav_1 = new favObject("News", "United Way has prescription discount cards", "http://www.uwayhelps.org/united-way-news");
+var fav_2 = new favObject("News", "Champaign County United Way short of goal by 9 percent", "http://www.uwayhelps.org/united-way-news");
+var fav_3 = new favObject("News", "Children's expo Saturday morning at Lincoln Square", "http://www.uwayhelps.org/united-way-news");
 
-var fav_4 = new favObject("Tips", "Which book is good for you son?", "http://www.goodreads.com/shelf/show/kindergarten");
-var fav_5 = new favObject("Tips", "Make your child happy", "http://www.parents.com/toddlers-preschoolers/development/fear/raising-happy-children");
-var fav_6 = new favObject("Tips", "Tips on how to make temper tantrums stop", "http://www.drphil.com/articles/article/293");
+var fav_4 = new favObject("Tips", "Which book is good for you son?", "http://www.uwayhelps.org/community-resources");
+var fav_5 = new favObject("Tips", "Make your child happy", "http://www.uwayhelps.org/community-resources");
+var fav_6 = new favObject("Tips", "Tips on teaching your child", "http://www.uwayhelps.org/community-resources");
 
 var fav_7 = new favObject("Events", "Have picnic with your child", "http://www.uwayhelps.org/upcoming-events");
 var fav_8 = new favObject("Events", "Seminar for kindergarten readiness","http://www.uwayhelps.org/upcoming-events");
