@@ -1,0 +1,113 @@
+#login-wrapper {
+	background: #7ca3dc;
+	width: 350px;
+	height: 600px;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+
+#titleBar {
+	height: 50px;
+	width: 350px;
+	background: #00549b;
+
+}
+#mainText {
+	width: 300px;
+	padding-top: 35px;
+	padding-left: 25px;
+	padding-right: 25px;
+	line-height: 1px;
+	margin-bottom: 50px;
+}
+p {
+	font: 12px/18px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	padding-right: 40px;
+}
+
+#fail {
+	margin-top: 10px;
+	padding-left: 25px;
+}
+
+#email {
+	display: block;
+	height: 50px;
+	width: 95%;
+	
+	margin: 0 auto;
+	padding: 0;
+	margin-bottom: 5px;
+	
+	background: #f0502f;
+	border: medium solid #FFF;
+	
+	text-indent: 25px;
+	border-radius: 10px;
+	color: white;
+}
+
+#password {
+	display: block;
+	height: 50px;
+	width: 95%;
+	margin: 0 auto;
+	padding: 0;
+	margin-bottom: 5px;
+
+	background: #fbae42;
+	border: medium solid #FFF;
+	
+	text-indent: 25px;
+	border-radius: 10px;
+	color: white;
+}
+
+h6 {
+	font: 14px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	padding-top: 15px;
+	padding-left: 25px;
+}
+
+
+#submit {
+	height: 50px;
+	width: 350px;
+	padding-left: 5px;
+}
+
+.button {
+   background-image: -webkit-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
+   background-image:    -moz-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
+   background-image:     -ms-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
+   background-image:      -o-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
+   background-image:         linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
+   border: solid 4px rgba(224,211,224,1);
+   -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+           border-radius: 10px;
+   
+   display: block;
+   
+   font-size: 15px;
+   font-family: Sans-serif;
+   line-height: 24px;
+   color: black;
+   margin: 0 auto;
+}
+
+/* individual: webkit */
+#email::-webkit-input-placeholder { 
+	color:#dddddd; 
+	text-transform:uppercase; 
+	opacity: 50%;
+}
+#password::-webkit-input-placeholder { 
+	color:#dddddd; 
+	text-transform:uppercase; 
+	opacity: 50%;
+}
+
