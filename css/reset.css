@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-/* CSS Document */
+/* CSS Document 
+ * Sets default CSS settings that should be used in the whole
+ * document. Should be included in each html document and repository.
+ */
 
 
 html, body, div, span, applet, object, iframe,
