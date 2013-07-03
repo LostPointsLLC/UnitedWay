@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<title>Good Health and Physical Well-Being</title>
+<h1>Check-List <FORM><INPUT Type="button" VALUE="Back" onClick="location.href='file:///C:/Users/Antonio/Documents/project/CoverPage.html'"></a></FORM></h1>
+<script type="text/javascript">
+
+function my_fun(j){
+var chkbox ="ckb" + j;
+var my_span ="my_span" + j;
+var msg = chkbox + " " + my_span;
+if(document.getElementById(chkbox).checked){ 
+document.getElementById(my_span).style.textDecoration='line-through';
+}else{
+document.getElementById(my_span).style.textDecoration='none';
+}
+}
+
+</script>
+</head>
+
+<body>
+<h3>Good Health and Physical Well-Being </h3> 
+<form name=form1 method=post action=check.php>
+<input type=checkbox id=ckb1 value=1 onclick=my_fun(1);><span id='my_span1'>Eats a balanced diet</span> <br>
+<input type=checkbox id=ckb2 value=2 onclick=my_fun(2);><span id='my_span2'>Gets plenty of rest</span> <br>
+<input type=checkbox id=ckb3 value=3 onclick=my_fun(3);><span id='my_span3'>Receives regular medical and dental care</span> <br>
+<input type=checkbox id=ckb4 value=4 onclick=my_fun(4);><span id='my_span4'>Has had all the necessary immunizations</span> <br>
+<input type=checkbox id=ckb5 value=5 onclick=my_fun(5);><span id='my_span5'>Runs, jumps, plays outdoors and does other activities that provide exercise and help develop large muscles</span> <br>
+<input type=checkbox id=ckb6 value=6 onclick=my_fun(6);><span id='my_span6'>Works puzzles, scribbles, colors, paints and does other activities that help develop small muscles</span> <br>
+</form>
+
+</body>
+</html>

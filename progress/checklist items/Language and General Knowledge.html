@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<title>Language and General Knowledge</title>
+<h1>Check-List <FORM><INPUT Type="button" VALUE="Back" onClick="location.href='file:///C:/Users/Antonio/Documents/project/CoverPage.html'"></a></FORM></h1>
+<script type="text/javascript">
+
+function my_fun(j){
+var chkbox ="ckb" + j;
+var my_span ="my_span" + j;
+var msg = chkbox + " " + my_span;
+if(document.getElementById(chkbox).checked){ 
+document.getElementById(my_span).style.textDecoration='line-through';
+}else{
+document.getElementById(my_span).style.textDecoration='none';
+}
+}
+
+</script>
+</head>
+
+<body>
+<h3>Language and General Knowledge </h3> 
+<form name=form1 method=post action=check.php>
+<input type=checkbox id=ckb1 value=1 onclick=my_fun(1);><span id='my_span1'>Has many opportunities to talk and listen</span> <br>
+<input type=checkbox id=ckb2 value=2 onclick=my_fun(2);><span id='my_span2'>Is read to every day</span> <br>
+<input type=checkbox id=ckb3 value=3 onclick=my_fun(3);><span id='my_span3'>Has access to books and other reading materials</span> <br>
+<input type=checkbox id=ckb4 value=4 onclick=my_fun(4);><span id='my_span4'>Is learning about print and books</span> <br>
+<input type=checkbox id=ckb5 value=5 onclick=my_fun(5);><span id='my_span5'>Has television viewing monitored by an adult</span> <br>
+<input type=checkbox id=ckb6 value=6 onclick=my_fun(6);><span id='my_span6'>Is encouraged to ask questions</span> <br>
+<input type=checkbox id=ckb7 value=7 onclick=my_fun(7);><span id='my_span7'>Is encouraged to solve problems</span> <br>
+<input type=checkbox id=ckb8 value=8 onclick=my_fun(8);><span id='my_span8'>Has opportunities to notice similarities and differences</span> <br>
+<input type=checkbox id=ckb9 value=9 onclick=my_fun(9);><span id='my_span9'>Is encouraged to sort and classify things</span> <br>
+<input type=checkbox id=ckb10 value=10 onclick=my_fun(10);><span id='my_span10'>Is learning to write his/her name and address</span> <br>
+<input type=checkbox id=ckb11 value=11 onclick=my_fun(11);><span id='my_span11'>Is learning to count and plays counting games</span> <br>
+<input type=checkbox id=ckb12 value=12 onclick=my_fun(12);><span id='my_span12'>Is learning to identify and name shapes and colors</span> <br>
+<input type=checkbox id=ckb13 value=13 onclick=my_fun(13);><span id='my_span13'>Has opportunities to draw and to be creative</span> <br>
+<input type=checkbox id=ckb14 value=14 onclick=my_fun(14);><span id='my_span14'>Has opportunities to listen to and make music and to dance</span> <br>
+<input type=checkbox id=ckb15 value=15 onclick=my_fun(15);><span id='my_span15'>Has opportunities to get first-hand experiences and to do things in the world - to see and touch objects, hear new sounds, smell and taste foods and watch things move
+</span> <br>
+</form>
+
+</body>
+</html>

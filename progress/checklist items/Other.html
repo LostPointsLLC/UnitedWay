@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title>Good Health and Physical Well-Being</title>
+<h1>Check-List <FORM><INPUT Type="button" VALUE="Back" onClick="location.href='file:///C:/Users/Antonio/Documents/project/CoverPage.html'"></a></FORM></h1>
+<script type="text/javascript">
+
+function my_fun(j){
+var chkbox ="ckb" + j;
+var my_span ="my_span" + j;
+var msg = chkbox + " " + my_span;
+if(document.getElementById(chkbox).checked){ 
+document.getElementById(my_span).style.textDecoration='line-through';
+}else{
+document.getElementById(my_span).style.textDecoration='none';
+}
+}
+
+</script>
+</head>
+
+<body>
+<h3>Other</h3> 
+<form name=form1 method=post action=check.php>
+<input type=checkbox id=ckb1 value=1 onclick=my_fun(1);><span id='my_span1'>Listen to stories without interrupting</span> <br>
+<input type=checkbox id=ckb2 value=2 onclick=my_fun(2);><span id='my_span2'>Recognize rhyming sounds</span> <br>
+<input type=checkbox id=ckb3 value=3 onclick=my_fun(3);><span id='my_span3'>Pay attention for short periods of time to adult-directed tasks</span> <br>
+<input type=checkbox id=ckb4 value=4 onclick=my_fun(4);><span id='my_span4'>Understand that actions have both causes and effects</span> <br>
+<input type=checkbox id=ckb5 value=5 onclick=my_fun(5);><span id='my_span5'>Show understanding of general times of day</span> <br>
+<input type=checkbox id=ckb6 value=6 onclick=my_fun(6);><span id='my_span6'>Cut with scissors</span> <br>
+<input type=checkbox id=ckb7 value=7 onclick=my_fun(7);><span id='my_span7'>Trace basic shapes</span> <br>
+<input type=checkbox id=ckb8 value=8 onclick=my_fun(8);><span id='my_span8'>Begin to share with others</span> <br>
+<input type=checkbox id=ckb9 value=9 onclick=my_fun(9);><span id='my_span9'>Start to follow rules</span> <br>
+<input type=checkbox id=ckb10 value=10 onclick=my_fun(10);><span id='my_span10'>Be able to recognize authority</span> <br>
+<input type=checkbox id=ckb11 value=11 onclick=my_fun(11);><span id='my_span11'>Manage bathroom needs</span> <br>
+<input type=checkbox id=ckb12 value=12 onclick=my_fun(12);><span id='my_span12'>Button shirts, pants, and coats, and zip up zippers</span> <br>
+<input type=checkbox id=ckb13 value=13 onclick=my_fun(13);><span id='my_span13'>Begin to control oneself</span> <br>
+<input type=checkbox id=ckb14 value=14 onclick=my_fun(14);><span id='my_span14'>Separate from parents without being upset</span> <br>
+<input type=checkbox id=ckb15 value=15 onclick=my_fun(15);><span id='my_span15'>Speak understandably</span> <br>
+<input type=checkbox id=ckb16 value=16 onclick=my_fun(16);><span id='my_span16'>Talk in complete sentences of five to six words</span> <br>
+<input type=checkbox id=ckb17 value=17 onclick=my_fun(17);><span id='my_span17'>Look at pictures and then tell stories</span> <br>
+<input type=checkbox id=ckb18 value=18 onclick=my_fun(18);><span id='my_span18'>Identify rhyming words</span> <br>
+<input type=checkbox id=ckb19 value=19 onclick=my_fun(19);><span id='my_span19'>Identify the beginning sound of some words</span> <br>
+<input type=checkbox id=ckb20 value=20 onclick=my_fun(20);><span id='my_span20'>Identify some alphabet letters</span> <br>
+<input type=checkbox id=ckb21 value=21 onclick=my_fun(21);><span id='my_span21'>Recognize some common sight words like “stop”</span> <br>
+<input type=checkbox id=ckb22 value=22 onclick=my_fun(22);><span id='my_span22'>Sort similar objects by color, size, and shape</span> <br>
+<input type=checkbox id=ckb23 value=23 onclick=my_fun(23);><span id='my_span23'>Recognize groups of one, two, three, four, and five objects</span> <br>
+<input type=checkbox id=ckb24 value=24 onclick=my_fun(24);><span id='my_span24'>Count to ten</span> <br>
+<input type=checkbox id=ckb25 value=25 onclick=my_fun(25);><span id='my_span25'>Bounce a ball</span> <br>
+</form>
+
+</body>
+</html>
