@@ -17,8 +17,6 @@ $(document).ready(function() {
 			updateProgress(childID, data);
 		}
 	 });
-	 
-	 
 });
 
 function updateProgress(cid, param) {
@@ -83,41 +81,6 @@ $("#Other").click(function() {
 
 });
 
-/*
-// Function that adds relevant table elements onto childProgress.html page
-function addProgressBar (child_id, category, percentage) {
-	var catString;
-	switch(category) {
-		case 1:
-			catString = "Health";
-		    break;
-		case 2:
-			catString = "Language";
-		    break;
-		case 3:
-			catString = "Social";
-		    break;
-		case 4:
-			catString = "Other";
-		    break;
-	}
-	var newDiv = document.createElement('div');
-	var newCategory = ",\'" + category + "\'";
-	var childTableString = "<table onClick = 'linkToCategory(" + child_id +  "," + category + ")' border='1' bordercolor='#999999' style=' background-color:#ff00ff' cellpadding='2' cellspacing='2' width='300'>\
-			<tr>\
-				<td colspan = '4'>" + catString + "</td>\
-			</tr>\
-			<tr><td colspan='4'><progress value = '" + percentage + "' max='100'></progress></td></tr>\
-		</table>\
-		<div id = 'line'></div>";
-	
-	newDiv.innerHTML = childTableString;
-
-	// add the newly created element and its content into the DOM
-	var my_div = document.getElementById("header");
-	my_div.parentNode.insertBefore(newDiv, my_div.nextSibling);
-}
-*/
 function linkToCategory(cid, cat) {
 	sessionStorage.cid = cid;
 	sessionStorage.cat = cat; // category ID that carries over
