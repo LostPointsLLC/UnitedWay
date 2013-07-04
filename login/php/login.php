@@ -15,7 +15,7 @@
     if ($userQuery->execute()){
         $userQuery->store_result();
         $userQuery->bind_result($column1, $column2, $column3, $column4, $column5, $column6);
-        $userQuery->fetch();
+		$userQuery->fetch();
         if ($userQuery->num_rows == 1) {
 			// Successful login, echo out parentID.
 			echo $column1;
@@ -24,6 +24,8 @@
 			// Unsuccessful Login.
             echo 0;
         }
-    }
+    } else die "error encountered" . mysqli_error($dbConnection);
+	
+	mysqli_close($dbConnection);
 
 ?>
