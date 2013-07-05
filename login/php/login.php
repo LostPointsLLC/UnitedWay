@@ -24,7 +24,7 @@
 			// Unsuccessful Login.
             echo 0;
         }
-    } else die "error encountered" . mysqli_error($dbConnection);
+    } else echo 0; 
 	
 	mysqli_close($dbConnection);
 
