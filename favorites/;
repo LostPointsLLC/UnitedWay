@@ -49,43 +49,9 @@ p {
 	width: 50px;
 	height: 50px;
 	position: relative;
-	left: 240px;
-	bottom: 25px;
+	left: 220px;
+
 	background: url(../images/remove-button.png) no-repeat;
 }
 
-.share {
-	width: 50px;
-	height: 50px;
-	position: relative;
-	left: 295px;
-	bottom: 75px;
-	background: url(../images/share-button.png) no-repeat;
 
-
-
-}
-
-
-
-.headline {
-width: 344px;
-height: 50px;
-	border-right: medium solid #769ECF;
-	border-bottom: medium solid #769ECF;
-	border-left: medium solid #769ECF;
-}
-
-.cat-logo {
-	width: 50px;
-	height: 50px;
-	position: relative;
-	float: right;
-	margin-right: 57px;
-}
-
-.cat-name {
-	position: relative;
-	margin-left: 23px;	
-	padding-top: 10px;
-}

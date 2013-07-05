@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Favorites Page</title>
+
+		<!-- Stylesheets -->
+		<!--<link type="text/css" rel="stylesheet" href="stylesheet.css"/>-->
+		<!--<link type="text/css" rel="stylesheet" href="boxes.css"/>-->
+		<link type="text/css" rel="stylesheet" href="favorites.css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		
+		<!-- javascript -->
+		<script type='text/javascript' src='script.js'></script>
+		<script type='text/javascript' src="getFavHeap.js"></script>
+	</head>
+	
+	<body>
+		<!-- call display function -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				displayFavorites(1);
+			});
+		</script>
+		<!-- end of call display function -->
+
+		<!-- button for adding favorites -->	
+		<!-- just need to change the inner fuction (addFavorites()) into deleteFavorites to make the button that deletes favorite items-->
+		<div id="container">
+			
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$(".favoritesButton").click(function() {
+						//need the function to store the favorite object into the database
+						alert("Favorite Added!");
+					});
+				});
+			</script>			
+
+			<div class="favoritesButton"></div>
+
+		</div>
+		<!-- end of button -->
+
+	<!-- printing out the favorites objects -->
+
+		<div id="title_content">
+			<ul>
+				<li>
+
+					<div id="newsHead">News</div>
+
+				</li>
+			
+				<li>
+
+					<div id="tipsHead">Tips</div>
+
+				</li>
+					
+				<li>
+
+					<div id="eventsHead">Events</div>
+
+				</li>
+
+			</ul>
+		</div>
+		
+	<!-- end of printing out favorite objects -->
+
+	</body>
+</html>

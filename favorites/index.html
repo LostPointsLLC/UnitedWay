@@ -5,6 +5,8 @@
 		<title>favorites</title>
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/favorites.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery-1.10.1.min.js"></script> <!-- local version of jquery -->
+		<script type='text/javascript' src="js/getFavHeap.js"></script>
 	</head>
 
 
@@ -16,242 +18,54 @@
 
 
 	<body>
-	<div id="favorites-wrapper">
+		<div id="favorites-wrapper">
 
 
 
-	<div id="favorites-title">
+			<div id="favorites-title">
 
-	<img src="images/favorites-title.png" width="245" height="50" alt="" />
+				<img src="images/favorites-title.png" width="245" height="50" alt="" />
 
 
-	<div id="home-help-buttons"> 
+				<div id="home-help-buttons"> 
 
-		<img src="images/help-button.png" width="50" height="50" alt="" />
+					<img src="images/help-button.png" width="50" height="50" alt="" />
 
-		<a href="../home/"><img src="images/home-button.png" width="50" height="50" alt="" /></a>
+					<a href="../home/"><img src="images/home-button.png" width="50" height="50" alt="" /></a>
 
-	</div>
+				</div>
 
 
 
-	</div>
-	<!-- end of favorites-item -->
+			</div>
 
+				
 
+			<div class="headline">
+				<img src="images/news-feed-button.png" class="cat-logo" />
+				<h2 id="newsHead" class="cat-name">News Feed Items</h2>
+			</div>
+			<div id="newsList"></div>
 
+			<div class="headline">
+				<img src="images/tips-button.png" class="cat-logo"/>
+				<h2 id="tipsHead" class="cat-name">Tips</h2>
+			</div>
+			<div id="tipsList"></div>
+		
+			<div class="headline">
+				<img src="images/calendar-button.png" class="cat-logo" />
+				<h2 id="eventsHead" class="cat-name">Events</h2>
+			</div>
+			<div id="eventsList"></div>
 
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
 
-	<img src="images/share-button.png" width="50" height="50" alt="" />
+			<script src='js/displayfavs.js'></script>
 
-	</div>
 
 
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-	</div>
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-
-
-
-	</div>
-
-
-
-
-
-
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-
-	</div>
-
-
-
-
-	<div id="favorites-item">
-	<div id="item-text">
-	<p>Content for  id "favorites-item" Goes Here</p>
-
-
-	</div>
-
-
-
-
-
-	<div id="remove-share-buttons"><img src="images/remove-button.png" width="50" height="50" alt="" />
-
-	<img src="images/share-button.png" width="50" height="50" alt="" />
-
-	</div>
-
-
-
-
-	</div>
-	<!-- end of favorites-item -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</div>
-	<!-- end of favorites-wrapper -->
+		</div>
+		<!-- end of favorites-wrapper -->
 
 
 
