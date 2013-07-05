@@ -1,7 +1,6 @@
 <?php
 
 	require("connect.php");
-	
 	$first 	= strip_tags($_POST['pFname']);
 	$last	= strip_tags($_POST['pLname']);
 	$phone	= strip_tags($_POST['pPhone']);
@@ -21,9 +20,10 @@
 		return;
 	}
 
+	// Okay I have no idea why mysqli_real_escape_string() accepted one parameter above, but expects two below. It's so weird;
 	// Now we can safely insert these values into the database
 	$query = $dbConnection->prepare("INSERT INTO users(user_first, user_last, user_email, user_phone, user_password) VALUES (?, ?, ?, ?, ?)");
-	$query->bind_param('sssss', $first, $last, $phone, $email, $pass);
+	$query->bind_param('sssss', $first, $last, mysqli_real_escape_string($dbConnection, $email), $phone, $pass);
 	if(!$query->execute()) die("Error encountered barggg") . mysqli_error($dbConnection);
 	$query->store_result();
 	echo 0;

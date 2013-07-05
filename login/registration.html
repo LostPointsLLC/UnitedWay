@@ -24,13 +24,15 @@
 
 			<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
 			<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
-			<input type="text" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
-			<input type="text" class="text-input" id="email" placeholder="Email address"/>
+			<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
+			<input type="email" class="text-input" id="email" placeholder="Email address"/>
 			<input type="password" class="text-input" id="password" placeholder="Password"/>
 
 
 			<input type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>
 			<div id="result"></div>
+
+
 		
 
 			<!-- end of registration-wrapper -->
@@ -82,8 +84,8 @@
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							/* Incorrect code */
 							if(typeof(Storage) !== "undefined"){
-								sessionStorage.pid = ret;
-								alert("Success!");
+								sessionStorage.pid = ret;	// NO this will no work yet
+								document.location.href="addChild.html";
 							}
 							
 							else {
