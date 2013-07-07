@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    updateDate(sessionStorage.date);
+	var currentDate = new Date();
+	var day = currentDate.getDate();
+	var month = currentDate.getMonth();
+    updateDate(day,month);
 });
 //hard coded array of tips. Any better way to do this?
 var tipsArray = [
@@ -65,17 +68,16 @@ var tipsArray = [
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc"],//Dec tips index 11
 
 ];
-function updateDate(param){
+function updateDate(d,m){
 	var monthNames = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ]
-	var monthIndex= parseInt(param)	//gets the numerical value of month
-	var monthText = monthNames[monthIndex-1];//retrieves the string value of that month.
-	var day = parseInt(param.substr(3));
+	var monthText = monthNames[m];//retrieves the string value of that month.
+	var day = d;
 	//Updates the chosen day, month and activity on the current page
 	document.getElementById('day').innerHTML = day;
 	document.getElementById('month').innerHTML = monthText;
 	//has to offset by 1 because array index starts at 0.
-	document.getElementById('activity').innerHTML = "Event: " + getActivity(day-1,monthIndex-1);
+	document.getElementById('activity').innerHTML = "Activity: " + getActivity(day-1,m);
 
 }
 
@@ -85,7 +87,8 @@ function goHome(){
 }
 
 //go back to calendar page
-function goBack(){
+
+function goToCalendar(){
 	document.location.href = "../calendar/fullcalendar.html";
 }
 

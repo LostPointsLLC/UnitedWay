@@ -14,12 +14,17 @@ $('#calendar').datepicker({
 function linkTopage(param)
 {
 	sessionStorage.date = param;
-	window.location.href = "calendartip.html";
+	document.location.href = "calendartip.html";
 //alert(sessionStorage.date);
 }
 
 //function to go back to home page
 function goHome()
 {
-    alert("Show home page");
+    document.location.href = "../home/";
+}
+
+function goHelp()
+{
+    document.location.href = "../help/help1.html";
 }
