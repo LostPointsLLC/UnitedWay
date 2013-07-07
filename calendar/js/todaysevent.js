@@ -15,7 +15,7 @@ function updateDate(d,m){
 	document.getElementById('day').innerHTML = day;
 	document.getElementById('month').innerHTML = monthText;
 	//has to offset by 1 because array index starts at 0.
-	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,monthIndex-1) + "<br><br>"
+	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) + "<br><br>"
 }
 
 //go back to home page
