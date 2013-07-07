@@ -75,16 +75,21 @@
 						/* if 0, then we have a successful creation
 						 * if 1, then the email was already taken
 						 */
-						if(ret == 1) {
-							alert("Apparently you have an account already.");
+						if(ret == -1) {
+							alert("Sorry this email address has already been used.");
 							return;
 						}
-						
-						else if(ret == 0) {
+						else if(ret == -2) {
+
+							alert("Strange error occured. Check code");
+
+						}
+						else {
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							/* Incorrect code */
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;	// NO this will no work yet
+								alert("The return value is" + ret + ". Make sure this is an integer.");
 								document.location.href="addChild.html";
 							}
 							
@@ -92,11 +97,6 @@
 								// Add old client support (cookies) later, browser share for IE 7- 
 								document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 							}
-						
-						}
-						
-						else {
-							alert("Strange error occured. Check code");
 						
 						}
 

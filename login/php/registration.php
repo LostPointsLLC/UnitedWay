@@ -13,9 +13,9 @@
 	$result = mysqli_query($dbConnection, $querystring);
 	if(!$result) die("Error occured while checking against database") . mysqli_error($dbConnection);
 
-	if(mysqli_fetch_array($result)){
+	if(mysqli_fetch_array($result)) {
 		
-		echo 1; // Indicates username was already taken in the database
+		echo -1; // Indicates username was already taken in the database
 		mysqli_close($dbConnection);
 		return;
 	}
@@ -26,7 +26,12 @@
 	$query->bind_param('sssss', $first, $last, mysqli_real_escape_string($dbConnection, $email), $phone, $pass);
 	if(!$query->execute()) die("Error encountered barggg") . mysqli_error($dbConnection);
 	$query->store_result();
-	echo 0;
+
+	// TODO:
+	// 1. Make this function echo a user_id
+	// 2. Make sure that registration.html's javascript doesn't let non-IDs pass into the system
+	
+	echo 10;
 	mysqli_close($dbConnection);
 
 ?>
