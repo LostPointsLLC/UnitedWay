@@ -33,11 +33,14 @@ var tipsArray = [
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc"],//Jun tips index 5
-	["aaa", "bbb", "ccc","aaa", "bbb", "ccc",
-	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
-	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
-	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
-	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc"],//Jul tips index 6
+	["", "Find things that begin with the sound of the letter \"T\".", "","Independence Day", "Pick two books to read today.", "Have your child find things that are his/her favorite color.",
+	 "", "", "Take a walk and count the trees or other things you see.","", "Library Day!",
+	 "Draw a picture of your family and have your child say the first and last names of each member.",
+	 "", "", "Practice writing letters and numbers.","Find objects that rhyme with \"pig\".", "",
+	 "Have your child retell a story or event in order (first, middle, last).",
+	 "", "", "Read and talk about people from other cultures.","Count pennies…count as high as you can.", "", "Have your child invite a friend over to play",
+	 "Library Day!", "", "Practice naming opposites, like up/down, on/off, etc","", "Go outside and play Hopscotch or swing.", "", 
+	 ""],//Jul tips index 6
 	["aaa", "bbb", "ccc","aaa", "bbb", "ccc",
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
 	 "aaa", "bbb", "ccc","aaa", "bbb", "ccc",
@@ -75,7 +78,7 @@ function updateDate(param){
 	document.getElementById('day').innerHTML = day;
 	document.getElementById('month').innerHTML = monthText;
 	//has to offset by 1 because array index starts at 0.
-	document.getElementById('activity').innerHTML = "Event: " + getActivity(day-1,monthIndex-1);
+	document.getElementById('activity').innerHTML = "Activity: " + getActivity(day-1,monthIndex-1);
 
 }
 
