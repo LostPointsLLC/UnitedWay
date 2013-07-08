@@ -3,12 +3,14 @@
  * database for consistency.
  */
  
+ /*
 function rss(rss_id, rss_url, rss_title, rss_source) {
    this.rss_id = rss_id;
    this.rss_url = rss_url;
    this.rss_title = rss_title;
    this.rss_source = rss_source;
 }
+*/
 
 // Another constructor, but takes in a row as a parameter
 function rss(rssRow) {
@@ -16,18 +18,17 @@ function rss(rssRow) {
 	this.rss_url = rssRow[1];
 	this.rss_title = rssRow[2];
 	this.rss_source = rssRow[3];
-
-
+	this.fav_id = rssRow[4];
 }
 
-
+/*
 function tip(tip_id, tip_age, tip_category, tip_content) {
    this.tip_id = tip_id;
    this.tip_age = tip_age;
    this.tip_category = tip_category;
    this.tip_content = tip_content;
 }
-
+*/
 
 // Another constructor, but takes in a row as a parameter
 function tip(tipRow) {
@@ -35,10 +36,10 @@ function tip(tipRow) {
 	this.tip_age = tipRow[1];
 	this.tip_category = tipRow[2];
 	this.tip_content = tipRow[3];
-
+	this.fav_id = tipRow[4];
 }
 
-
+/*
 // Had to add an underscore because "event" is a keyword, apparently
 function _event(event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor) {
    this.event_id = event_id;
@@ -50,16 +51,17 @@ function _event(event_id, event_date, event_time, event_url, event_place, event_
    this.event_sponsor = event_sponsor;
 
 }
+*/
 
 function _event(eventRow) {
-   this.event_id = eventRow[0];
-   this.event_date = eventRow[1];
-   this.event_time = eventRow[2];
-   this.event_url = eventRow[3];
-   this.event_place = eventRow[4];
-   this.event_title = eventRow[5];
-   this.event_sponsor = eventRow[6];
-
+    this.event_id = eventRow[0];
+    this.event_date = eventRow[1];
+    this.event_time = eventRow[2];
+    this.event_url = eventRow[3];
+    this.event_place = eventRow[4];
+    this.event_title = eventRow[5];
+    this.event_sponsor = eventRow[6];
+	this.fav_id = eventRow[7];
 }
 
 

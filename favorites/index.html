@@ -5,42 +5,21 @@
 		<title>favorites</title>
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/favorites.css" rel="stylesheet" type="text/css" />
-		<script src="js/jquery-1.10.1.min.js"></script> <!-- local version of jquery -->
-		<script type='text/javascript' src="js/getFavHeap.js"></script>
 	</head>
-
-
 
 	<!-- A litle problem that I noticed: each "remove-share-button" DIV
 	is knocked down a little further in each "favorites-item" DIV. I believe this problem is probably due to the border that is on each "favorites-item" DIV.
 	Maybe you guys can come up with a solution to this. -->
 
-
-
 	<body>
 		<div id="favorites-wrapper">
-
-
-
 			<div id="favorites-title">
-
 				<img src="images/favorites-title.png" width="245" height="50" alt="" />
-
-
 				<div id="home-help-buttons"> 
-
 					<img src="images/help-button.png" width="50" height="50" alt="" />
-
 					<a href="../home/"><img src="images/home-button.png" width="50" height="50" alt="" /></a>
-
 				</div>
-
-
-
 			</div>
-
-				
-
 			<div class="headline">
 				<img src="images/news-feed-button.png" class="cat-logo" />
 				<h2 id="newsHead" class="cat-name">News Feed Items</h2>
@@ -58,21 +37,9 @@
 				<h2 id="eventsHead" class="cat-name">Events</h2>
 			</div>
 			<div id="eventsList"></div>
-
-
-			<script src='js/displayfavs.js'></script>
-
-
-
 		</div>
-		<!-- end of favorites-wrapper -->
-
-
-
-
-
-
-
-
+		<script src="js/jquery-1.10.1.min.js"></script> <!-- local version of jquery -->
+		<script type='text/javascript' src="js/getFavHeap.js"></script>
+		<script src='js/displayfavs.js'></script>
 	</body>
 </html>

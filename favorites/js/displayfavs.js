@@ -3,39 +3,32 @@
  * right when the page is ready
  */
 
+ // Global Variable
+ var deletionArray = new Array();
+ 
 $(document).ready(function() {
-	
-
 	//variables that works as pointers to the top of each list
 	var rssPointer = document.getElementById("newsList");
 	var tipsPointer = document.getElementById("tipsList");
 	var eventsPointer = document.getElementById("eventsList");
 
 	// Gets the userID from the session storage
-	// Google session storage online to see what is it
 	var userID = sessionStorage.pid;
 	var favHeap = getFavHeap(userID);
 
-
 	//print out news
 	for(var i = 0; i < favHeap.rssArray.length; i++) {
-
-		//create new div element
 		var rss = document.createElement("div");
 		rss.className += "favorites-item";
 
-	
 		// Manipulates the text output
 		var rssTitle = favHeap.rssArray[i].rss_title;		// gets rss title
 		var rssTitleNode = document.createTextNode(rssTitle);	// makes rss title into text
-		
 		var rssElement = document.createElement("p");
+		rss.title = favHeap.rssArray[i].rss_url;
+		rss.id = favHeap.rssArray[i].fav_id;
 		rssElement.title = favHeap.rssArray[i].rss_url;			// gets rss url
-
-		// Makes the text into a button
-		rssElement.onclick = function(){
-			window.open(this.title);
-		};
+		rssElement.className += "rss";
 
 		//append title and delete button img
 		rssElement.appendChild(rssTitleNode);
@@ -44,124 +37,125 @@ $(document).ready(function() {
 		// create delete button img
 		var deleteRss = document.createElement("div");
 		deleteRss.className += "delete";
-		deleteRss.onclick = function() {
-			alert("Favorite deleted!");			
-		};
+		deleteRss.title = "rss";
 		rss.appendChild(deleteRss);
 
 		// Create share button image
 		var shareRss = document.createElement("div");
 		shareRss.className += "share";
-		shareRss.onclick = function() {
-			alert("shared!");
-		};
+		shareRss.title = "rss";
 		rss.appendChild(shareRss);
-
-
 		rssPointer.parentNode.insertBefore(rss, rssPointer.nextSibling);
 
 		//move the pointer down so that the list would be in order
 		rssPointer = rssPointer.nextSibling;
-
 	}
+	
 	//print out tips	
 	for(var j = 0; j < favHeap.tipArray.length; j++) {
-
 		var tips = document.createElement("div");
 		tips.className += "favorites-item";
 		var tipsElement = document.createElement("p");
-
 	
 		var tipsTitle = favHeap.tipArray[j].tip_content;
 		var tipsTitleNode = document.createTextNode(tipsTitle);
-
+		tips.title = favHeap.tipArray[j].tip_content;
 		tipsElement.title = favHeap.tipArray[j].tip_content;
-
-		tipsElement.onclick = function(){
-			
-			newWindow = window.open();
-			newWindow.document.write(this.title);
-			newWindow.focus();
-
-		};
-
+		tipsElement.className += "tip";
+		tips.id = favHeap.tipArray[j].fav_id;
+		
 		tipsElement.appendChild(tipsTitleNode);
 		tips.appendChild(tipsElement);
 
-
-
 		// create delete button img
-		var deleteRss = document.createElement("div");
-		deleteRss.className += "delete";
-		deleteRss.onclick = function() {
-			alert("Favorite deleted!");			
-		};
-		tips.appendChild(deleteRss);
-
+		var deleteTip = document.createElement("div");
+		deleteTip.className += "delete";
+		deleteTip.title = "tip";
+		tips.appendChild(deleteTip);
+		
 		// Create share button image
-		var shareRss = document.createElement("div");
-		shareRss.className += "share";
-		shareRss.onclick = function() {
-			alert("shared!");
-		};
-		tips.appendChild(shareRss);
-
-
-
-
-
-
+		var shareTip = document.createElement("div");
+		shareTip.className += "share";
+		shareTip.title = "tip";
+		tips.appendChild(shareTip);
 		tipsPointer.parentNode.insertBefore(tips, tipsPointer.nextSibling);
-
 		tipsPointer = tipsPointer.nextSibling;
-
 	}
 
 	//print out events
 	for(var k = 0; k < favHeap.eventArray.length; k++) {
-
 		var events = document.createElement("div");
 		events.className += "favorites-item";
 		var eventsElement = document.createElement("p");
 
-
 		var eventsTitle = favHeap.eventArray[k].event_title;
 		var eventsUrl = favHeap.eventArray[k].event_url;
-
 		var eventsTitleNode = document.createTextNode(eventsTitle);
-
+		
+		//eventsElement.title = eventsUrl;
+		events.title = eventsTitle;
+		events.id = favHeap.eventArray[k].fav_id;
 		eventsElement.title = eventsUrl;
-
-		eventsElement.onclick = function(){
-			window.open(this.title);
-		};
-
-		// create delete button img
+		eventsElement.className += "event";
+		eventsElement.appendChild(eventsTitleNode);
+		events.appendChild(eventsElement);
+		
+		// create delete button image
 		var deleteEvent = document.createElement("div");
 		deleteEvent.className += "delete";
-		deleteEvent.onclick = function() {
-			alert("Favorite deleted!");			
-		};
+		deleteEvent.title = "event";
 		events.appendChild(deleteEvent);
 
 		// Create share button image
-		var shareRss = document.createElement("div");
-		shareRss.className += "share";
-		shareRss.onclick = function() {
-			alert("shared!");
-		};
-		events.appendChild(shareRss);
-	
+		var shareEvent = document.createElement("div");
+		shareEvent.className += "share";
+		shareEvent.title = "event";
 		
-		
-		
-		eventsElement.appendChild(eventsTitleNode);
-		events.appendChild(eventsElement);
-
+		events.appendChild(shareEvent);
 		eventsPointer.parentNode.insertBefore(events, eventsPointer.nextSibling);
-
 		eventsPointer = eventsPointer.nextSibling;
-
 	}
+	
+	/*
+		JQuery Event handlers (binders)
+	*/
+	
+	$(".rss").click (function(){
+		window.open(this.title); // rssElement is child of rss (class 'favorites_item', title, titleNode)
+	});
 
+	$(".tip").click (function(){
+		newWindow = window.open();
+		newWindow.document.write(this.title);
+		newWindow.focus();
+	});
+	
+	$(".event").click (function(){
+		window.open(this.title);
+	});
+	
+	$(".share").click(function() {
+		var cTitle = $(this).attr('title');
+		alert("Share This " + cTitle );
+	});
+	
+	$(".delete").click(function() {
+		var par = $(this).parent();
+		var pTitle = par.attr('title');
+		var content = pTitle.slice(0, 20);
+		if (content.length > 18) {
+			content = content + "...";
+		}
+		var cTitle = $(this).attr('title');
+		var prompt = confirm("Delete " + cTitle + ": " + content + "?");
+		if (prompt == true) {
+			deletionArray.push(par.attr('id'));
+			par.remove();
+		}
+	});
+	
+	$(window).unload( function () {
+		// Request server to delete everything in deletion array
+		console.log(deletionArray.join(' '));
+	});
 });

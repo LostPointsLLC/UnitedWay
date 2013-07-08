@@ -6,7 +6,7 @@
 	
 	// Execute the rss query
 	$query = $con->prepare("
-		SELECT rss_id, rss_url, rss_title, rss_source
+		SELECT rss_id, rss_url, rss_title, rss_source, fav_id
 		FROM 
 			(favorites JOIN rss 
 			ON (favorites.fav_typeID = rss.rss_id 
@@ -16,7 +16,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source);
+		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source, $rss_fav_id);
 		
 		$rssArray = array();
 		
@@ -29,6 +29,7 @@
 			$row[1] = $rss_url;
 			$row[2] = $rss_title;
 			$row[3] = $rss_source;
+			$row[4] = $rss_fav_id;
 			
 			array_push($rssArray, $row);
 		}
@@ -42,7 +43,7 @@
 	
 	// Execute the tip query
 	$query = $con->prepare("
-		SELECT tip_id, tip_age, tip_category, tip_content
+		SELECT tip_id, tip_age, tip_category, tip_content, fav_id
 		FROM 
 			(favorites JOIN tips 
 			ON (favorites.fav_typeID = tips.tip_id 
@@ -52,7 +53,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($tip_id, $tip_age, $tip_category, $tip_content);
+		$query->bind_result($tip_id, $tip_age, $tip_category, $tip_content, $tip_fav_id);
 		
 		$tipsArray = array();
 		
@@ -64,6 +65,7 @@
 			$row[1] = $tip_age;
 			$row[2] = $tip_category;
 			$row[3] = $tip_content;
+			$row[4] = $tip_fav_id;
 			
 			array_push($tipsArray, $row);
 		}
@@ -75,7 +77,7 @@
 	
 	// Execute the query
 	$query = $con->prepare("
-		SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor
+		SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, fav_id
 		FROM 
 			(favorites JOIN events 
 			ON (favorites.fav_typeID = events.event_id
@@ -85,7 +87,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($event_id, $event_date, $event_time, $event_url, $event_place, $event_title, $event_sponsor);
+		$query->bind_result($event_id, $event_date, $event_time, $event_url, $event_place, $event_title, $event_sponsor, $event_fav_id);
 		
 		$eventsArray = array();
 		
@@ -100,7 +102,7 @@
 			$row[4] = $event_place;
 			$row[5] = $event_title;
 			$row[6] = $event_sponsor;
-			
+			$row[7] = $event_fav_id;
 			array_push($eventsArray, $row);
 		}
 

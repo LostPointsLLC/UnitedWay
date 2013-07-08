@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Personalized Categories</title>
+		
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/tips.css" rel="stylesheet" type="text/css" />
+		<link href="css/format.css" rel="stylesheet" type="text/css" />
+		<link href="css/tips-main.css" rel="stylesheet" type="text/css" />
+		
+		
+	</head>
+
+	<!-- A litle problem that I noticed: each "remove-share-button" DIV
+	is knocked down a little further in each "tips-item" DIV. I believe this problem is probably due to the border that is on each "tips-item" DIV.
+	Maybe you guys can come up with a solution to this. -->
+
+	<body>
+		<div id="tips-wrapper">
+		
+			<div id="tips-title">
+				<img src="images/tips-title.png" width="245" height="50" alt="" />
+				<div id="home-help-buttons"> 
+					<img src="images/help-button.png" width="50" height="50" alt="" />
+					<a href="../home/"><img src="images/home-button.png" width="50" height="50" alt="" /></a>
+				</div>
+			</div>
+			<!-- right and left arrows are for multiple children -->
+			<div id="child-wrapper">
+				<div id="left-arrow"><img src="images/left-arrow.png" width="50" height="50" alt="" />
+				</div>
+				<!-- end of left-arrow -->
+				<div id="child"><img src="images/boy.png" width="60" height="60" alt="" /><p>TOMMY</p></div>
+				<!-- end of child -->
+				<div id="right-arrow"><img src="images/right-arrow.png" width="50" height="50" alt="" />
+				</div>
+				<!-- end of right-arrow -->
+			</div>
+			<!-- List the TIPS-->
+			<div>
+				<div id="health"><img class = "cat_img" src="images/health.png"  alt="" /></div>
+				<div id="growth"><img class = "cat_img" src="images/growth.png"  alt="" /></div>
+				<div id="safety"><img class = "cat_img" src="images/safety.png" alt="" /></div>
+				<div id="playtime"><img class = "cat_img" src="images/playtime.png" alt="" /></div>
+			</div>
+			
+		</div>
+		
+		<script src="js/jquery-1.10.1.min.js"></script> <!-- local version of jquery -->
+		<script src='js/personal_cat.js'></script>
+	</body>
+</html>
