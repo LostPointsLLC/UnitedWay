@@ -14,22 +14,30 @@
 		  
 			<div id="titleBar"><img src="images/welcome-title.png"/></div>
 
-
-			<div id="mainText"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et leo id lacus bibendum pellentesque. Maecenas in blandit lacus. Duis mattis, nunc at pellentesque semper, diam tellus egestas nunc, sit amet tristique nunc sapien id risus. Cras consequat dapibus tellus, et dictum massa pretium eu.  </p>
+			
+			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p>
 			</div>
 	
+			<div id="content">
+				<input type="email" class="text-input" id="email" placeholder="Email address"/>
+				<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
+				
+				<div id="option-links">
+					<input type="button" class="button" name="button" value="Log in" onClick="verfiyLogin()"/>
+					<input type="button" class="button" name="add child" value="I'm a new user" onClick="registration()"/>
+				</div>
 
-			<input type="email" class="text-input" id="email" placeholder="Email address"/>
-			<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
-
-			<input type="button" class="button" name="button" Value="Click" onClick="verfiyLogin()"/>
-			<a href="registration.html">New User</a>
-			<div id="result"></div>
-		
+				
+				<div id="result"></div>
+			</div>
 
 			<!-- end of login-wrapper -->
 			<script type="text/javascript">	// Create HTTP request for server
 			// Sends request to match user input with user data table on Lostpoint Database
+			function registration() {
+				document.location.href="registration.html";
+
+			}
 			function verfiyLogin() {
 				var iEmail = document.getElementById("email").value;
 				var iPass = document.getElementById("password").value;

@@ -1,0 +1,51 @@
+/* Swaps the input of the button colors into *actual* colors */
+$(document).ready(function() {
+
+	// Recreates the buttons by hiding each one
+	// then replaces each radio button with an <a> element
+	$('input[name="color"]').hide().each(function() {			// Any input element with name="color" will go thru here
+		// Inserts <a> elements here
+		$('<a '
+			+ ' id=' + this.id
+			+ ' class="radio-fx '								// Assigns the class 'radio-fx' 
+			+ this.name											// Reassigns its name 
+			+ '" href="#"><span class="radio' 
+			+ (this.checked ? ' radio-checked' : '')			// Leaves button checked if checked, otherwise it isn't 
+			+ '"></span></a>').insertAfter(this);				// Appends the <a> to the hidden radio button
+	});
+
+	// Finds the button that's been clicked, and passes it to the callback function as "e"
+	$('.radio-fx').on('click', function(e) {
+		$check = $(this).prev('input:radio');					
+		var unique = '.' + this.className.split(' ')[1] + ' span';
+		$(unique).attr('class', 'radio');
+		$(this).find('span').attr('class', 'radio-checked');
+		$check.attr('checked', true);
+	}).on('keydown', function(e) {
+		if ((e.keyCode ? e.keyCode : e.which) == 32) {
+			$(this).trigger('click');							
+		}
+	});
+
+	/* not needed just for sake ;)*/
+	$('#form').submit(function() {
+		var posts = $(this).serialize();						// Finds the checked items, then concatenates as a datastring
+
+		// Executes if one of the buttons is pressed
+		if (posts != '') {
+			alert(posts);
+		} 
+		
+		// Executes if nothing has been pressed
+		else {
+			alert('please select something, then submit the form!');
+		}
+		return false;
+	});
+
+	// Allows for multiple skins to be displayed
+	$('#change-skin').change(function() {
+		$('form table').attr('id', this.value);
+	});
+
+});

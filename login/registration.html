@@ -21,15 +21,15 @@
 			<div id="mainText"><p>Welcome to the United Way of Champaign Pre-k app. You can register here!  </p>
 			</div>
 	
+			<div>
+				<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
+				<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
+				<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
+				<input type="email" class="text-input" id="email" placeholder="Email address"/>
+				<input type="password" class="text-input" id="password" placeholder="Password"/>
+			</div>
 
-			<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
-			<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
-			<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
-			<input type="email" class="text-input" id="email" placeholder="Email address"/>
-			<input type="password" class="text-input" id="password" placeholder="Password"/>
-
-
-			<input type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>
+			<input id="verify-registration" type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>
 			<div id="result"></div>
 
 
@@ -89,8 +89,8 @@
 							/* Incorrect code */
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;	// NO this will no work yet
-								alert("The return value is" + ret + ". Make sure this is an integer.");
-								document.location.href="addChild.html";
+								//alert("The return value is " + ret + ". Make sure this is an integer.");
+								document.location.href="child.html";
 							}
 							
 							else {

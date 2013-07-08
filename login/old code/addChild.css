@@ -1,0 +1,58 @@
+body {
+    font-family: Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-align: center
+}
+form {
+    text-align: left;
+    width: 310px;
+    margin: 20px auto
+}
+a.radio-fx span, a.radio-fx {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+#skin_1 .radio, #skin_1 .radio-checked, #skin_1 a.radio-fx {
+    width: 32px;
+    height: 32px;
+}
+#skin_2 .radio, #skin_2 .radio-checked, #skin_2 a.radio-fx {
+    width: 16px;
+    height: 16px;
+}
+#skin_3 .radio, #skin_3 .radio-checked, #skin_3 a.radio-fx {
+    width: 24px;
+    height: 24px;
+}
+#skin_1 .radio {
+    background: url(http://cdn4.iconfinder.com/data/icons/fatcow/32x32_0160/bullet_red.png) no-repeat;
+}
+#skin_1 .radio-checked {
+    background: url(http://cdn4.iconfinder.com/data/icons/fatcow/32x32_0160/bullet_green.png) no-repeat;
+}
+#skin_2 .radio {
+    background: url(http://cdn4.iconfinder.com/data/icons/uidesignicons/radiobutton_no.png) no-repeat;
+}
+#skin_2 .radio-checked {
+    background: url(http://cdn4.iconfinder.com/data/icons/uidesignicons/radiobutton_yes.png) no-repeat;
+}
+#skin_3 .radio {
+    background: url(http://cdn2.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_05.png) no-repeat;
+}
+#skin_3 .radio-checked {
+    background: url(http://cdn1.iconfinder.com/data/icons/icojoy/noshadow/standart/gif/24x24/001_06.gif) no-repeat;
+}
+
+table {
+    width: 300px;
+    border: 1px solid #CCC;
+    padding: 5px;
+    background: whiteSmoke
+}
+td {
+    border-bottom: 1px solid #CCC;
+    padding: 5px;
+}

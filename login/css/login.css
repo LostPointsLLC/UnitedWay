@@ -72,12 +72,7 @@ h6 {
 	padding-left: 25px;
 }
 
-
-#submit {
-	height: 50px;
-	width: 350px;
-	padding-left: 5px;
-}
+/* Button Styling */
 
 .button {
    background-image: -webkit-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
@@ -90,13 +85,21 @@ h6 {
       -moz-border-radius: 10px;
            border-radius: 10px;
    
-   display: block;
    
    font-size: 15px;
    font-family: Sans-serif;
    line-height: 24px;
    color: black;
-   margin: 0 auto;
+		
+}
+
+#option-links {
+	position: relative;
+	margin 0 auto;
+	padding: 0;
+	float: center;
+	display: block;
+	left: 80px;
 }
 
 /* individual: webkit */
@@ -111,3 +114,8 @@ h6 {
 	opacity: 50%;
 }
 
+#content {
+	position: relative;
+	top: 50px;
+
+}
