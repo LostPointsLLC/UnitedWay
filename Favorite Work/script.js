@@ -1,33 +1,3 @@
-//favorite object for testing
-/*
-function favObject(type, title, content, url)
-{
-	this.type = type;
-	this.title = title;
-	this.content = content;
-	this.url = url;
-}
-
-var fav_1 = new favObject("News", "What not to eat", "you should not eat coin", "https://google.com");
-var fav_2 = new favObject("News", "Chambana Mom fundraising", "We raised about 100 dollars", "https://yahoo.com");
-var fav_3 = new favObject("Tips", "Which book is good for you son?", "Nothing");
-var fav_4 = new favObject("Tips", "Make your child happy", "Laugh, laugh, and laugh");
-var fav_5 = new favObject("Events", "Buy your daughter a doll!", "Don't");
-var fav_6 = new favObject("Events", "google","google.com");
-
-var rssArray = new Array();
-var tipsArray = new Array();
-var eventsArray = new Array();
-
-rssArray[0] = fav_1;
-rssArray[1] = fav_2;
-tipsArray[0] = fav_3;
-tipsArray[1] = fav_4;
-eventsArray[0] = fav_5;
-eventsArray[1] = fav_6;
-// test object
-*/
-
 //display the favorites page
 function displayFavorites(userID){
 
@@ -62,9 +32,12 @@ function displayFavorites(userID){
 		//create textNode
 		var rssTitleNode = document.createTextNode(rssTitle);
 		
+		//store the url in the title attribute
+		rssElement.title = rssUrl;
+
 		//button for rssElement
 		rssElement.onclick = function(){
-			window.open(rssUrl);
+			window.open(this.title);
 		};
 
 		//append title and delete button img
@@ -80,7 +53,7 @@ function displayFavorites(userID){
 	}
 
 	//print out tips	
-	for(var j = 0; j < favHeap.tipsArray.length; j++) {
+	for(var j = 0; j < favHeap.tipArray.length; j++) {
 
 		var tips = document.createElement("div");
 		var tipsElement = document.createElement("span");
@@ -93,11 +66,17 @@ function displayFavorites(userID){
 			alert("Favorite deleted!");			
 		}
 	
-		var tipsTitle = favHeap.tipsArray[j].tip_title;
+		var tipsTitle = favHeap.tipArray[j].tip_title;
 		var tipsTitleNode = document.createTextNode(tipsTitle);
 
+		tipsElement.title = favHeap.tipArray[j].tip_content;
+
 		tipsElement.onclick = function(){
-			window.open();
+			
+			newWindow = window.open();
+			newWindow.document.write(this.title);
+			newWindow.focus();
+
 		};
 
 		tipsElement.appendChild(tipsTitleNode);
@@ -111,7 +90,7 @@ function displayFavorites(userID){
 	}
 
 	//print out events
-	for(var k = 0; k < favHeap.eventsArray.length; k++) {
+	for(var k = 0; k < favHeap.eventArray.length; k++) {
 
 		var events = document.createElement("div");
 		var eventsElement = document.createElement("span");
@@ -124,13 +103,15 @@ function displayFavorites(userID){
 			alert("Favorite deleted!");			
 		}
 
-		var eventsTitle = favHeap.eventsArray[k].event_title;
-		var eventsUrl = eventsArray[k].event_url;
+		var eventsTitle = favHeap.eventArray[k].event_title;
+		var eventsUrl = eventArray[k].event_url;
 
 		var eventsTitleNode = document.createTextNode(eventsTitle);
 
+		eventsElement.title = eventsUrl;
+
 		eventsElement.onclick = function(){
-			window.open(eventsUrl);
+			window.open(this.title);
 		};
 
 		eventsElement.appendChild(eventsTitleNode);
