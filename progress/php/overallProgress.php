@@ -8,7 +8,8 @@
 	$cqResult = mysqli_query($dbConnection, $childQuery);
 	$childArray = array();
 	while ($cqRow = mysqli_fetch_assoc($cqResult)) {
-		array_push($childArray, $cqRow);
+		//array_push($childArray, $cqRow);
+		$childArray[$cqRow["child_id"]] = $cqRow; 
 	}
 	echo json_encode($childArray);
 ?>

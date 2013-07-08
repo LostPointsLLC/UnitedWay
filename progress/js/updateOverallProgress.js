@@ -11,10 +11,34 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){
+			sessionStorage.jsonString = data; // store database data string as a session variable
+			// console.log(data);
 			updateProgress(data);
 		}
 	 });	 
 });
+
+/*
+	Data from database is stored as a JSON string in the following format:
+
+	 EXAMPLE
+[{"child_id":"10",
+  "child_age":"2",
+  "child_color":"green",
+  "child_name":"Josh",
+  "child_gender":"0",
+  "health_code":"aaaaaaaaaa",
+  "language_code":"aaaaaaaaaa",
+  "social_code":"aabbaaaaaa",
+  "other_code":"aabaaaaaaa"},
+  
+  {"child_id":"12",
+   "child_age":"1",
+   "child_color":"red",
+   "child_name":"Vaidehi",
+   "child_gender":"1"
+	
+*/
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
 function updateProgress(param) {

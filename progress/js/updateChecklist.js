@@ -33,8 +33,33 @@ $(document).ready(function() {
 			});
 			
 			
-			$(window).unload( function () { 
-				var updateString = dataString + "&newString=" + gBin.join('');
+			$(window).unload( function () {
+				var newProgressStr = gBin.join('');
+				// First update current session variables, to correctly print percentages
+				var currentJsonStr = sessionStorage.jsonString;
+				var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
+				
+				// Figure out what category check list this is
+				var category = "";
+				switch(sessionStorage.cat.toString()) {
+					case "1":
+						category = "health_code";
+						break;
+					case "2":
+						category = "language_code";
+						break;
+					case "3":
+						category = "social_code";
+						break;
+					case "4":
+						category = "other_code";
+						break;
+				}
+				
+				parsedCurrentJsonStr[childID][category] = newProgressStr;
+				sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
+				var updateString = dataString + "&newString=" + newProgressStr;
+				
 				$.ajax({ // update database with new check binary string
 					type: "POST",
 					url: "php/updateChecked.php",
