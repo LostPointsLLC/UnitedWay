@@ -14,55 +14,49 @@
 		
 		<!-- Imports the "feeds" API, version "1" -->
 		<script type="text/javascript"> google.load("feeds", "1"); </script>
+
+		<!-- Default stylesheets -->
+		<script type="text/javascript" src="../generator.js"></script>
 		
 		<!-- Stylesheets -->
-		<link rel='stylesheet' type='text/css' href='css/boxes.css'> 
-		<link rel="stylesheet" type="text/css" href="css/news-feed.css"> 
+		<link rel="stylesheet" type="text/css" href="../default.css">
+		<link rel="stylesheet" type="text/css" href="css/newsfeed.css">
 		
 	</head>
 
 	<body>
-		<div id="container">
-			<div id="header">
-				<a href="../home/"><img src="images/left-arrow.png"/>Click here to go back</a>
-			</div> <!-- End header div -->
+		<div class="wrapper">
+			<script>
+				generateHeader("News Feeds", true, true);
+			</script>
 			
 			<div id="content">
-				<h1>RSS Feeds Demonstration</h1>
-				<div id="feed"></div>
 				
+				<div id="feed">
+					<!-- The following code below allows me to call a function in feed.js with
+					my own parameters to the function. -->
+					<script src="js/news-feed.js"></script>
+					<script>
+						rssfeed("feed", "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 8, 
+						"Champaign Library Events:", "subtitle");
+					
+						/* TODO: This link below works, but the code needs to be edited 
+						in order for multiple RSS feeds to be present. */
+						/* http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2
+						/*"http://www.chambanamoms.com/feed" */
+					
+					</script>
 				
-				
-				
-				
-				<div id="feed2"></div>
-				<!-- The following code below allows me to call a function in feed.js with
-				my own parameters to the function. -->
-				<script src="js/news-feed.js"></script>
-				<script>
-				rssfeed(
-					"feed", 
-					"http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 
-					8, 
-					"Champaign Library Events:"
-				);
-				
-					/* TODO: This link below works, but the code needs to be edited 
-					in order for multiple RSS feeds to be present. */
-					/* http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2
-					/*"http://www.chambanamoms.com/feed" */
-				
-				</script>
-				
+				</div>
 				
 			</div> <!-- End content div -->
 			
 			
 			<div id="footer">
-				<h3>Footer</h3>
+				<a href="../home/"><img src="images/left-arrow.png"/>Click here to go back</a>
 			
-			</div> <!-- End footer div -->
-			
+			</div><!-- End footer div -->
+		
 		</div> <!-- End container div -->
 				
 	</body>
