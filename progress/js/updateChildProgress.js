@@ -74,10 +74,10 @@ function updateProgress(cid, param) {
 	var socialCount = (social_code.split("a").length - 1);
 	var otherCount = (other_code.split("a").length - 1);
 	
-	var healthPerc = (healthCount / health_code.length) * 100;
-	var langPerc = (langCount / language_code.length) * 100;
-	var socialPerc = (socialCount / social_code.length) * 100;
-	var otherPerc = (otherCount / other_code.length) * 100;
+	var healthPerc = parseInt((healthCount / health_code.length) * 100);
+	var langPerc = parseInt((langCount / language_code.length) * 100);
+	var socialPerc = parseInt((socialCount / social_code.length) * 100);
+	var otherPerc = parseInt((otherCount / other_code.length) * 100);
 	
 	addProgressBar(4, otherPerc);
 	addProgressBar(3, socialPerc);

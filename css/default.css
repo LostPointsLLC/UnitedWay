@@ -1,0 +1,179 @@
+/* Creates the background of the pages of the app */
+
+/* Introduces the Chunkfive font family into the stylesheet */
+@font-face {
+    font-family: 'Chunkfive';
+    src: url('Chunkfive-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* The wrapper for the whole entire app. To be used on every page */
+/* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
+/**/.wrapper {
+/**/	background: #7ca3dc;
+/**/	width: 350px;
+/**/	height: 600px;
+/**/	margin: 0 auto;
+/**/	border-radius: 10px;
+/**/	border: 2px solid black;
+/**/}
+
+
+
+/* For the generateHeader() function. */
+/* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
+/**/.header {
+/**/	height: 50px;
+/**/	position: relative;
+/**/
+/**/}
+/**/
+/**/.title {
+/**/	width: 60%;
+/**/	height: 50px;
+/**/	position: relative;
+/**/	left: 25px;
+/**/	top: 15px;
+/**/	display: inline-block;
+/**/	font-size: 30px;
+/**/	font-family: Chunkfive, arial, helvetica, sans-serif;
+/**/}
+/**/
+/**/
+/**/.home {
+/**/	float: right;
+/**/	position: relative;
+/**/}
+/**/
+/**/.help {
+/**/	float: right;
+/**/	position: relative;
+/**/
+/**/}
+
+
+/* Classes for the buttons */
+.button {
+			text-align: center;
+padding: 10px;
+height: 20px;
+position: relative;
+display: inline-block;
+}
+
+.button-text {
+	position: relative;
+/*bottom: 8px;*/
+
+}
+
+.bt-yellow{
+	border:1px solid #ffad41; 
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size:18px;
+	font-family: arial, helvetica, sans-serif; 
+/*	padding: 10px 10px 10px 10px; text-decoration:none; */
+/*	display:inline-block;*/
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+	font-weight:bold; color: #FFFFFF;
+	background-color: #ffc579; 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc579), to(#fb9d23));
+	background-image: -webkit-linear-gradient(top, #ffc579, #fb9d23);
+	background-image: -moz-linear-gradient(top, #ffc579, #fb9d23);
+	background-image: -ms-linear-gradient(top, #ffc579, #fb9d23);
+	background-image: -o-linear-gradient(top, #ffc579, #fb9d23);
+	background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
+}
+
+.bt-yellow:hover{
+	 border:1px solid #ff9913;
+	 background-color: #ffaf46; 
+	 background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf46), to(#e78404));
+	 background-image: -webkit-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -moz-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -ms-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -o-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: linear-gradient(to bottom, #ffaf46, #e78404);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffaf46, endColorstr=#e78404);
+}
+
+
+.bt-blue {
+	border:1px solid #ffad41; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;
+		   font-size:24px;
+		   font-family: Chunkfive, arial, helvetica, sans-serif; 
+/*padding: 10px 10px 10px 10px; */
+		 text-decoration:none; 
+/*display:inline-block;*/
+		text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+		font-weight:bold; color: #FFFFFF;
+	 background-color: #ffc579; 
+	 background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc579), to(#fb9d23));
+	 background-image: -webkit-linear-gradient(top, #ffc579, #fb9d23);
+	 background-image: -moz-linear-gradient(top, #ffc579, #fb9d23);
+	 background-image: -ms-linear-gradient(top, #ffc579, #fb9d23);
+	 background-image: -o-linear-gradient(top, #ffc579, #fb9d23);
+	 background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
+
+width: 250px;
+height: 50px;
+margin: auto;
+display: block;
+		 text-align: center;
+}
+
+.bt-blue:hover{
+	 border:1px solid #ff9913;
+	 background-color: #ffaf46; background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf46), to(#e78404));
+	 background-image: -webkit-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -moz-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -ms-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: -o-linear-gradient(top, #ffaf46, #e78404);
+	 background-image: linear-gradient(to bottom, #ffaf46, #e78404);
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffaf46, endColorstr=#e78404);
+}
+
+
+
+/* Code to make more buttons! */
+.gradient-blue {
+
+	background: #7db9e8; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkYjllOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iIzIwN2NjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5ODlkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZTU3OTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #7db9e8 0%, #207cca 49%, #2989d8 50%, #1e5799 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(49%,#207cca), color-stop(50%,#2989d8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* W3C */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-8 */
+}
+
+
+
+
+
+
+
+
+/* File specific styling */
+#start {
+	left: 85px;
+}
+
+
+
+
+
+
+
+
+

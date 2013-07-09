@@ -1,0 +1,71 @@
+
+
+/********************* Style HTML 5 Progress Bars  *****************************************
+	Credit: 
+	http://www.useragentman.com/blog/2012/01/03/cross-browser-html5-progress-bars-in-depth/
+*/
+
+progress,          /* All HTML5 progress enabled browsers */
+progress[role]     /* polyfill */
+{
+
+	/* Turns off styling - not usually needed, but good to know. */
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	/* gets rid of default border in Firefox and Opera. */ 
+	border: none;
+
+	/* Needs to be in here for Safari polyfill so background images work as expected. */
+	background-size: auto;
+	
+	/* Dimensions */
+	width: 200px;
+	height: 15px;
+	
+}
+
+/* Polyfill */
+progress[role]:after {
+	background-image: none; /* removes default background from polyfill */
+}
+
+/* Ensure fallback text doesn't appear in polyfill */
+progress[role] strong {
+	display: none;
+}
+
+progress,                          /* Firefox  */ 
+progress[role][aria-valuenow] {    /* Polyfill */
+   background: #00b83d !important; /* !important is needed by the polyfill */
+}
+
+
+/* IE10 */
+progress {
+    color: #00b83d;
+}
+
+/* Firefox */
+progress::-moz-progress-bar { 
+    background: #00b83d;	
+}
+
+/* Chrome */
+progress::-webkit-progress-value {
+    background: #00b83d;
+}
+
+/* Polyfill */
+progress[aria-valuenow]:before  {
+    background: #00b83d;
+}
+
+
+/*
+	Credit: 
+	http://www.useragentman.com/blog/2012/01/03/cross-browser-html5-progress-bars-in-depth/
+********************** Style HTML 5 Progress Bars (END) ************************************/
+
+
