@@ -21,9 +21,14 @@ function goHome(){
 	document.location.href = "../home/";
 }
 
+//go to help page
+function goHelp(){
+	document.location.href = "../help/help1.html";
+}
+
 //go back to calendar page
-function goBack(){
-	document.location.href = "../calendar/fullcalendar.html";
+function goToCalendar(){
+	document.location.href = "../calendar/maincalendar.html";
 }
 
 //returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31
