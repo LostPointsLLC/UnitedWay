@@ -127,3 +127,8 @@ function linkToCategory(cid, cat) {
 	sessionStorage.cat = cat; // category ID that carries over
 	document.location.href = "checkList.html";
 }
+
+function healthChecklist() {
+	sessionStorage.cat = 1;
+	document.location.href = "health_checklist.html";
+}

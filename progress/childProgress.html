@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
+	<head>
         <meta charset="utf-8" />
         <title>Detailed Progress</title>
-		<link rel="stylesheet" type="text/css" href="css/childProgress.css" />
-		<link href="css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="css/checklist-main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/progress_bar.css" />
+		
+		<!-- Include Le Javscript here-->
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/generator.js"></script>
+		<script type="text/javascript" src = "js/updateChildProgress.js"></script>
     </head>
     <!-- Call updateProgress from the start-->
+
 	<body>
+		<div class="wrapper">
+			<script type="text/javascript">
+				generateHeader("Checklists", true, true);
+				generateButton("Health & Well Being", "health-bt", "bt-health", "healthChecklist()");
+			</script>
+			<div id = "content"></div>
+			
+			
+		</div>
 		
 		<div id="checklist-main-wrapper">
 		  
@@ -30,7 +44,7 @@
 			<!-- end of checklist-title -->
 			
 
-			<div id="Health">
+			<div id="Health1">
 				<img src="images/health-well-being-button.png" width="148" height="50" alt="" />
 				<progress id="1" class="progressbar" value='0' max='100'></progress>
 				<span id="percentage1" class="percentage"></span>
@@ -39,7 +53,7 @@
 
 
 
-			<div id="Language"> <!-- Right now Reading label-->
+			<div id="Language1"> <!-- Right now Reading label-->
 				<img src="images/language-general-button.png" width="148" height="50" alt="" />
 				<progress id="2" class="progressbar" value = '0' max='100'></progress>
 				<span id="percentage2" class="percentage"></span>
@@ -49,14 +63,14 @@
 
 
 
-			<div id="Social"> <!-- Writing label -->
+			<div id="Social1"> <!-- Writing label -->
 				<img src="images/social-emotional-button.png" width="148" height="50" alt="" />
 				<progress id="3" class="progressbar" value = '0' max='100'></progress>
 				<span id="percentage3" class="percentage"></span>
 			</div>
 			<!-- end of writing -->
 
-			<div id="Other"> <!-- Math label -->
+			<div id="Other1"> <!-- Math label -->
 				<img src="images/other.png" width="148" height="50" alt="" />
 				<progress id="4" class="progressbar" value = '0' max='100'></progress>
 				<span id="percentage4" class="percentage"></span>
@@ -87,9 +101,6 @@
 
 		</div>
 		<!-- end of checklist-main-wrapper -->
-		
-
-		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-		<script type="text/javascript" src="js/updateChildProgress.js"></script>
     </body>
+
 </html>
