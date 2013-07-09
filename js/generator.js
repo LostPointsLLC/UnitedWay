@@ -12,7 +12,7 @@
  * @param help	: A boolean of whether the help button should be shown
  */
 function generateHeader(text, home, help) {
-	document.write("<div class='header'>");	
+	document.write("<div class='header' id='header'>");	
 	// Writes the header to the DOM
 	document.write("<div class='title' style='color: white'>" + text + "</div>");
 				

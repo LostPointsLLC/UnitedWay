@@ -1,4 +1,30 @@
 
+.ch {
+	border: 1px solid #00549b;
+	padding: 3px 7px 2px 7px;
+
+/*
+ border='1' bordercolor='#999999' style= cellpadding='2' cellspacing='2' width='300'
+ */
+}
+
+.cell {
+	font-size:1em;
+	border:1px solid #00549b;
+	padding:3px 7px 2px 7px;
+	width: 50px;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
+	color:#ffffff;
+}
+
+.ageCell {
+	font-size:2em;
+	border:1px solid #00549b;
+	padding:3px 7px 2px 7px;
+	width: 50px;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
+	color:#ffffff;
+}
 
 /********************* Style HTML 5 Progress Bars  *****************************************
 	Credit: 
@@ -61,6 +87,10 @@ progress::-webkit-progress-value {
 progress[aria-valuenow]:before  {
     background: #00b83d;
 }
+
+
+
+
 
 
 /*

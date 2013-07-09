@@ -3,7 +3,7 @@
 /* Introduces the Chunkfive font family into the stylesheet */
 @font-face {
     font-family: 'Chunkfive';
-    src: url('Chunkfive-webfont.woff') format('woff');
+    src: url('../fonts/Chunkfive-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -12,7 +12,7 @@
 /* The wrapper for the whole entire app. To be used on every page */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
 /**/.wrapper {
-/**/	background: #7ca3dc;
+/**/	background: #00549b;
 /**/	width: 350px;
 /**/	height: 600px;
 /**/	margin: 0 auto;
@@ -20,14 +20,14 @@
 /**/	border: 2px solid black;
 /**/}
 
-
-
 /* For the generateHeader() function. */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
 /**/.header {
 /**/	height: 50px;
 /**/	position: relative;
-/**/
+/**/	background-color: #7ca3dc;
+/**/    margin-top: 10px;
+/**/    margin-bottom: 10px;
 /**/}
 /**/
 /**/.title {
