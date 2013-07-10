@@ -70,6 +70,9 @@
 .percentage {
 	font-size:13px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
+position: relative;
+left: 10px;
+bottom: 7px;
 }
 
 .pb-ctn {
