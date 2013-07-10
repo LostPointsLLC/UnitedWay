@@ -3,19 +3,21 @@
     <head>
         <meta charset="utf-8" />
         <title>Overall Progress</title>
-		<link rel="stylesheet" type="text/css" href="css/progress.css" />
-    </head>
-    <!-- Call updateProgress from the start-->
-	<body>
-		<div id="header">
-			<div id = "title">Select Child</div>
-			<div id = "icons">
-				<a href="../home/" id = "home">HOME</a>
-				<span id = "help">HELP</span>
-			</div>
-		</div>
-		<script src="js/jquery-1.10.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/progress_bar.css" />
+		
+		<!-- Include Le Javscript here-->
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/generator.js"></script>
 		<script type="text/javascript" src = "js/updateOverallProgress.js"></script>
-
+    </head>
+    <!-- Call updateProgress from the start-->	
+	<body>
+		<div class="wrapper">
+			<script type="text/javascript">
+				generateHeader("Select Child", true, true);
+			</script>
+			<div id = "content"></div>
+		</div>
     </body>
 </html>

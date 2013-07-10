@@ -1,3 +1,4 @@
+/*
 body {
 	background-color: black;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;;
@@ -25,10 +26,11 @@ body {
 
 }
 
-@charset "utf-8";
+*/
+/*@charset "utf-8";*/
 /* CSS Document */
 
-
+/*
 #feed {
 	width: 300px;
 	height: 400px;
@@ -41,11 +43,11 @@ body {
 	background-color: white;
 	border-top-left-radius: 40px 40px;
 	border-bottom-right-radius: 40px 40px;
-	
+*/	
 	/* Code below creates box shadows */
 	/* box-shadow: 10x 12px 12px 2px rgba(0,0,0,0.4), 6px 6px 0px 8px rgba(0,0,0,0.4) inset; */
    	/* -moz-box-shadow: 10px 12px 12px 2px rgba(0,0,0,0.4), 6px 6px 0px 8px rgba(0,0,0,0.4) inset; */
-	-webkit-box-shadow: 10px 12px 12px 2px rgba(0,0,0,0.8), 6px 6px 0px 8px rgba(0,0,0,0.4) inset;
+/*	-webkit-box-shadow: 10px 12px 12px 2px rgba(0,0,0,0.8), 6px 6px 0px 8px rgba(0,0,0,0.4) inset;
 
 }
 
@@ -69,3 +71,5 @@ body {
 	color:#606060;
 	margin: 10px 25px 0 25px;
 }
+
+*/

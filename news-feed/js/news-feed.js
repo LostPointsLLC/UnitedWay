@@ -9,11 +9,11 @@ var rssoutput;// = "<h2>Latest NPR Business News:</h2><ul>";
  * @param3: An int of how many stories will be shown
  * @param4: A string of the headline of the RSS feed.
  */
-function rssfeed(id, url, limit, output) {
+function rssfeed(id, url, limit, output, subtitle) {
 	feedcontainer = document.getElementById(id);
 	feedurl = url;
 	feedlimit = limit;
-	rssoutput = "<h2>" + output + "</h2><ul>";
+	rssoutput = "<h2 id='" + subtitle + "'>" + output + "</h2><ul>";
 	
 	window.onload = function(){
 		rssfeedsetup();
