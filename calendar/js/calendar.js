@@ -15,6 +15,7 @@ $(document).ready(function() {
    // updateDate(day,month);
    // updateEvent(day,month);
    displayTE(month,day-1);
+   	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,month-1) + "<br><br>";
 });
 //function to go to calendar tip page
 function linkTopage(param)
@@ -34,6 +35,11 @@ function goHome()
 function goHelp()
 {
     document.location.href = "../help/Calendar.html";
+}
+
+//returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31
+function getActivity(day,month){
+	return tipsArray[month][day];
 }
 
 //function to display today's event below the main calendar
