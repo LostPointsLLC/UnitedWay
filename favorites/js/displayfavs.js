@@ -159,6 +159,7 @@ $(document).ready(function() {
 	});
 	
 	$(window).unload( function () {
-		deletefav(deletionArray);
+		if(deletionArray.length > 0)
+			deletefav(deletionArray);
 	});
 });
