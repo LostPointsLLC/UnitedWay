@@ -89,3 +89,9 @@ height: 50px;
 	margin-left: 23px;	
 	padding-top: 10px;
 }
+
+#list-container {
+	position: relative;
+bottom: 10px;
+}
+
