@@ -1,5 +1,7 @@
-
-
+$(document).ready(function() {
+	var child = document.getElementById("child");
+	child.innerHTML = '<img src="../images/' + sessionStorage.gender + '.png" width="60" height="60" alt="" /><p>' + sessionStorage.name + '</p>';
+});
 
 function healthTips() {
 	sessionStorage.tCat = "health";
