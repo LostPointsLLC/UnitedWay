@@ -2,7 +2,6 @@ $(document).ready(function() {
 	// Display Picture
 	var tipCategory = sessionStorage.tCat.toString();
 	var front = document.getElementById("frontpiece");
-	front.innerHTML = "<img class = 'cat_img' src='images/" + tipCategory + ".png'  alt='' />";
 	
 	// PHP query 
 	var pid = sessionStorage.pid.toString();
@@ -40,4 +39,8 @@ function displayTips (param) {
 	}
 	
 
+}
+
+function goBack() {
+	document.location.href = "personal_cat.html";
 }

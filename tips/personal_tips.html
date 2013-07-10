@@ -14,41 +14,35 @@
 			<script type="text/javascript">
 				generateHeader("Tips", true, true);
 			</script>
-			<div id="child-wrapper">
-				<div id="left-arrow"><img src="images/left-arrow.png" width="50" height="50" alt="" />
-				</div>
-				<!-- end of left-arrow -->
-				<div id="child"></div>
-				<!-- end of child -->
-				<div id="right-arrow"><img src="images/right-arrow.png" width="50" height="50" alt="" />
-				</div>
-				<!-- end of right-arrow -->
-			</div>
 			<div>
 				<script type="text/javascript">
-					generateButton("Health and Well Being", "health", "bt-health", "healthTips()");
-					generateButton("Growth and Development", "growth", "bt-grow", "growthTips()");
-					generateButton("Safety", "safety", "bt-safe", "safetyTips()");
-					generateButton("Playtime", "playtime", "bt-play", "playTips()");
+					var category = sessionStorage.tCat;
+					var textString = "";
+					var btnClass = "";
+					
+					switch (category) {
+						case "health":
+							textString = "Health and Well Being";
+							btnClass = "bt-health";
+							break;
+						case "growth":
+							textString = "Growth and Development";
+							btnClass = "bt-grow";
+							break;
+						case "safety":
+							textString = "Safety";
+							btnClass = "bt-safe";
+							break;
+						case "playtime":
+							textString = "Playtime";
+							btnClass = "bt-play";
+							break;
+					}
+					generateButton(textString, "back", btnClass, "goBack()");
 				</script>
 			</div>
-		</div>
-	
-		<div id="tips-wrapper">
-		
-			<div id="tips-title">
-				<img src="images/tips-title.png" width="245" height="50" alt="" />
-				<div id="home-help-buttons"> 
-					<img src="images/help-button.png" width="50" height="50" alt="" />
-					<a href="../home/"><img src="images/home-button.png" width="50" height="50" alt="" /></a>
-				</div>
-			</div>
-			<!-- right and left arrows are for multiple children -->
-			<!-- List the TIPS-->
-			<div>
-				<div id="frontpiece"></div>
-			</div>
-			
+			<img id = "arrow" src="images/left-arrow.png" width="50" height="50" alt="" />
+			<div id = "frontpiece"></div>
 		</div>
 	</body>
 </html>
