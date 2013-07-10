@@ -207,3 +207,33 @@ html, body {
 	top:1px;
 }
 
+#frontpiece {
+	width: 100%;
+
+}
+
+.tip {
+margin: 0 auto;
+padding: 0;
+	width: 80%;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: #7ca3dc 2px solid;
+
+}
+
+p {
+
+	color: white;
+	font-family: arial;
+
+}
+.wrapper {
+	height: auto;
+
+}
+
+#content {
+	margin-top: 10px;
+}

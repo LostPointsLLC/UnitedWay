@@ -48,11 +48,44 @@ function displayTips() {
 	// Use session data to figure out child age
 	var jObj = jQuery.parseJSON(sessionStorage.jsonString);
 	var childID = sessionStorage.cid;
-	var childAge = jObj[childID]["child_age"];
+	var ageInMonths = calculateMonth(jObj[childID]["child_birthday"]);
+	// Get child age in months (from functions.js)
+	// Then get whatever age category the child fits in.
+	var ageIndex = calcCat(ageInMonths);
+
+	// Category ID "health", "growth", "safety", "playtime"
+	var tipCategory = sessionStorage.tCat.toString();
+	var tipArray;
+	switch(tipCategory) {
+		case "health":
+			tipArray = healthArray[ageIndex];
+			break;
+			
+		case "growth":
+			tipArray = growthArray[ageIndex];
+			break;
+			
+		case "safety":
+			tipArray = safetyArray[ageIndex];
+			break;
+			
+		case "playtime":
+			tipArray = playtimeArray[ageIndex];
+			break;
+	}
 	
-	jObj[childID]["child_name"];
+	for (var i = 0; i < tipArray.length; i++) {
+	
+
+		var entry = "<div class='tip'><p>" + tipArray[i] + "</p></div>";
+		$("#frontpiece").append(entry);
+		
+		
+		
+	}
 }
 
 function goBack() {
 	document.location.href = "personal_cat.html";
 }
+
