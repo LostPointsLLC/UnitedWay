@@ -15,7 +15,7 @@ body {
 
 #color-list {
 	position: relative;
-	top: 110px;
+	top: 130px;
 
 }
 
@@ -32,31 +32,38 @@ color: white;
 
 #option-link {
 clear: both;
-position: absolute;
-top: 425px;
+position: relative;
+top: 120px;
 }
 
-#add {
-	text-align: left;
+#child-add {
+	float: left;
 	position: relative;
-	left: 35px;
+	left: 15px;
+	top: 150px;
 }
 
 #finish {
-	text-align: right;
+	float: right;
 	position: relative;
-	left: 100px;
+	right: 15px;
+	top: 150px;
 }
 
 
-#childinfo {
+#childname {
 	border: 2px solid white;
-	background-color: #f0502f;
+	background-color: #fbae42;
 	position: relative;
 	top: 80px;
 }
 
-
+#childbd {
+	border: 2px solid white;
+	background-color: #f0502f;
+	position: relative;
+	top: 85px;
+}
 
 
 
@@ -64,10 +71,11 @@ top: 425px;
 
 
 #name-input {
+	border: 0px;
 	width: 95%;
-	text-indent: 63px;
-	background-color: #f0502f
-/*	border-radius: 10px;	*/
+	text-align: center;
+	background-color: #fbae42;
+	
 }
 
 /* Styles the placeholder of the input */
@@ -88,8 +96,8 @@ top: 425px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border: 2px white solid;
-position: relative;
-top: 90px;
+   position: relative;
+   top: 90px;
 }
 
 #gender-select p {
@@ -104,7 +112,7 @@ top: 90px;
 #gender-select ul {
 	list-style: none;
 	position: relative;
-left: 44px;
+   left: 73px;
 }
 .input-info {
 	display: block;
