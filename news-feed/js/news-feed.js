@@ -27,6 +27,7 @@ function rssfeedsetup(){
 	feedpointer.load(displayfeed); /* Calls the displayfeed function */
 }
 
+
 function displayfeed(result){
 
 	if (!result.error){
@@ -41,16 +42,20 @@ function displayfeed(result){
 		 * Each iteration appends the headline inside a list item <li>
 		 */
 		for (var i = 0; i < thefeeds.length; i++) {
+
+			var inner = "<div class='inner-div'><p id='" + i + "' class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>"
+			var star = "<a onClick='favFunction(" + i + ")'><img src='../images/star-button.png'></a>";
 			if(i % 2 == 0) {
 
+				/* TODO: Make this code cleaner later */
 				if(i == thefeeds.length -1) {
 
-					rssoutput += "<div class='even item last-item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+					rssoutput += " <div class='even item last-item'>" + inner + star + "</div>";
 
 					break;
 				}
 
-				rssoutput += "<div class='even item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+				rssoutput += "<div class='even item'>" + inner + star + "</div>";
 
 				
 			}
@@ -59,21 +64,24 @@ function displayfeed(result){
 
 				if(i == thefeeds.length -1) {
 
-					rssoutput += "<div class='odd item last-item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+					rssoutput += "<div class='odd item last-item'>" + inner + star + "</div>";
 
 					break;
 				}
 
-				rssoutput += "<div class='odd item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+				rssoutput += "<div class='odd item'>" + inner + star + "</div>";
 
 
 			}
 
 		}
-		rssoutput += "</ul>";
+
 		feedcontainer.innerHTML = rssoutput;
 	}
 	
 	else
 		alert("Error fetching feeds!");
 }
+
+
+

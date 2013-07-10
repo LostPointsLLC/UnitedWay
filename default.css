@@ -162,11 +162,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 
 
 
-
-
-
-
-
 /* File specific styling */
 #start {
 	left: 85px;
@@ -174,8 +169,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 
 
 
+/* Supporting favorite capabilities */
+.favorite {
+/*background: url(images/star-button.png) no-repeat !important;*/
+	width: 25px;
+height: 25px;
+position: relative;
+		  z-index: 5;
 
 
+
+}
 
 
 

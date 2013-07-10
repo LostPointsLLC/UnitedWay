@@ -19,8 +19,9 @@
 		<script type="text/javascript" src="../generator.js"></script>
 		
 		<!-- Stylesheets -->
-		<link rel="stylesheet" type="text/css" href="../default.css">
+		<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/newsfeed.css">
+		<link rel="stylesheet" type="text/css" href="../default.css">
 		
 	</head>
 
@@ -35,6 +36,24 @@
 				<div id="feed">
 					<!-- The following code below allows me to call a function in feed.js with
 					my own parameters to the function. -->
+
+					<script>
+					function favFunction(i) {
+						alert("hello world, I have id " + i);
+						var paragraph = document.getElementById(i);
+
+						if(! $('#' + i ).hasClass("highlighted")) {	
+							paragraph.className = " highlighted";
+						}
+
+						else {
+							paragraph.className = "item-text";
+						}
+					}
+
+					</script>
+
+
 					<script src="js/news-feed.js"></script>
 					<script>
 						rssfeed("feed", "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 8, "Champaign Library Events:", "subtitle");
