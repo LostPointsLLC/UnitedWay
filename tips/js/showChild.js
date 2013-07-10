@@ -12,7 +12,7 @@ $(document).ready(function() {
 		cache: false,
 		success: function(data){
 			sessionStorage.jsonString = data; // store database data string as a session variable
-			// console.log(data);
+			console.log(data);
 			listChildren(data);
 		}
 	 });	 
@@ -30,16 +30,18 @@ function listChildren(param) {
 			var tableString = new Array(6);
 			var imagePath = "";
 			if (obj[key]["child_gender"] == "1") {
-				imagePath = "../images/girl.png";
+				imagePath = "girl";
 			}
 			else {
-				imagePath = "../images/boy.png";
+				imagePath = "boy";
 			}
+			var quotes = '"' + imagePath + '"';
+			var names =  '"' + obj[key]["child_name"] + '"';
 			var i = 0;
-			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + "," + obj[key]["child_age"] + ")' >";
-			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src='" + imagePath + "' /></td>"
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' >";
+			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src='../images/" + imagePath + ".png' /></td>";
 			tableString[++i] = "<td class = 'nameCell'>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td class = 'ageCell'>" + obj[key]["child_age"] + "</td></tr>";
+			tableString[++i] = "<td class = 'ageCell'>" + obj[key]["child_age"] + "</td></tr>" ;
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');
 			fragment.appendChild(anchor);
@@ -53,8 +55,7 @@ function listChildren(param) {
 	content.appendChild(fragment);
 }
 
-function linkToCategory(inChildID, childAge) {
+function linkToCategory(inChildID) {
 	sessionStorage.cid = inChildID; // Store child ID
-	sessionStorage.age = childAge;
 	document.location.href = "personal_cat.html";
 }

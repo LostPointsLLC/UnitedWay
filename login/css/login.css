@@ -31,7 +31,6 @@ p {
 	margin-top: 10px;
 	padding-left: 25px;
 }
-
 #email {
 	display: block;
 	height: 50px;
@@ -64,7 +63,6 @@ p {
 	border-radius: 10px;
 	color: white;
 }
-
 h6 {
 	font: 14px Arial, Helvetica, sans-serif;
 	color: #FFF;
@@ -73,7 +71,7 @@ h6 {
 }
 
 /* Button Styling */
-
+/*
 .button {
    background-image: -webkit-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
    background-image:    -moz-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
@@ -92,7 +90,7 @@ h6 {
    color: black;
 		
 }
-
+*/
 #option-links {
 	position: relative;
 	margin 0 auto;

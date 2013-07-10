@@ -4,7 +4,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>United Way: Log in</title>
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../default.css" rel="stylesheet" type="text/css" />
 		<link href="css/login.css" rel="stylesheet" type="text/css" />
+		<script src="../generator.js" type="text/javascript"></script>
+
 	</head>
 
 
@@ -12,8 +15,9 @@
 		<div id="login-wrapper">
 		  
 		  
-			<div id="titleBar"><img src="images/welcome-title.png"/></div>
-
+			<script>
+				generateHeader("Welcome!", false, false);	
+			</script>
 			
 			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p>
 			</div>
@@ -23,8 +27,13 @@
 				<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
 				
 				<div id="option-links">
-					<input type="button" class="button" name="button" value="Log in" onClick="verfiyLogin()"/>
-					<input type="button" class="button" name="add child" value="I'm a new user" onClick="registration()"/>
+							
+				<script type="text/javascript">
+					generateButton("Log in", "", "bt-yellow", "verifyLogin()");
+					generateButton("I'm a new user", "", "bt-yellow", "registration()");
+
+				</script>
+					
 				</div>
 
 				
@@ -38,7 +47,7 @@
 				document.location.href="registration.html";
 
 			}
-			function verfiyLogin() {
+			function verifyLogin() {
 				var iEmail = document.getElementById("email").value;
 				var iPass = document.getElementById("password").value;
 				// Variables used for XML/HTTP Request.

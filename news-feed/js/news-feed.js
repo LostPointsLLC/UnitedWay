@@ -9,11 +9,11 @@ var rssoutput;// = "<h2>Latest NPR Business News:</h2><ul>";
  * @param3: An int of how many stories will be shown
  * @param4: A string of the headline of the RSS feed.
  */
-function rssfeed(id, url, limit, output, subtitle) {
+function rssfeed(id, url, limit, output, style_id) {
 	feedcontainer = document.getElementById(id);
 	feedurl = url;
 	feedlimit = limit;
-	rssoutput = "<h2 id='" + subtitle + "'>" + output + "</h2><ul>";
+	rssoutput = "<div class='rss-head'><h3 id='" + style_id + "'>" + output + "</h3></div>";
 	
 	window.onload = function(){
 		rssfeedsetup();
@@ -40,8 +40,12 @@ function displayfeed(result){
 		/* Modifies the rssoutput variable, which will be interpreted as HTML 
 		 * Each iteration appends the headline inside a list item <li>
 		 */
-		for (var i = 0; i < thefeeds.length; i++)
-			rssoutput += "<li><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></li>";
+		for (var i = 0; i < thefeeds.length; i++) {
+			if(i % 2 == 0)
+				rssoutput += "<div class='even item'><p><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>";
+			else
+				rssoutput += "<div class='odd item'><p><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>";
+		}
 		rssoutput += "</ul>";
 		feedcontainer.innerHTML = rssoutput;
 	}

@@ -32,20 +32,20 @@ color: white;
 
 #option-link {
 clear: both;
-position: relative;
-top: 120px;
+position: absolute;
+top: 425px;
 }
 
 #add {
-	float: left;
+	text-align: left;
 	position: relative;
-	left: 15px;
+	left: 35px;
 }
 
 #finish {
-	float: right;
+	text-align: right;
 	position: relative;
-	right: 15px;
+	left: 100px;
 }
 
 
@@ -64,11 +64,10 @@ top: 120px;
 
 
 #name-input {
-	border: 0px;
 	width: 95%;
 	text-indent: 63px;
 	background-color: #f0502f
-	
+/*	border-radius: 10px;	*/
 }
 
 /* Styles the placeholder of the input */
