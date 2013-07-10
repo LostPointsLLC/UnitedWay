@@ -33,7 +33,7 @@ function goHome()
 //function to go to help page
 function goHelp()
 {
-    document.location.href = "../help/help1.html";
+    document.location.href = "../help/Calendar.html";
 }
 
 //function to display today's event below the main calendar
