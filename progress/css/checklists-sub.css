@@ -6,7 +6,6 @@
 }
 
 
-
 #home-help-buttons {
 	height: 50px;
 	width: 101px;
@@ -18,7 +17,7 @@
 }
 #health-well-being-wrapper {
 	width: 350px;
-	height: 600px;
+	height: 100%;
 	background: #00549b;
 	position: relative;
 	margin: 0 auto;

@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var day = currentDate.getDate();
 	var month = currentDate.getMonth();
     updateDate(day,month);
+    updateEvent(day,month);
 });
 
 //function to update page with current date, activity of the day and events of the day
@@ -18,15 +19,33 @@ function updateDate(d,m){
 	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) + "<br><br>"
 }
 
+//function to get and update the event of that day
+function updateEvent(d,m){
+$.ajax({
+		type: "POST",
+		url: "php/events.php",
+		
+		cache: false,
+		success: function(data){
+			var obj = jQuery.parseJSON(data);
+			document.getElementById('events').innerHTML = "Events: <br>" + obj[m][d-1];
+		}
+	 });
+}
+
 //go back to home page
 function goHome(){
 	document.location.href = "../home/";
 }
 
-//go back to calendar page
+//go to help page
+function goHelp(){
+	document.location.href = "../help/Calendar.html";
+}
 
+//go back to calendar page
 function goToCalendar(){
-	document.location.href = "../calendar/fullcalendar.html";
+	document.location.href = "../calendar/maincalendar.html";
 }
 
 //returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31

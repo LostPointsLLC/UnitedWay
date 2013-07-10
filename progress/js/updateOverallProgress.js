@@ -18,32 +18,10 @@ $(document).ready(function() {
 	 });	 
 });
 
-/*
-	Data from database is stored as a JSON string in the following format:
-
-	 EXAMPLE
-[{"child_id":"10",
-  "child_age":"2",
-  "child_color":"green",
-  "child_name":"Josh",
-  "child_gender":"0",
-  "health_code":"aaaaaaaaaa",
-  "language_code":"aaaaaaaaaa",
-  "social_code":"aabbaaaaaa",
-  "other_code":"aabaaaaaaa"},
-  
-  {"child_id":"12",
-   "child_age":"1",
-   "child_color":"red",
-   "child_name":"Vaidehi",
-   "child_gender":"1"
-	
-*/
-
 // called by .ready() to parse retrieved JSON string into Javascript objects.
 function updateProgress(param) {
 	var obj = jQuery.parseJSON(param);
-	var header = document.getElementById("header");
+	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
 	
 	for (var key in obj) {
@@ -62,19 +40,26 @@ function updateProgress(param) {
 			var totalCount = health_code.length + language_code.length + social_code.length + other_code.length;
 			var overallPerc = (totalChecked / totalCount) * 100;
 			
+			
+			var genderImg = "";
+			if (obj[key]["child_gender"] == 0) {
+				genderImg = "boy";
+			}
+			else {
+				genderImg = "girl";
+			}
 			var anchor = document.createElement('div');
 			var tableString = new Array(8);
 			var i = 0;
-			tableString[i] = "<table onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' border='1' bordercolor='#999999' style= cellpadding='2' cellspacing='2' width='300'>";
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")'>";
 			// First Row
-			tableString[++i] = "<tr><td rowspan = '3'>" + obj[key]["child_gender"] + "\n";
-			tableString[++i] = obj[key]["child_color"] + "</td>";
-			tableString[++i] = "<td colspan = '4'>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td rowspan = '3'>" + obj[key]["child_age"] + "</td></tr>";
+			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img src = '../images/" + genderImg + ".png' height='42' width='42'></td>";
+			tableString[++i] = "<td class = 'cell' colspan = '4'>" + obj[key]["child_name"] + "</td>";
+			tableString[++i] = "<td class = 'ageCell' rowspan = '3'>" + obj[key]["child_age"] + "</td></tr>";
 			// Second Row
-			tableString[++i] = "<tr><td >(blank)</td><td>(apple icon)</td><td>(star icon)</td><td>(book)</td></tr>";
+			tableString[++i] = "<tr><td ></td><td></td><td></td><td></td></tr>";
 			// Third Row
-			tableString[++i] = "<tr><td colspan='4'><progress value = '" + overallPerc + "' max='100'></progress></td></tr>";
+			tableString[++i] = "<tr><td class = 'cell' colspan='4'><progress class = 'progress' value = '" + overallPerc + "' max='100'></progress></td></tr>";
 			tableString[++i] = "</table>";
 			
 			anchor.innerHTML = tableString.join('');
@@ -86,7 +71,7 @@ function updateProgress(param) {
 			fragment.appendChild(line);	
 		}
 	}
-	header.appendChild(fragment);
+	content.appendChild(fragment);
 }
 
 function linkToCategory(inChildID) {

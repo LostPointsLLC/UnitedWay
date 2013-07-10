@@ -7,25 +7,30 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/colors.css"/>
 		<link rel="stylesheet" type="text/css" href="css/sprites.css"/>
+		<script src="../generator.js"></script>
+		<link href="../default.css" rel="stylesheet" type="text/css" />
 		<script src="js/child.js"></script>
 	</head>
 	<body>
 
 		<form id="form">
 			<div id="titlebar"><img src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
-		
-			<p>Fill in your child's information below!</p>
+
+			<p>Please fill in your child's information below!</p>
 
 			<img id="icon" src="images/boy.png"/>
 			<div id="content">
-				<div id="childinfo" class="input-info">
+				<div id="childname" class="input-info">
 					<div id="name">
 						<input id="name-input" type="text" name="name" placeholder="Your child's firstname">
 					</div>
+				</div>
 
+            <div id="childbd" class="input-info">
 					<div id="birthday">
 						<p>Your child's birthday</p>
 						<input type="date" name="birthdate"/>
+<<<<<<< HEAD
 <!--
 						<select name="month" onchange="return onload(this, event, 
 
@@ -100,6 +105,8 @@
 						<option value="2001">2001</option>
 						<option value="2000">2000</option>
 						</select>-->
+=======
+>>>>>>> b09f410222b64bda43c9eac0cdc69a99fb46077c
 					</div>
 				</div>
 
@@ -118,6 +125,7 @@
 
 				<div id="color-list">
 					<input type="color" name="colorpicker"/>
+<<<<<<< HEAD
 <!--
 
 					<input id="red" type="radio" name="color" value="1" style="display: none;"  >
@@ -131,14 +139,37 @@
 					<input id="magenta" type="radio" name="color" value="8" style="display: none;" >
 					<input id="lime-green" type="radio" name="color" value="9" style="display: none;" >
 					<input id="brown" type="radio" name="color" value="10" style="display: none;" >-->
+=======
+
+>>>>>>> b09f410222b64bda43c9eac0cdc69a99fb46077c
 				</div>
 
 
-				<div id="option-link">
+			<!--	<div id="option-link">
 					<button id="add" href="child.html">Add another child</button>
 					<button id="finish" href="finish.html">Finished!</button>
-				<div>
+				<div> -->
 			</div>
+
+<div id="footer" style="">
+         <script type="text/javascript">
+				generateButton("Finished!", "finish", "bt-yellow", "finish()");
+				function finish() { 
+					document.location.href="finish.html"; 
+				}
+			</script>
+
+			<script type="text/javascript">
+				generateButton("Add Another Child", "add", "bt-yellow", "add()");
+				function add() { 
+					document.location.href="child.html"; 
+				}
+			</script></div>
+
+			
+
+
 		</form>
+
 	</body>
 </html>
