@@ -1,5 +1,5 @@
 /* Swaps the input of the button colors into *actual* colors */
-$(document).ready(function() {
+/*$(document).ready(function() {
 
 	// Recreates the buttons by hiding each one
 	// then replaces each radio button with an <a> element
@@ -27,21 +27,6 @@ $(document).ready(function() {
 		}
 	});
 
-	/* not needed just for sake ;)*/
-	$('#form').submit(function() {
-		var posts = $(this).serialize();						// Finds the checked items, then concatenates as a datastring
-
-		// Executes if one of the buttons is pressed
-		if (posts != '') {
-			alert(posts);
-		} 
-		
-		// Executes if nothing has been pressed
-		else {
-			alert('please select something, then submit the form!');
-		}
-		return false;
-	});
 
 	// Allows for multiple skins to be displayed
 	$('#change-skin').change(function() {
@@ -49,3 +34,32 @@ $(document).ready(function() {
 	});
 
 });
+*/
+
+/* Updates the database */
+function updateDB() {
+	var posts = $("#form").serialize();						// Finds the checked items, then concatenates as a datastring
+	posts += "&child_parentID=" + sessionStorage.pid;
+
+	if(posts.search("=&") != -1) {
+		alert("Please fill in all of the fields.");
+		return -1;
+	}
+	/* TODO: Make requirements for which fields should be added */
+
+
+	// Executes if one of the buttons is pressed
+	
+	$.ajax({
+
+		type: "POST",
+		url: "php/child.php",
+		data: posts,
+		cache: false,
+		async: false,
+	});
+	return 0;
+
+}
+
+

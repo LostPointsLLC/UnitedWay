@@ -31,7 +31,6 @@
 	// 1. Make this function echo a user_id
 	// 2. Make sure that registration.html's javascript doesn't let non-IDs pass into the system
 	
-	echo 10;
 	mysqli_close($dbConnection);
 
 ?>
