@@ -38,7 +38,11 @@ html, body {
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
-
+#arrow {
+	position: absolute;
+	top: 18%;
+	left: 36%;
+}
 #child p  {
 	padding-top: 7px;
 	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
@@ -47,6 +51,7 @@ html, body {
 #child-wrapper {
 	height: 100px;
 	width: 350px;
+	margin-bottom: 40px;
 }
 
 #child {
@@ -92,7 +97,6 @@ html, body {
  	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	box-shadow:inset 1px 1px 0px 0px #dcecfb;
-	margin-top: 43px;
 }.bt-health:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
 	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
