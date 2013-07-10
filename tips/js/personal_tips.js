@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	// Display Picture
 	var tipCategory = sessionStorage.tCat.toString();
-	var front = document.getElementById("frontpiece");
 	
+	/*
 	// PHP query 
 	var pid = sessionStorage.pid.toString();
 	var taskCat = sessionStorage.tCat.toString();
@@ -19,16 +19,20 @@ $(document).ready(function() {
 			displayTips(data);
 		}
 	 });
+	 
+	 */
 	 /* Data in the Form:
 	 [{"tip_id":"10","tip_content":"tip content for id 10"}, {"tip_id...}, ...] 
 	 */
+	 displayTips();
 });
 
 /**
  * Display tips for particular age/ category
  */
+ /*
 function displayTips (param) {
-	var input = jQuery.parseJSON(param);
+	//var input = jQuery.parseJSON(param);
 	var tipsList = input[0];
 	// Loop through and list all tips.
 	// Each tip has a unique tip_id, use this in our advantage
@@ -37,8 +41,16 @@ function displayTips (param) {
 		var entry = "<li>" + tipText + "</li>";
 		$("#frontpiece").append(entry);
 	}
-	
+}
+*/
 
+function displayTips() {
+	// Use session data to figure out child age
+	var jObj = jQuery.parseJSON(sessionStorage.jsonString);
+	var childID = sessionStorage.cid;
+	var childAge = jObj[childID]["child_age"];
+	
+	jObj[childID]["child_name"];
 }
 
 function goBack() {
