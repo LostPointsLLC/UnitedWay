@@ -24,8 +24,6 @@ function listChildren(param) {
 	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
 	
-
-	
 	for (var key in obj) {
 		if (obj.hasOwnProperty(key)) {
 		
