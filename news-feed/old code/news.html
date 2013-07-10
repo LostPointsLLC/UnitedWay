@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>news</title>
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/news.css" rel="stylesheet" type="text/css" />
+	</head>
+
+
+
+
+
+
+
+	<body>
+	<div id="news-wrapper">
+
+
+
+	<div id="news-title"><img src="images/news-title.png" width="245" height="50" alt="" />
+
+
+
+		<div id="home-help-buttons"> 
+
+			<img src="images/help-button.png" width="50" height="50" alt="" />
+
+			<img src="images/home-button.png" width="50" height="50" alt="" />
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+	<div id="rss-feeds">Content for  id "rss-feeds" Goes Here
+		<div id="feed"></div>
+		<div id="feed2"></div>
+		<!-- The following code below allows me to call a function in feed.js with
+		my own parameters to the function. -->
+		<script src="js/rss.js"></script>
+		<script>
+		rssfeed(
+		"feed", 		"http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 
+		8, 
+		"Champaign Library Events:"
+		);
+
+		/* TODO: This link below works, but the code needs to be edited 
+		in order for multiple RSS feeds to be present. */
+		/*"http://www.chambanamoms.com/feed" */
+
+		</script>
+		</div>
+
+
+
+
+	</div> 
+
+
+
+
+
+	</body>
+</html>
