@@ -2,16 +2,24 @@ $(document).ready(function() {
 	// Display Picture
 	var tipCategory = sessionStorage.tCat.toString();
 	
-	/*
+	
 	// PHP query 
+	var jObj = jQuery.parseJSON(sessionStorage.jsonString);
 	var pid = sessionStorage.pid.toString();
 	var taskCat = sessionStorage.tCat.toString();
-	var childAge = sessionStorage.age.toString();
-	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&childAge=" + childAge;
+	var childID = sessionStorage.cid;
+	// Get child age in months (from functions.js)
+	// Then get whatever age category the child fits in.
+	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
+	var ageIndex = calcCat(monthcount);
+	
+	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&ageIndex=" + ageIndex;
+	console.log("age in month is is : " + monthcount);
+	console.log("age category is : " + ageIndex);
 	
 	$.ajax({
 		type: "POST",
-		url: "php/fetchTips.php",
+		url: "php/fetchFavTips.php",
 		data: dataString,
 		cache: false,
 		success: function(data){
@@ -20,11 +28,8 @@ $(document).ready(function() {
 		}
 	 });
 	 
-	 */
-	 /* Data in the Form:
-	 [{"tip_id":"10","tip_content":"tip content for id 10"}, {"tip_id...}, ...] 
-	 */
-	 displayTips();
+	 
+	 //displayTips();
 });
 
 /**
@@ -44,15 +49,14 @@ function displayTips (param) {
 }
 */
 
-function displayTips() {
+function displayTips(param) {
 	// Use session data to figure out child age
 	var jObj = jQuery.parseJSON(sessionStorage.jsonString);
 	var childID = sessionStorage.cid;
-	var ageInMonths = calculateMonth(jObj[childID]["child_birthday"]);
 	// Get child age in months (from functions.js)
 	// Then get whatever age category the child fits in.
-	var ageIndex = calcCat(ageInMonths);
-
+	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
+	var ageIndex = calcCat(monthcount);
 	// Category ID "health", "growth", "safety", "playtime"
 	var tipCategory = sessionStorage.tCat.toString();
 	var tipArray;
@@ -74,14 +78,31 @@ function displayTips() {
 			break;
 	}
 	
+	// Parse Favorites Array Here
+	var fObj = jQuery.parseJSON(param);
+	var favArray = new Array();
+	for (var key in fObj) {
+		favArray.push(parseInt(fObj[key]));
+	}
+		
 	for (var i = 0; i < tipArray.length; i++) {
-	
-
-		var entry = "<div class='tip'><p>" + tipArray[i] + "</p></div>";
+		// odd or even
+		var ctnClass;
+		if (i % 2 == 0) {
+			ctnClass = "tip-ctn-even";
+		}
+		else{
+			ctnClass = "tip-ctn-odd";
+		}
+		
+		var entry;
+		if (jQuery.inArray(i, favArray) != -1) {
+			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='fav'>" + tipArray[i] + "</p></div></div>";
+		}
+		else {
+			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div></div>";
+		}
 		$("#frontpiece").append(entry);
-		
-		
-		
 	}
 }
 

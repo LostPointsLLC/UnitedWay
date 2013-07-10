@@ -211,23 +211,40 @@ html, body {
 	width: 100%;
 
 }
-
-.tip {
-margin: 0 auto;
-padding: 0;
-	width: 80%;
+.tip-ctn-even{
+	margin: 0 auto;
+	width: 100%;
 	display: block;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	border-bottom: #7ca3dc 2px solid;
-
+	background-color: #00549b;
 }
 
-p {
+.tip-ctn-odd{
+	margin: 0 auto;
+	width: 100%;
+	display: block;
+	border-bottom: #7ca3dc 2px solid;
+	background-color: #7ca3dc;
+}
 
+.tip {
+	margin: 0 auto;
+	padding: 10px 10px 10px 10px;
+	width: 80%;
+	display: block;
+	
+
+}
+/* For favorite tip entry styling */
+
+.notfav {
 	color: white;
 	font-family: arial;
+}
 
+.fav {
+	color: yellow;
+	font: bold 18px arial;
 }
 .wrapper {
 	height: auto;
