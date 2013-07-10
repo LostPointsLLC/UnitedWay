@@ -40,7 +40,7 @@ html, body {
 }
 #arrow {
 	position: absolute;
-	top: 18%;
+	top: 15.5%;
 	left: 36%;
 }
 #child p  {
@@ -217,6 +217,10 @@ html, body {
 	display: block;
 	border-bottom: #7ca3dc 2px solid;
 	background-color: #00549b;
+	background-image:url("../../images/star-button.png");
+	background-repeat:no-repeat;
+	background-position:right center;
+	background-size:40px 40px;
 }
 
 .tip-ctn-odd{
@@ -231,8 +235,7 @@ html, body {
 	margin: 0 auto;
 	padding: 10px 10px 10px 10px;
 	width: 80%;
-	display: block;
-	
+	display: inline-block;
 
 }
 /* For favorite tip entry styling */
@@ -246,6 +249,15 @@ html, body {
 	color: yellow;
 	font: bold 18px arial;
 }
+
+.favstar {
+	display: inline-block;
+}
+
+.notfavstar{
+	display: inline-block;
+}
+
 .wrapper {
 	height: auto;
 

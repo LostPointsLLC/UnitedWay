@@ -86,7 +86,7 @@ function displayTips(param) {
 	}
 		
 	for (var i = 0; i < tipArray.length; i++) {
-		// odd or even
+		// Determine odd or even background
 		var ctnClass;
 		if (i % 2 == 0) {
 			ctnClass = "tip-ctn-even";
@@ -94,16 +94,21 @@ function displayTips(param) {
 		else{
 			ctnClass = "tip-ctn-odd";
 		}
-		
+			
 		var entry;
 		if (jQuery.inArray(i, favArray) != -1) {
-			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='fav'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div><img class = 'favstar' height='30' width='30' src = '../images/star-button.png' /></div>";
 		}
 		else {
-			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div><img class = 'notfavstar' height='30' width='30' src = '../images/unpressed-star-button.png' /></div>";
 		}
 		$("#frontpiece").append(entry);
 	}
+	
+	// Bind stars with event handlers
+	
+	
+	
 }
 
 function goBack() {
