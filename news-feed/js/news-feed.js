@@ -41,10 +41,34 @@ function displayfeed(result){
 		 * Each iteration appends the headline inside a list item <li>
 		 */
 		for (var i = 0; i < thefeeds.length; i++) {
-			if(i % 2 == 0)
-				rssoutput += "<div class='even item'><p><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>";
-			else
-				rssoutput += "<div class='odd item'><p><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>";
+			if(i % 2 == 0) {
+
+				if(i == thefeeds.length -1) {
+
+					rssoutput += "<div class='even item last-item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+
+					break;
+				}
+
+				rssoutput += "<div class='even item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+
+				
+			}
+			else {
+
+
+				if(i == thefeeds.length -1) {
+
+					rssoutput += "<div class='odd item last-item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+
+					break;
+				}
+
+				rssoutput += "<div class='odd item'><div class='inner-div'><p class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div></div>";
+
+
+			}
+
 		}
 		rssoutput += "</ul>";
 		feedcontainer.innerHTML = rssoutput;
