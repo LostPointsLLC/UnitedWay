@@ -24,7 +24,7 @@ function goHome(){
 
 //go to help page
 function goHelp(){
-	document.location.href = "../help/help1.html";
+	document.location.href = "../help/Calendar.html";
 }
 
 //go back to calendar page
