@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "POST",
-		url: "php/overallProgress.php",
+		url: "../php/fetchSummary.php",
 		data: dataString,
 		cache: false,
 		success: function(data){
@@ -40,14 +40,10 @@ function updateProgress(param) {
 			var totalCount = health_code.length + language_code.length + social_code.length + other_code.length;
 			var overallPerc = (totalChecked / totalCount) * 100;
 			
-			
-			var genderImg = "";
-			if (obj[key]["child_gender"] == 0) {
-				genderImg = "boy";
-			}
-			else {
-				genderImg = "girl";
-			}
+			//Calculate child's age
+			var ageInMonths = calculateMonth(obj[key]["child_birthday"]);
+			var ageFormatted = calculateAge(ageInMonths);
+			var genderImg = obj[key]["child_gender"];
 			var anchor = document.createElement('div');
 			var tableString = new Array(8);
 			var i = 0;
@@ -55,7 +51,7 @@ function updateProgress(param) {
 			// First Row
 			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img src = '../images/" + genderImg + ".png' height='42' width='42'></td>";
 			tableString[++i] = "<td class = 'cell' colspan = '4'>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td class = 'ageCell' rowspan = '3'>" + obj[key]["child_age"] + "</td></tr>";
+			tableString[++i] = "<td class = 'ageCell' rowspan = '3'>" + ageFormatted + "</td></tr>";
 			// Second Row
 			tableString[++i] = "<tr><td ></td><td></td><td></td><td></td></tr>";
 			// Third Row

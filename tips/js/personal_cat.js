@@ -4,21 +4,11 @@ $(document).ready(function() {
 	var jObj = jQuery.parseJSON(jsonStr);
 	
 	// Print picture of child based on gender
-	var genderID = jObj[childID]["child_gender"];
+	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
-	
-	var imgfile = "";
-	switch(genderID) {
-		case "0":
-			imgfile = "boy";
-			break;
-		case "1":
-			imgfile = "girl";
-			break;
-	}
 	var child = document.getElementById("child");
-	child.innerHTML = '<img src="../images/' + imgfile + '.png" width="60" height="60" alt="" /><p>' + childName + '</p>';
-		// Create array that indexes child id's
+	child.innerHTML = '<img src="../images/' + gender + '.png" width="60" height="60" alt="" /><p>' + childName + '</p>';
+	// Create array that indexes child id's
 	var indexList = new Array();
 	for (var key in jObj) {
 		indexList.push(key);

@@ -25,16 +25,16 @@ html, body {
 	font-size:1em;
 	border:1px solid #00549b;
 	padding:3px 7px 2px 7px;
-	width: 150px;
+	width: 130px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
 
 .ageCell {
-	font-size:2em;
+	font-size:1em;
 	border:1px solid #00549b;
 	padding:3px 7px 2px 7px;
-	width: 90px;
+	width: 130px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }

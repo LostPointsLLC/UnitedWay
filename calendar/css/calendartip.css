@@ -51,7 +51,7 @@ body {
 	font: 120px chunkfiveregular;
 	color: #FFF;
 	height: 110px;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 #month{
@@ -61,6 +61,21 @@ body {
 	color: #FFF;
 	padding-bottom: 0px;
 	height: 50px;
+}
+
+#activity {
+   text-align: center;
+	font: 21px arial;
+	color: #FFF;
+	padding-top: 20px;
+	padding-left: 0;
+}
+
+#events {
+   text-align: center;
+	font: 21px arial;
+	color: white;
+   padding-top: 20px;
 }
 
 #home,#back{

@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "POST",
-		url: "php/fetchChildren.php",
+		url: "../php/fetchSummary.php",
 		data: dataString,
 		cache: false,
 		success: function(data){
@@ -24,24 +24,22 @@ function listChildren(param) {
 	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
 	
+
+	
 	for (var key in obj) {
 		if (obj.hasOwnProperty(key)) {
+		
+			//Calculate child's age
+			var ageInMonths = calculateMonth(obj[key]["child_birthday"]);
+			var ageFormatted = calculateAge(ageInMonths);
 			var anchor = document.createElement('div');
 			var tableString = new Array(6);
-			var imagePath = "";
-			if (obj[key]["child_gender"] == "1") {
-				imagePath = "girl";
-			}
-			else {
-				imagePath = "boy";
-			}
-			var quotes = '"' + imagePath + '"';
-			var names =  '"' + obj[key]["child_name"] + '"';
+			
 			var i = 0;
 			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' >";
-			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src='../images/" + imagePath + ".png' /></td>";
+			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src = '../images/" + obj[key]["child_gender"] + ".png' /></td>";
 			tableString[++i] = "<td class = 'nameCell'>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td class = 'ageCell'>" + obj[key]["child_age"] + "</td></tr>" ;
+			tableString[++i] = "<td class = 'ageCell'>" + ageFormatted + "</td></tr>" ;
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');
 			fragment.appendChild(anchor);
