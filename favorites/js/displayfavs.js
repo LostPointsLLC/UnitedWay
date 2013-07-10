@@ -1,4 +1,4 @@
-/**
+/*
  * Displays the favorites on the screen
  * right when the page is ready
  */
@@ -140,22 +140,25 @@ $(document).ready(function() {
 	});
 	
 	$(".delete").click(function() {
-		var par = $(this).parent();
-		var pTitle = par.attr('title');
-		var content = pTitle.slice(0, 20);
+		var par = $(this).parent();				// The div element
+		var pTitle = par.attr('title');			// Contains the title of the rss feed
+
+		// Obtains the content of the item, but only shows a little of it
+		var content = pTitle.slice(0, 20);		 
 		if (content.length > 18) {
 			content = content + "...";
 		}
+
+		// cTitle determines whether it's an event, rss, or tip
 		var cTitle = $(this).attr('title');
 		var prompt = confirm("Delete " + cTitle + ": " + content + "?");
 		if (prompt == true) {
-			deletionArray.push(par.attr('id'));
+			deletionArray.push(parseInt(par.attr('id')));
 			par.remove();
 		}
 	});
 	
 	$(window).unload( function () {
-		// Request server to delete everything in deletion array
-		console.log(deletionArray.join(' '));
+		deletefav(deletionArray);
 	});
 });

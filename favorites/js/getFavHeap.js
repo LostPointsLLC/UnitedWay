@@ -75,7 +75,7 @@ function favHeap(rssArray, tipArray, eventArray) {
 // Function that returns an array of all of the favorite objects.
 // Returns a favHeap object.
 function getFavHeap(userID) {
-	var datastring = 'userID' + userID;
+	var datastring = 'userID=' + userID;
 	
 	var rssArray = new Array();
 	var tipsArray = new Array();

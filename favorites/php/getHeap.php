@@ -1,7 +1,6 @@
 <?php
 	require("connect.php");
-	//$fav_userID = $_POST['userID'];
-	$fav_userID = 10;	
+	$fav_userID = $_POST['userID'];
 	$output = array();
 	
 	// Execute the rss query
