@@ -91,7 +91,7 @@ height: 50px;
 }
 
 #list-container {
-	position: relative;
-bottom: 10px;
+	/*position: relative;*/
+	bottom: 10px;
 }
 
