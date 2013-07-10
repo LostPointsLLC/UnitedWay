@@ -15,7 +15,7 @@
 
 		// The first command has no OR
 		else {
-			$querysubstring = $querysubstring . "fav_id = $id ";
+			$querysubstring = "fav_id = $id ";
 		}
 
 	}
