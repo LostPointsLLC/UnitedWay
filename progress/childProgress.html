@@ -15,71 +15,48 @@
 
 	<body>
 		<div class="wrapper">
+			<!-- HEADER-->
 			<script type="text/javascript">
-				generateHeader("Checklists", true, true);
-				generateButton("Health & Well Being", "health-bt", "bt-health", "healthChecklist()");
+				generateHeader("Checklists", true, true); // Header
 			</script>
-			<div id = "content"></div>
 			
+			<!-- HEALTH BUTTON-->
+			<script type="text/javascript">
+				generateButton("Health & Well Being", "health-bt", "bt-health", "healthChecklist()"); // Health Button
+			</script>
+			<div class = "pb-ctn">
+				<progress id="1" class="detail" value='0' max='100'></progress>
+				<a id="percentage1" class="percentage"></a>
+			</div>
 			
-		</div>
-		
-		<div id="checklist-main-wrapper">
-		  
-			<div id="checklist-title">
-
-				<img src="images/ckecklist-title.png" alt="" width="245" height="50" class="clearFloat" />
-
-				<div id="home-help-buttons"> 
-
-					<img src="images/help-button.png" width="50" height="50"/>
-
-					<a href="../home/"><img src="images/home-button.png" width="50" height="50"/></a>
-
-				</div>
-				<!-- end of home-help-buttons -->
-
-
+			<!-- LANGUAGE BUTTON-->
+			<script type="text/javascript">
+				generateButton("Language & General", "lang-bt", "bt-lang", "langChecklist()"); // Health Button
+			</script>
+			<div class = "pb-ctn">
+				<progress id="2" class="detail" value='0' max='100'></progress>
+				<a id="percentage2" class="percentage"></a>
 			</div>
-			<!-- end of checklist-title -->
 			
-
-			<div id="Health1">
-				<img src="images/health-well-being-button.png" width="148" height="50" alt="" />
-				<progress id="1" class="progressbar" value='0' max='100'></progress>
-				<span id="percentage1" class="percentage"></span>
+			<!-- SOCIAL BUTTON-->
+			<script type="text/javascript">
+				generateButton("Social & Emotional Prep.", "social-bt", "bt-social", "socialChecklist()"); // Health Button
+			</script>
+			<div class = "pb-ctn">
+				<progress id="3" class="detail" value='0' max='100'></progress>
+				<a id="percentage3" class="percentage"></a>
 			</div>
-			<!-- end of health -->
 
-
-
-			<div id="Language1"> <!-- Right now Reading label-->
-				<img src="images/language-general-button.png" width="148" height="50" alt="" />
-				<progress id="2" class="progressbar" value = '0' max='100'></progress>
-				<span id="percentage2" class="percentage"></span>
-			</div>
-			<!-- end of reading -->
-
-
-
-
-			<div id="Social1"> <!-- Writing label -->
-				<img src="images/social-emotional-button.png" width="148" height="50" alt="" />
-				<progress id="3" class="progressbar" value = '0' max='100'></progress>
-				<span id="percentage3" class="percentage"></span>
-			</div>
-			<!-- end of writing -->
-
-			<div id="Other1"> <!-- Math label -->
-				<img src="images/other.png" width="148" height="50" alt="" />
-				<progress id="4" class="progressbar" value = '0' max='100'></progress>
-				<span id="percentage4" class="percentage"></span>
-			</div>
-			<!-- end of math -->
-
+			<!-- OTHER BUTTON-->
+			<script type="text/javascript">
+				generateButton("Other", "other-bt", "bt-other", "otherChecklist()"); // Health Button
+			</script>
+			<div class = "pb-ctn">
+				<progress id="4" class="detail" value='0' max='100'></progress>
+				<a id="percentage4" class="percentage"></a>
+			</div>			
 			
-			
-			<!-- right and left arrows are for multiple children -->
+			<!-- ARROWS -->
 
 			<div id="child-wrapper">
 				<div id="left-arrow"><img src="images/left-arrow.png" width="50" height="50" alt="" />
@@ -95,10 +72,6 @@
 
 			</div>
 			<!-- end of child-wrapper -->
-
-
-
-
 		</div>
 		<!-- end of checklist-main-wrapper -->
     </body>

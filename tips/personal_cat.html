@@ -3,20 +3,34 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Personalized Categories</title>
-		
-		<link href="css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="css/tips.css" rel="stylesheet" type="text/css" />
-		<link href="css/format.css" rel="stylesheet" type="text/css" />
-		<link href="css/tips-main.css" rel="stylesheet" type="text/css" />
-		
-		
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/tips.css" />
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/generator.js"></script>
 	</head>
-
-	<!-- A litle problem that I noticed: each "remove-share-button" DIV
-	is knocked down a little further in each "tips-item" DIV. I believe this problem is probably due to the border that is on each "tips-item" DIV.
-	Maybe you guys can come up with a solution to this. -->
-
 	<body>
+		<div class="wrapper">
+			<script type="text/javascript">
+				generateHeader("Tips", true, true);
+			</script>
+			<div id="child-wrapper">
+				<div id="left-arrow"><img src="images/left-arrow.png" width="50" height="50" alt="" />
+				</div>
+				<!-- end of left-arrow -->
+				<div id="child"><img src="images/boy.png" width="60" height="60" alt="" /><p>TOMMY</p></div>
+				<!-- end of child -->
+				<div id="right-arrow"><img src="images/right-arrow.png" width="50" height="50" alt="" />
+				</div>
+				<!-- end of right-arrow -->
+			</div>
+			<div>
+				<script type="text/javascript">
+					generateButton("Health and Well Being", "health", "bt-health", "healthTips()");
+				</script>
+			</div>
+		</div>
+	
+	
 		<div id="tips-wrapper">
 		
 			<div id="tips-title">

@@ -21,7 +21,7 @@ $(document).ready(function() {
 // called by .ready() to parse retrieved JSON string into Javascript objects.
 function listChildren(param) {
 	var obj = jQuery.parseJSON(param);
-	var header = document.getElementById("tips-wrapper");
+	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
 	
 	for (var key in obj) {
@@ -30,16 +30,16 @@ function listChildren(param) {
 			var tableString = new Array(6);
 			var imagePath = "";
 			if (obj[key]["child_gender"] == "1") {
-				imagePath = "images/girl.png";
+				imagePath = "../images/girl.png";
 			}
 			else {
-				imagePath = "images/boy.png";
+				imagePath = "../images/boy.png";
 			}
 			var i = 0;
-			tableString[i] = "<table onClick = 'linkToCategory(" + obj[key]["child_id"] + "," + obj[key]["child_age"] + ")' border = '1'>";
-			tableString[++i] = "<tr><td><img height='50' width='50' src='" + imagePath + "' /></td>"
-			tableString[++i] = "<td>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td>" + obj[key]["child_age"] + "</td></tr>";
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + "," + obj[key]["child_age"] + ")' >";
+			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src='" + imagePath + "' /></td>"
+			tableString[++i] = "<td class = 'nameCell'>" + obj[key]["child_name"] + "</td>";
+			tableString[++i] = "<td class = 'ageCell'>" + obj[key]["child_age"] + "</td></tr>";
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');
 			fragment.appendChild(anchor);
@@ -50,7 +50,7 @@ function listChildren(param) {
 			fragment.appendChild(line);	
 		}
 	}
-	header.appendChild(fragment);
+	content.appendChild(fragment);
 }
 
 function linkToCategory(inChildID, childAge) {
