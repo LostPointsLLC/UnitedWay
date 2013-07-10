@@ -29,7 +29,7 @@ function calculateAge(months) {
 	}
 	else {
 		var month = String(months);
-		var retStr = month + "Mths";
+		var retStr = month + " Mths";
 		return retStr;
 	}
 }
