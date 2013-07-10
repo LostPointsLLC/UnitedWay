@@ -75,14 +75,14 @@ html, body {
 .bt-health {
 	width: 100%;
 	height: 80px;
-	font-size:13px;
+	font-size:25px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
-	border-radius:8px;
+	border-radius:8px;	
 	border:1px solid #84bbf3;
-	/*padding:10px 30px 5px 30px;*/
+	padding:50px 0px 0px 0px;
 	text-decoration:none;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #bddbfa), color-stop(100%, #80b5ea) );
 	background:-moz-linear-gradient( center top, #bddbfa 5%, #80b5ea 100% );
