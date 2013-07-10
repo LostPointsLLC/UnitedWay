@@ -1,0 +1,58 @@
+/* Macro definitions */
+/*<defmacro WIDTH>720px</defmacro>*/
+
+
+
+/**************************************/
+/*
+#container {
+
+	width: 720px;
+	margin: 20px auto;
+	padding: 8px;
+	
+	border: white solid 3px;
+	border-radius: 5px;
+	background-color: blue;
+}
+
+#container > * {
+	border-radius: 5px;
+}
+
+#header-tmp {
+	width: 700px;
+	height: 200px;
+	padding: 0;
+	margin: 0 auto;
+
+	background-color: gray;
+	border: 2px solid black;
+}
+
+
+#content {
+	width: 700px;
+	
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+	padding: 0;
+	
+	border: 2px solid black;
+	background-color: red;
+}
+
+
+#footer {
+	width: 700px;
+	height: 50px;
+	
+	margin: 0 auto;
+	padding: 0;
+	
+	border: 2px solid black;
+	background-color: green;
+}
+*/
