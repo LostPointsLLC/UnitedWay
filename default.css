@@ -57,19 +57,19 @@
 /* Classes for the buttons */
 .button {
 			text-align: center;
-padding: 10px;
-height: 20px;
-position: relative;
-display: inline-block;
-}
+         padding: 10px;
+         height: 20px;
+         position: relative;
+         display: inline-block;
+        }     
 
 .button-text {
 	position: relative;
-/*bottom: 8px;*/
-
+   /*bottom: 8px*/;
 }
 
 .bt-yellow{
+   border-radius: 10px;
 	border:1px solid #ffad41; 
 	-webkit-border-radius: 3px; 
 	-moz-border-radius: 3px;
@@ -124,11 +124,11 @@ display: inline-block;
 	 background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
 filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
 
-width: 250px;
-height: 50px;
-margin: auto;
-display: block;
-		 text-align: center;
+   width: 250px;
+   height: 50px;
+   margin: auto;
+   display: block;
+   text-align: center;
 }
 
 .bt-blue:hover{

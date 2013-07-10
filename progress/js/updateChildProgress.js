@@ -15,10 +15,10 @@ $(document).ready(function() {
 	var imgfile = "";
 	switch(genderID) {
 		case "0":
-			imgfile = "images/boy.png";
+			imgfile = "../images/boy.png";
 			break;
 		case "1":
-			imgfile = "images/girl.png";
+			imgfile = "../images/girl.png";
 			break;
 	}
 	
@@ -126,4 +126,24 @@ function linkToCategory(cid, cat) {
 	sessionStorage.cid = cid;
 	sessionStorage.cat = cat; // category ID that carries over
 	document.location.href = "checkList.html";
+}
+
+function healthChecklist() {
+	sessionStorage.cat = 1;
+	document.location.href = "health_checklist.html";
+}
+
+function langChecklist() {
+	sessionStorage.cat = 2;
+	document.location.href = "language_checklist.html";
+}
+
+function socialChecklist() {
+	sessionStorage.cat = 3;
+	document.location.href = "social_checklist.html";
+}
+
+function otherChecklist() {
+	sessionStorage.cat = 4;
+	document.location.href = "other_checklist.html";
 }

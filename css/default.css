@@ -26,7 +26,6 @@
 /**/	height: 50px;
 /**/	position: relative;
 /**/	background-color: #7ca3dc;
-/**/    margin-top: 10px;
 /**/    margin-bottom: 10px;
 /**/}
 /**/
@@ -169,9 +168,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 	left: 85px;
 }
 
+/* styling for content in help page */
+.help-content{
 
+	margin: 0 auto;
+	padding: 0;
+	width: 85%;
+	margin-top: 25px;
+	text-align: left;
+	
+}
 
+/* styling for actual text in help pages */
+.helpText{
 
+	font-family: arial;
+	font-size: 19px;
+	color: white;
+	/*background-color: #00549b;*/
+	
+}
+
+/* styling for actual help text in tips
+   different font size since tips help page has more
+   words than other help pages */
+.tipHelpText{
+
+	font-family: arial;
+	font-size: 18px;
+	color: white;
+	/*background-color: #00549b;*/
+
+}
+
+/* styling for the icons in the help pages */
+.icon{
+
+	width: 25px;
+	height: 25px;
+
+}
 
 
 

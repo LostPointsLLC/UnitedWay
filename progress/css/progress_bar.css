@@ -1,3 +1,9 @@
+/*
+	This portion is mainly used in index.html (overall progress page)
+
+
+*/
+
 
 .ch {
 	border: 1px solid #00549b;
@@ -26,66 +32,305 @@
 	color:#ffffff;
 }
 
+/* 
+	This portion is mainly used in the Checklist page (child progress page)
+	
+
+*/
+#child p  {
+	padding-top: 7px;
+	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
+	color:#ffffff;
+}
+#child-wrapper {
+	height: 100px;
+	width: 350px;
+}
+
+#child {
+	height: 100px;
+	width: 150px;
+	float: left;
+	margin: 0px 0px 0px 90px;
+}
+#child img {
+	padding-top: 10px;
+}
+#right-arrow {
+	height: 50px;
+	width: 50px;
+	float: right;
+}
+#left-arrow {
+	float: left;
+	height: 50px;
+	width: 50px;
+}
+
+.percentage {
+	font-size:13px;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
+position: relative;
+left: 10px;
+bottom: 7px;
+}
+
+.pb-ctn {
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-bottom: 12px;
+	color:#ffffff;
+}
+
+/****************THE HEALTH BUTTON*******************/
+
+.bt-health {
+	width: 170px;
+	font-size:13px;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
+	font-weight:normal;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #d02718;
+	padding:10px 30px 5px 30px;
+	text-decoration:none;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f24537), color-stop(100%, #f51400) );
+	background:-moz-linear-gradient( center top, #f24537 5%, #f51400 100% );
+	background:-ms-linear-gradient( top, #f24537 5%, #f51400 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#f51400');
+	background-color:#f24537;
+	color:#ffffff;
+	display:inline-block;
+	text-shadow:2px 0px 0px #810e05;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #f5978e;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #f5978e;
+ 	box-shadow:inset 1px 1px 0px 0px #f5978e;
+	margin-left: 10px;
+	margin-top: 10px;
+}.bt-health:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f51400), color-stop(100%, #f24537) );
+	background:-moz-linear-gradient( center top, #f51400 5%, #f24537 100% );
+	background:-ms-linear-gradient( top, #f51400 5%, #f24537 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f51400', endColorstr='#f24537');
+	background-color:#f51400;
+}.bt-health:active {
+	position:relative;
+	top:1px;
+}
+
+/****************THE LANGUAGE BUTTON*******************/
+
+.bt-lang {
+	width: 170px;
+	font-size:13px;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
+	font-weight:normal;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #eeb44f;
+	padding:10px 30px 5px 30px;
+	text-decoration:none;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffc477), color-stop(100%, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	background:-ms-linear-gradient( top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	color:#ffffff;
+	display:inline-block;
+	text-shadow:2px 0px 0px #cc9f52;
+	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	margin-left: 10px;
+	margin-top: 10px;
+}.bt-lang:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #fb9e25), color-stop(100%, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	background:-ms-linear-gradient( top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}.bt-lang:active {
+	position:relative;
+	top:1px;
+}
+
+/****************THE SOCIAL BUTTON*******************/
+
+.bt-social {
+	width: 170px;
+	font-size:13px;
+	font-family:Chunkfive, arial, helvetica, sans-serif;
+	font-weight:normal;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #84bbf3;
+	padding:10px 30px 5px 30px;
+	text-decoration:none;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #bddbfa), color-stop(100%, #80b5ea) );
+	background:-moz-linear-gradient( center top, #bddbfa 5%, #80b5ea 100% );
+	background:-ms-linear-gradient( top, #bddbfa 5%, #80b5ea 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea');
+	background-color:#bddbfa;
+	color:#ffffff;
+	display:inline-block;
+	text-shadow:2px 0px 0px #528ecc;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
+ 	box-shadow:inset 1px 1px 0px 0px #dcecfb;
+	margin-left: 10px;
+	margin-top: 10px;
+}.bt-social:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
+	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
+	background:-ms-linear-gradient( top, #80b5ea 5%, #bddbfa 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa');
+	background-color:#80b5ea;
+}.bt-social:active {
+	position:relative;
+	top:1px;
+}
+	
+/****************THE OTHER BUTTON*******************/
+.bt-other {
+	width: 170px;
+	font-size:13px;
+	font-family:Chunkfive, arial, helvetica, sans-serif;
+	font-weight:normal;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #11c47;
+	padding:10px 30px 5px 30px;
+	text-decoration:none;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(7%, #3d94f6), color-stop(98%, #263857) );
+	background:-moz-linear-gradient( center top, #3d94f6 7%, #263857 98% );
+	background:-ms-linear-gradient( top, #3d94f6 7%, #263857 98% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#263857');
+	background-color:#3d94f6;
+	color:#ffffff;
+	display:inline-block;
+	text-shadow:2px 0px 0px #1570cd;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #97c4fe;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #97c4fe;
+ 	box-shadow:inset 1px 1px 0px 0px #97c4fe;
+	margin-left: 10px;
+	margin-top: 10px;
+}.bt-other:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(28%, #11c47), color-stop(77%, #3d94f6) );
+	background:-moz-linear-gradient( center top, #11c47 28%, #3d94f6 77% );
+	background:-ms-linear-gradient( top, #11c47 28%, #3d94f6 77% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#11c47', endColorstr='#3d94f6');
+	background-color:#11c47;
+}.bt-other:active {
+	position:relative;
+	top:1px;
+}
+
+
 /********************* Style HTML 5 Progress Bars  *****************************************
 	Credit: 
 	http://www.useragentman.com/blog/2012/01/03/cross-browser-html5-progress-bars-in-depth/
 */
 
-progress,          /* All HTML5 progress enabled browsers */
-progress[role]     /* polyfill */
+.progress,          /* All HTML5 progress enabled browsers */
+.progress[role], .detail, .detail[role]     /* polyfill */
 {
-
 	/* Turns off styling - not usually needed, but good to know. */
 	appearance: none;
 	-moz-appearance: none;
 	-webkit-appearance: none;
-
-	/* gets rid of default border in Firefox and Opera. */ 
-	border: none;
-
-	/* Needs to be in here for Safari polyfill so background images work as expected. */
-	background-size: auto;
+	/* gets rid of default border in Firefox and Opera. */
+	border: solid #cccccc 3px;
+	border-radius: 10px;
 	
 	/* Dimensions */
 	width: 200px;
-	height: 15px;
+	height: 30px;
 	
 }
 
+.detail , .detail[role]{
+	width: 280px;
+}
+
 /* Polyfill */
-progress[role]:after {
+.detail[role]:after,
+.progress[role]:after {
 	background-image: none; /* removes default background from polyfill */
 }
 
-/* Ensure fallback text doesn't appear in polyfill */
-progress[role] strong {
-	display: none;
-}
+/*
+ * Background of the progress bar background
+ */
 
-progress,                          /* Firefox  */ 
-progress[role][aria-valuenow] {    /* Polyfill */
-   background: #00b83d !important; /* !important is needed by the polyfill */
-}
-
-
-/* IE10 */
-progress {
-    color: #00b83d;
-}
-
-/* Firefox */
-progress::-moz-progress-bar { 
-    background: #00b83d;	
+/* Firefox and Polyfill */
+.detail,
+.progress {
+	background: #cccccc !important; /* !important only needed in polyfill */
 }
 
 /* Chrome */
-progress::-webkit-progress-value {
-    background: #00b83d;
+.detail::-webkit-progress-bar,
+.progress::-webkit-progress-bar {
+	background: #cccccc;
+}
+
+/*
+ * Background of the progress bar value
+ */
+
+/* Firefox */
+.detail::-moz-progress-bar,
+.progress::-moz-progress-bar {
+	border-radius: 5px;
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(43,194,83) 37%,
+		rgb(84,240,84) 69%
+	);
+}
+
+/* Chrome */
+.detail::-webkit-progress-value ,
+.progress::-webkit-progress-value {
+	border-radius: 5px;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(43,194,83)),
+		color-stop(1, rgb(84,240,84))
+	);
+	background-image: -webkit-linear-gradient(
+		center bottom,
+		rgb(43,194,83) 37%,
+		rgb(84,240,84) 69%
+	);
 }
 
 /* Polyfill */
-progress[aria-valuenow]:before  {
-    background: #00b83d;
+.detail[aria-valuenow]:before,
+.progress[aria-valuenow]:before {
+	border-radius: 5px;
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(43,194,83) 37%,
+		rgb(84,240,84) 69%
+	);
+	background-image: -ms-linear-gradient(
+		center bottom,
+		rgb(43,194,83) 37%,
+		rgb(84,240,84) 69%
+	);
+	background-image: -o-linear-gradient(
+		center bottom,
+		rgb(43,194,83) 37%,
+		rgb(84,240,84) 69%
+	);
+	
 }
 
 
