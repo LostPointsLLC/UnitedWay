@@ -218,7 +218,7 @@ html, body {
 	display: block;
 	border-bottom: #7ca3dc 2px solid;
 	background-color: #00549b;
-		
+	color: white;
 	background-image:url("../../images/unpressed-star-button.png");
 	background-repeat:no-repeat;
 	background-position:95% 50%;
@@ -230,8 +230,8 @@ html, body {
 	width: 100%;
 	display: block;
 	border-bottom: #7ca3dc 2px solid;
-	background-color: #7ca3dc;
-	
+	background-color: #E1EBF5;
+	color: #00549b;
 	background-image:url("../../images/unpressed-star-button.png");
 	background-repeat:no-repeat;
 	background-position:95% 50%;
@@ -256,15 +256,8 @@ html, body {
 }
 /* For favorite tip entry styling */
 
-.notfav {
-	color: white;
-	font-family: arial;
-}
-
-.fav {
-	color: yellow;
-	font: bold 18px arial;
-	
+.pp{
+	font-family: arial, helvetica, sans-serif;
 }
 
 .wrapper {

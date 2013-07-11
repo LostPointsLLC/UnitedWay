@@ -89,7 +89,7 @@ function displayTips(param) {
 		// Determine odd or even background
 		var ctnClass;
 		if (i % 2 == 0) {
-			ctnClass = "tip-ctn-even-fav";
+			ctnClass = "tip-ctn-even";
 		}
 		else{
 			ctnClass = "tip-ctn-odd";
@@ -97,18 +97,30 @@ function displayTips(param) {
 			
 		var entry;
 		if (jQuery.inArray(i, favArray) != -1) {
-			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div class='" + ctnClass + "-fav' ><div class='tip'><p class='pp'>" + tipArray[i] + "</p></div></div>";
 		}
 		else {
-			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='notfav'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div class='" + ctnClass + "' ><div class='tip'><p class='pp'>" + tipArray[i] + "</p></div></div>";
 		}
 		$("#frontpiece").append(entry);
 	}
-	
-	// Bind stars with event handlers
-	
-	
-	
+	// Bind tips (.on, live method)
+	$(document).on("click", ".tip-ctn-even", function() {
+		alert("even");
+		$(this).attr("class","tip-ctn-even-fav");
+	});
+	$(document).on("click", ".tip-ctn-even-fav", function() {
+		alert("even-fav");
+		$(this).attr("class","tip-ctn-even");
+	});
+	$(document).on("click", ".tip-ctn-odd", function() {
+		alert("odd");
+		$(this).attr("class","tip-ctn-odd-fav");
+	});
+	$(document).on("click", ".tip-ctn-odd-fav", function() {
+		alert("odd-fav");
+		$(this).attr("class","tip-ctn-odd");
+	});
 }
 
 function goBack() {
