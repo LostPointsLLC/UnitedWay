@@ -5,11 +5,7 @@ p {
 	padding-left: 30px;
 	padding-top: 15px;
 }
-#calendar-title-img{
-	float:left;
-	width:200; 
-	height:50;
-}
+
 #calendar-title {
 	height: 50px;
 	width: 350px;
@@ -23,12 +19,17 @@ p {
 }
 #home-help-buttons {
 	height: 50px;
-	width: 150px;
+	width: 101px;
 	float: right;
 }
 #home-help-buttons img {
 	padding: 0px;
 	float: right;
+}
+#cal-btn{
+   position:absolute;
+   bottom:0;
+   width:350px;
 }
 body {
 	margin:auto;
@@ -43,6 +44,7 @@ body {
 	background: #00549b;
 	width: 350px;
 	height: 600px;
+	position:relative;
 }
 #day {
 	text-align: center;
@@ -69,14 +71,9 @@ body {
 	color: #FFF;
 	padding-top: 20px;
 	padding-left: 0;
+	word-wrap: break-word;
 }
 
-#events {
-   text-align: center;
-	font: 21px arial;
-	color: white;
-   padding-top: 20px;
-}
 
 #home,#back{
 	float:right;

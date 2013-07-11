@@ -14,8 +14,9 @@ $(document).ready(function() {
     var month = currentDate.getMonth();
    // updateDate(day,month);
    // updateEvent(day,month);
-   displayTE(month,day-1);
-   	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,month-1) + "<br><br>";
+   
+   	document.getElementById('activity').innerHTML = "Activity: <br>" + 
+    getActivity(day-1,month) + "<br><br>"+displayTE(month,day-1);
 });
 //function to go to calendar tip page
 function linkTopage(param)
@@ -44,14 +45,16 @@ function getActivity(day,month){
 
 //function to display today's event below the main calendar
 function displayTE(m,d){
+var val;
 $.ajax({
         type: "POST",
         url: "php/events.php",
-        
+        async:false,
         cache: false,
         success: function(data){
             var obj = jQuery.parseJSON(data);
-            document.getElementById('events').innerHTML = "<br>" + "Events: <br>" + obj[m][d];
+            val = "Events: <br>" + obj[m][d]
         }
-     });    
+     });   
+    return val;
 }

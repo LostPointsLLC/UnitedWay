@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var day = currentDate.getDate();
 	var month = currentDate.getMonth();
     updateDate(day,month);
-    updateEvent(day,month);
+  
 });
 
 //function to update page with current date, activity of the day and events of the day
@@ -16,21 +16,24 @@ function updateDate(d,m){
 	document.getElementById('day').innerHTML = day;
 	document.getElementById('month').innerHTML = monthText;
 	//has to offset by 1 because array index starts at 0.
-	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) + "<br><br>"
+	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
+	+ "<br><br>" + updateEvent(day-1,m);
 }
 
 //function to get and update the event of that day
 function updateEvent(d,m){
+var val;
 $.ajax({
 		type: "POST",
 		url: "php/events.php",
-		
+		async:false,
 		cache: false,
 		success: function(data){
 			var obj = jQuery.parseJSON(data);
-			document.getElementById('events').innerHTML = "Events: <br>" + obj[m][d-1];
+			val = "Events: <br>" + obj[m][d];
 		}
 	 });
+return val;
 }
 
 //go back to home page
