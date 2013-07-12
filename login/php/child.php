@@ -1,7 +1,6 @@
 <?php
 
 	require('connect.php');	
-
 	$name 		= $_POST['name'];//(string)("'" + strip_tags($_POST['name']) + "'");
 	$name 		= "'" . $name . "'";
 	$birthday 	= $_POST['birthday'];//(string)("'" + strip_tags($_POST['birthday']) + "'");

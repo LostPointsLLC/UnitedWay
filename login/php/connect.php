@@ -14,5 +14,6 @@
 		echo "Database connection error, please check internet connection";
 		echo "Error: could not establish database connection" . mysqli_connect_error();
 	}
+	mysqli_set_charset($dbConnection, "utf8");
 ?>
 	
