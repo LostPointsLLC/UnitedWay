@@ -50,11 +50,6 @@
 
 				</div>
 
-
-			<!--	<div id="option-link">
-					<button id="add" href="child.html">Add another child</button>
-					<button id="finish" href="finish.html">Finished!</button>
-				<div> -->
 			</div>
 
 
@@ -62,7 +57,7 @@
 			<script type="text/javascript">
 			generateButton("Finished!", "finish", "bt-yellow", "finish()");
 			function finish() { 
-				if(updateDB() == -1) return;
+				if(updateDB(false) == -1) return;
 				document.location.href="../home/index.html"; 
 			}
 
@@ -71,7 +66,7 @@
 			<script type="text/javascript">
 			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
 			function add() {
-				if(updateDB() == -1) return;
+				if(updateDB(true) == -1) return;
 				document.location.href="child.html"; 
 			}
 			</script>

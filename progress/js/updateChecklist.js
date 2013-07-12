@@ -11,6 +11,8 @@ $(document).ready(function() {
 	var taskCat = sessionStorage.cat.toString(); // session current task category
 	
 	var dataString = "childID=" + childID + "&taskID=" + taskCat;
+	alert(dataString);
+
 	$.ajax({
 		type: "POST",
 		url: "php/fetchChecked.php",
@@ -23,18 +25,17 @@ $(document).ready(function() {
 				if (!$(this).is(':checked')) {
 					var clickedID = $(this).attr('id');
 					gBin[parseInt(clickedID)] = "b";
-					//this.checked = true;
 				}
 				else {
 					var clickedID = $(this).attr('id');
 					gBin[parseInt(clickedID)] = "a";
-					//this.checked = false;
 				}
 			});
 			
-			
+			// Called when page is being exited	
 			$(window).unload( function () {
-				var newProgressStr = gBin.join('');
+				var newProgressStr = gBin.join('');				// Converts the global array into a string
+
 				// First update current session variables, to correctly print percentages
 				var currentJsonStr = sessionStorage.jsonString;
 				var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);

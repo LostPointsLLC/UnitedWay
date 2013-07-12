@@ -37,19 +37,22 @@
 */
 
 /* Updates the database */
-function updateDB() {
+function updateDB(addAnotherChild) {
 	var posts = $("#form").serialize();						// Finds the checked items, then concatenates as a datastring
 	posts += "&child_parentID=" + sessionStorage.pid;
 
 	if(posts.search("=&") != -1) {
-		alert("Please fill in all of the fields.");
-		return -1;
+		if(addAnotherChild) {
+			alert("Please fill in all of the fields.");
+			return -1;
+		}
+
+		else return 0;
 	}
 	/* TODO: Make requirements for which fields should be added */
 
 
 	// Executes if one of the buttons is pressed
-	
 	$.ajax({
 
 		type: "POST",
@@ -57,6 +60,10 @@ function updateDB() {
 		data: posts,
 		cache: false,
 		async: false,
+		success: function(data) {
+			alert(data);
+		
+		}
 	});
 	return 0;
 
