@@ -54,7 +54,7 @@
 
 /* Classes for the buttons */
 .button {
-			text-align: center;
+text-align: center;
 padding: 10px;
 height: 20px;
 position: relative;
@@ -206,6 +206,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 	width: 25px;
 	height: 25px;
 
+}
+
+/*-------------------------------------
+  Calendar
+-------------------------------------*/
+
+/*Calendar Wrapper Class*/
+.cal-wrapper {
+background: #00549b;
+width: 350px;
+height: 600px;
+margin: 0 auto;
+border-radius: 10px;
+border: 2px solid black;
+position:relative;
+}
+/*Calendar button*/
+.calbtnwrap{
+text-align:center;
+position:absolute;
+left: 0;
+right:0;
+bottom:0;
 }
 
 
