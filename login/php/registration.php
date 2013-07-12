@@ -17,7 +17,7 @@
 
 	if(mysqli_fetch_array($result)) {
 		
-		echo -1;/ Indicates username was already taken in the database
+		echo -1; // Indicates username was already taken in the database
 		mysqli_close($dbConnection);
 		return;
 	}

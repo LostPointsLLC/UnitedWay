@@ -37,7 +37,6 @@ function verfiyRegistration() {
 				/* Incorrect code */
 				if(typeof(Storage) !== "undefined"){
 					sessionStorage.pid = ret;	
-					alert("The return value is " + ret + ". Make sure this is an integer.");
 					document.location.href="child.html";
 				}
 				
