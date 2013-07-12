@@ -53,5 +53,5 @@ Health_2months.push("Create a Predictable World for Your Baby - Providing routin
 Health_2months.push("Provide a Warm and Loving Environment - A baby’s ability to learn depends upon her emotional well-being; a baby who is content and comfortable has an easier time learning about the world. An infant cries only to let you know that she needs your help. Since you cannot spoil an infant, pick up your baby whenever she cries.");
 Health_2months.push("Remember…Discipline is never appropriate for infants. They have no control over their actions and therefore should not be held accountable.");
 
-
+var hello_world;
 
