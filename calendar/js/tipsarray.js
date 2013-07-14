@@ -213,7 +213,7 @@ jul.push("Draw a picture of your family and have your child say the first and la
 jul.push("No Activity For Today");
 jul.push("No Activity For Today");
 jul.push("Practice writing letters and numbers.");
-jul.push("Find objects that rhyme with \"pig.\"No Activity For Today");
+jul.push("Find objects that rhyme with \"pig.\"");
 jul.push("No Activity For Today");
 jul.push("Have your child retell a story or event in order (first, middle, last).");
 jul.push("No Activity For Today");

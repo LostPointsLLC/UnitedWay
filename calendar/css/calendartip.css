@@ -6,6 +6,24 @@ p {
 	padding-top: 15px;
 }
 
+.wrapper {
+background: #00549b;
+width: 350px;
+height: 600px;
+margin: 0 auto;
+border-radius: 10px;
+border: 2px solid black;
+position:relative;
+}
+/*Calendar button*/
+.calbtnwrap{
+text-align:center;
+position:absolute;
+left: 0;
+right:0;
+bottom:0;
+}
+
 #calendar-title {
 	height: 50px;
 	width: 350px;
@@ -26,11 +44,8 @@ p {
 	padding: 0px;
 	float: right;
 }
-#cal-btn{
-   position:absolute;
-   bottom:0;
-   width:350px;
-}
+
+
 body {
 	margin:auto;
 	padding:0px;
@@ -51,12 +66,14 @@ body {
 	color: #FFF;
 	height: 110px;
 	padding-top: 10px;
+	
 }
 
 #month{
 	text-align: center;
 	background: #F0502F;
 	font: 35px chunkfiveregular;
+	
 	color: #FFF;
 	padding-bottom: 0px;
 	height: 50px;

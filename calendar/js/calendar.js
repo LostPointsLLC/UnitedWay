@@ -22,7 +22,7 @@ $(document).ready(function() {
 function linkTopage(param)
 {
 	sessionStorage.date = param;
-	document.location.href = "index.html";
+	document.location.href = "calendartip.html";
 //alert(sessionStorage.date);
 }
 
