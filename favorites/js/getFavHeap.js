@@ -18,7 +18,6 @@ function rss(rssRow) {
 	this.rss_url = rssRow[1];
 	this.rss_title = rssRow[2];
 	this.rss_source = rssRow[3];
-	this.fav_id = rssRow[4];
 }
 
 /*
@@ -36,7 +35,6 @@ function tip(tipRow) {
 	this.tip_age = tipRow[1];
 	this.tip_category = tipRow[2];
 	this.tip_content = tipRow[3];
-	this.fav_id = tipRow[4];
 }
 
 /*
@@ -61,7 +59,6 @@ function _event(eventRow) {
     this.event_place = eventRow[4];
     this.event_title = eventRow[5];
     this.event_sponsor = eventRow[6];
-	this.fav_id = eventRow[7];
 }
 
 

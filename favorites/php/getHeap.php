@@ -1,11 +1,11 @@
 <?php
 	require("connect.php");
-	$fav_userID = $_POST['userID'];
+	$fav_userID = 10;//$_POST['userID'];
 	$output = array();
 	
 	// Execute the rss query
 	$query = $con->prepare("
-		SELECT rss_id, rss_url, rss_title, rss_source, fav_id
+		SELECT rss_id, rss_url, rss_title, rss_source 
 		FROM 
 			(favorites JOIN rss 
 			ON (favorites.fav_typeID = rss.rss_id 
@@ -15,7 +15,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source, $rss_fav_id);
+		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source);
 		
 		$rssArray = array();
 		
@@ -28,21 +28,20 @@
 			$row[1] = $rss_url;
 			$row[2] = $rss_title;
 			$row[3] = $rss_source;
-			$row[4] = $rss_fav_id;
 			
 			array_push($rssArray, $row);
 		}
 
 		array_push($output, $rssArray);
 		
-	} else echo "alert('Failed to execute RSS query)" . mysqli_error($con);
+	} else die("Failed to execute RSS query" . mysqli_error($con));
 
 	
 	
 	
 	// Execute the tip query
 	$query = $con->prepare("
-		SELECT tip_id, tip_age, tip_category, tip_content, fav_id
+		SELECT tip_id, tips.tip_age, tips.tip_category, tips.tip_content
 		FROM 
 			(favorites JOIN tips 
 			ON (favorites.fav_typeID = tips.tip_id 
@@ -52,7 +51,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($tip_id, $tip_age, $tip_category, $tip_content, $tip_fav_id);
+		$query->bind_result($tip_id, $tip_age, $tip_category, $tip_content);
 		
 		$tipsArray = array();
 		
@@ -64,7 +63,6 @@
 			$row[1] = $tip_age;
 			$row[2] = $tip_category;
 			$row[3] = $tip_content;
-			$row[4] = $tip_fav_id;
 			
 			array_push($tipsArray, $row);
 		}
@@ -76,7 +74,7 @@
 	
 	// Execute the query
 	$query = $con->prepare("
-		SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, fav_id
+		SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor
 		FROM 
 			(favorites JOIN events 
 			ON (favorites.fav_typeID = events.event_id
@@ -86,7 +84,7 @@
 	$query->bind_param('i', $fav_userID); // Sets params to sql query
 	if($query->execute()) {
 		$query->store_result();
-		$query->bind_result($event_id, $event_date, $event_time, $event_url, $event_place, $event_title, $event_sponsor, $event_fav_id);
+		$query->bind_result($event_id, $event_date, $event_time, $event_url, $event_place, $event_title, $event_sponsor);
 		
 		$eventsArray = array();
 		
@@ -101,7 +99,6 @@
 			$row[4] = $event_place;
 			$row[5] = $event_title;
 			$row[6] = $event_sponsor;
-			$row[7] = $event_fav_id;
 			array_push($eventsArray, $row);
 		}
 
