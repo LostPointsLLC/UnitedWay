@@ -36,12 +36,12 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 }
-#get-started {
+#get-started-button {
 	height: 50px;
 	width: 250px;
-	margin:0 auto;
-	position:absolute;
-	
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 80px;
 }
 
 
