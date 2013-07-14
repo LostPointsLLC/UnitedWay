@@ -3,7 +3,7 @@
 /* Introduces the Chunkfive font family into the stylesheet */
 @font-face {
     font-family: 'Chunkfive';
-    src: url('Chunkfive-webfont.woff') format('woff');
+    src: url('../fonts/Chunkfive-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -11,8 +11,8 @@
 
 /* The wrapper for the whole entire app. To be used on every page */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
-/**/.wrapper {
-/**/	background: #7ca3dc;
+/**/.wrapper {					/* Darkblue is #00549b */
+/**/	background: #7ca3dc;	/* Lightblue is #7ca3dc */
 /**/	width: 350px;
 /**/	height: 600px;
 /**/	margin: 0 auto;
@@ -20,14 +20,12 @@
 /**/	border: 2px solid black;
 /**/}
 
-
-
 /* For the generateHeader() function. */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
 /**/.header {
 /**/	height: 50px;
 /**/	position: relative;
-/**/
+/**/	background-color: #7ca3dc;	
 /**/}
 /**/
 /**/.title {
@@ -56,20 +54,20 @@
 
 /* Classes for the buttons */
 .button {
-			text-align: center;
-         padding: 10px;
-         height: 20px;
-         position: relative;
-         display: inline-block;
-        }     
+text-align: center;
+padding: 10px;
+height: 20px;
+position: relative;
+display: inline-block;
+}
 
 .button-text {
 	position: relative;
-   /*bottom: 8px*/;
+/*bottom: 8px;*/
+
 }
 
 .bt-yellow{
-   border-radius: 10px;
 	border:1px solid #ffad41; 
 	-webkit-border-radius: 3px; 
 	-moz-border-radius: 3px;
@@ -104,10 +102,7 @@
 
 
 .bt-blue {
-	border:1px solid #ffad41; 
-	-webkit-border-radius: 3px; 
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+	border:1px solid #ffad41; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;
 		   font-size:24px;
 		   font-family: Chunkfive, arial, helvetica, sans-serif; 
 /*padding: 10px 10px 10px 10px; */
@@ -124,11 +119,11 @@
 	 background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
 filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
 
-   width: 250px;
-   height: 50px;
-   margin: auto;
-   display: block;
-   text-align: center;
+width: 250px;
+height: 50px;
+margin: auto;
+display: block;
+		 text-align: center;
 }
 
 .bt-blue:hover{
@@ -162,6 +157,86 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 
 
 
+
+
+
+
+
+/* File specific styling */
+#start {
+	left: 85px;
+}
+
+/* styling for content in help page */
+.help-content{
+
+	margin: 0 auto;
+	padding: 0;
+	width: 85%;
+	margin-top: 25px;
+	text-align: left;
+	
+}
+
+/* styling for actual text in help pages */
+.helpText{
+
+	font-family: arial;
+	font-size: 19px;
+	color: white;
+	/*background-color: #00549b;*/
+	
+}
+
+/* styling for actual help text in tips
+   different font size since tips help page has more
+   words than other help pages */
+.tipHelpText{
+
+	font-family: arial;
+	font-size: 18px;
+	color: white;
+	/*background-color: #00549b;*/
+
+}
+
+/* styling for the icons in the help pages */
+.icon{
+
+	width: 25px;
+	height: 25px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Classes for the buttons */
+.button {
+			text-align: center;
+         padding: 10px;
+         height: 20px;
+         position: relative;
+         display: inline-block;
+        }     
+
+.button-text {
+	position: relative;
+   /*bottom: 8px*/;
+}
+
+
+
+
 /* File specific styling */
 #start {
 	left: 85px;
@@ -169,17 +244,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 
 
 
-/* Supporting favorite capabilities */
-.favorite {
-/*background: url(images/star-button.png) no-repeat !important;*/
-	width: 25px;
-height: 25px;
-position: relative;
-		  z-index: 5;
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -60,10 +60,6 @@ function updateDB(addAnotherChild) {
 		data: posts,
 		cache: false,
 		async: false,
-		success: function(data) {
-			alert(data);
-		
-		}
 	});
 	return 0;
 

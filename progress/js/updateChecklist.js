@@ -11,7 +11,6 @@ $(document).ready(function() {
 	var taskCat = sessionStorage.cat.toString(); // session current task category
 	
 	var dataString = "childID=" + childID + "&taskID=" + taskCat;
-	alert(dataString);
 
 	$.ajax({
 		type: "POST",

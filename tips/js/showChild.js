@@ -12,7 +12,6 @@ $(document).ready(function() {
 		cache: false,
 		success: function(data){
 			sessionStorage.jsonString = data; // store database data string as a session variable
-			console.log(data);
 			listChildren(data);
 		}
 	 });	 

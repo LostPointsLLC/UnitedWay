@@ -1,7 +1,7 @@
 /* Introduces the Chunkfive font family into the stylesheet */
 @font-face {
     font-family: 'Chunkfive';
-    src: url('Chunkfive-webfont.woff') format('woff');
+    src: url('../fonts/Chunkfive-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

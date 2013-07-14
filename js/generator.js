@@ -42,6 +42,8 @@ function generateButton(text, id, css, e) {
 	document.write("<a onClick='" + e + "'><div id='" + id + "' class='button " + css + "'><span class='button-text'>" + text + "</span></div></a>");
 }
 
+
+
 /* Generates the calendar button within the daily tips page.*/
 function generateCalBtn() {
 	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
@@ -56,6 +58,30 @@ function generateDailyActivity(){
 function generateMainCal(){
 	document.write("<div id = 'calendar'></div><div id = 'activity'></div>");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Below is some object oriented code for the favorites page
  * that Shiren helped us make. I'm not sure we'll be using his
