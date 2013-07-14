@@ -1,7 +1,10 @@
-var feedcontainer ;//= document.getElementById("feed"); 	/* Will modify the "feed" id */
-var feedurl;// = "http://www.npr.org/rss/rss.php?id=1006"; /* From where the RSS feed is grabbing from */
-var feedlimit;// = 10;
-var rssoutput;// = "<h2>Latest NPR Business News:</h2><ul>";
+var feedcontainer;
+var feedurl;
+var feedlimit;
+var rssoutput;
+var headline;	// The title of the RSS feed
+var theFeeds;	// Will contain the RSS items from the google API
+
 
 /* A wrapper function for the whole entire feed API.
  * @param1: A string of the div id to be appended to
@@ -14,7 +17,7 @@ function rssfeed(id, url, limit, output, style_id) {
 	feedurl = url;
 	feedlimit = limit;
 	rssoutput = "<div class='rss-head'><h3 id='" + style_id + "'>" + output + "</h3></div>";
-	
+	headline = output;	
 	window.onload = function(){
 		rssfeedsetup();
 	}
@@ -35,7 +38,7 @@ function displayfeed(result){
 		// thefeeds is an array of objects that contains the RSS feed information.
 		// thefeeds[i].link is the URL.
 		// thefeeds[i].title is the headline.
-		var thefeeds = result.feed.entries;
+		thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js
 		
 		
 		/* Modifies the rssoutput variable, which will be interpreted as HTML 
