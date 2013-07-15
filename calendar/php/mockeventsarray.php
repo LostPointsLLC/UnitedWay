@@ -21,7 +21,7 @@ array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s
 array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x",
 	"y","z","aa","bb","cc","dd","ee"),
 	//jul
-array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x",
+array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","Go to the mall<br>Go to the supermarket<br>Kite flying day<br>Movie Day<br>Make a clay cup<br>Meet a pet<br>Meet new friends","p","q","r","s","t","u","v","w","x",
 	"y","z","aa","bb","cc","dd","ee"),
 	//aug
 array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x",
