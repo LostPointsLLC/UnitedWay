@@ -31,9 +31,6 @@ function addFeeds() {
 		data: datastring,
 		cache: false,
 		async: false, // must be synchronous, sorry! 
-		success: function(datastring) {
-			alert(datastring);
-		}
 	});
 
 
@@ -90,7 +87,6 @@ function onExit() {
 
 function onHelp() {
 	addFeeds();
-	return;
 	document.location.href="../help/News Feeds.html";
 
 }

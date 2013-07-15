@@ -8,6 +8,65 @@
     font-style: normal;
 }
 
+/* Setting the DEFAULT settings for a paragraph
+ * used in this app. Do NOT touch this without permission.
+ */
+p {
+	color: white;
+	font-family: arial;	
+	font-size: 18px;
+}
+
+h1, h2 {
+	font-family: sans-serif;
+	color: white;
+	font-size: 24px;
+}
+
+label {
+
+	color: white;
+	font-family: arial;	
+	font-size: 18px;
+}
+
+a {
+
+	text-decoration: none;
+	color: white;
+	font-family: arial; /*helvetica, geneva, sans serif;*/
+}
+
+a:hover{
+	color: #EE9A00;
+}
+
+
+.even {
+
+	width: 100%;
+	height: 45px;
+	border-top: 2px solid #003366;
+
+}
+
+.odd {
+
+	width: 100%;
+	height: 45px;
+	border-top: 2px solid #003366;
+	background-color: #9999FF;
+
+}
+
+/* styling for the icons in the help pages */
+.icon{
+
+	width: 25px;
+	height: 25px;
+
+}
+
 
 /* The wrapper for the whole entire app. To be used on every page */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
@@ -52,13 +111,30 @@
 /**/}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Classes for the buttons */
 .button {
-text-align: center;
-padding: 10px;
-height: 20px;
-position: relative;
-display: inline-block;
+	text-align: center;
+	padding: 10px;
+	height: 20px;
+	position: relative;
+	display: inline-block;
 }
 
 .button-text {
@@ -154,60 +230,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#
 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-8 */
 }
-
-
-
-
-
-
-
-
-/* File specific styling */
-#start {
-	left: 85px;
-}
-
-/* styling for content in help page */
-.help-content{
-
-	margin: 0 auto;
-	padding: 0;
-	width: 85%;
-	margin-top: 25px;
-	text-align: left;
-	
-}
-
-/* styling for actual text in help pages */
-.helpText{
-
-	font-family: arial;
-	font-size: 19px;
-	color: white;
-	/*background-color: #00549b;*/
-	
-}
-
-/* styling for actual help text in tips
-   different font size since tips help page has more
-   words than other help pages */
-.tipHelpText{
-
-	font-family: arial;
-	font-size: 18px;
-	color: white;
-	/*background-color: #00549b;*/
-
-}
-
-/* styling for the icons in the help pages */
-.icon{
-
-	width: 25px;
-	height: 25px;
-
-}
-
 
 
 

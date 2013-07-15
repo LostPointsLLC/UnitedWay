@@ -20,6 +20,8 @@ $(document).ready(function() {
 	for(var i = 0; i < favHeap.rssArray.length; i++) {
 		var rss = document.createElement("div");
 		rss.className += "favorites-item";
+		rss.id = favHeap.rssArray[i].fav_id;
+
 
 		// Manipulates the text output
 		var rssTitle = favHeap.rssArray[i].rss_title;		// gets rss title
@@ -55,6 +57,7 @@ $(document).ready(function() {
 	for(var j = 0; j < favHeap.tipArray.length; j++) {
 		var tips = document.createElement("div");
 		tips.className += "favorites-item";
+		tips.id = favHeap.tipArray[j].fav_id;
 		var tipsElement = document.createElement("p");
 	
 		var tipsTitle = favHeap.tipArray[j].tip_content;
@@ -86,6 +89,7 @@ $(document).ready(function() {
 	for(var k = 0; k < favHeap.eventArray.length; k++) {
 		var events = document.createElement("div");
 		events.className += "favorites-item";
+		events.id = favHeap.eventArray[k].fav_id;
 		var eventsElement = document.createElement("p");
 
 		var eventsTitle = favHeap.eventArray[k].event_title;
@@ -159,7 +163,14 @@ $(document).ready(function() {
 	});
 	
 	$(window).unload( function () {
-		if(deletionArray.length > 0)
-			deletefav(deletionArray);
+		deletefavs();
 	});
 });
+
+// This function is only here for testing purposes
+function deletefavs() {
+
+		if(deletionArray.length > 0)
+			deletefav(deletionArray);
+
+}

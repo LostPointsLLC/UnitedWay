@@ -1,3 +1,4 @@
+var thefeeds;
 
 /* A wrapper function for the whole entire feed API.
  * @param1: A string of the div id to be appended to
