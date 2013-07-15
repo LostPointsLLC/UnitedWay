@@ -1,25 +1,36 @@
+var title;
 
-/* A wrapper function for the whole entire feed API.
- * @param1: A string of the div id to be appended to
- * @param2: A string representing the URL where the RSS feed is grabbing from
- * @param3: An int of how many stories will be shown
- * @param4: A string of the headline of the RSS feed.
- */
-function rssfeed(id, url, limit, output, style_id) {
-	feedcontainer = document.getElementById(id);
-	feedurl = url;
-	feedlimit = limit;
-	rssoutput = "<div class='rss-head'><h3 id='" + style_id + "'>" + output + "</h3></div>";
-	headline = output;	
-	window.onload = function(){
-		rssfeedsetup();
-	}
+function rssData(url, limit, title, source) {
+
+	this.rssurl = rssurl;
+	this.limit = limit;
+	this.title = title;
+	this.source = source;
 
 }
 
-function rssfeedsetup(){
-	var feedpointer = new google.feeds.Feed(feedurl);
-	feedpointer.setNumEntries(feedlimit);
+
+
+$(document).ready() {
+	
+	google.load("feeds", "1");
+
+	var rssurl = "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
+	var limit = 4;
+	var title = "Champaign Public Library Events";
+	var source = "Champaign Public Library";
+	
+
+	var feedData = rssData(rssurl, limit, title, source);
+	rssfeedsetup(feedData);	
+
+
+
+}
+
+function rssfeedsetup(feedData){
+	var feedpointer = new google.feeds.Feed(feedData.rssurl);
+	feedpointer.setNumEntries(feedData.limit);
 	feedpointer.load(displayfeed); /* Calls the displayfeed function */
 }
 
@@ -31,7 +42,7 @@ function displayfeed(result){
 		// thefeeds is an array of objects that contains the RSS feed information.
 		// thefeeds[i].link is the URL.
 		// thefeeds[i].title is the headline.
-		thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js	
+		var thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js	
 		
 		/* Modifies the rssoutput variable, which will be interpreted as HTML 
 		 * Each iteration appends the headline inside a list item <li>
