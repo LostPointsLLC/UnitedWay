@@ -1,11 +1,21 @@
 var counter = 0;    //counter to count how many times that particular date is clicked
 var prevdate = null;    //variable to store previous date selected
+var date = new Date();
 //loads the calendar for the current month
 $('#calendar').datepicker({
         inline: true,
-        firstDay: 1,
+        firstDay: 0,
         showOtherMonths: true,
+        async:false,
         dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        /**beforeShowDay: function(datestr){
+            return [true, (datestr.getDate() == 1  && date.getMonth()!=datestr.getMonth()
+             )?"firstDay" : ""];
+        },**/
+        onChangeMonthYear:function(year,month,inst){
+
+            displayTE(month-1,0);
+        },
         onSelect: function(datestr){
             var m = parseInt(datestr.substring(0,2))-1; //selected box month's int value from 0 to 11
             var d = parseInt(datestr.substring(3,5))-1; //selected box day's int value from 0 to 30
@@ -25,14 +35,16 @@ $('#calendar').datepicker({
             }
             prevdate = datestr; //assigns the date selected to the prevdate variable
             displayTE(m,d); //calls function to display the activity and event below the main calendar
-        }
+        },
+        
     });
+
+
 $(document).ready(function() {
     var currentDate = new Date();
     var day = currentDate.getDate();
     var month = currentDate.getMonth();
-   // updateDate(day,month);
-   // updateEvent(day,month);
+   //resizeactivitydiv();
    displayTE(month,day-1);
 });
 //function to go to calendar tip page
@@ -81,3 +93,13 @@ function displayTE(m,d)
     document.getElementById('activity').innerHTML = "Activity: <br>" + 
     getActivity(d,m) + "<br><br>"+getTE(m,d);
 }
+
+/**function resizeactivitydiv(){
+   var calheight = $('.ui-datepicker-calendar').height();
+  
+   if (calheight==332){
+    
+    alert(calheight);
+   }
+}**/
+
