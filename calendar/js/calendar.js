@@ -13,7 +13,13 @@ $('#calendar').datepicker({
              )?"firstDay" : ""];
         },**/
         onChangeMonthYear:function(year,month,inst){
-
+            //checks if you return to the current month. If so, prints the activities and events of
+            //current day
+            if(month-1 == date.getMonth())
+            {
+               displayTE(date.getMonth(),date.getDate()-1);
+            }
+            else//prints the activities and events of the first day of that month
             displayTE(month-1,0);
         },
         onSelect: function(datestr){

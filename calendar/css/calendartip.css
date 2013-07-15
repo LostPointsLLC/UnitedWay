@@ -86,6 +86,8 @@ body {
 	padding-top: 20px;
 	padding-left: 0;
 	word-wrap: break-word;
+	overflow:auto;
+	height:264px;
 }
 
 
