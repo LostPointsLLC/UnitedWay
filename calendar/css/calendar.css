@@ -45,6 +45,12 @@ body{
 	display:block;
 	margin:0 auto;
 }
+.firstDay {
+   background-color : #00FF00;
+   background-image :none;
+   color: #000;
+}
+
 /*
 Container (background color, container corners, shadow)
 */
@@ -57,9 +63,6 @@ Container (background color, container corners, shadow)
 	border: none;
 	border-spacing: 0;
 	font-size:20px;
-}
-.ui-datepicker th {
-	display:none;
 }
 
 .ui-datepicker {
