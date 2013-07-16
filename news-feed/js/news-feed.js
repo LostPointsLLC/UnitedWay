@@ -1,10 +1,4 @@
-var feedcontainer;
-var feedurl;
-var feedlimit;
-var rssoutput;
-var headline;	// The title of the RSS feed
-var theFeeds;	// Will contain the RSS items from the google API
-
+var thefeeds;
 
 /* A wrapper function for the whole entire feed API.
  * @param1: A string of the div id to be appended to
@@ -38,8 +32,7 @@ function displayfeed(result){
 		// thefeeds is an array of objects that contains the RSS feed information.
 		// thefeeds[i].link is the URL.
 		// thefeeds[i].title is the headline.
-		thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js
-		
+		thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js	
 		
 		/* Modifies the rssoutput variable, which will be interpreted as HTML 
 		 * Each iteration appends the headline inside a list item <li>
@@ -48,37 +41,18 @@ function displayfeed(result){
 
 			var inner = "<div class='inner-div'><p id='" + i + "' class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>"
 			var star = "<a onClick='favFunction(" + i + ")'><img src='../images/star-button.png'></a>";
+
+			if(i == thefeeds.length - 1) {
+				rssoutput += " <div class='even item last-item'>" + inner + star + "</div>";
+				break;
+			}
 			if(i % 2 == 0) {
-
-				/* TODO: Make this code cleaner later */
-				if(i == thefeeds.length -1) {
-
-					rssoutput += " <div class='even item last-item'>" + inner + star + "</div>";
-
-					break;
-				}
-
 				rssoutput += "<div class='even item'>" + inner + star + "</div>";
-
-				
 			}
 			else {
-
-
-				if(i == thefeeds.length -1) {
-
-					rssoutput += "<div class='odd item last-item'>" + inner + star + "</div>";
-
-					break;
-				}
-
 				rssoutput += "<div class='odd item'>" + inner + star + "</div>";
-
-
 			}
-
 		}
-
 		feedcontainer.innerHTML = rssoutput;
 	}
 	

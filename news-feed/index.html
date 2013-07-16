@@ -14,13 +14,16 @@
 		<script src="../js/generator.js"></script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script> google.load("feeds", "1"); </script>
-		<script src="js/add-remove-feed.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/newsfeed.css">
+		<script src="js/add-remove-feed.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/default.css">
 			
 	</head>
 
 	<body>
+		<script>
+		/*generateButton("Testing Button", "testing-bt", "button bt-yellow", "addFeeds()"); */
+		</script>
 		<div class="wrapper">
 			<script>
 				generateHeader("News Feeds", true, true);
@@ -34,7 +37,7 @@
 
 					<script>
 					function favFunction(i) {
-						alert("hello world, I have id " + i);
+						alert("Favorited!");
 						var paragraph = document.getElementById(i);
 
 						if(! $('#' + i ).hasClass("highlighted")) {	
@@ -48,6 +51,7 @@
 
 						}
 					}
+
 
 					</script>
 

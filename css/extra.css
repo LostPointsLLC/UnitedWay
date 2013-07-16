@@ -1,0 +1,29 @@
+/* Extra styling options that I think we don't need. But put them back
+ * if you feel they should be included.
+ */
+
+/* From default.css. Removed because we now have a global
+ * setting for all of these settings.
+ */
+
+
+
+/* styling for actual text in help pages */
+.helpText{
+
+	font-family: arial;
+	font-size: 18px;
+	color: white;
+	
+}
+
+/* styling for actual help text in tips
+   different font size since tips help page has more
+   words than other help pages */
+.tipHelpText{
+
+	font-family: arial;
+	font-size: 18px;
+	color: white;
+
+}
