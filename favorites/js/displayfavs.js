@@ -163,14 +163,14 @@ $(document).ready(function() {
 	});
 	
 	$(window).unload( function () {
-		deletefavs();
+		deletefavWrapper();
 	});
 });
 
 // This function is only here for testing purposes
-function deletefavs() {
-
-		if(deletionArray.length > 0)
-			deletefav(deletionArray);
+// It allows us to update the db without exiting the page
+function deletefavWrapper() {
+	if(deletionArray.length > 0)
+		deletefav(deletionArray);
 
 }
