@@ -45,7 +45,9 @@ body{
 	display:block;
 	margin:0 auto;
 }
-
+.wrapper{
+	height:600px;
+}
 
 /*
 Container (background color, container corners, shadow)
