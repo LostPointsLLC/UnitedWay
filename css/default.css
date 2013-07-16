@@ -73,7 +73,7 @@ a:hover{
 /**/.wrapper {					/* Darkblue is #00549b */
 /**/	background: #00549b;	/* Lightblue is #7ca3dc */
 /**/	width: 350px;
-/**/	height: 600px;
+/**/	min-height: 600px;
 /**/	margin: 0 auto;
 /**/	border-radius: 10px;
 /**/	border: 2px solid black;
