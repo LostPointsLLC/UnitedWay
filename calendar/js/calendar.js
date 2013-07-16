@@ -8,11 +8,11 @@ $('#calendar').datepicker({
         showOtherMonths: true,
         async:false,
         dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        /**beforeShowDay: function(datestr){
-            return [true, (datestr.getDate() == 1  && date.getMonth()!=datestr.getMonth()
-             )?"firstDay" : ""];
-        },**/
         onChangeMonthYear:function(year,month,inst){
+            //checks if you are on the current month, if not, switching to other months will
+            //highlight the 1st day of that month.
+            if(!(month-1 == date.getMonth()))
+            $(this).datepicker( "setDate", month + '/1/' + year );
             //checks if you return to the current month. If so, prints the activities and events of
             //current day
             if(month-1 == date.getMonth())
@@ -27,6 +27,7 @@ $('#calendar').datepicker({
             var d = parseInt(datestr.substring(3,5))-1; //selected box day's int value from 0 to 30
             //checks if it is the first time the date is selected
             //checks if the second date selected equals the prev date selected
+
             if(prevdate==null || prevdate==datestr) 
             {
                 counter++;
@@ -52,6 +53,7 @@ $(document).ready(function() {
     var month = currentDate.getMonth();
    //resizeactivitydiv();
    displayTE(month,day-1);
+
 });
 //function to go to calendar tip page
 function linkTopage(param)
