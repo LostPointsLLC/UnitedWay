@@ -1,19 +1,25 @@
 <?php
-	require("connect.php");
+	require("../../php/connect.php");
 	$fav_userID = $_POST['userID'];
 	$output = array();
-	
-	// Execute the rss query
-	$query = $con->prepare("
-		SELECT rss_id, rss_url, rss_title, rss_source, favorites.fav_id 
-		FROM 
-			(favorites JOIN rss 
-			ON (favorites.fav_typeID = rss.rss_id 
-			AND favorites.fav_type = 'rss'))
-		WHERE favorites.fav_userID = ?
-	");
-	$query->bind_param('i', $fav_userID); // Sets params to sql query
-	if($query->execute()) {
+	array_push($output, getRssArray($dbConnection, $fav_userID));
+	array_push($output, getTipsArray($dbConnection, $fav_userID));
+	array_push($output, getEventsArray($dbConnection, $fav_userID));
+	echo json_encode($output);
+	return;
+
+	function getRssArray($dbConnection, $fav_userID) {
+		// Execute the rss query
+		$query = $dbConnection->prepare("
+			SELECT rss_id, rss_url, rss_title, rss_source, favorites.fav_id 
+			FROM 
+				(favorites JOIN rss 
+				ON (favorites.fav_typeID = rss.rss_id 
+				AND favorites.fav_type = 'rss'))
+			WHERE favorites.fav_userID = ? AND favorites.fav_kept = 1;
+		");
+		$query->bind_param('i', $fav_userID); // Sets params to sql query
+		if(!($query->execute())) die("Failed to execute RSS query" . mysqli_error($dbConnection));
 		$query->store_result();
 		$query->bind_result($rss_id, $rss_url, $rss_title, $rss_source, $fav_id);
 		
@@ -31,25 +37,24 @@
 			$row[4] = $fav_id;	
 			array_push($rssArray, $row);
 		}
-
-		array_push($output, $rssArray);
 		
-	} else die("Failed to execute RSS query" . mysqli_error($con));
-
-	
-	
-	
-	// Execute the tip query
-	$query = $con->prepare("
-		SELECT tip_id, tips.tip_age, tips.tip_category, tips.tip_content, favorites.fav_id
-		FROM 
-			(favorites JOIN tips 
-			ON (favorites.fav_typeID = tips.tip_id 
-			AND favorites.fav_type = 'tip'))
-		WHERE favorites.fav_userID = ?
-	");
-	$query->bind_param('i', $fav_userID); // Sets params to sql query
-	if($query->execute()) {
+		return $rssArray;	
+	}
+		
+	function getTipsArray($dbConnection, $fav_userID) {	
+		
+		// Execute the tip query
+		$query = $dbConnection->prepare("
+			SELECT tip_id, tips.tip_age, tips.tip_category, tips.tip_content, favorites.fav_id
+			FROM 
+				(favorites JOIN tips 
+				ON (favorites.fav_typeID = tips.tip_id 
+				AND favorites.fav_type = 'tip'))
+			WHERE favorites.fav_userID = ? AND favorites.fav_kept = 1;
+		");
+		$query->bind_param('i', $fav_userID); // Sets params to sql query
+		if(!($query->execute())) die("Failed to execute RSS query" . mysqli_error($dbConnection));
+		
 		$query->store_result();
 		$query->bind_result($tip_id, $tip_age, $tip_category, $tip_content, $fav_id);
 		
@@ -66,23 +71,22 @@
 			$row[4] = $fav_id;	
 			array_push($tipsArray, $row);
 		}
-		array_push($output, $tipsArray);
 		
-	} else echo "alert('Failed to execute tip query)" . mysqli_error($con);
-	
-	
-	
-	// Execute the query
-	$query = $con->prepare("
-		SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, favorites.fav_id
-		FROM 
-			(favorites JOIN events 
-			ON (favorites.fav_typeID = events.event_id
-			AND favorites.fav_type = 'event'))
-		WHERE favorites.fav_userID = ?
-	");
-	$query->bind_param('i', $fav_userID); // Sets params to sql query
-	if($query->execute()) {
+		return $tipsArray;
+	}	
+		
+	function getEventsArray($dbConnection, $fav_userID) {	
+		// Execute the query
+		$query = $dbConnection->prepare("
+			SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, favorites.fav_id
+			FROM 
+				(favorites JOIN events 
+				ON (favorites.fav_typeID = events.event_id
+				AND favorites.fav_type = 'event'))
+			WHERE favorites.fav_userID = ? AND favorites.fav_kept = 1;
+		");
+		$query->bind_param('i', $fav_userID); // Sets params to sql query
+		if(!($query->execute())) die("Failed to execute RSS query" . mysqli_error($dbConnection));
 		$query->store_result();
 		$query->bind_result($event_id, $event_date, $event_time, $event_url, $event_place, $event_title, $event_sponsor, $fav_id);
 		
@@ -103,10 +107,8 @@
 			array_push($eventsArray, $row);
 		}
 
-		array_push($output, $eventsArray);
+		return $eventsArray;	
 	
+	} 
 	
-	} else echo "alert('Failed to execute events query)" . mysqli_error($con);
-	
-	echo json_encode($output);
 ?>
