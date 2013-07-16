@@ -3,6 +3,22 @@
  */
 var feedArray = new Array();
 
+function favFunction(i) {
+	alert("Favorited!");
+	var paragraph = document.getElementById(i);
+
+	if(! $('#' + i ).hasClass("highlighted")) {	
+		paragraph.className = " highlighted";
+		addFeed(i);
+	}
+
+	else {
+		paragraph.className = "item-text";
+		removeFeed(i);
+
+	}
+}
+
 // Adds the given id to feedArray
 function addFeed(id) {
 	feedArray.push(id);

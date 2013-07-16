@@ -8,15 +8,19 @@
 	
 		<title>News Feed</title>
 		
-		<!-- Allows us to have the google APIs for javascript without downloading them into our device.
-		I know, I know, it's not hosted by the local machine. But let's worry about that later.	-->
 		<script src="js/google-apis.js"></script>
-		<script src="../js/generator.js"></script>
+		<script>google.load("feeds", "1");</script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
-		<script> google.load("feeds", "1"); </script>
-		<link rel="stylesheet" type="text/css" href="css/newsfeed.css">
-		<script src="js/add-remove-feed.js"></script>
+		
+		<script src="../js/generator.js"></script>
+		<script src="js/temp-news-feed.js"></script>
+		<script src="js/initializeFeeds.js"></script>
+		<script src="js/getFavoritedNews.js"></script>
+		<script src="js/updateFeeds.js"></script>
+		<script src="js/changeFeeds.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="../css/default.css">
+		<link rel="stylesheet" type="text/css" href="css/temp-newsfeed.css">
 			
 	</head>
 
@@ -30,48 +34,8 @@
 			</script>
 			
 			<div id="content">
-				
-				<div id="feed">
-					<!-- The following code below allows me to call a function in feed.js with
-					my own parameters to the function. -->
-
-					<script>
-					function favFunction(i) {
-						alert("Favorited!");
-						var paragraph = document.getElementById(i);
-
-						if(! $('#' + i ).hasClass("highlighted")) {	
-							paragraph.className = " highlighted";
-							addFeed(i);
-						}
-
-						else {
-							paragraph.className = "item-text";
-							removeFeed(i);
-
-						}
-					}
-
-
-					</script>
-
-
-					<script src="js/news-feed.js"></script>
-					<script>
-						rssfeed("feed", "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2", 8, "Champaign Library Events:", "subtitle");
-					
-						/* TODO: This link below works, but the code needs to be edited 
-						in order for multiple RSS feeds to be present. */
-						/* http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2
-						/*"http://www.chambanamoms.com/feed" */
-					
-					</script>
-				
-				</div>
-				
+				<div id="feed"></div>
 			</div> <!-- End content div -->
-			
-			
 		
 		</div> <!-- End container div -->
 				
