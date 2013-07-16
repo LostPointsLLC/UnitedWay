@@ -2,6 +2,10 @@
 	require("../../php/connect.php");
 	$fav_userID = $_POST['userID'];
 	$output = array();
+
+	/* TODO: I unwisely made this into three separate server calls. However
+	 * you could string these sql strings together to get only one call
+	 */
 	array_push($output, getRssArray($dbConnection, $fav_userID));
 	array_push($output, getTipsArray($dbConnection, $fav_userID));
 	array_push($output, getEventsArray($dbConnection, $fav_userID));
