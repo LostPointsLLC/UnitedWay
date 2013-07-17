@@ -28,8 +28,8 @@ function getFavoritedNews() {
 		}
 	});
 
-	for(var id in linkIdArray)
-		alert(id);
+//	for(var link in linkIdArray)
+//		alert(link + " and also " + linkIdArray[link]);
 	return linkIdArray;
 
 

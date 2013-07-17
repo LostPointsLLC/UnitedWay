@@ -1,6 +1,9 @@
-var feedArray;			// Global array containing pairs of rss id/url pairs
-var feedData;			// Global object containing data
+var linkIdArray;		// Global array containing pairs of url-rssID pairs
+var feedData;			// Global object containing feed data
 var entries;			// Contains the feed items
+
+var removeFromDb	= new Array();	// Will contain items already in the db
+var addToDb 		= new Array();	// Will contain items not in the db
 
 function rssData(url, limit, title, source) {
 
@@ -24,10 +27,9 @@ function rssData(url, limit, title, source) {
  */
 $(document).ready(function() {
 
-	feedArray = getFavoritedNews();		// Part of stage 1
-	alert("Final: " + JSON.stringify(feedArray));
-	initializeFeed();					// Also part of stage 1
-
+	linkIdArray = getFavoritedNews();		// Part of stage 1
+	initializeFeed();						// Also part of stage 1
+	changeFeeds();							// Stage 2
 	
 });
 

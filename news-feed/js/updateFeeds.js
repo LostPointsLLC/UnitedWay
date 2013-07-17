@@ -1,5 +1,4 @@
 
-
 function addFeeds() {
 
 	if(!feedArray.length) return;			// Quickly exits page if nothing to be modified
@@ -32,8 +31,8 @@ function getFeedString() {
 	while(feedArray.length) {
 		var id = feedArray.pop();
 		var rssArray = new Array();
-		rssArray[0]	= thefeeds[id].link;
-		rssArray[1]	= thefeeds[id].title;
+		rssArray[0]	= entries[id].link;
+		rssArray[1]	= entries[id].title;
 		rssArray[2]	= headline; // Acquired from news-feed.js
 		rssObjects.push(rssArray);
 	}

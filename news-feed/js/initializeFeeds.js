@@ -22,7 +22,9 @@ function rssfeedsetup(){
 	feedpointer.load(displayfeed); /* Calls the displayfeed function */
 }
 
-
+/* The main function that displays the feeds on the page.
+ * Uses the google API.
+ */
 function displayfeed(result){
 
 	if (result.error) {
@@ -44,36 +46,32 @@ function displayfeed(result){
 	// accordingly
 	// The tree structure below looks like this: 
 	/*
-	*	<div onClick="function()" class="rss_item parity favorite" id="rss_id">
+	*	<div onClick="favorite(rss_id)" class="rss_item parity favorite" id="rss_id">
 	*		<div class="item-text-box">
-	*		<a class='item-text'> Hello world </a>
+	*		<a class='item-text'> Title of Headline </a>
 	*		</div>
 	*	</div>
 	*/
-
-	var backdiv = "</a></div></div>";
+	var backdiv = "</div></div>";
 	for(var i = 0; i < entries.length; i++) {
 
 		// Binds a class to items based upon parity numbered rss items
-		var parity;
-		if(i % 2 == 0)	parity = "even";
-		else 			parity = "odd";
+		var parity = assignParity(i);
 
 		// Checks whether an item has been favorited or not
 		var favorite;
 		var rss_id = checkIfFavorited(entries[i]);
 		if(rss_id != -1) {
-			favorite = "fav";	
+			favorite = 'fav';
 		}
 
 		else {
-			favorite = "nofav";
-			rss_id = "no" + i;					// Represents an ID who isn't in the db yet
-
+			favorite = 'nofav';
+			rss_id = -1 * (i+1);					// Represents an ID who isn't in the db yet, always a negative number
 		}
 		
 		
-		var outerdiv = "<div onClick='favorite(" + rss_id + ")' class='" + parity + " " + favorite + " rss-item'>";
+		var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 		var innerdiv = "<div class='item-text-box'>";
 		var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
 
@@ -82,16 +80,21 @@ function displayfeed(result){
 
 }
 
+function assignParity(i) {
+
+	if(i % 2 == 0)	return "even";
+	else 			return "odd";
+	
+}
+
 /* Checks whether the entry is in the global feedArray
  * Currently, I can only do a O(n) algorithm for this, but
  * I definitely want to find a nice way to do this in the future.
  * There are trivial data structures I could make to do this in O(lg n) time.
  */
 function checkIfFavorited(entry) {
-	for(var i = 0; i < feedArray.length; i++) {
-		if(feedArray[i].rss_url == entry.link)
-			return feedArray[i].rss_id;
-	}
+	if(entry.link in linkIdArray)
+		return linkIdArray[entry.link];
 	return -1;
 }
 
