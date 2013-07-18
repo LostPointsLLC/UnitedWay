@@ -53,7 +53,7 @@ function displayfeed(result){
 	*	</div>
 	*/
 	var backdiv = "</div></div>";
-	for(var i = 0; i < entries.length; i++) {
+	for(var i = entries.length - 1; i>=0; i--) {
 
 		// Binds a class to items based upon parity numbered rss items
 		var parity = assignParity(i);

@@ -15,9 +15,6 @@ function updateFeeds() {
 		data: datastring,
 		cache: false,
 		async: false, // must be synchronous, sorry! 
-		success: function(datastring) {
-			alert(datastring);
-		}
 	});
 
 
@@ -36,7 +33,6 @@ function getAddString() {
 		rssArray[0]	= entries[id].link;
 		rssArray[1]	= entries[id].title;
 		rssArray[2]	= feedData.title; // Acquired from news-feed.js
-		alert(entries[id].link);
 		addArray.push(rssArray);
 	}
 	return JSON.stringify(addArray);	
