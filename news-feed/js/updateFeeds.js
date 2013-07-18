@@ -1,16 +1,17 @@
 
-function addFeeds() {
+function updateFeeds() {
 
-	if(!feedArray.length) return;			// Quickly exits page if nothing to be modified
-	var rssObjects = getFeedString();		// Converts the array into a string
-
+	if(!removeFromDb.length && !addToDb.length) return;			// Quickly exits page if nothing to be modified
+	var removeString = getRemoveString();
+	var addString = getAddString();
+	
 	// Appends the user ID to the query
-	var datastring = "user_id=" + sessionStorage.pid + "&" + rssObjects;
+	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString;
 
 
 	$.ajax({ 
 		type: "POST",
-		url: "php/addFeeds.php",
+		url: "php/updateFeeds.php",
 		data: datastring,
 		cache: false,
 		async: false, // must be synchronous, sorry! 
@@ -22,33 +23,36 @@ function addFeeds() {
 
 }
 
-// Uses the feedArray above to create a JSON string of RSS objects
-function getFeedString() {
+// Uses the addToDb array to create a JSON string of array objects
+function getAddString() {
 
-	var rssObjects = new Array();
+	var addArray = new Array();
 
 	// Note that this uses the thefeeds variable from news-feed.js
-	while(feedArray.length) {
-		var id = feedArray.pop();
+	while(addToDb.length) {
+		var id = addToDb.pop();
 		var rssArray = new Array();
+		id = (-1 * id) - 1;
 		rssArray[0]	= entries[id].link;
 		rssArray[1]	= entries[id].title;
-		rssArray[2]	= headline; // Acquired from news-feed.js
-		rssObjects.push(rssArray);
+		rssArray[2]	= feedData.title; // Acquired from news-feed.js
+		alert(entries[id].link);
+		addArray.push(rssArray);
 	}
-	return "rssObjects=" + JSON.stringify(rssObjects);	
+	return JSON.stringify(addArray);	
 }
 
+function getRemoveString() {
+	return JSON.stringify(removeFromDb);	
+}
 
 
 function onExit() {
 
-	addFeeds();
 	document.location.href="../home/";
 }
 
 function onHelp() {
-	addFeeds();
 	document.location.href="../help/News Feeds.html";
 
 }

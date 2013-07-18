@@ -31,6 +31,9 @@ $(document).ready(function() {
 	initializeFeed();						// Also part of stage 1
 	changeFeeds();							// Stage 2
 	
+	$(window).unload(function() {
+		updateFeeds();						// Stage 3
+	});
 });
 
 /* Generates the header of the favorites page.
