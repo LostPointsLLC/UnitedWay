@@ -21,10 +21,12 @@
 		if(!mysqli_query($dbConnection, $rssString))
 			echo "Error: " . mysqli_error($dbConnection);
 
+		echo $rssString;
 		// Now we update the favorites table
 		$favQuerystring	= getFavString($dbConnection, $addArray, $user_id);
 		if(!mysqli_query($dbConnection, $favQuerystring))
 			echo "Error: Querystring is " . $favQuerystring . " Error is " . mysqli_error($dbConnection);
+
 	}
 	mysqli_close($dbConnection);
 
