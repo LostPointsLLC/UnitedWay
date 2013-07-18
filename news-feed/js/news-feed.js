@@ -1,64 +1,62 @@
-var thefeeds;
+var linkIdArray;		// Global array containing pairs of url-rssID pairs
+var feedData;			// Global object containing feed data
+var entries;			// Contains the feed items
 
-/* A wrapper function for the whole entire feed API.
- * @param1: A string of the div id to be appended to
- * @param2: A string representing the URL where the RSS feed is grabbing from
- * @param3: An int of how many stories will be shown
- * @param4: A string of the headline of the RSS feed.
+var removeFromDb	= new Array();	// Will contain items already in the db
+var addToDb 		= new Array();	// Will contain items not in the db
+
+function rssData(url, limit, title, source) {
+
+	this.rssurl = url;
+	this.limit = limit;
+	this.title = title;
+	this.source = source;
+	
+}
+
+
+/* The entrance function for the page. Note that
+ * it uses functions available from add-remove-feed.js
+ *
+ * This function takes place in three stages:
+ * 1. Retrieving the already favorited items, and displaying them
+ * 2. Get requests to unfavorite items as well as add new ones.
+ * 3. Send the request to the server.
+ * 
+ * I've separated the three phases up into separate .js files for organization.
  */
-function rssfeed(id, url, limit, output, style_id) {
-	feedcontainer = document.getElementById(id);
-	feedurl = url;
-	feedlimit = limit;
-	rssoutput = "<div class='rss-head'><h3 id='" + style_id + "'>" + output + "</h3></div>";
-	headline = output;	
-	window.onload = function(){
-		rssfeedsetup();
-	}
+$(document).ready(function() {
 
-}
-
-function rssfeedsetup(){
-	var feedpointer = new google.feeds.Feed(feedurl);
-	feedpointer.setNumEntries(feedlimit);
-	feedpointer.load(displayfeed); /* Calls the displayfeed function */
-}
-
-
-function displayfeed(result){
-
-	if (!result.error){
+	linkIdArray = getFavoritedNews();		// Part of stage 1
+	initializeFeed();						// Also part of stage 1
+	changeFeeds();							// Stage 2
 	
-		// thefeeds is an array of objects that contains the RSS feed information.
-		// thefeeds[i].link is the URL.
-		// thefeeds[i].title is the headline.
-		thefeeds = result.feed.entries; // theFeeds is a global variable to be accessed in add-remove-feed.js	
-		
-		/* Modifies the rssoutput variable, which will be interpreted as HTML 
-		 * Each iteration appends the headline inside a list item <li>
-		 */
-		for (var i = 0; i < thefeeds.length; i++) {
+	$(window).unload(function() {
+		updateFeeds();						// Stage 3
+	});
+});
 
-			var inner = "<div class='inner-div'><p id='" + i + "' class='item-text'><a href='" + thefeeds[i].link + "'>" + thefeeds[i].title + "</a></p></div>"
-			var star = "<a onClick='favFunction(" + i + ")'><img src='../images/star-button.png'></a>";
+/* Generates the header of the favorites page.
+ * This function is slightly different than others because it adds news feed favorites 
+ * to the database
+ * 
+ * @param text	: A string containing the text for the title
+ * @param home	: A boolean of whether the home button should be shown
+ * @param help	: A boolean of whether the help button should be shown
+ */
+function generateHeader(text, home, help) {
+	document.write("<div class='header' id='header'>");	
+	// Writes the header to the DOM
+	document.write("<div class='title' style='color: white'>" + text + "</div>");
+				
 
-			if(i == thefeeds.length - 1) {
-				rssoutput += " <div class='even item last-item'>" + inner + star + "</div>";
-				break;
-			}
-			if(i % 2 == 0) {
-				rssoutput += "<div class='even item'>" + inner + star + "</div>";
-			}
-			else {
-				rssoutput += "<div class='odd item'>" + inner + star + "</div>";
-			}
-		}
-		feedcontainer.innerHTML = rssoutput;
-	}
-	
-	else
-		alert("Error fetching feeds!");
+	if(help) 
+		document.write("<div class='help'><a onClick='onHelp()'><img src='../images/help-button.png'/></a></div>");
+	if(home) 
+		document.write("<div class='home'><a onClick='onExit()'><img src='../images/home-button.png'/></a></div>");
+
+	document.write("</div>");	
+
 }
-
 
 
