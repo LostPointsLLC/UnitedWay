@@ -13,15 +13,8 @@ function changeFeeds() {
 function favorite(id) {
 	
 	// If changing nofav -> fav
-	if(shouldBeFavorited(id)) {
-		addFeed(id);
-	}
-
-	else {
-		removeFeed(id);
-	}
-	alert("changeFromDb: " + JSON.stringify(removeFromDb));
-	alert("addToDb: " + JSON.stringify(addToDb));
+	if(shouldBeFavorited(id)) 	addFeed(id);
+	else 						removeFeed(id);
 }
 
 // Returns false if an item has the fav class
