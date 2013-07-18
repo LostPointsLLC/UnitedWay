@@ -13,7 +13,14 @@
 
 }
 
+.textcontent {
 
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: helvetica, geneva, sans serif
+
+}
 
 .inner-text {
 
