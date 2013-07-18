@@ -45,10 +45,8 @@ body{
 	display:block;
 	margin:0 auto;
 }
-.firstDay {
-   background-color : #00FF00;
-   background-image :none;
-   color: #000;
+.wrapper{
+	height:600px;
 }
 
 /*
@@ -200,3 +198,7 @@ Container (background color, container corners, shadow)
 }
  
 .ui-datepicker-other-month .ui-state-default { color: #565656; }
+
+.ui-datepicker-today {
+    background: #fbae42;
+}

@@ -1,6 +1,6 @@
 /* Generates the calendar button within the daily tips page.*/
 function generateCalBtn() {
-	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='images/calendar-button.png'/></a></div>");
+	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='images/calendar-icon2.png'/></a></div>");
 }
 
 /* Generates the div boxes for date, activity and events on the daily tips page in calendar*/

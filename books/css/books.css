@@ -1,0 +1,11 @@
+.book-label {
+
+    color: yellow !important;
+}
+
+#title {
+    text-align: center;
+    font-size: 30px;
+    font-family: Chunkfive;
+    margin: 4px 25px 0 25px;
+    }

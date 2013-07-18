@@ -1,0 +1,7 @@
+CREATE TRIGGER rss_insert
+AFTER INSERT ON rss
+FOR EACH ROW
+BEGIN
+	INSERT INTO favorites (fav_type, fav_typeID, fav_userID) 
+        VALUES ('rss', NEW.rss_id, 10);
+END;
