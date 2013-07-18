@@ -1,0 +1,150 @@
+
+/* For the title of the feed */
+.rss-head{
+	width: 100%;
+    background-color: #00549B;
+	height: 50px;
+			text-align: center;
+color: white;
+}
+
+
+/* The div containing the whole feed */
+#feed {
+	font-family: Chunkfive;
+	position: relative;
+
+}
+
+.rss-item {
+	width: 100%;
+	height: 50px;
+
+}
+
+
+
+/* For the favorites *************************************************/
+.fav {
+	background: url("../../images/star-button.png") no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+}
+/*
+.nofav {
+
+	background: url("../../images/unpressed-star-button-even.png") no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+
+}*/
+
+.even {
+
+	border-top: 2px solid #003366;
+
+}
+
+.odd {
+
+	border-top: 2px solid #003366;
+	background-color: #9999FF;
+}
+
+.nofav.odd {
+
+
+	background-image: url("../../images/unpressed-star-button-odd.png") ;
+	background-repeat: no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+	background-color: #9999ff;
+
+
+}
+
+
+.nofav.even {
+	background: url("../../images/unpressed-star-button-even.png") no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+
+
+}
+/*********************************************************/
+
+.item-text-box {
+
+	width: 70%;
+	margin-top: 10px;
+	margin-left: 10px;
+
+}
+
+
+
+
+
+
+
+
+/* Preliminary settings */
+a {
+color: white;
+	text-decoration: none;
+	font-family: helvetica, geneva, sans serif
+}
+
+a:hover{
+	color: #EE9A00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tip-ctn-even-fav,
+.tip-ctn-even{
+	margin: 0 auto;
+	width: 100%;
+	display: block;
+	border-bottom: #7ca3dc 2px solid;
+	background-color: #00549b;
+	color: white;
+	background-image:url("../../images/unpressed-star-button.png");
+	background-repeat:no-repeat;
+	background-position:95% 50%;
+	background-size:40px 40px;
+}
+.tip-ctn-odd-fav,
+.tip-ctn-odd{
+	margin: 0 auto;
+	width: 100%;
+	display: block;
+	border-bottom: #7ca3dc 2px solid;
+	background-color: #E1EBF5;
+	color: #00549b;
+	background-image:url("../../images/unpressed-star-button.png");
+	background-repeat:no-repeat;
+	background-position:95% 50%;
+	background-size:40px 40px;
+}
+
+.tip-ctn-even-fav {
+	background-image:url("../../images/star-button.png");
+}
+
+.tip-ctn-odd-fav {
+	background-image:url("../../images/star-button.png");
+}
+

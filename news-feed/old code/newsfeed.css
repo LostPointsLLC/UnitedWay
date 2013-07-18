@@ -1,0 +1,68 @@
+/* Introduces the Chunkfive font family into the stylesheet */
+@font-face {
+    font-family: 'Chunkfive';
+    src: url('../../fonts/Chunkfive-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#feed {
+	font-family: Chunkfive;
+	position: relative;
+	bottom: 19px;
+
+}
+
+#subtitle {
+	color: white;
+	text-align: center;
+	position: relative;
+	top: 17px;
+	
+}
+
+
+
+.item-text {
+position: relative;
+bottom: 10px;
+}
+
+.inner-div {
+display: inline-block;
+/*border: 2px solid black;*/
+width: 280px;
+position: relative;
+		  margin-right: 20px;
+left: 20px;
+}
+
+
+.last-item {
+
+
+	border-bottom: 2px solid #003366;
+}
+
+
+
+.favorite {
+display: block;
+position: relative;
+left: 300px;
+bottom: 40px;
+}
+
+
+.highlighted {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+#testing-bt {
+position: absolute;
+	z-index: 20;
+
+
+}
