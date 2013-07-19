@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>united-way-app</title>
+	</head>
+	<body>
+		<script type='text/javascript'>
+			function select_color(imageId){
+			//document.getElementById(imageId).width="40";
+			document.getElementById(imageId).style.borderColor="#FFFFFF";
+			}
+		</script>
+
+		<table border="0"width="500" height="700" style="background-color:#7ca3dc;">	
+		<tr height="30" align="center" style="background-color:blue;color:white;"><td>
+		<h1>Adding Child</h1>
+		</td><tr>															<!----- Main------------>
+		<tr><td>
+
+			<table border="0" width="500" height="100" align="center" style="background-color:red;">												<!-------t2--------->
+			<tr>
+				<td width="95"><div align="right">First Name:</div></td>
+				<!--<td><input style="border:0;color:white;background-color:transparent;" type="text" placeholder="child name"></td>-->
+				<td width="171"><input type="text" name="name"/></td>
+			</tr>
+			<tr>
+				<td align="right">
+				Date Of Birth:
+				</td>
+				<td>
+		<select name="month" onchange="return wait_for_load(this, event, function() { editor_date_month_change(this, 'birthday_day','birthday_year'); });">
+		<option value="na">Month</option>
+		<option value="1">January</option>
+		<option value="2">February</option>
+		<option value="3">March</option>
+		<option value="4">April</option>
+		<option value="5">May</option>
+		<option value="6">June</option>
+		<option value="7">July</option>
+		<option value="8">August</option>
+		<option value="9">September</option>
+		<option value="10">October</option>
+		<option value="11">November</option>
+		<option value="12">December</option>
+		</select>
+
+		<select name="day">
+		<option value="na">Day</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+		<option value="26">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+		<option value="31">31</option>
+		</select>
+
+		<select name="year">
+		<option value="na">Year</option>
+		<option value="2009">2013</option>
+		<option value="2008">2012</option>
+		<option value="2007">2011</option>
+		<option value="2006">2010</option>
+		<option value="2009">2009</option>
+		<option value="2008">2008</option>
+		<option value="2007">2007</option>
+		<option value="2006">2006</option>
+		<option value="2005">2005</option>
+		<option value="2004">2004</option>
+		<option value="2003">2003</option>
+		<option value="2002">2002</option>
+		<option value="2001">2001</option>
+		<option value="2000">2000</option>
+		</select>
+				</td>
+			</tr>
+		  
+			<tr>
+			<td align="right">
+			<form>
+			<p>Gender:</p></td>
+			<td><input type="radio" name="child_gender" value="male">Male<br>
+			<input type="radio" name="child_gender" value="female">Female
+			</form></div></td>
+			</td>
+			</tr>
+			
+		</table>																																			<!-------t2--------->
+
+		</td></tr>																							<!--First Partition-->
+		<tr><td>
+
+		<p align="center" style="font-size:24px;font-family:tempus sans itc;color:white;"><b>Choose your color</b></p>
+
+		<table border="0" align="center" style="background-color:white;">																					<!------t3----->
+			<tr>
+				<td class="tabcolor">
+				
+				
+				<img onclick="select_color('c_red');" border="3" name="c_red" id="c_red" bordercolor="#000000" align="center" width="60" height="60" src="http://www.online-utility.org/image/ImageCache?file=2/25/Red.svg/800px-Red.svg"/>
+				
+				</td>
+				<td class="tabcolor" style="background-color:green;">
+				
+				<img onclick="javascript:select_color('c_green');" border="3" name="c_green" id="c_green" bordercolor="#000000"align="center" width="60" height="60" src="http://www.mymunchkinhome.com.au/store/pc/catalog/swatches/swatches300/squares_lime_green.jpg"></td>	
+				<td class="tabcolor" style="background-color:blue">
+				<img onclick="javascript:select_color('c_blue');" border="3" name="c_blue" id="c_blue" bordercolor="#000000"align="center" width="60" height="60" src="http://www.bed-linens.net/media/pix/percale/polycotton/solids_tc200/royal_blue-lg.jpg"></td>	
+				<td class="tabcolor" style="background-color:yellow">
+				<img onclick="javascript:select_color('c_yellow');" border="3" name="c_yellow" id="c_yellow" bordercolor="#000000"align="center" width="60" height="60" src="http://www.red-castle.com/cp/shape_square.jpg"></td>	
+				<td class="tabcolor" style="background-color:pink">
+				<img onclick="javascript:select_color('c_pink');" border="3" name="c_pink" id="c_pink" bordercolor="#000000"align="center" width="60" height="60" src="http://greatpalmspbb.com/sitebuilder/images/PINK_square_background-791x795.jpg"></td>
+				<td class="tabcolor" style="background-color:brown">
+				<img onclick="javascript:select_color('c_brown');" border="3" name="c_brown" id="c_brown" bordercolor="#000000"align="center" width="60" height="60" src="http://www.craft.com.au/images/products/FPA13.jpg"></td>
+			</tr>
+			<tr>
+				<td width="60" height="60"style="background-color:OrangeRed "></td>	
+				<td width="60" height="60"style="background-color:BlueViolet "></td>	
+				<td width="60" height="60"style="background-color:black"></td>	
+				<td width="60" height="60"style="background-color:DarkMagenta"></td>	
+				<td width="60" height="60"style="background-color:grey"></td>
+				<td width="60" height="60"style="background-color:Chartreuse"></td>
+			</tr>
+		</table>			
+
+		<tr height="40">
+		<td align="center">																																<!------t3----->
+		<button  type="button">Continue</button>
+		</td>
+		</tr>
+		<tr height="40">
+		<td align="center">																																<!------t3----->
+		<button  type="button">Add another child</button>
+		</td>
+		</tr>
+			
+		</td></tr>
+
+
+
+		</table>																																				<!----- Main------------>
+
+			
+	</body>
+</html>

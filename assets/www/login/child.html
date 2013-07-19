@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add a child</title>
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/generator.js"></script>
+		<link href="../css/default.css" rel="stylesheet" type="text/css" />
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/child.css" rel="stylesheet" type="text/css" />
+		<link href="css/colors.css" rel="stylesheet" type="text/css" />
+		<link href="css/sprites.css" rel="stylesheet" type="text/css" />
+		<script src="js/child.js"></script>
+	</head>
+	<body>
+
+		<form id="form">
+			<div id="titlebar"><img id="titleimg"src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
+
+			<p>Please fill in your child's information below!</p>
+
+			<img id="icon" src="images/boy.png"/>
+			<div id="content">
+				<div id="childname" class="input-info">
+					<div id="name">
+						<input id="name-input" type="text" name="name" placeholder="Your child's firstname">
+					</div>
+				</div>
+
+            <div id="childbd" class="input-info">
+					<div id="birthday">
+						<p>Your child's birthday</p>
+						<input type="date" name="birthday"/>
+					</div>
+				</div>
+
+				
+				<div id="gender-select" class="input-info">
+					<p>Select your child's gender</p>
+					<ul>
+					<li><input id="boy" value="'boy'" type="radio" name="gender"/><label for="boy">Boy</label></li>
+					<li><input id="girl" value="'girl'" type="radio" name="gender"/><label for="girl">Girl</label></li>
+					</ul>
+				</div>
+				
+
+				<p id="fav-color">Choose your child's favorite color!</p>
+
+				<div id="color-list">
+					<input type="color" name="color">
+
+				</div>
+
+			</div>
+			
+			<script type="text/javascript">
+			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+			function add() {
+				if(updateDB(true) == -1) return;
+				document.location.href="child.html"; 
+			}
+			</script>
+
+			<script type="text/javascript">
+			generateButton("Finished!", "finish", "bt-yellow", "finish()");
+			function finish() { 
+				if(updateDB(false) == -1) return;
+				document.location.href="../home/index.html"; 
+			}
+
+			</script>
+
+
+			
+
+
+		</form>
+
+	</body>
+</html>
+
+

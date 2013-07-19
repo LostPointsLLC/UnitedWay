@@ -1,0 +1,46 @@
+#main-menu-wrapper {
+
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	background: #00549b;
+	text-align: center;
+}
+#main-menu-title {
+	height: 50px;
+	width:100%;
+	background: #789fcd;
+}
+#titleimg{
+	float:left;
+}
+#help-button {
+	float: right;
+	height: 50px;
+	width: 50px;
+}
+.main-buttons {
+	width: 100%;
+	vertical-align: middle;
+}
+#level1, #level2, #level3{
+	margin:0 auto;
+	width:350px;
+	font-size:0;
+	line-height: 0;
+}
+#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
+ {
+ 	display:block;
+	float: left;
+}
+
+
+.incomplete {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+
+}
