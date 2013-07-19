@@ -11,29 +11,30 @@ function updateDate(d,m){
 	var monthNames = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ]
 	var monthText = monthNames[m];//retrieves the string value of that month.
-	var day = d;
-	//Updates the chosen day, month and activity on the current page
-	document.getElementById('day').innerHTML = day;
-	document.getElementById('month').innerHTML = monthText;
-	//has to offset by 1 because array index starts at 0.
-	document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
+    var day = d;
+    //Updates the chosen day, month and activity on the current page
+    document.getElementById('day').innerHTML = day;
+    document.getElementById('month').innerHTML = monthText;
+    //has to offset by 1 because array index starts at 0.
+    document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
 	+ "<br><br>" + updateEvent(day-1,m);
+    document.getElementById('lib').innerHTML = "Library Event: <br>" + getEvent(day-1,m)+"<br>";
 }
 
 //function to get and update the event of that day
 function updateEvent(d,m){
 var val;
 $.ajax({
-		type: "POST",
-		url: "php/events.php",
-		async:false,
-		cache: false,
-		success: function(data){
-			var obj = jQuery.parseJSON(data);
-			val = "Events: <br>" + obj[m][d];
-		}
-	 });
-return val;
+    type: "POST",
+    url: "php/events.php",
+    async:false,
+    cache: false,
+    success: function(data){
+	var obj = jQuery.parseJSON(data);
+	val = "Events: <br>" + obj[m][d];
+    }
+});
+    return val;
 }
 
 //go back to home page
@@ -54,4 +55,9 @@ function goToCalendar(){
 //returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31
 function getActivity(day,month){
 	return tipsArray[month][day];
+}
+
+function getEvent(day, month){
+  /*To be Fixed*/
+
 }

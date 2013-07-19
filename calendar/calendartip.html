@@ -1,22 +1,25 @@
 <html>
 <head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/calendartip.css" type="text/css"/>
-		<link rel="stylesheet" type="text/css" href="../css/default.css" />	
-		<script src="js/jquery-1.7.1.min.js"></script>
-		<script src="js/jquery.ui.datepicker.min.js"></script>
-		<script src="../js/generator.js"></script>
-		<script src="js/generatecalendar.js"></script>
-		<script src="js/tipsarray.js"></script>
-		<script src="js/calendartip.js"></script>
+		<meta charset = "utf-8" />
+		<link rel = "stylesheet" href="css/calendartip.css" type="text/css"/>
+		<link rel = "stylesheet" type="text/css" href="../css/default.css" />	
+		<script src = "js/jquery-1.7.1.min.js"></script>
+		<script src = "js/jquery.ui.datepicker.min.js"></script>
+		<script src = "../js/generator.js"></script>
+		<script src = "js/generatecalendar.js"></script>
+		<script src = "js/tipsarray.js"></script>
+		<script src = "js/calendartip.js"></script>
+		<script src = "https://www.google/com/jsapi"></script>
+		<script src = "js/scraper_library.js"></script>
 </head>
 
 <body>
 <div class = "wrapper">
 	<script type="text/javascript">
-		generateHeader("Calendar", true, true); // Header
-		generateDailyActivity();	//Main div contents
-		generateCalBtn();	//Generate cal button at the bottom
+	  generateHeader("Calendar", true, true); 
+	  generateDailyActivity();
+	  generateEvent();    
+	  generateCalBtn();
 	</script>
 </div>
 </body>
