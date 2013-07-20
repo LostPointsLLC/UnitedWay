@@ -8,9 +8,9 @@
 	float: right;
 }
 #calendar{
-	position: relative;
 	margin: 0 auto;
-	padding: 0;
+	position:relative;
+	padding-top: 50px;
 }
 
 #calendar-container{

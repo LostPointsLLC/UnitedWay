@@ -5,11 +5,13 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.wrapper{
+	height:auto;
+}
 .content {
 
 	margin: 0 auto;
-	padding: 0;
+	padding-top: 50px;
 
 }
 

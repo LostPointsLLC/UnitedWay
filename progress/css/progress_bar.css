@@ -26,6 +26,7 @@ body{
 }
 .wrapper{
 	text-align:center;
+	padding-top:57px;
 }
 .cell {
 	font-size:1em;
