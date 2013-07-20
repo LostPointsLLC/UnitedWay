@@ -41,19 +41,7 @@ float:right;
 	overflow:auto;
 }
 
-#lib{/*copy paste from id = activity*/
-    text-align: center;
-    position: relative;
-    width: 350px;
-    height: 166px;
-    margin: 0 auto;
-    color: white;
-    z-index: 10;
-    bottom: 169;
-    font: 17 arial;
-    word-wrap: break-word;
-    overflow:auto;
-}
+
 body{
 	display:block;
 	margin:0 auto;
