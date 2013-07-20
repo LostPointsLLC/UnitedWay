@@ -1,11 +1,24 @@
 body {
     font-family: Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    text-align: center
-}
+    text-align: center;
+    width:100%;
+    height:100%;
 
+}
+#titlebar{
+	height:54px;
+	width:100%;
+	background: #00549b;
+}
+#titleimg{
+	float:left;
+}
+a{
+	background:none !important;
+}
 #form {
-	width: 350px;
-	height: 600px;
+	width: 100%;
+	height: 100%;
 	background-color: #7ca3dc;
 	margin: 0 auto;
 	padding; 0;
@@ -37,16 +50,12 @@ top: 120px;
 }
 
 #child-add {
-	float: left;
-	position: relative;
-	left: 15px;
+	text-align:center;
 	top: 150px;
 }
 
 #finish {
-	float: right;
-	position: relative;
-	right: 15px;
+	text-align:center;
 	top: 150px;
 }
 

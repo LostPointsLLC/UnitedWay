@@ -3,17 +3,30 @@
 
 
 */
-
+html{
+	height:100%;
+	width:100%;
+	background:#00549b;
+}
+body{
+	margin:0;
+}
+#content{
+	width:100%;
+	height:100%;
+}
 
 .ch {
 	border: none; /*1px solid #00549b;*/
 	padding: 3px 7px 2px 7px;
-
+	width:100%;
 /*
  border='1' bordercolor='#999999' style= cellpadding='2' cellspacing='2' width='300'
  */
 }
-
+.wrapper{
+	text-align:center;
+}
 .cell {
 	font-size:1em;
 	border: none;/*1px solid #00549b;*/
@@ -41,21 +54,21 @@
 	padding-top: 7px;
 	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
+	text-align:center;
 }
 #child-wrapper {
 	height: 100px;
-	width: 350px;
+	width: 100%;
 }
 
 #child {
-	height: 100px;
-	width: 150px;
-	float: left;
-	margin: 0px 0px 0px 90px;
+	text-align: center;
 }
 #child img {
 	padding-top: 10px;
+	text-align:center;
 }
+
 #right-arrow {
 	height: 50px;
 	width: 50px;
@@ -85,7 +98,7 @@
 /****************THE HEALTH BUTTON*******************/
 
 .bt-health {
-	width: 170px;
+
 	font-size:13px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
@@ -101,12 +114,13 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#f51400');
 	background-color:#f24537;
 	color:#ffffff;
-	display:inline-block;
+	display:block;
 	text-shadow:2px 0px 0px #810e05;
  	-webkit-box-shadow:inset 1px 1px 0px 0px #f5978e;
  	-moz-box-shadow:inset 1px 1px 0px 0px #f5978e;
  	box-shadow:inset 1px 1px 0px 0px #f5978e;
-	margin-left: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	margin-top: 10px;
 }.bt-health:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f51400), color-stop(100%, #f24537) );
@@ -122,7 +136,6 @@
 /****************THE LANGUAGE BUTTON*******************/
 
 .bt-lang {
-	width: 170px;
 	font-size:13px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
@@ -138,12 +151,13 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
 	background-color:#ffc477;
 	color:#ffffff;
-	display:inline-block;
+	display:block;
 	text-shadow:2px 0px 0px #cc9f52;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
-	margin-left: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	margin-top: 10px;
 }.bt-lang:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #fb9e25), color-stop(100%, #ffc477) );
@@ -159,7 +173,6 @@
 /****************THE SOCIAL BUTTON*******************/
 
 .bt-social {
-	width: 170px;
 	font-size:13px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
@@ -175,12 +188,13 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea');
 	background-color:#bddbfa;
 	color:#ffffff;
-	display:inline-block;
+	display:block;
 	text-shadow:2px 0px 0px #528ecc;
  	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	box-shadow:inset 1px 1px 0px 0px #dcecfb;
-	margin-left: 10px;
+ 	margin-right: 5px;
+	margin-left: 5px;
 	margin-top: 10px;
 }.bt-social:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
@@ -195,7 +209,6 @@
 	
 /****************THE OTHER BUTTON*******************/
 .bt-other {
-	width: 170px;
 	font-size:13px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
@@ -211,12 +224,13 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#263857');
 	background-color:#3d94f6;
 	color:#ffffff;
-	display:inline-block;
+	display:block;
 	text-shadow:2px 0px 0px #1570cd;
  	-webkit-box-shadow:inset 1px 1px 0px 0px #97c4fe;
  	-moz-box-shadow:inset 1px 1px 0px 0px #97c4fe;
  	box-shadow:inset 1px 1px 0px 0px #97c4fe;
-	margin-left: 10px;
+ 	margin-right: 5px;
+	margin-left: 5px;
 	margin-top: 10px;
 }.bt-other:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(28%, #11c47), color-stop(77%, #3d94f6) );
@@ -247,13 +261,13 @@
 	border-radius: 10px;
 	
 	/* Dimensions */
-	width: 150px;
+	width: 100%;
 	height: 20px;
-	
+	float:left;
 }
 
 .detail , .detail[role]{
-	width: 280px;
+	width: 80%;
 }
 
 /* Polyfill */

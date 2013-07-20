@@ -5,46 +5,30 @@
 	<title>main menu</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href="css/home.css" rel="stylesheet" type="text/css" />
+	<script src="../js/generator.js"></script>
+	<link href="../css/default.css" rel="stylesheet" type="text/css"/>
 </head>
-
-	<body>
-		<div id="main-menu-wrapper">
-			<div id="main-menu-title"><img src="images/home-title.png" width="245" height="50" alt="" />
-
-
-				<a id="help-button" href="../help/Home.html"><img src="images/help-button.png" /></a>
-
-
-				<div id="main-buttons">
-
-				<a href="../news-feed" id="news-feed-button"><img src="images/news-feed-button.png" /></a>
-
-				<a href="../calendar" id="calendar-button"><img src="images/calendar-button.png" /></a>
-
-				<a href="../progress" id="progress-button"><img src="images/progress-button.png"  /></a>
-
-				<a href="../favorites" id="favorites-button" ><img src="images/favorites-button.png" /></a>
-
-				<a href="../tips" id="tips-button" ><img src="images/tips-button.png" /></a>
-
-				
-				<a href="../resources" id="resources-button"><img src="images/resources-button.png" /></a>
-				</div>
-
-
-
-			</div>
-
-
-
-
-
-
-
+<body>
+	<div id="main-menu-wrapper">
+		<div id="main-menu-title"><img id = "titleimg"src="images/home-title.png" width="245" height="50" alt="" />
+			<a id="help-button" href="../help/Home.html"><img src="images/help-button.png" /></a>
 		</div>
-		<!-- end of main-menu-wrapper -->
+		<div class="main-buttons">
+			<div id = "level1">
+				<a href="../news-feed/index.html"><img id="news-feed-button" src="images/news-feed-button.png"/></a>
+				<a href="../calendar/index.html"><img id="calendar-button" src="images/calendar-button.png"/></a>
+			</div>
+			<div id = "level2">
+				<a href="../progress/index.html"><img id="progress-button" src="images/progress-button.png"/></a>
+				<a href="../favorites/index.html"><img id="favorites-button" src="images/favorites-button.png"/></a>
+			</div>
+			<div id = "level3">
+				<a href="../tips/index.html"><img id="tips-button" src="images/tips-button.png"/></a>
+				<a href="../resources/index.html"><img id="resources-button" src="images/resources-button.png"/></a>
+			</div>
+	
+		</div>
 
-
-
-	</body>
+		
+</body>
 </html>

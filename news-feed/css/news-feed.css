@@ -1,4 +1,7 @@
-
+body{
+	margin:0;
+	background:#00549B;
+}
 /* For the title of the feed */
 .rss-head{
 	width: 100%;
@@ -27,16 +30,15 @@ color: white;
 /* For the favorites */
 .fav {
 	background: url("../../images/star-button.png") no-repeat;
-	background-position: 300px 5px;
+	background-position: 97%;
 	background-size:40px 40px;
 }
 
 .nofav {
 
 	background: url("../../images/unpressed-star-button-even.png") no-repeat;
-	background-position: 300px 5px;
+	background-position: 97%;
 	background-size:40px 40px;
-
 }
 
 .item-text-box {
@@ -50,13 +52,14 @@ color: white;
 
 .even {
 
-	border-top: 2px solid #003366;
-
+	border-top: 1px solid #003366;
+	border-bottom: 1px solid #003366;
 }
 
 .odd {
 
-	border-top: 2px solid #003366;
+	border-top: 1px solid #003366;
+	border-bottom: 1px solid #003366;
 	background-color: #9999FF;
 }
 

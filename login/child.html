@@ -14,7 +14,7 @@
 	<body>
 
 		<form id="form">
-			<div id="titlebar"><img src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
+			<div id="titlebar"><img id="titleimg"src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
 
 			<p>Please fill in your child's information below!</p>
 
@@ -51,8 +51,14 @@
 				</div>
 
 			</div>
-
-
+			
+			<script type="text/javascript">
+			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+			function add() {
+				if(updateDB(true) == -1) return;
+				document.location.href="child.html"; 
+			}
+			</script>
 
 			<script type="text/javascript">
 			generateButton("Finished!", "finish", "bt-yellow", "finish()");
@@ -63,13 +69,6 @@
 
 			</script>
 
-			<script type="text/javascript">
-			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-			function add() {
-				if(updateDB(true) == -1) return;
-				document.location.href="child.html"; 
-			}
-			</script>
 
 			
 

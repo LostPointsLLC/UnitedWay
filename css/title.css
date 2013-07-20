@@ -1,8 +1,7 @@
 #title-screen-wrapper {
-	height: 600px;
-	width: 350px;
+	height: 100%;
+	width: 100%;
 	background: #00549b;
-	border-radius: 10px;
 	margin: 0 auto;
 }
 #logo {
@@ -15,6 +14,7 @@
 #english-espanol-wrapper {
 	height: 70px;
 	width: 350px;
+	margin:0 auto;
 }
 a {
 	font: 16px/40px Verdana, Geneva, sans-serif;
