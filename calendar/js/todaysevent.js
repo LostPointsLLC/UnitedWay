@@ -18,7 +18,13 @@ function updateDate(d,m){
     //has to offset by 1 because array index starts at 0.
     document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
 	+ "<br><br>" + updateEvent(day-1,m);
-    document.getElementById('lib').innerHTML = "Library Event: <br>" + getEvent(day-1,m)+"<br>";
+  //--------------------------------------------------------  
+    var libeventarray = getLibraryEvent(day-1,m);
+    for(var i = 0; i < libeventarray.length(); i++)
+    {
+	document.getElementById('lib').innerHTML = "Library Event: <br>" + libeventawway[i] +"<br>";
+    }
+  //---------------------------------------------------------
 }
 
 //function to get and update the event of that day
@@ -56,8 +62,86 @@ function goToCalendar(){
 function getActivity(day,month){
 	return tipsArray[month][day];
 }
-
-function getEvent(day, month){
-  /*To be Fixed*/
-
+//--------------------------------------------------------------------------
+function getLibraryEvent(day, month){
+    /*To be Fixed*/
+  
+    var todayevents = [];
+    var counter = 0;
+    grabData(function(events) {
+	for(var i=0;i<events.length;i++) {
+	    var entry = [
+		events[i].title,
+		events[i].startTime.toString(),
+		events[i].endTime.toString(),
+		events[i].location,
+		events[i].description
+	    ].join(' -- ');
+	    //fetch today event
+	    if ((events[i].startTime.getDate() == day)
+		&& (events[i].startTime.getMonth() == month))
+	    {
+		//load today's event into todayevents array
+		todayevents[counter] = entry;
+	    }
+	    //increment the counter
+	    counter++;
+	}
+	//return an array of strings
+	return todayevents;
+    });
 }
+
+
+function grabData(callback)
+{
+    //loading the Google's Feed API
+    google.load('feeds','1',{
+	'callback':function(){
+	    var feed = new google.feeds.Feed('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2');
+	    feed.load(function(res){
+		if(res.error){
+		    throw new Error('Problem occurred updating the event feed.');
+		}
+		else{
+		    var events = [];
+		    var ents = res.feed.entries;
+		    for (var i = 0; i < ents.length; i++){
+			//all obj here are actually an array of subtrings
+			//split <-> join
+			//grab date/time
+			var timeobj = ents[i].content.split('<br>')[0].split(' ');
+			var startTime = new Date();
+			var endTime = new Date();
+			
+			var datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(6,8).join(' ')].join(' ');
+			startTime.setTime(Date.parse(datestring));
+			
+			datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
+			endTime.setTime(Date.parse(datestring));
+			
+			//grab location
+			var locobj = ents[i].content.split('<br>')[1].split(' ');
+			var location = new String(locobj.slice(1).join(' '));
+			
+			//grab event decription
+			var desobj = ents[i].content.split('<br>')[3];
+			
+			var description = new String(desobj);
+			
+			events.push({
+			    'title':ents[i].title,
+			    'startTime':startTime,
+			    'endTime':endTime,
+			    'location':location,
+			    'description':description
+			});
+		    }
+		    callback(events);
+		}
+	    });
+	}
+    });  
+}
+
+//---------------------------------------------------------------------
