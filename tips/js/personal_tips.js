@@ -8,6 +8,7 @@ $(document).ready(function() {
 	var pid = sessionStorage.pid.toString();
 	var taskCat = sessionStorage.tCat.toString();
 	var childID = sessionStorage.cid;
+	
 	// Get child age in months (from functions.js)
 	// Then get whatever age category the child fits in.
 	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
