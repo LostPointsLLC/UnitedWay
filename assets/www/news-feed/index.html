@@ -11,7 +11,6 @@
 		<script src="js/google-apis.js"></script>
 		<script>google.load("feeds", "1");</script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
-		
 		<script src="../js/generator.js"></script>
 		<script src="js/news-feed.js"></script>
 		<script src="js/initializeFeeds.js"></script>
@@ -26,7 +25,12 @@
 	<body>
 		<div class="wrapper">
 			<script>
-				generateHeader("News Feeds", true, true);
+				//generateHeader("News Feed", true, true);
+				document.write("<div class='header' id='header'>");	
+				// Writes the header to the DOM
+				document.write("<div class='title' style='color: white'>" + "News Feed" + "</div>");
+				document.write("<div class='help'><a href='../help/" + "News Feeds" + ".html" + "'><img src='../images/help-button.png'/></a></div>");
+				document.write("<div class='home'><a href='file:///android_asset/www/home/index.html'><img src='../images/home-button.png'/></a></div>");
 			</script>
 			
 			<div id="content">
@@ -34,7 +38,7 @@
 			</div> <!-- End content div -->
 		
 		</div> <!-- End wrapper div -->
-		
+				
 	</body>
 
 

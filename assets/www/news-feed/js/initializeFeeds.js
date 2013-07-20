@@ -67,7 +67,7 @@ function displayfeed(result){
 
 		else {
 			favorite = 'nofav';
-			rss_id = -1 * (i+1);					// Represents an ID who isn't in the db yet, always a negative number
+			rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 		}
 		
 		
@@ -110,7 +110,6 @@ function getFavoritedNews() {
 		type: "POST",
 		url: "php/getFavoritedNews.php",
 		data: datastring,
-		dataType: 'json',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
@@ -119,9 +118,7 @@ function getFavoritedNews() {
 				var link = pairArray[i][1];
 				var id = pairArray[i][0];
 				linkIdArray[link] = id;		// Stores everything as a link-id pair
-				console.log(linkdIdArray[link]);
 			}
-			
 		}
 	});
 

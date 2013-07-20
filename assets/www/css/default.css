@@ -87,11 +87,11 @@ a:hover{
 /**/}
 /**/
 /**/.title {
-/**/	width: 60%;
+/**/
 /**/	height: 50px;
 /**/	position: relative;
 /**/	left: 25px;
-/**/	top: 15px;
+/**/	line-height:50px;
 /**/	display: inline-block;
 /**/	font-size: 30px;
 /**/	font-family: Chunkfive, arial, helvetica, sans-serif;

@@ -25,7 +25,6 @@ function rssData(url, limit, title, source) {
  * 
  * I've separated the three phases up into separate .js files for organization.
  */
-
 $(document).ready(function() {
 
 	linkIdArray = getFavoritedNews();		// Part of stage 1
@@ -45,7 +44,6 @@ $(document).ready(function() {
  * @param home	: A boolean of whether the home button should be shown
  * @param help	: A boolean of whether the help button should be shown
  */
-
 function generateHeader(text, home, help) {
 	document.write("<div class='header' id='header'>");	
 	// Writes the header to the DOM

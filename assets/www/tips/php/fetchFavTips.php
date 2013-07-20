@@ -2,7 +2,7 @@
 	/*
 		Handle request for all checked tasks of a child
 	*/
-	require("connect.php");
+	require("../../php/connect.php");
 	$pid = $_POST['pid'];
 	$taskCat = $_POST['taskCat']; // category code for tips (string)
 	$ageIndex = $_POST['ageIndex']; // age (string)

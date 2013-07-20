@@ -20,7 +20,7 @@ function generateHeader(text, home, help) {
 	if(help) 
 		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img src='../images/help-button.png'/></a></div>");
 	if(home) 
-		document.write("<div class='home'><a href='../home/'><img src='../images/home-button.png'/></a></div>");
+		document.write("<div class='home'><a href='../home/index.html'><img src='../images/home-button.png'/></a></div>");
 
 	document.write("</div>");	
 

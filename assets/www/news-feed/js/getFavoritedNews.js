@@ -16,11 +16,10 @@ function getFavoritedNews() {
 		type: "POST",
 		url: "php/getFavoritedNews.php",
 		data: datastring,
-		dataType: 'jsonp',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
-			var pairArray = jQuery.parse(idArray);
+			var pairArray = jQuery.parseJSON(idArray);
 			for(var i = 0; i < pairArray.length; i++) {
 				var link = pairArray[i][1];
 				var id = pairArray[i][0];
