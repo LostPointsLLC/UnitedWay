@@ -20,9 +20,15 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 }
-
+html{
+	width:100%;
+	height:100%;
+}
 body {
 	line-height: 1;
+	width:100%;
+	height:100%;
+	background: #00549b;
 }
 
 ul {

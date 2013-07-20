@@ -100,5 +100,6 @@ height: 50px;
 #list-container {
 	/*position: relative;*/
 	bottom: 10px;
+	padding-top:57px;
 }
 

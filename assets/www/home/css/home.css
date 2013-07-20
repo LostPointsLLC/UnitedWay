@@ -10,6 +10,7 @@
 	height: 50px;
 	width:100%;
 	background: #789fcd;
+	position: fixed;
 }
 #titleimg{
 	float:left;
@@ -22,6 +23,7 @@
 .main-buttons {
 	width: 100%;
 	vertical-align: middle;
+	padding-top: 57px;
 }
 #level1, #level2, #level3{
 	margin:0 auto;

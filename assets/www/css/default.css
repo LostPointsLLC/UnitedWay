@@ -82,8 +82,10 @@ a:hover{
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
 /**/.header {
 /**/	height: 50px;
-/**/	position: relative;
-/**/	background-color: #7ca3dc;	
+		width: 100%;
+/**/	position: fixed;
+/**/	background-color: #7ca3dc;
+		z-index: 10;	
 /**/}
 /**/
 /**/.title {
@@ -100,12 +102,12 @@ a:hover{
 /**/
 /**/.home {
 /**/	float: right;
-/**/	position: relative;
+/**/	
 /**/}
 /**/
 /**/.help {
 /**/	float: right;
-/**/	position: relative;
+/**/	
 /**/
 /**/}
 

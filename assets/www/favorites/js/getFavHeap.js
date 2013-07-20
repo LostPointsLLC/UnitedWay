@@ -55,6 +55,7 @@ function getFavHeap(userID) {
 		type: "POST",
 		url: "php/getFavHeap.php",
 		data: datastring,
+		dataType: 'json',
 		async: false,
 		cache: false,
 		success: function(data) {

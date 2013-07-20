@@ -55,6 +55,7 @@ html, body {
 	height: 125px;
 	width: 100%;
 	margin-bottom: 10px;
+
 }
 
 #child {
@@ -274,11 +275,6 @@ vertical-align: middle;
 	color: #00549b;
 }
 
-.wrapper {
-	height: auto;
-
-}
-
-#content {
-	margin-top: 10px;
+.wrapper{
+	padding-top:50px;
 }

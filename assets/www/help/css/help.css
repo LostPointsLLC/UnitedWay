@@ -12,9 +12,8 @@ body{
 .help-content{
 
 	margin: 0 auto;
-	padding: 0;
+	padding-top: 57px;
 	width: 85%;
-	margin-top: 25px;
 	text-align: left;
 	
 }

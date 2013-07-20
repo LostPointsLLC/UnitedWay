@@ -16,6 +16,7 @@ function getFavoritedNews() {
 		type: "POST",
 		url: "php/getFavoritedNews.php",
 		data: datastring,
+		dataType: 'json',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {

@@ -5,11 +5,13 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.wrapper{
+	height:auto;
+}
 .content {
 
 	margin: 0 auto;
-	padding: 0;
+	padding-top: 50px;
 
 }
 
@@ -18,8 +20,8 @@
 	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
-	font-family: helvetica, geneva, sans serif
-
+	font-family: helvetica, geneva, sans serif;
+	padding-top:57px;
 }
 
 .inner-text {

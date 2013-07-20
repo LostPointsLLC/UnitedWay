@@ -16,7 +16,10 @@ ul{
 	float: left;
 }
 
-
+#checklist{
+	-webkit-margin-before: 0;
+-webkit-margin-after:0;
+}
 #home-help-buttons {
 	height: 50px;
 	width: 101px;
@@ -37,11 +40,14 @@ ul{
 #health-well-being-title {
 	height: 50px;
 	width: 100%;
+	position:fixed;
+	z-index:10;
 	background: #7ca3dc;
 }
 #content-title {
 	height: 75px;
 	width: 100%;
+	padding-top:40px;
 	border-bottom: thin solid #769ECF;
 }
 #favorite-star-button {
@@ -72,7 +78,6 @@ ul{
 	color: white;
 	font-size: 20px;
 	position: relative;
-	left: 5px;
 }
 
 #check-box {
