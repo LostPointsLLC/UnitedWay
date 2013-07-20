@@ -67,7 +67,7 @@ function displayfeed(result){
 
 		else {
 			favorite = 'nofav';
-			rss_id = -1 * (i+1);					// Represents an ID who isn't in the db yet, always a negative number
+			rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 		}
 		
 		

@@ -1,23 +1,22 @@
 
 function updateFeeds() {
 
-	if(!removeFromDb.length && !addToDb.length) return;			// Quickly exits page if nothing to be modified
+	if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
 	var removeString = getRemoveString();
 	var addString = getAddString();
 	
 	// Appends the user ID to the query
 	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString;
 
-
+	console.log(datastring);
+	
 	$.ajax({ 
 		type: "POST",
-		url: "php/updateFeeds.php",
+		url: "../php/updateFavorites.php",
 		data: datastring,
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 	});
-
-
 }
 
 // Uses the addToDb array to create a JSON string of array objects
