@@ -18,7 +18,7 @@ function updateDAE(param)
     document.getElementById('activity').innerHTML = "Activity: <br>" + 
 	getActivity(day-1,monthIndex-1) + "<br><br>"+getEvent(day-1,monthIndex-1);
   
-    getLibraryEvent(day-1,monthIndex-1);
+    getLibraryEvent(day,monthIndex-1);
  
 }
 
@@ -48,30 +48,51 @@ function getLibraryEvent(day, month){
   
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	    alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
+	    /*alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
 	    alert("today date is" + day);
 	    alert(JSON.stringify(events[i].startTime.getMonth()));
 	    alert("this month is" + month);
-	    
-	    if ((events[i].startTime.getDate() == day)
+	    */
+	    if (((events[i].startTime.getDate()) == day)
 		&& (events[i].startTime.getMonth() == month))
 	    {
-		var entry = document.createElement('div');
-		entry.appendChild(document.createTextNode([
-		    events[i].title,
+	var enttile = document.createElement('p');
+		enttile.appendChild(document.createTextNode([
+		    events[i].title		   
+		]));
+		document.getElementById('lib').appendChild(enttile);
+		
+		
+	/*	var str = events[i].title;
+		document.getElementById('lib').write(str.bold());
+	*/	
+		var enttime = document.createElement('p');
+		enttime.appendChild(document.createTextNode([
 		    events[i].startTime.toString(),
-		    events[i].endTime.toString(),
-		    events[i].location,
+		    events[i].endTime.toString()
+		]));
+		document.getElementById('lib').appendChild(enttime);
+		
+		var entlocation = document.createElement('p');
+		entlocation.appendChild(document.createTextNode([
+		    events[i].location
+		]));
+		document.getElementById('lib').appendChild(entlocation);
+		   
+		var entdes = document.createElement('p');
+		entdes.appendChild(document.createTextNode([
 		    events[i].description
-		].join('--')));
-		  document.getElementById('lib').appendChild(entry);
+		]));
+		document.getElementById('lib').appendChild(entdes);
+		  
+		//document.getElementById('lib').appendChild(entry);
 	
 	    }
 	}
     });
    
 }
-//---------------------------------------------------------------
+
 //function to get and update the event of that day
 function getEvent(d,m){
 var val;
@@ -87,7 +108,7 @@ $.ajax({
      });   
     return val;
 }
-//-------------------------------------------------------------------------
+
 function grabData(callback)
 {
     //loading the Google's Feed API

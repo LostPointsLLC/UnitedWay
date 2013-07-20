@@ -18,13 +18,7 @@ function updateDate(d,m){
     //has to offset by 1 because array index starts at 0.
     document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
 	+ "<br><br>" + updateEvent(day-1,m);
-  //--------------------------------------------------------  
-    var libeventarray = getLibraryEvent(day-1,m);
-    for(var i = 0; i < libeventarray.length(); i++)
-    {
-	document.getElementById('lib').innerHTML = "Library Event: <br>" + libeventawway[i] +"<br>";
-    }
-  //---------------------------------------------------------
+    getLibraryEvent(d,m);
 }
 
 //function to get and update the event of that day
@@ -62,36 +56,57 @@ function goToCalendar(){
 function getActivity(day,month){
 	return tipsArray[month][day];
 }
-//--------------------------------------------------------------------------
+
 function getLibraryEvent(day, month){
     /*To be Fixed*/
   
-    var todayevents = [];
-    var counter = 0;
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	    var entry = [
-		events[i].title,
-		events[i].startTime.toString(),
-		events[i].endTime.toString(),
-		events[i].location,
-		events[i].description
-	    ].join(' -- ');
-	    //fetch today event
-	    if ((events[i].startTime.getDate() == day)
+	  /*  alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
+	    alert("today date is" + day);
+	    alert(JSON.stringify(events[i].startTime.getMonth()));
+	    alert("this month is" + month);
+	    */
+	    if (((events[i].startTime.getDate()) == day) //change back to day
 		&& (events[i].startTime.getMonth() == month))
 	    {
-		//load today's event into todayevents array
-		todayevents[counter] = entry;
+		var enttile = document.createElement('p');
+		enttile.appendChild(document.createTextNode([
+		    events[i].title		   
+		]));
+		document.getElementById('lib').appendChild(enttile);
+		
+		
+	/*	var str = events[i].title;
+		document.getElementById('lib').write(str.bold());
+	*/	
+		var enttime = document.createElement('p');
+		enttime.appendChild(document.createTextNode([
+		    events[i].startTime.toString(),
+		    events[i].endTime.toString()
+		]));
+		document.getElementById('lib').appendChild(enttime);
+		
+		var entlocation = document.createElement('p');
+		entlocation.appendChild(document.createTextNode([
+		    events[i].location
+		]));
+		document.getElementById('lib').appendChild(entlocation);
+		   
+		var entdes = document.createElement('p');
+		entdes.appendChild(document.createTextNode([
+		    events[i].description
+		]));
+		document.getElementById('lib').appendChild(entdes);
+		  
+		//document.getElementById('lib').appendChild(entry);
+	
+	
 	    }
-	    //increment the counter
-	    counter++;
 	}
-	//return an array of strings
-	return todayevents;
     });
+   
 }
-
 
 function grabData(callback)
 {
