@@ -1,10 +1,20 @@
 <?php
-
-	require("connect.php");							// Connects to the database
+	/**
+	 * php/Favorites.php
+	 * Author: Henry Lin (Minor additions: Paul Kim)
+	 * 
+	 * PHP script used by :
+	 *     news-feed/js/updateFeeds.js  (Updates 'favorites' and 'rss' tables)
+	 *     tips/js/personal_tips.js  (Updates 'favorites' table)
+	 *
+	 * Updates database tables depending on which JS script makes the ajax call
+	 */
+	
+	require("connect.php");							            // Connects to the database
 	$user_id 		= json_decode($_POST['user_id']);			// Extracts the user_ID
 	$removeArray	= json_decode($_POST['removeString']);		// Extracts the string of rss ids to be removed
 	$addArray 		= json_decode($_POST['addString']);			// Extracts the array of rss objects
-	$category       = $_POST['category'];          			// Extracts category of client request (rss, tips, etc...)
+	$category       = $_POST['category'];          			    // Extracts category of client request (rss, tips, etc...)
 
 	/**
 	 * The client requests to favorite a set of rss feed (updates both 'favorites' and 'rss' table
@@ -151,10 +161,7 @@
 				AND fav_typeID in ($querySubstring)";
 	}
 	
-	// Assemble query string to update items (Add or Upate) in favorites table
-	// INSERT INTO favorites (fav_type, fav_typeID, fav_userID, tip_age, tip_category, fav_kept) 
-	// VALUES ("tip", 4, 10, 0, "playtime", 1), ("tip", 0, 10, 0, "growth", 1), ("tip", 4, 10, 5, "playtime", 1), ("tip", 19, 10, 0, "growth", 1)
-    // ON DUPLICATE KEY UPDATE fav_kept = 0;
+	// Assemble query string to update items (Add or Update) in favorites table
 	function getTipsUpdateString($dbConnection, $addArray, $user_id) {
 		// These are only saved when client is requesting updates on tips page.
 		$age = $_POST['age'];
