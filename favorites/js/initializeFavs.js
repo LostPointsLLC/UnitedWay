@@ -39,15 +39,15 @@ function displayFavNews(rssArray) {
 		var rss = rssArray[i];
 		var parity 		= (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == rssArray.length-1) ? "last-item" : "";
-
+		alert("My rss id is " + rss.fav_id);
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + rss.fav_id + ")'/></div>";
 		outputString += "</div>";
-		rssPointer.innerHTML += outputString;
 	}
+	rssPointer.innerHTML += outputString;
 }
 
 
@@ -84,8 +84,8 @@ function displayFavTips(tipsArray) {
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";
-		tipsPointer.innerHTML += outputString;
 	}
+	tipsPointer.innerHTML += outputString;
 
 }
 
@@ -128,9 +128,9 @@ function displayFavEvents(eventsArray) {
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + event.fav_id + ")'/></div>";
 		outputString += "</div>";
-		eventsPointer.innerHTML += outputString;
 	 
 	}
+	eventsPointer.innerHTML += outputString;
 }
 
 // Function that returns an array of all of the favorite objects.
