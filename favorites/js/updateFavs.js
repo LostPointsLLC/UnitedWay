@@ -7,7 +7,7 @@ function updateFavs() {
 	alert(jsonString);
 	$.ajax({
 		type: "POST",
-		url: "php/delfav.php",
+		url: "php/updateFavs.php",
 		data: jsonString,
 		cache: false,
 		async: false,

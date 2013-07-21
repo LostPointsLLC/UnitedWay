@@ -29,8 +29,9 @@ function displayFavNews(rssArray) {
 	 *
 	 * We don't have the content from the scraper yet, so we'll let that one rest.
 	 */
+	var outputString = "";
 	if(!rssArray.length) {
-		outputString += "<p>No events to display!</p>";
+		outputString += "<p>No news to display!</p>";
 		rssPointer.innerHTML += outputString;
 		return;
 	}	 
@@ -38,7 +39,7 @@ function displayFavNews(rssArray) {
 		var rss = rssArray[i];
 		var parity 		= (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == rssArray.length-1) ? "last-item" : "";
-		var outputString = "";
+
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
@@ -66,6 +67,7 @@ function displayFavTips(tipsArray) {
 	 *	</div>
 	 *
 	 */
+	var outputString = "";
 	if(!tipsArray.length) {
 		outputString += "<p>No events to display!</p>";
 		tipsPointer.innerHTML += outputString;
@@ -75,7 +77,7 @@ function displayFavTips(tipsArray) {
 		var tip = tipsArray[i];
 		var parity = (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == tipsArray.length-1) ? "last-item" : "";
-		var outputString = "";
+
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a>" + tip.tip_content + "</a>";
