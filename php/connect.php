@@ -4,7 +4,7 @@
 	*/
 	$server 	= "UnitedWayMobile.db.8668974.hostedresource.com";
 	$username 	= "UnitedWayMobile";
-	$user_password 	= "	";
+	$user_password 	= "Un!t3dW@y";
 	$database		= "UnitedWayMobile";
 	
 	// Create connection to my Cpanel database

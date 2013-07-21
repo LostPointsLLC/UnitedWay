@@ -113,6 +113,8 @@ function getFavoritedNews() {
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
+			// For debug
+			console.log(idArray);
 			var pairArray = jQuery.parseJSON(idArray);
 			for(var i = 0; i < pairArray.length; i++) {
 				var link = pairArray[i][1];
