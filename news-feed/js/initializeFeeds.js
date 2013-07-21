@@ -103,8 +103,6 @@ function checkIfFavorited(entry) {
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + sessionStorage.pid;
-/*	var rss_id_array = new Array();*/
-/*	var rss_url_array = new Array();*/
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",
@@ -124,8 +122,6 @@ function getFavoritedNews() {
 		}
 	});
 
-//	for(var link in linkIdArray)
-//		alert(link + " and also " + linkIdArray[link]);
 	return linkIdArray;
 
 
