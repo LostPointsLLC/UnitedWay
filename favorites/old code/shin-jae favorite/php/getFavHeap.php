@@ -85,7 +85,8 @@
 			SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, favorites.fav_id
 			FROM 
 				(favorites JOIN events 
-				ON (favorites.fav_typeID = events.event_id AND favorites.fav_type = 'event'))
+				ON (favorites.fav_typeID = events.event_id
+				AND favorites.fav_type = 'event'))
 			WHERE favorites.fav_userID = ? AND favorites.fav_kept = 1;
 		");
 		$query->bind_param('i', $fav_userID); // Sets params to sql query

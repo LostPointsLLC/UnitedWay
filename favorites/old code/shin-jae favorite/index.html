@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>favorites</title>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/favorites.css" rel="stylesheet" type="text/css" />
+		<script src="../js/jquery-1.10.1.min.js"></script> <!-- local version of jquery -->
+		<script type='text/javascript' src="js/getFavHeap.js"></script>
+		<script src='js/delfav.js'></script>
+		<script src='js/displayfavs.js'></script>
+
+		<link href="../css/default.css" rel="stylesheet" type="text/css"/>
+		<script src="../js/generator.js"></script>
+	</head>
+
+	<!-- A litle problem that I noticed: each "remove-share-button" DIV
+	is knocked down a little further in each "favorites-item" DIV. I believe this problem is probably due to the border that is on each "favorites-item" DIV.
+	Maybe you guys can come up with a solution to this. -->
+
+	<body>
+		<div class ="wrapper">
+			<script>
+			generateHeader("Favorites", true, true);
+			//generateButton("Testing", "", "bt-yellow", "deletefavWrapper()");
+			</script>
+
+				
+
+			<div id="list-container">
+
+
+				<div class="headline">
+					<img src="images/news-feed-button.png" class="cat-logo" />
+					<h2 id="newsHead" class="cat-name">News Feed Items</h2>
+				</div>
+				<div id="newsList"></div>
+
+
+				<div class="headline">
+					<img src="images/tips-button.png" class="cat-logo"/>
+					<h2 id="tipsHead" class="cat-name">Tips</h2>
+				</div>
+				<div id="tipsList"></div>
+		
+
+				<div class="headline">
+					<img src="images/calendar-button.png" class="cat-logo" />
+					<h2 id="eventsHead" class="cat-name">Events</h2>
+				</div>
+				<div id="eventsList"></div>
+			</div>
+
+		</div>
+
+
+
+	</body>
+</html>

@@ -46,7 +46,7 @@ function displayfeed(result){
 	// accordingly
 	// The tree structure below looks like this: 
 	/*
-	*	<div onClick="favorite(rss_id)" class="rss_item parity favorite" id="rss_id">
+	*	<div onClick="favorite(rss_id)" class="rss_item parity favorite" id="fav_id">
 	*		<div class="item-text-box">
 	*		<a class='item-text'> Title of Headline </a>
 	*		</div>
