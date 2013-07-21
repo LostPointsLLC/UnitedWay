@@ -8,6 +8,9 @@
 
 var addFavArr = new Array ();
 var delFavArr = new Array ();
+
+var ageIndex;
+var taskCat;
  
 $(document).ready(function() {
 	// Display Picture
@@ -16,13 +19,13 @@ $(document).ready(function() {
 	// PHP query 
 	var jObj = jQuery.parseJSON(sessionStorage.jsonString);
 	var pid = sessionStorage.pid.toString();
-	var taskCat = sessionStorage.tCat.toString();
 	var childID = sessionStorage.cid;
+	taskCat = sessionStorage.tCat.toString();
 	
 	// Get child age in months (from functions.js)
 	// Then get whatever age category the child fits in.
 	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
-	var ageIndex = calcCat(monthcount);
+	ageIndex = calcCat(monthcount);
 	
 	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&ageIndex=" + ageIndex;
 	console.log("age in month is is : " + monthcount);
@@ -179,16 +182,16 @@ $(window).unload( function () {
 	
 	console.log("Add these items" + addStr);
 	console.log("Remove these items" + delStr);
-	/*
-	var updateString = dataString + "&newString=" + newProgressStr;
+	var dataString = "user_id=" + sessionStorage.pid + "&removeString=" + delStr + "&addString=" + addStr + "&category=" + "tip" + "&age=" + ageIndex + "&tCat=" + taskCat;
 	
-	$.ajax({ // update database with new check binary string
+	$.ajax({ // update database
 		type: "POST",
-		url: "php/updateChecked.php",
-		data: updateString,
+		url: "../php/updateFavorites.php",
+		data: dataString,
 		cache: false,
-		async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
+		async: false, // must be asynchronous so the bars would be updated on previous page. Sorry!
+		success: function(data){ 
+			console.log(data);
+		}
 	});
-	
-	*/
 });

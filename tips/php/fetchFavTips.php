@@ -8,7 +8,7 @@
 	$ageIndex = $_POST['ageIndex']; // age (string)
 	
 	// Query for all tips in category + age
-	$taskQuery = "SELECT fav_typeID FROM favorites WHERE tip_age = $ageIndex AND tip_category = '$taskCat'";
+	$taskQuery = "SELECT fav_typeID FROM favorites WHERE tip_age = $ageIndex AND tip_category = '$taskCat' AND fav_kept = 1";
 	$tqResult = mysqli_query($dbConnection, $taskQuery);
 	$outputArray = array ();
 	while ($tqRow = mysqli_fetch_array($tqResult)) {

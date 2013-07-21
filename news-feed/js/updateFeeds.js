@@ -4,9 +4,10 @@ function updateFeeds() {
 	if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
 	var removeString = getRemoveString();
 	var addString = getAddString();
+	var category = "rss";
 	
 	// Appends the user ID to the query
-	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString;
+	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
 
 	console.log(datastring);
 	

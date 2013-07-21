@@ -1,11 +1,10 @@
 <?php
 	/*
-		Basic mySQL connection to Lost Point Data base
-		
+		Basic mySQL connection to Lost Point Data base		
 	*/
 	$server 	= "UnitedWayMobile.db.8668974.hostedresource.com";
 	$username 	= "UnitedWayMobile";
-	$user_password 	= "Un!t3dW@y";
+	$user_password 	= "	";
 	$database		= "UnitedWayMobile";
 	
 	// Create connection to my Cpanel database
