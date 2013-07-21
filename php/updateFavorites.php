@@ -46,7 +46,7 @@
 	}
 
 	/**
-	 * The client requests to favorite a set of rss feed (updates both 'favorites' and 'rss' table
+	 * The client requests to favorite a tip
 	 * category == 'tip'
 	 */
 	 
@@ -69,7 +69,7 @@
 	 }
 
 	 /**
-	  * HELPER FUNCTIONS
+	  * HELPER FUNCTIONS (Create Query Strings)
 	  *
 	  */
 	  
@@ -86,6 +86,12 @@
 
 	}
 
+	// return "INSERT INTO favorites (fav_type, fav_typeID, fav_userID, tip_age, tip_category, fav_kept)
+				// VALUES $querySubstring
+				// ON DUPLICATE KEY UPDATE fav_kept = 1";
+	
+	
+	
 	function getRssString($dbConnection, $addArray, $user_id) {
 		$rssString = "INSERT INTO rss (rss_url, rss_title, rss_source, rss_dateadded) VALUES ";
 		$rssString = $rssString . getRssSubstring($dbConnection, $addArray);
