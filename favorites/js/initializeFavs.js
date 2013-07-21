@@ -39,7 +39,6 @@ function displayFavNews(rssArray) {
 		var rss = rssArray[i];
 		var parity 		= (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == rssArray.length-1) ? "last-item" : "";
-		alert("My rss id is " + rss.fav_id);
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
@@ -116,7 +115,6 @@ function displayFavEvents(eventsArray) {
 	}
 	
 	for(var i = 0; i < eventsArray.length; i++) {
-		console.log("Hello world!");
 		var event = eventsArray[i];
 		var parity = (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == eventsArray.length-1) ? "last-item" : "";
