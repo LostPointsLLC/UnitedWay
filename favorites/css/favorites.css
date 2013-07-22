@@ -19,6 +19,7 @@
 }
 
 .item-text-box a{
+	min-height: 60px;
 	color: white;
 	font-size: 18px;
 
