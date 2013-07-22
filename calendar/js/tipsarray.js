@@ -219,7 +219,7 @@ jul.push("Have your child retell a story or event in order (first, middle, last)
 jul.push("No Activity For Today");
 jul.push("No Activity For Today");
 jul.push("Read and talk about people from other cultures.");
-jul.push("Count pennies…count as high as you can.");
+jul.push("Count pennies...count as high as you can.");
 jul.push("No Activity For Today");
 jul.push("Have your child invite a friend over to play");
 jul.push("Library Day!");
