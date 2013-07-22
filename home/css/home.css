@@ -46,10 +46,11 @@
 	-o-filter: grayscale(100%);
 
 }
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 320px),(max-device-width: 320px) {
 	#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
  	{
-	width:150px;
-	margin:0 auto;
+	width:130px;
+	margin-left:13px;
+
 	}
 }

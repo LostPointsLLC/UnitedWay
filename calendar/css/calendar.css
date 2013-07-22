@@ -34,7 +34,7 @@ float:right;
 	height:23%;
 	margin: 0 auto;
 	color: white;
-
+	overflow:auto;
 	font: 17 arial;
 	word-wrap: break-word;
 	background:#7ca3dc;
@@ -199,4 +199,16 @@ Container (background color, container corners, shadow)
 
 .ui-datepicker-today {
     background: #fbae42;
+}
+
+@media only screen and (max-width: 320px),(max-device-width: 320px) {
+ .ui-datepicker td,tr{
+  font-size:14px !important;
+  line-height:17px !important;
+ }
+ .ui-state-default {
+  width:35px !important;
+  height:24px !important;
+ }
+
 }
