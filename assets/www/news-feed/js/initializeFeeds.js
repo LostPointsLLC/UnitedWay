@@ -1,14 +1,35 @@
 // Displayes the RSS feed on the page.
 function initializeFeed() {
-	//http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2"
-	//http://www.chambanamoms.com/feed
-	
-	var rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
-	var limit 	= 8;
-	var title 	= "Champaign Public Library Events";
-	var source 	= "Champaign Public Library";
 
-	feedTitle = title;
+	var feed = sessionStorage.rss;
+	var rssurl;
+	var limit = 8;
+	var title;
+	var source;
+
+	switch(feed) {
+		case 'cm':		// Chambana moms
+			rssurl	= "http://www.chambanamoms.com/feed";
+			title	= "Chambana Moms News Feed";
+			source	= "cm";
+			break;
+
+		case 'uw':		// United Way Blogs
+			rssurl	= "http://www.uwayhelps.org/blogs/rss";
+			title	= "United Way Blog";
+			source	= "uw";
+			break;
+		
+		default:		// Default is champaign public library
+			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
+			title 	= "Champaign Public Library Events";
+			source 	= "cpl";
+			break;
+	}
+
+
+
+	linkIdArray = getFavoritedNews();
 	feedData = new rssData(rssurl, limit, title, source);
 	rssfeedsetup();	
 
@@ -39,46 +60,115 @@ function displayfeed(result){
 	var feedContainer = document.getElementById("feed");
 
 	// Places the headline on the page
-	var headline = "<div class='rss-head'><h3>" + feedData.title + "</h3></div>";
-	feedContainer.innerHTML += headline;
+	var headline = "<div class='rss-head'>"; 
+	var selector = "<select id='change-feeds' onClick='changeFeeds(this)'>" + getOptions() + "</select></div>";
+	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 	// Puts all of the rss feed items on the page, and highlights them
 	// accordingly
 	// The tree structure below looks like this: 
 	/*
-	*	<div onClick="favorite(rss_id)" class="rss_item parity favorite" id="rss_id">
+	*	<div onClick="favorite(rss_id)" class="rss_item parity favorite" id="fav_id">
 	*		<div class="item-text-box">
 	*		<a class='item-text'> Title of Headline </a>
 	*		</div>
 	*	</div>
 	*/
 	var backdiv = "</div></div>";
-	for(var i = entries.length - 1; i>=0; i--) {
+	
+	// For some reason, the champaign public library feeds always displays in the wrong order =_=
+	if(feedData.source == 'cpl')
+		for(var i = entries.length - 1; i>=0; i--) {
+			// Binds a class to items based upon parity numbered rss items
+			var parity = assignParity(i);
 
-		// Binds a class to items based upon parity numbered rss items
-		var parity = assignParity(i);
+			// Checks whether an item has been favorited or not
+			var favorite;
+			var rss_id = checkIfFavorited(entries[i]);
+			if(rss_id != -1) {
+				favorite = 'fav';
+			}
 
-		// Checks whether an item has been favorited or not
-		var favorite;
-		var rss_id = checkIfFavorited(entries[i]);
-		if(rss_id != -1) {
-			favorite = 'fav';
-		}
+			else {
+				favorite = 'nofav';
+				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
+			}
+			
+			
+			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+			var innerdiv = "<div class='item-text-box'>";
+			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
 
-		else {
-			favorite = 'nofav';
-			rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
+			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
 		}
 		
-		
-		var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
-		var innerdiv = "<div class='item-text-box'>";
-		var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+	// Everything else is displayed in the right order
+	else {
+		for(var i = 0; i < entries.length; i++) {
+			// Binds a class to items based upon parity numbered rss items
+			var parity = assignParity(i);
 
-		feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
+			// Checks whether an item has been favorited or not
+			var favorite;
+			var rss_id = checkIfFavorited(entries[i]);
+			if(rss_id != -1) {
+				favorite = 'fav';
+			}
+
+			else {
+				favorite = 'nofav';
+				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
+			}
+			
+			
+			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+			var innerdiv = "<div class='item-text-box'>";
+			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+
+			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
+		}	
+
 	}
-
 }
+
+
+function getOptions() {
+
+	feed = feedData.source;
+
+	switch(feed) {
+		case 'cpl':
+			return " \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+
+		case 'uw':
+			return " \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option>"
+
+		case 'cm':
+			return " \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Public Library Events</option>"
+
+		default:
+			console.log("Get henry to debug this page. It's not working right!!");
+			return " \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+	}
+}
+
+
+
+
+
+
 
 function assignParity(i) {
 
@@ -103,28 +193,26 @@ function checkIfFavorited(entry) {
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + sessionStorage.pid;
-/*	var rss_id_array = new Array();*/
-/*	var rss_url_array = new Array();*/
+	console.log(datastring);
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",
 		url: "http://web.engr.illinois.edu/~heng3/php/newsfeed/getFavoritedNews.php",
 		data: datastring,
-		dataType: 'json',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
-			//var pairArray = jQuery.parseJSON(idArray);
-			for(var i = 0; i < idArray.length; i++) {
-				var link = idArray[i][1];
-				var id = idArray[i][0];
+			// For debug
+			console.log(idArray);
+			var pairArray = jQuery.parseJSON(idArray);
+			for(var i = 0; i < pairArray.length; i++) {
+				var link = pairArray[i][1];
+				var id = pairArray[i][0];
 				linkIdArray[link] = id;		// Stores everything as a link-id pair
 			}
 		}
 	});
 
-//	for(var link in linkIdArray)
-//		alert(link + " and also " + linkIdArray[link]);
 	return linkIdArray;
 
 

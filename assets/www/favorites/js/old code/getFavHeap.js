@@ -53,21 +53,19 @@ function getFavHeap(userID) {
 	
 	$.ajax({
 		type: "POST",
-		url: "http://web.engr.illinois.edu/~heng3/php/favorites/getFavHeap.php",
+		url: "php/getFavHeap.php",
 		data: datastring,
-		dataType: 'json',
 		async: false,
 		cache: false,
 		success: function(data) {
 	
 			// Makes the JSON string into a workable string
-			var query_output = data;
+			var query_output = jQuery.parseJSON(data);
 			
 			// First make an array full of RSS objects
 
 			$.each(query_output[0], function(index_of_row, row) {
 				rssArray.push(new rss(row));
-				
 			});
 			
 			// Next make array full of tips

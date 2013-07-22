@@ -1,19 +1,22 @@
-
+/* Phase three of the page
+ */
 function updateFeeds() {
 
 	if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
 	var removeString = getRemoveString();
 	var addString = getAddString();
+	var category = "rss";
 	
 	// Appends the user ID to the query
-	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString;
+	var datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
 
 	console.log(datastring);
 	
 	$.ajax({ 
 		type: "POST",
-		url: "../php/updateFavorites.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/updateFavorites.php",
 		data: datastring,
+		dataType: 'json',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 	});
@@ -43,11 +46,9 @@ function getRemoveString() {
 
 
 function onExit() {
-
 	document.location.href="../home/";
 }
 
 function onHelp() {
 	document.location.href="../help/News Feeds.html";
-
 }

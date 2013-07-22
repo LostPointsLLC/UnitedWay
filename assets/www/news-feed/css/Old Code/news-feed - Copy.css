@@ -24,29 +24,20 @@ color: white;
 
 
 
-/* For the favorites */
+/* For the favorites *************************************************/
 .fav {
 	background: url("../../images/star-button.png") no-repeat;
 	background-position: 300px 5px;
 	background-size:40px 40px;
 }
-
+/*
 .nofav {
 
-	background: url("../../images/unpressed-star-button.png") no-repeat;
+	background: url("../../images/unpressed-star-button-even.png") no-repeat;
 	background-position: 300px 5px;
 	background-size:40px 40px;
 
-}
-
-.item-text-box {
-
-	width: 70%;
-	margin-top: 10px;
-	margin-left: 10px;
-
-}
-
+}*/
 
 .even {
 
@@ -59,6 +50,38 @@ color: white;
 	border-top: 2px solid #003366;
 	background-color: #9999FF;
 }
+
+.nofav.odd {
+
+
+	background-image: url("../../images/unpressed-star-button-odd.png") ;
+	background-repeat: no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+	background-color: #9999ff;
+
+
+}
+
+
+.nofav.even {
+	background: url("../../images/unpressed-star-button-even.png") no-repeat;
+	background-position: 300px 5px;
+	background-size:40px 40px;
+
+
+}
+/*********************************************************/
+
+.item-text-box {
+
+	width: 70%;
+	margin-top: 10px;
+	margin-left: 10px;
+
+}
+
+
 
 
 
