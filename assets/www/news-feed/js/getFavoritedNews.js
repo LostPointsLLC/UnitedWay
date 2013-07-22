@@ -14,16 +14,16 @@ function getFavoritedNews() {
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",
-		url: "php/getFavoritedNews.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/newsfeed/getFavoritedNews.php",
 		data: datastring,
 		dataType: 'json',
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
-			var pairArray = jQuery.parseJSON(idArray);
-			for(var i = 0; i < pairArray.length; i++) {
-				var link = pairArray[i][1];
-				var id = pairArray[i][0];
+			//var pairArray = jQuery.parseJSON(idArray);
+			for(var i = 0; i < idArray.length; i++) {
+				var link = idArray[i][1];
+				var id = idArray[i][0];
 				linkIdArray[link] = id;		// Stores everything as a link-id pair
 			}
 		}

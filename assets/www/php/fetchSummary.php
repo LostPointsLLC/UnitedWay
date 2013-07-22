@@ -1,5 +1,5 @@
 <?php
-	require("connect.php");
+	require("../connect.php");
 	$parentID = $_POST['parentID']; 
 	// Query to figure out who the children are
 	// Extract child_id's of parent's children into an array

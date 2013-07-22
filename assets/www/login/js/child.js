@@ -56,7 +56,7 @@ function updateDB(addAnotherChild) {
 	$.ajax({
 
 		type: "POST",
-		url: "php/child.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/login/child.php",
 		data: posts,
 		cache: false,
 		async: false,

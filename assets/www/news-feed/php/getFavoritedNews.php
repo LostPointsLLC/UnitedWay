@@ -1,5 +1,5 @@
 <?php 
-	require("../../php/connect.php");							// Connects to the database
+	require("../connect.php");							// Connects to the database
 	$user_id = $_POST['user_id'];								// Extracts the user_ID
 	echo json_encode(getIDArray($dbConnection, $user_id));		// Returns the array as a JSON object
 

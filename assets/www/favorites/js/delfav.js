@@ -5,7 +5,7 @@ function deletefav(fav_id_array) {
 	alert(jsonString);
 	$.ajax({
 		type: "POST",
-		url: "php/delfav.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/favorites/delfav.php",
 		data: jsonString,
 		cache: false,
 		async: false,

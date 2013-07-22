@@ -1,6 +1,6 @@
 <?php
 
-	require("../../php/connect.php");
+	require("../connect.php");
 	$id_array = json_decode($_POST['jsonString']);
 	updateFavsTable($dbConnection, $id_array);
 	mysqli_close($dbConnection);

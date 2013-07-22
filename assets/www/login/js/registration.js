@@ -12,12 +12,12 @@ function verfiyRegistration() {
 	
 	// Variables used for XML/HTTP Request.
 	var httpRequest;
-	var loginUrl = "php/registration.php";
+	var loginUrl = "http://web.engr.illinois.edu/~heng3/php/login/registration.php";
 	var params = "pFname=" + first + "&pLname=" + last+ "&pPhone=" + phone+ "&pEmail=" + email +"&pPass=" + pass;
 
 	$.ajax({
 		type: "POST",
-		url: "php/registration.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/login/registration.php",
 		data: params,
 		cache: false,
 		async: false,

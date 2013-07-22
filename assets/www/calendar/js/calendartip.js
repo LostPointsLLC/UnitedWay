@@ -98,13 +98,12 @@ function getEvent(d,m){
 var val;
 $.ajax({
         type: "POST",
-        url: "php/events.php",
+        url: "http://web.engr.illinois.edu/~heng3/php/calendar/events.php",
         dataType: 'json',
         async:false,
         cache: false,
         success: function(data){
-            var obj = jQuery.parseJSON(data);
-            val = "Events: <br>" + obj[m][d];
+            val = "Events: <br>" + data[m][d];
         }
      });   
     return val;

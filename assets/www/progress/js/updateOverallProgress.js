@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "POST",
-		url: "../php/fetchSummary.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/fetchSummary.php",
 		data: dataString,
 		cache: false,
 		success: function(data){

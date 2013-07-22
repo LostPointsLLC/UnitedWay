@@ -30,12 +30,15 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "POST",
-		url: "php/fetchFavTips.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/tips/fetchFavTips.php",
 		data: dataString,
 		cache: false,
 		success: function(data){
 			console.log(data);
 			displayTips(data);
+		},
+		error: function(xhr, error){
+			alert("error");
 		}
 	 });
 	 

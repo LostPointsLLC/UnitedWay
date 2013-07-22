@@ -1,5 +1,5 @@
 <?php
-	require("../../php/connect.php");
+	require("../php/connect.php");
 	$fav_userID = $_POST['userID'];
 	$output = array();
 

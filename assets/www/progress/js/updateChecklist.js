@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 	$.ajax({
 		type: "POST",
-		url: "php/fetchChecked.php",
+		url: "http://web.engr.illinois.edu/~heng3/php/progress/fetchChecked.php",
 		data: dataString,
 		cache: false,
 		success: function(data){ // retrieved data is a binary string
@@ -62,7 +62,7 @@ $(document).ready(function() {
 				
 				$.ajax({ // update database with new check binary string
 					type: "POST",
-					url: "php/updateChecked.php",
+					url: "http://web.engr.illinois.edu/~heng3/php/progress/updateChecked.php",
 					data: updateString,
 					cache: false,
 					async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
