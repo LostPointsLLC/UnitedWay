@@ -75,6 +75,8 @@ function displayfeed(result){
 	*	</div>
 	*/
 	var backdiv = "</div></div>";
+	
+	// For some reason, the champaign public library feeds always displays in the wrong order =_=
 	if(feedData.source == 'cpl')
 		for(var i = entries.length - 1; i>=0; i--) {
 			// Binds a class to items based upon parity numbered rss items
@@ -99,6 +101,8 @@ function displayfeed(result){
 
 			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
 		}
+		
+	// Everything else is displayed in the right order
 	else {
 		for(var i = 0; i < entries.length; i++) {
 			// Binds a class to items based upon parity numbered rss items
