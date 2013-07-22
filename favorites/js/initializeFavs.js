@@ -42,7 +42,7 @@ function displayFavNews(rssArray) {
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
 		outputString += "</div>";
-		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + rss.fav_id + ")'/></div>";
+		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + rss.fav_id + ")'/></div>";
 		outputString += "</div>";
 	}
 	if(i < rssArray.length) {
@@ -91,7 +91,7 @@ function displayFavTips(tipsArray) {
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a>" + tip.tip_content + "</a>";
 		outputString += "</div>";
-		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
+		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";
 	}
 	
@@ -149,7 +149,7 @@ function displayFavEvents(eventsArray) {
 		outputString += "<br><p><b>Where: </b>" + event.event_place + "</p>";
 		outputString += "<br><p><b>When: </b>" + event.event_date + ", " + event.event_time + "</p>";
 		outputString += "</div>";
-		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + event.fav_id + ")'/></div>";
+		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + event.fav_id + ")'/></div>";
 		outputString += "</div>";
 	 
 	}

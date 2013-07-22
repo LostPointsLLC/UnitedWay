@@ -15,6 +15,7 @@
 	display: block;
 	float: left;
 	width: 70%;
+	padding: 10px;
 }
 
 .item-text-box a{
@@ -40,4 +41,12 @@
 .odd {
 	background-color: #00549b;
 
+}
+
+.delete {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	margin-right: 10px;
+	margin-top: 20%
 }

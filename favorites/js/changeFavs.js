@@ -22,5 +22,5 @@ function promptUser(fav_id) {
 	catch(error) {
 		console.log("Note: Trying to delete an undefined fav_id");
 	}
-	return confirm("Delete " + text + "?");
+	return confirm("Delete \"" + text + "\"?");
 }
