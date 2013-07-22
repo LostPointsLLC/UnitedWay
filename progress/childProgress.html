@@ -14,15 +14,14 @@
     <!-- Call updateProgress from the start-->
 
 	<body>
-		
-			<!-- HEADER-->
-			<script type="text/javascript">
-				generateHeader("Checklists", true, true); // Header
-			</script>
-			<div class="wrapper">
+		<!-- HEADER-->
+		<script type="text/javascript">
+			generateHeader("Checklists", true, true); // Header
+		</script>
+		<div class="wrapper">
 			<!-- HEALTH BUTTON-->
 			<script type="text/javascript">
-				generateButton("Health & Well Being", "health-bt", "bt-health", "healthChecklist()"); // Health Button
+				generateButton("Health & Well Being", "health-bt", "bt-health", "clickHealth()"); // Health Button
 			</script>
 			<div class = "pb-ctn">
 				<progress id="1" class="detail" value='0' max='100'></progress>
@@ -31,7 +30,7 @@
 			
 			<!-- LANGUAGE BUTTON-->
 			<script type="text/javascript">
-				generateButton("Language & General", "lang-bt", "bt-lang", "langChecklist()"); // Health Button
+				generateButton("Language & General", "lang-bt", "bt-lang", "clickLang()"); // Health Button
 			</script>
 			<div class = "pb-ctn">
 				<progress id="2" class="detail" value='0' max='100'></progress>
@@ -40,7 +39,7 @@
 			
 			<!-- SOCIAL BUTTON-->
 			<script type="text/javascript">
-				generateButton("Social & Emotional Prep.", "social-bt", "bt-social", "socialChecklist()"); // Health Button
+				generateButton("Social & Emotional Prep.", "social-bt", "bt-social", "clickSocial()"); // Health Button
 			</script>
 			<div class = "pb-ctn">
 				<progress id="3" class="detail" value='0' max='100'></progress>
@@ -49,7 +48,7 @@
 
 			<!-- OTHER BUTTON-->
 			<script type="text/javascript">
-				generateButton("Other", "other-bt", "bt-other", "otherChecklist()"); // Health Button
+				generateButton("Other", "other-bt", "bt-other", "clickOther()"); // Health Button
 			</script>
 			<div class = "pb-ctn">
 				<progress id="4" class="detail" value='0' max='100'></progress>
@@ -57,21 +56,11 @@
 			</div>			
 			
 			<!-- ARROWS -->
-
 			<div id="child-wrapper">
-				<div id="left-arrow"><img src="images/left-arrow.png" width="50" height="50" alt="" />
-				</div>
-				<!-- end of left-arrow -->
-				<div id="right-arrow"><img src="images/right-arrow.png" width="50" height="50" alt="" />
-				</div>
+				<div id="left-arrow"><img src="../images/left-arrow.png" width="50" height="50" alt="" /></div>
+				<div id="right-arrow"><img src="../images/right-arrow.png" width="50" height="50" alt="" /></div>
 				<div id="child"></div>
-				<!-- end of child -->
-
-				
-				<!-- end of right-arrow -->
-
 			</div>
-			<!-- end of child-wrapper -->
 		</div>
 		<!-- end of checklist-main-wrapper -->
     </body>

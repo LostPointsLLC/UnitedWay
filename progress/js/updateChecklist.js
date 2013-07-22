@@ -5,12 +5,12 @@
 
 // Global variable containing binary string
 var gBin;
+var dataString;
 
 $(document).ready(function() {
 	var childID = sessionStorage.cid.toString(); // session current child ID
 	var taskCat = sessionStorage.cat.toString(); // session current task category
-	
-	var dataString = "childID=" + childID + "&taskID=" + taskCat;
+	dataString = "childID=" + childID + "&taskID=" + taskCat;
 
 	$.ajax({
 		type: "POST",
@@ -18,7 +18,6 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){ // retrieved data is a binary string
-
 			initializeTasks(data, taskCat);
 			$("input").change(function(){
 				if (!$(this).is(':checked')) {
@@ -30,45 +29,45 @@ $(document).ready(function() {
 					gBin[parseInt(clickedID)] = "a";
 				}
 			});
-			
-			// Called when page is being exited	
-			$(window).unload( function () {
-				var newProgressStr = gBin.join('');				// Converts the global array into a string
-
-				// First update current session variables, to correctly print percentages
-				var currentJsonStr = sessionStorage.jsonString;
-				var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
-				
-				// Figure out what category check list this is
-				var category = "";
-				switch(sessionStorage.cat.toString()) {
-					case "1":
-						category = "health_code";
-						break;
-					case "2":
-						category = "language_code";
-						break;
-					case "3":
-						category = "social_code";
-						break;
-					case "4":
-						category = "other_code";
-						break;
-				}
-				
-				parsedCurrentJsonStr[childID][category] = newProgressStr;
-				sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-				var updateString = dataString + "&newString=" + newProgressStr;
-				
-				$.ajax({ // update database with new check binary string
-					type: "POST",
-					url: "php/updateChecked.php",
-					data: updateString,
-					cache: false,
-					async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
-				});
-			});
 		}
+	});
+});
+			
+// Called when page is being exited	
+$(window).unload( function () {
+	var newProgressStr = gBin.join('');				// Converts the global array into a string
+
+	// First update current session variables, to correctly print percentages
+	var currentJsonStr = sessionStorage.jsonString;
+	var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
+	
+	// Figure out what category check list this is
+	var category = "";
+	switch(sessionStorage.cat.toString()) {
+		case "1":
+			category = "health_code";
+			break;
+		case "2":
+			category = "language_code";
+			break;
+		case "3":
+			category = "social_code";
+			break;
+		case "4":
+			category = "other_code";
+			break;
+	}
+	var childID = sessionStorage.cid.toString(); 
+	parsedCurrentJsonStr[childID][category] = newProgressStr;
+	sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
+	var updateString = dataString + "&newString=" + newProgressStr;
+	
+	$.ajax({ // update database with new check binary string
+		type: "POST",
+		url: "php/updateChecked.php",
+		data: updateString,
+		cache: false,
+		async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
 	});
 });
 
@@ -117,4 +116,10 @@ function initializeTasks(checkString, tid) {
 
 	}
 
+}
+
+function generateSubTitle(text) {
+	document.write("<div id='content-title' style='color: white'>");
+	document.write("<span class='title-text'>" + text + "</span>");
+	document.write("</div>");
 }

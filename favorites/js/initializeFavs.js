@@ -70,12 +70,13 @@ function displayFavTips(tipsArray) {
 	 *
 	 *	<div class="list-item parity" id="fav_id">
 	 *		<div class="item-text-box">
-	 *	 		<a>tip_content</a>
+	 *	 		<a>tip content</a>
 	 *		</div>
 			<div><a class="delete-box" onClick="unfavorite(fav_id)"></div>
 	 *	</div>
 	 *
 	 */
+	 
 	var outputString = "";
 	if(!tipsArray.length) {
 		outputString += "<p>No tips to display!</p>";
@@ -84,12 +85,30 @@ function displayFavTips(tipsArray) {
 	}	
 	for(var i = 0; i < tipsArray.length && i < fav_limit; i++) {
 		var tip = tipsArray[i];
+		var tipArray;
+		switch(tip.tip_category) { // Get tip content
+			case "health":
+				tipArray = healthArray[parseInt(tip.tip_age)];
+				break;
+				
+			case "growth":
+				tipArray = growthArray[parseInt(tip.tip_age)];
+				break;
+				
+			case "safety":
+				tipArray = safetyArray[parseInt(tip.tip_age)];
+				break;
+				
+			case "playtime":
+				tipArray = playtimeArray[parseInt(tip.tip_age)];
+				break;
+		}
 		var parity = (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == tipsArray.length-1) ? "last-item" : "";
 
-		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
+		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + tip.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
-		outputString += "<a>" + tip.tip_content + "</a>";
+		outputString += "<a>" + tipArray[parseInt(tip.tip_id)] + "</a>";
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";

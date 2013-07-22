@@ -8,10 +8,6 @@ html, body {
 	border: 1px solid #00549b;
 	padding: 3px 7px 2px 7px;
 	width:100%;
-
-/*
- border='1' bordercolor='#999999' style= cellpadding='2' cellspacing='2' width='300'
- */
 }
 
 .cell {
@@ -226,7 +222,7 @@ vertical-align: middle;
 	display: block;
 	border-bottom: #7ca3dc 2px solid;
 	background-color: #00549b;
-	background-image:url("../../images/unpressed-star-button.png");
+	background-image:url("../../images/unpressed-star-button-even.png");
 	background-repeat:no-repeat;
 	background-position:95% 50%;
 	background-size:40px 40px;
@@ -238,7 +234,7 @@ vertical-align: middle;
 	display: block;
 	border-bottom: #7ca3dc 2px solid;
 	background-color: #E1EBF5;
-	background-image:url("../../images/unpressed-star-button.png");
+	background-image:url("../../images/unpressed-star-button-odd.png");
 	background-repeat:no-repeat;
 	background-position:95% 50%;
 	background-size:40px 40px;

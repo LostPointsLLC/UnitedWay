@@ -53,7 +53,6 @@ $(document).ready(function() {
 });
 
 function updateProgress(cid, param) {
-
 	var jsonParsed = jQuery.parseJSON(param);
 	var health_code = jsonParsed[cid]["health_code"];
 	var language_code = jsonParsed[cid]["language_code"];
@@ -82,59 +81,23 @@ function addProgressBar(category, percentage) {
 	var progressbar = document.getElementById(category);
 	progressbar.value = percentage;
 	$('#percentage' + category).text(percentage + "%");
-
 }
 
-$("#Health").click(function() {
-	//sessionStorage.cid = childID;
-	sessionStorage.cat = 1;
-	document.location.href = "health_checklist.html";
-
-});
-
-$("#Language").click(function() {
-	//sessionStorage.cid = childID;
-	sessionStorage.cat = 2;
-	document.location.href = "social_checklist.html";
-	
-});
-
-$("#Social").click(function() {
-	//sessionStorage.cid = childID;
-	sessionStorage.cat = 3;
-	document.location.href = "language_checklist.html";
-
-});
-
-$("#Other").click(function() {
-	//sessionStorage.cid = childID;
-	sessionStorage.cat = 4;
-	document.location.href = "other_checklist.html";
-
-});
-
-function linkToCategory(cid, cat) {
-	sessionStorage.cid = cid;
-	sessionStorage.cat = cat; // category ID that carries over
-	document.location.href = "checkList.html";
+function clickHealth() {
+	sessionStorage.cat = "1";
+	document.location.href = "checklist.html";
 }
 
-function healthChecklist() {
-	sessionStorage.cat = 1;
-	document.location.href = "health_checklist.html";
+function clickLang() {
+	sessionStorage.cat = "2";
+	document.location.href = "checklist.html";
 }
 
-function langChecklist() {
-	sessionStorage.cat = 2;
-	document.location.href = "language_checklist.html";
+function clickSocial() {
+	sessionStorage.cat = "3";
+	document.location.href = "checklist.html";
 }
-
-function socialChecklist() {
-	sessionStorage.cat = 3;
-	document.location.href = "social_checklist.html";
-}
-
-function otherChecklist() {
-	sessionStorage.cat = 4;
-	document.location.href = "other_checklist.html";
+function clickOther() {
+	sessionStorage.cat = "4";
+	document.location.href = "checklist.html";
 }
