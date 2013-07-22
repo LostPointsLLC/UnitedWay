@@ -78,6 +78,7 @@
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;
+								sessionStorage.rss = 'cpl';
 								document.location.href = "../home/";
 							}
 							else {

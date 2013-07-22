@@ -1,14 +1,35 @@
 // Displayes the RSS feed on the page.
 function initializeFeed() {
-	//http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2"
-	//http://www.chambanamoms.com/feed
-	
-	var rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
-	var limit 	= 8;
-	var title 	= "Champaign Public Library Events";
-	var source 	= "Champaign Public Library";
 
-	feedTitle = title;
+	var feed = sessionStorage.rss;
+	var rssurl;
+	var limit = 8;
+	var title;
+	var source;
+
+	switch(feed) {
+		case 'cm':		// Chambana moms
+			rssurl	= "http://www.chambanamoms.com/feed";
+			title	= "Chambana Moms News Feed";
+			source	= "cm";
+			break;
+
+		case 'uw':		// United Way Blogs
+			rssurl	= "http://www.uwayhelps.org/blogs/rss";
+			title	= "United Way Blog";
+			source	= "uw";
+			break;
+		
+		default:		// Default is champaign public library
+			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
+			title 	= "Champaign Public Library Events";
+			source 	= "cpl";
+			break;
+	}
+
+
+
+	linkIdArray = getFavoritedNews();
 	feedData = new rssData(rssurl, limit, title, source);
 	rssfeedsetup();	
 
@@ -39,8 +60,9 @@ function displayfeed(result){
 	var feedContainer = document.getElementById("feed");
 
 	// Places the headline on the page
-	var headline = "<div class='rss-head'><h3>" + feedData.title + "</h3></div>";
-	feedContainer.innerHTML += headline;
+	var headline = "<div class='rss-head'>"; 
+	var selector = "<select id='change-feeds' onClick='changeFeeds(this)'>" + getOptions() + "</select></div>";
+	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 	// Puts all of the rss feed items on the page, and highlights them
 	// accordingly
@@ -54,7 +76,6 @@ function displayfeed(result){
 	*/
 	var backdiv = "</div></div>";
 	for(var i = entries.length - 1; i>=0; i--) {
-
 		// Binds a class to items based upon parity numbered rss items
 		var parity = assignParity(i);
 
@@ -80,6 +101,45 @@ function displayfeed(result){
 
 }
 
+
+function getOptions() {
+
+	feed = feedData.source;
+
+	switch(feed) {
+		case 'cpl':
+			return " \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+
+		case 'uw':
+			return " \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option>"
+
+		case 'cm':
+			return " \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Public Library Events</option>"
+
+		default:
+			console.log("Get henry to debug this page. It's not working right!!");
+			return " \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+	}
+}
+
+
+
+
+
+
+
 function assignParity(i) {
 
 	if(i % 2 == 0)	return "even";
@@ -103,6 +163,7 @@ function checkIfFavorited(entry) {
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + sessionStorage.pid;
+	console.log(datastring);
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",

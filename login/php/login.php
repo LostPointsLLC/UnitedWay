@@ -14,7 +14,7 @@
     $userQuery->bind_param('ss', $user_email, $user_pass);
     if ($userQuery->execute()){
         $userQuery->store_result();
-        $userQuery->bind_result($column1, $column2, $column3, $column4, $column5, $column6);
+        $userQuery->bind_result($column1, $column2, $column3, $column4, $column5, $column6, $column7, $column8);
 		$userQuery->fetch();
         if ($userQuery->num_rows == 1) {
 			// Successful login, echo out parentID.

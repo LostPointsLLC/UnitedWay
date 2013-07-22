@@ -27,10 +27,9 @@ function rssData(url, limit, title, source) {
  */
 $(document).ready(function() {
 
-	linkIdArray = getFavoritedNews();		// Part of stage 1
-	initializeFeed();						// Also part of stage 1
+	initializeFeed();						// Stage 1
 	changeFeeds();							// Stage 2
-	
+
 	$(window).unload(function() {
 		updateFeeds();						// Stage 3
 	});

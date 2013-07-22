@@ -1,4 +1,5 @@
-
+/* Phase three of the page
+ */
 function updateFeeds() {
 
 	if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
@@ -44,11 +45,9 @@ function getRemoveString() {
 
 
 function onExit() {
-
 	document.location.href="../home/";
 }
 
 function onHelp() {
 	document.location.href="../help/News Feeds.html";
-
 }

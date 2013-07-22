@@ -1,11 +1,22 @@
 /* This is the first function part of stage 2.
- * This function does literally nothing because 
- * the arrays were already instantiated in initializeFeeds.
+ * This function defines what happens everytime the pulldown menu is changed 
  *
- * It's just good programming practice to break code up into stages.
+ * All of the other code having to do with adding feeds to the database is contained
+ * within this file.
  */
-function changeFeeds() {
-	return;	
+function changeFeeds(sel) {
+
+	try {
+		sessionStorage.rss = sel.options[sel.selectedIndex].value;
+		document.location.href="index.html";		// Seems counterintuitive, but this
+													// will unload the window, so favorites will be saved
+	}
+
+	// By default, without this try-catch block, an uncaught alert will be thrown.
+	// This will stop all other javascript on this page =(
+	catch(error) {
+		return;
+	}
 }
 
 

@@ -3,7 +3,6 @@
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
 
-	//alert(sessionStorage.pid);
 	var favHeap = getFavHeap(parseInt(sessionStorage.pid));
 
 	displayFavNews(favHeap.rssArray);
