@@ -7,7 +7,9 @@
 function changeFeeds(sel) {
 
 	try {
-		sessionStorage.rss = sel.options[sel.selectedIndex].value;
+		var value = sel.options[sel.selectedIndex].value;
+		if(value == feedData.source) return;
+		sessionStorage.rss = value;
 		document.location.href="index.html";		// Seems counterintuitive, but this
 													// will unload the window, so favorites will be saved
 	}
