@@ -75,30 +75,56 @@ function displayfeed(result){
 	*	</div>
 	*/
 	var backdiv = "</div></div>";
-	for(var i = entries.length - 1; i>=0; i--) {
-		// Binds a class to items based upon parity numbered rss items
-		var parity = assignParity(i);
+	if(feedData.source == 'cpl')
+		for(var i = entries.length - 1; i>=0; i--) {
+			// Binds a class to items based upon parity numbered rss items
+			var parity = assignParity(i);
 
-		// Checks whether an item has been favorited or not
-		var favorite;
-		var rss_id = checkIfFavorited(entries[i]);
-		if(rss_id != -1) {
-			favorite = 'fav';
+			// Checks whether an item has been favorited or not
+			var favorite;
+			var rss_id = checkIfFavorited(entries[i]);
+			if(rss_id != -1) {
+				favorite = 'fav';
+			}
+
+			else {
+				favorite = 'nofav';
+				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
+			}
+			
+			
+			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+			var innerdiv = "<div class='item-text-box'>";
+			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+
+			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
 		}
+	else {
+		for(var i = 0; i < entries.length; i++) {
+			// Binds a class to items based upon parity numbered rss items
+			var parity = assignParity(i);
 
-		else {
-			favorite = 'nofav';
-			rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
-		}
-		
-		
-		var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
-		var innerdiv = "<div class='item-text-box'>";
-		var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+			// Checks whether an item has been favorited or not
+			var favorite;
+			var rss_id = checkIfFavorited(entries[i]);
+			if(rss_id != -1) {
+				favorite = 'fav';
+			}
 
-		feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
+			else {
+				favorite = 'nofav';
+				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
+			}
+			
+			
+			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+			var innerdiv = "<div class='item-text-box'>";
+			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+
+			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
+		}	
+
 	}
-
 }
 
 
