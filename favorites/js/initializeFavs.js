@@ -34,7 +34,7 @@ function displayFavNews(rssArray) {
 		rssPointer.innerHTML += outputString;
 		return;
 	}	 
-	for(var i = 0; i < rssArray.length; i++) {
+	for(var i = 0; i < rssArray.length && i < fav_limit; i++) {
 		var rss = rssArray[i];
 		var parity 		= (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == rssArray.length-1) ? "last-item" : "";
@@ -44,6 +44,17 @@ function displayFavNews(rssArray) {
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + rss.fav_id + ")'/></div>";
 		outputString += "</div>";
+	}
+	if(i < rssArray.length) {
+		var parity 		= (i % 2 == 0) ? "even" : "odd";
+		var last 	= "last-item";
+		outputString += "<div class='list-item " +  parity + " " + last + "' id='seeMore'>"
+		outputString += "<div class='item-text-box'>";
+		outputString += "<a>See More</a>";
+		outputString += "</div>";
+		outputString += "<div class='delete-box'></div>";
+		outputString += "</div>";		
+	
 	}
 	rssPointer.innerHTML += outputString;
 }
@@ -67,11 +78,11 @@ function displayFavTips(tipsArray) {
 	 */
 	var outputString = "";
 	if(!tipsArray.length) {
-		outputString += "<p>No events to display!</p>";
+		outputString += "<p>No tips to display!</p>";
 		tipsPointer.innerHTML += outputString;
 		return;
 	}	
-	for(var i = 0; i < tipsArray.length; i++) {
+	for(var i = 0; i < tipsArray.length && i < fav_limit; i++) {
 		var tip = tipsArray[i];
 		var parity = (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == tipsArray.length-1) ? "last-item" : "";
@@ -83,6 +94,21 @@ function displayFavTips(tipsArray) {
 		outputString += "<div class='delete-box'><img src='../images/remove-button.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";
 	}
+	
+	if(i < tipsArray.length) {
+		var parity 		= (i % 2 == 0) ? "even" : "odd";
+		var last 	= "last-item";
+		outputString += "<div class='list-item " +  parity + " " + last + "' id='seeMore'>"
+		outputString += "<div class='item-text-box'>";
+		outputString += "<a>See More</a>";
+		outputString += "</div>";
+		outputString += "<div class='delete-box'></div>";
+		outputString += "</div>";		
+	
+	}
+	
+	
+	
 	tipsPointer.innerHTML += outputString;
 
 }
@@ -113,7 +139,7 @@ function displayFavEvents(eventsArray) {
 		return;
 	}
 	
-	for(var i = 0; i < eventsArray.length; i++) {
+	for(var i = 0; i < eventsArray.length && i < fav_limit; i++) {
 		var event = eventsArray[i];
 		var parity = (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == eventsArray.length-1) ? "last-item" : "";
@@ -127,6 +153,19 @@ function displayFavEvents(eventsArray) {
 		outputString += "</div>";
 	 
 	}
+	
+	if(i < eventsArray.length) {
+		var parity 		= (i % 2 == 0) ? "even" : "odd";
+		var last 	= "last-item";
+		outputString += "<div class='list-item " +  parity + " " + last + "' id='seeMore'>"
+		outputString += "<div class='item-text-box'>";
+		outputString += "<a>See More</a>";
+		outputString += "</div>";
+		outputString += "<div class='delete-box'></div>";
+		outputString += "</div>";		
+	
+	}	
+	
 	eventsPointer.innerHTML += outputString;
 }
 
