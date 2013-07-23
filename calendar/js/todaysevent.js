@@ -13,10 +13,10 @@ function updateDate(d,m){
 	var monthText = monthNames[m];//retrieves the string value of that month.
     var day = d;
     //Updates the chosen day, month and activity on the current page
-    document.getElementById('day').innerHTML = day;
-    document.getElementById('month').innerHTML = monthText;
+    document.getElementById('day-text').innerHTML = day;
+    document.getElementById('month-text').innerHTML = monthText;
     //has to offset by 1 because array index starts at 0.
-    document.getElementById('activity').innerHTML = "Activity: <br>" + getActivity(day-1,m) 
+    document.getElementById('activity').innerHTML = "<span id='activity-head'>Activity</span> <br>" + getActivity(day-1,m) 
 	+ "<br><br>" + updateEvent(day-1,m);
     getLibraryEvent(d,m);
 }
@@ -31,7 +31,7 @@ $.ajax({
     cache: false,
     success: function(data){
 	var obj = jQuery.parseJSON(data);
-	val = "Events: <br>" + obj[m][d];
+	val = "<span id='event-head'>Events</span> <br>" + obj[m][d];
     }
 });
     return val;

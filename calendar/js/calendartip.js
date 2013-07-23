@@ -11,11 +11,11 @@ function updateDAE(param)
     var monthText = monthNames[monthIndex-1];//retrieves the string value of that month.
     var day = parseInt(param.substr(3),10);
     //Updates the chosen day, month and activity on the current page
-    document.getElementById('day').innerHTML = day;
-    document.getElementById('month').innerHTML = monthText;
+    document.getElementById('day-text').innerHTML = day;
+    document.getElementById('month-text').innerHTML = monthText;
     //has to offset by 1 because array index starts at 0.
     
-    document.getElementById('activity').innerHTML = "Activity: <br>" + 
+    document.getElementById('activity').innerHTML = "<span id='activity-head'>Activity</span> <br>" + 
 	getActivity(day-1,monthIndex-1) + "<br><br>"+getEvent(day-1,monthIndex-1);
   
     getLibraryEvent(day,monthIndex-1);
@@ -103,7 +103,7 @@ $.ajax({
         cache: false,
         success: function(data){
             var obj = jQuery.parseJSON(data);
-            val = "Events: <br>" + obj[m][d];
+            val = "<span id='event-head'>Events</span> <br>" + obj[m][d];
         }
      });   
     return val;

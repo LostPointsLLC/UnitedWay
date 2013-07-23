@@ -5,7 +5,12 @@ function generateCalBtn() {
 
 /* Generates the div boxes for date, activity and events on the daily tips page in calendar*/
 function generateDailyActivity(){
-    document.write("<div id = 'day'></div><div id = 'month'></div><div id = 'activity'></div>");
+    document.write("<div id='date'> \
+						<div id = 'day'><h1 id='day-text'></h1></div> \
+						<div id = 'month'><h2 id='month-text'></h2></div> \
+					</div> \
+					\
+					<div id = 'activity'></div>");
 }
 
 /*Generates the div boxes for champaign public library events on the daily tips page*/
