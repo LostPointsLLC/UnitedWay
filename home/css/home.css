@@ -9,7 +9,7 @@
 #main-menu-title {
 	height: 50px;
 	width:100%;
-	background: #789fcd;
+	background: #7ca3dc;
 	position: fixed;
 }
 #titleimg{
@@ -31,21 +31,14 @@
 	font-size:0;
 	line-height: 0;
 }
-#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
- {
+
+.big-icon {
  	display:block;
 	float: left;
+	width: 150px;
+	height: 150px;
 }
 
-
-.incomplete {
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-
-}
 @media only screen and (max-width: 320px),(max-device-width: 320px) {
 	#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
  	{
@@ -54,3 +47,18 @@
 
 	}
 }
+
+/**/.fav {
+/**/	float: right;
+/**/	border-right: 1px solid #003366;
+/**/	border-left: 1px solid #003366;
+/**/}
+
+
+
+/**/.settings {
+/**/	float: right;
+/**/	border-right: 1px solid #003366;
+/**/}
+
+

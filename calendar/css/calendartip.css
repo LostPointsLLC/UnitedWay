@@ -60,28 +60,42 @@ body {
 	height: 600px;
 	position:relative;
 }
-#day {
-	text-align: center;
+
+/***************************************************************/
+
+#date {
+	margin-top: 50px;
+	padding-bottom: 15px;
+	display: inline-block;
 	background: #F0502F;
-	font: 120px chunkfiveregular;
-	color: #FFF;
-	height: 110px;
-	padding-top: 57px;
+	width: 100%;
 	
 }
 
-#month{
+
+
+#day-text {
+	margin: 0;
 	text-align: center;
-	background: #F0502F;
-	font: 35px chunkfiveregular;
+	font-family: Chunkfive;
+	font-size: 120px;
+	color: white;
+	height: 110px;
 	
-	color: #FFF;
-	padding-bottom: 0px;
-	height: 50px;
 }
+
+#month-text{
+	margin: 0;
+	text-align: center;
+	font-family: Chunkfive;
+	font-size: 40px;
+	color: white;
+}
+
+/***************************************************************/
 
 #activity {
-   text-align: center;
+	text-align: center;
 	font: 21px arial;
 	color: #FFF;
 	padding-top: 20px;
@@ -91,7 +105,27 @@ body {
 	height:264px;
 }
 
+#activity-head {
+	font-family: Chunkfive;
+	font-size: 20px;
+
+
+}
+
+#event-head {
+	font-family: Chunkfive;
+	font-size: 20px;
+
+
+}
+
 
 #home,#back{
 	float:right;
+}
+
+.wrapper {
+	height: auto;
+
+
 }
