@@ -3,18 +3,15 @@
 <!-- A VERY temporary solution to a actual rss file until we can get one running -->
 <html>
 
-  <head>
+	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<script src="../js/generator.js"></script>
-		<style type="text/css">
-		.inputtext { width: 350px; height: 60px; margin-left: -25px; }
-		</style>
-		<style type="text/css">a {text-decoration: none}</style>
-		<style type="text/css">li {position:relative;top: 14px;left: 30px;color: white;}</style>
-		<!-- Stylesheets -->
+		<link rel="stylesheet" href="css/homehelp.css" type="text/css"/>
 		
+		
+		<script src="../js/generator.js"></script>
+		<script src="js/navigation.js"></script>
 	</head>
 
 	<body>
@@ -22,19 +19,16 @@
 			<script>
 			generateHeader("Help", false, false);
 			</script>
-
-			<div class="help-content" style="font-family: Arial; font-size: 35px;color: white;">
-				
-				
-				<ul style="margin-top:110px;">
-					<div class="inputtext" style="background-color:red;"><a href="help_howToUse.html"><li><b> How to Use</b></li></a></div>
-					<div class="inputtext" style="background-color:#EDE60E;"><a href="help_faq.html"><li><b> F.A.Q. </b></li></a></div>
-					<div class="inputtext" style="background-color:blue;"><a href="help_contactUs.html"><li><b> Contact Us </b></li></a></div>
-				</ul>	
 			
+			<div id="button-wrapper">
+				<script>
+					generateButton("How to Use", "how-to-use", "how-to-use", "how()");
+					generateButton("Frequently Asked Questions", "faq", "faq", "faq()");
+					generateButton("Contact Us", "contact", "contact", "contact()");
+				</script>
+			<div>
 
-			</div>
-
+			<a href="../home/"><img id="back" src="../images/left-arrow.png"/></a>
 		</div>
 
 
