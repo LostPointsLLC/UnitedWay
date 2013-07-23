@@ -23,6 +23,13 @@ p {
 	color: #FFF;
 	padding-right: 40px;
 }
+
+p1 {
+	font: 18px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	text-align: center;
+}
+
 #password {
 	background: #f0502f;
 	border: medium solid #FFF;
