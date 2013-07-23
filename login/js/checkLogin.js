@@ -33,23 +33,23 @@ function checkLogin(first, last, phone, email, pass) {
 
 	// Checks the first name
 	if(!checkAlpha(first)) {
-		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your first name</p>";
+		document.getElementById("result").innerHTML = "<p1 id='fail'>Registration failed. Please verify your first name.</p1>";
 		flag = false; 
 	}
 	if(!checkAlpha(last)) {
-		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your last name</p>";
+		document.getElementById("result").innerHTML = "<p1 id='fail'>Registration failed. Please verify your last name.</p1>";
 		flag = false; 
 	}
 	if(!checkNumbers(phone)) {
-		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your phone number</p>";
+		document.getElementById("result").innerHTML = "<p1 id='fail'>Registration failed. Please verify your phone number.</p1>";
 		flag = false; 
 	}
 	if(!checkEmail(email)) {
-		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your email</p>";
+		document.getElementById("result").innerHTML = "<p1 id='fail'>Registration failed. Please verify your email.</p1>";
 		flag = false; 
 	}
 	if(!pass) {
-		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your password</p>";
+		document.getElementById("result").innerHTML = "<p1 id='fail'>Registration failed. Please verify your password.</p1>";
 		flag = false; 
 	}
 
