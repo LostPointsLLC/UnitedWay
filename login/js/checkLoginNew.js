@@ -1,6 +1,7 @@
+
 // Returns false if there is a non-alpha char
 function checkAlpha(string) {
-  var alphabet = /^[a-zA-Z]/;
+	var alphabet = /^[a-zA-Z]/;
 	if(string.match(alphabet))
 		return true;
 	else return false;
@@ -32,8 +33,24 @@ function checkLogin(first, last, phone, email, pass) {
 	var flag = true;
 
 	// Checks the first name
-	if(!checkAlpha(first) || !checkAlpha(last) || !checkNumbers(phone) || !checkEmail(email) || !pass) {
-		alert("Please verify information."); 
+	if(!checkAlpha(first)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your first name</p>";
+		flag = false; 
+	}
+	if(!checkAlpha(last)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your last name</p>";
+		flag = false; 
+	}
+	if(!checkNumbers(phone)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your phone number</p>";
+		flag = false; 
+	}
+	if(!checkEmail(email)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your email</p>";
+		flag = false; 
+	}
+	if(!pass) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your password</p>";
 		flag = false; 
 	}
 
