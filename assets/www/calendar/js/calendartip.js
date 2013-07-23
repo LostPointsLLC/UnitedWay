@@ -7,9 +7,9 @@ function updateDAE(param)
 {
     var monthNames = [ "January", "February", "March", "April", "May", "June",
 		       "July", "August", "September", "October", "November", "December" ]
-    var monthIndex= parseInt(param)	//gets the numerical value of month
+    var monthIndex= parseInt(param,10);	//gets the numerical value of month
     var monthText = monthNames[monthIndex-1];//retrieves the string value of that month.
-    var day = parseInt(param.substr(3));
+    var day = parseInt(param.substr(3),10);
     //Updates the chosen day, month and activity on the current page
     document.getElementById('day').innerHTML = day;
     document.getElementById('month').innerHTML = monthText;

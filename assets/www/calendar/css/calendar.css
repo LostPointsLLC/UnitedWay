@@ -200,6 +200,16 @@ Container (background color, container corners, shadow)
     background: #fbae42;
 }
 
+.ui-datepicker-today a.ui-state-highlight {
+     
+    background: #e6e6e6;
+    color: #555555;    
+}
+.ui-datepicker-today.ui-datepicker-current-day a.ui-state-highlight {
+        
+    background: #fbae42;
+}
+
 @media only screen and (max-width: 320px),(max-device-width: 320px) {
  .ui-datepicker td,tr{
   font-size:14px !important;
