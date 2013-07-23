@@ -23,8 +23,8 @@ $('#calendar').datepicker({
             displayTE(month-1,0);
         },
         onSelect: function(datestr){
-            var m = parseInt(datestr.substring(0,2))-1; //selected box month's int value from 0 to 11
-            var d = parseInt(datestr.substring(3,5))-1; //selected box day's int value from 0 to 30
+            var m = parseInt(datestr.substring(0,2),10)-1; //selected box month's int value from 0 to 11
+            var d = parseInt(datestr.substring(3,5),10)-1; //selected box day's int value from 0 to 30
             //checks if it is the first time the date is selected
             //checks if the second date selected equals the prev date selected
 
@@ -35,6 +35,9 @@ $('#calendar').datepicker({
             else    //the second selected date is a different date, reset counter to 1
             {
                 counter = 1;
+            }
+            if(counter==1){
+               $( "#datepicker" ).datepicker("option", "defaultDate", d);
             }
             if(counter==2) //user has selected the date consecutively. link to bigger calendar activitypage
             {
