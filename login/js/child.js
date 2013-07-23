@@ -65,4 +65,26 @@ function updateDB(addAnotherChild) {
 
 }
 
+/*$('#child-color').ColorPicker({
+    color: #FFFF00,
+    onShow: function(colpkr) {
+	//appear
+	$(colpkr).fadeIn(500);
+	return false;
+    },
 
+    onHide: function(colpkr) {
+	//disappear
+	$(colpkr).fadeOut(500);
+	return false;
+    },
+    
+    onChange: function(hsb, hex, rgb) {
+	//modify stuff
+	$('#child-color').css('backgroundColor', '#' + hex);
+    },
+
+    onSubmit: function(hsb, hex, rgb) {
+	$('#icon').css('backgroundColor', '#'+hex);
+    },
+)};*/
