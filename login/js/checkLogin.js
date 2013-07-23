@@ -28,43 +28,30 @@ function checkEmail(email) {
  * string is non-empty, then the string will describe the error
  */
 function checkLogin(first, last, phone, email, pass) {
-	
+
 	var flag = true;
-	
+
 	// Checks the first name
 	if(!checkAlpha(first)) {
-		alert("First name does not contain only alphabet characters."); 
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your first name</p>";
 		flag = false; 
 	}
-	
 	if(!checkAlpha(last)) {
-
-		alert("Last name does not contain only alphabet characters.");
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your last name</p>";
+		flag = false; 
+	}
+	if(!checkNumbers(phone)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your phone number</p>";
+		flag = false; 
+	}
+	if(!checkEmail(email)) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your email</p>";
+		flag = false; 
+	}
+	if(!pass) {
+		document.getElementById("result").innerHTML = "<p id='fail'>Registration failed. Please verify your password</p>";
 		flag = false; 
 	}
 
-	if(!checkNumbers(phone)) { 
-
-		alert("Please provide your phone number in the format specified.");
-		flag = false;
-	}
-	
-	if(!checkEmail(email)) {
-		alert("Domain name is not recognized.");
-		flag = false;
-	}
-	
-	// Checks for the empty string
-	if(!pass) {
-		alert("Please provide a password.");
-		flag = false;
-	}
-	
-	if(!flag) alert("TODO: I'll try to style these into the page later instead of having annoying pop-ups");
-	
 	return flag;
 }
-
-
-
-
