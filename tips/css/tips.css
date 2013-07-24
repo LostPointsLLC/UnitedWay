@@ -126,8 +126,10 @@ vertical-align: middle;
  	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	box-shadow:inset 1px 1px 0px 0px #dcecfb;
+ 	line-height: 200%;
 
-}.bt-health:hover {
+}
+.bt-health:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
 	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
 	background:-ms-linear-gradient( top, #80b5ea 5%, #bddbfa 100% );
@@ -159,14 +161,17 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
-}.bt-grow:hover {
+	line-height: 200%;
+}
+.bt-grow:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #a5cc52), color-stop(100%, #b8e356) );
 	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
 	background:-ms-linear-gradient( top, #a5cc52 5%, #b8e356 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
 	background-color:#a5cc52;
 	
-}.bt-grow:active {
+}
+.bt-grow:active {
 	position:relative;
 	top:1px;
 }
@@ -192,6 +197,7 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	line-height: 200%;
 }.bt-safe:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffc83d), color-stop(100%, #ffc477) );
 	background:-moz-linear-gradient( center top, #ffc83d 5%, #ffc477 100% );
@@ -224,6 +230,7 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	line-height: 200%;
 }.bt-play:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ff8c82), color-stop(100%, #f24537) );
 	background:-moz-linear-gradient( center top, #ff8c82 5%, #f24537 100% );
