@@ -14,7 +14,7 @@ $(document).ready(function() {
 	var childName = jObj[childID]["child_name"];
 	
 	var portrait = document.getElementById("child");
-	portrait.innerHTML = "<img src='../images/" + gender +".png' width='50' height='50' alt='' /><p>" + childName + "</p>"
+	portrait.innerHTML = "<img src='../images/" + gender +".png' width='50' height='50' alt='' /><br><span class='child-name'>" + childName + "</span>"
 	
 	// Create array that indexes child id's
 	var indexList = new Array();

@@ -86,11 +86,10 @@ body{
 }
 
 .percentage {
-	font-size:13px;
+	font-size:16px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	position: relative;
 	left: 10px;
-	bottom: 7px;
 }
 
 .pb-ctn {
@@ -104,7 +103,7 @@ body{
 
 .bt-health {
 
-	font-size:13px;
+	font-size:20px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -141,7 +140,7 @@ body{
 /****************THE LANGUAGE BUTTON*******************/
 
 .bt-lang {
-	font-size:13px;
+	font-size:20px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -178,7 +177,7 @@ body{
 /****************THE SOCIAL BUTTON*******************/
 
 .bt-social {
-	font-size:13px;
+	font-size:20px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -214,7 +213,7 @@ body{
 	
 /****************THE OTHER BUTTON*******************/
 .bt-other {
-	font-size:13px;
+	font-size: 20px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -357,7 +356,7 @@ body{
 .child-name {
 	font-family: Chunkfive;
 	font-size: 20px;	
-
+	color: white;
 }
 
 .age-text {
