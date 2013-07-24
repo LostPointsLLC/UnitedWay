@@ -117,33 +117,31 @@
 	width: auto;
 	height: 47px;
 	font-size:25px;
-	font-family:Chunkfive, arial, helvetica, sans-serif;
+	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
-	border:1px solid #84bbf3;
+	border:1px solid #83c41a;
 	text-decoration:none;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #bddbfa), color-stop(100%, #80b5ea) );
-	background:-moz-linear-gradient( center top, #bddbfa 5%, #80b5ea 100% );
-	background:-ms-linear-gradient( top, #bddbfa 5%, #80b5ea 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea');
-	background-color:#bddbfa;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #b8e356), color-stop(100%, #a5cc52) );
+	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+	background:-ms-linear-gradient( top, #b8e356 5%, #a5cc52 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+	background-color:#b8e356;
 	color:#ffffff;
 	display:block;
-	text-shadow:2px 0px 0px #528ecc;
- 	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
- 	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
- 	box-shadow:inset 1px 1px 0px 0px #dcecfb;
- 	line-height: 200%;
-
+	text-shadow:2px 0px 0px #cc9f52;
+	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	line-height: 200%;
 }
-
 .langsettings:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
-	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
-	background:-ms-linear-gradient( top, #80b5ea 5%, #bddbfa 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa');
-	background-color:#80b5ea;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #a5cc52), color-stop(100%, #b8e356) );
+	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+	background:-ms-linear-gradient( top, #a5cc52 5%, #b8e356 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+	background-color:#a5cc52;
+	
 }
-
 .langsettings:active {
 	position:relative;
 	top:1px;
