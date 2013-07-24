@@ -76,9 +76,9 @@
 
 
 
-/**************** GREEN GRADIENT *******************/
+/**************** BLUE GRADIENT *******************/
 
-.contact {
+.langsettings {
 	width: auto;
 	height: 47px;
 	font-size:25px;
@@ -99,21 +99,21 @@
  	box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	line-height: 200%;
 
-}.contact:hover {
+}.langsettings:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
 	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
 	background:-ms-linear-gradient( top, #80b5ea 5%, #bddbfa 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa');
 	background-color:#80b5ea;
 
-}.contact:active {
+}.langsettings:active {
 	position:relative;
 	top:1px;
 }
 
-/**************** LANGUAGE SETTINGS GRADIENT *******************/
+/**************** GREEN GRADIENT *******************/
 
-.langsettings {
+.contact {
 	width: auto;
 	height: 47px;
 	font-size:25px;
@@ -134,7 +134,7 @@
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	line-height: 200%;
 }
-.langsettings:hover {
+.contact:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #a5cc52), color-stop(100%, #b8e356) );
 	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
 	background:-ms-linear-gradient( top, #a5cc52 5%, #b8e356 100% );
@@ -142,7 +142,7 @@
 	background-color:#a5cc52;
 	
 }
-.langsettings:active {
+.contact:active {
 	position:relative;
 	top:1px;
 }
