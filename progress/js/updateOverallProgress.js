@@ -12,7 +12,6 @@ $(document).ready(function() {
 		cache: false,
 		success: function(data){
 			sessionStorage.jsonString = data; // store database data string as a session variable
-			// console.log(data);
 			updateProgress(data);
 		}
 	 });	 
@@ -50,8 +49,8 @@ function updateProgress(param) {
 			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")'>";
 			// First Row
 			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img src = '../images/" + genderImg + ".png' height='42' width='42'></td>";
-			tableString[++i] = "<td class = 'cell' colspan = '4'>" + obj[key]["child_name"] + "</td>";
-			tableString[++i] = "<td class = 'ageCell' rowspan = '3'>" + ageFormatted + "</td></tr>";
+			tableString[++i] = "<td class = 'cell' colspan = '4'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
+			tableString[++i] = "<td class = 'ageCell' rowspan = '3'><span class='age-text'>" + ageFormatted + "</span></td></tr>";
 			// Second Row
 			tableString[++i] = "<tr><td ></td><td></td><td></td><td></td></tr>";
 			// Third Row

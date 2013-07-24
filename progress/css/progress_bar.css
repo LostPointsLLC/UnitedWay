@@ -44,6 +44,10 @@ body{
 	width: 90px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
+
+
+	position: relative;
+	top: 15px;
 }
 
 /* 
@@ -350,8 +354,17 @@ body{
 }
 
 
+.child-name {
+	font-family: Chunkfive;
+	font-size: 20px;	
 
+}
 
+.age-text {
+	font-family: Chunkfive;
+	font-size: 20px;
+
+}
 
 
 /*
