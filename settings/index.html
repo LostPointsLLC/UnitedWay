@@ -1,22 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<!-- Changed from: <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<!-- A VERY temporary solution to a actual rss file until we can get one running -->
+<html>
+
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
-		<title>main menu</title>
-		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="../css/default.css" rel="stylesheet" type="text/css"/>
-		<link href="css/settings.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
+		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
+		<link rel="stylesheet" href="../help/css/homehelp.css" type="text/css"/>
 		
 		<script src="../js/generator.js"></script>
-
+		<script src="js/navigation.js"></script>
 	</head>
+
 	<body>
-		<div class='wrapper'>
+		<div class="wrapper">
 			<script>
-				generateHeader("Settings", true, false);
+			generateHeader("Settings", true, true);
 			</script>
-			<br><br><br><br>
-			<p>Yay for a temporary solution =] </p>
 			
+			<div id="button-wrapper">
+				<script>
+					generateButton("Add Child", "addchild", "how-to-use", "");
+					generateButton("Edit Child", "editchild", "faq", "");
+					generateButton("Remove Child", "removechild", "contact", "");
+					generateButton("Language Settings", "languagesettings", "langsettings", "");
+				</script>
+			<div>
+
+		</div>
+
+
 	</body>
+
+
 </html>
