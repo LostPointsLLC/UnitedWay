@@ -36,6 +36,30 @@ html, body {
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
+
+
+.child-name {
+
+	font-size: 20px;
+
+}
+
+.age-text {
+
+	font-size: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 #arrow {
 	position: absolute;
 	top: 15.5%;
