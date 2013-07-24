@@ -37,11 +37,18 @@ html, body {
 	color:#ffffff;
 }
 
+#child-div {
 
+display: block;
+	margin: 0 auto;
+
+
+}
 .child-name {
-
 	font-size: 20px;
-
+	font-family: Chunkfive;
+color: white;
+	   text-align: center;
 }
 
 .age-text {
@@ -82,7 +89,7 @@ html, body {
 	height: 135px;
 	width: 60px;
 
-	margin: 0 auto
+	margin: 0 auto;
 }
 #child img {
 	padding-top: 10px;

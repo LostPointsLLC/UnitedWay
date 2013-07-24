@@ -7,7 +7,8 @@ $(document).ready(function() {
 	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
 	var child = document.getElementById("child");
-	child.innerHTML = '<img src="../images/' + gender + '.png" width="60" height="60" alt="" /><p>' + childName + '</p>';
+	child.innerHTML = '<img src="../images/' + gender + '.png" width="60" height="60" /><br> \
+						<div id="child-div"><span class="child-name">' + childName + '</span></div>';
 	// Create array that indexes child id's
 	var indexList = new Array();
 	for (var key in jObj) {
