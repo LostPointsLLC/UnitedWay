@@ -6,8 +6,10 @@
 		<title>United Way: Register</title>
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
-		
+		<link href="../css/default.css" rel="stylesheet" type="text/css"/>
+
 		<link href="css/registration.css" rel="stylesheet" type="text/css" />
+		<script src="../js/generator.js"></script>
 		<script src="js/checkLogin.js"></script>
 		<script src="js/registration.js"></script>
 	</head>
@@ -16,24 +18,54 @@
 	<body>
 
 
-		<div id="registration-wrapper">
+		<div class="wrapper">
 		  
 		  
-			<div id="titleBar"><img src="images/welcome-title.png"/></div>
-
-
-			<div id="mainText"><p>Welcome to the United Way of Champaign Pre-k app. You can register here!  </p>
+			<script>
+				generateHeader("Register Here", false, true);
+			</script>
+			<br><br><br>
+			<div id="mainText"><p>Welcome to the United Way of Champaign Pre-K app! Please create a new user account below.</p>
 			</div>
-	
-			<div>
-				<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
-				<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
-				<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
-				<input type="email" class="text-input" id="email" placeholder="Email address"/>
-				<input type="password" class="text-input" id="password" placeholder="Password"/>
-			</div>
+			
+			<form>
+				<div id="personal-info">
+					<p>Please provide your personal information below.</p>
+					<script>
+						generateInputText("First name", "firstname-box",  "firstname", "text");
+						generateInputText("Last name", "lastname-box", "lastname", "text");
+						document.write("<br>");
+						generateInputText("Phone Number", "", "phone", "telephone");
+					</script>
+				<!--
+					<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
+					<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
+					<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>-->
+				</div>
+				<div id="login-info">
+					<p>Please provide the information you would like to use to log into our app.</p>
+					<div id='login-info-buttons'>
+					<script>
+						generateInputText("Preferred email", "", "email", "text");
+						document.write("<br>");
 
-			<input id="verify-registration" type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>
+						generateInputText("Your password", "", "password", "text");
+						document.write("<br>");
+						generateInputText("Confirm password", "", "confirm", "text");
+
+					</script>
+					</div>
+					<!--
+					<input type="email" class="text-input" id="email" placeholder="Email address"/>
+					<input type="password" class="text-input" id="password" placeholder="Password"/>-->
+				</div>
+
+
+				<script>
+					generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");  
+				</script>
+<!--				<input id="verify-registration" type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>-->
+			</form>
 			<div id="result"></div>
 		</div>
 	</body>

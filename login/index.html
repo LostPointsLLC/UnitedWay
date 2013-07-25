@@ -17,14 +17,20 @@
 			<script>
 				generateHeader("Welcome!", false, false);	
 			</script>
-			
+			<br>	
 			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p></div>
 	
 			<div id="content">
-				<input type="email" class="text-input" id="email" placeholder="Email address"/>
-				<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
-				
-				
+
+				<div id='login-fields'>
+					<script>
+						generateInputText("Email Address", "", "email", "email");
+						document.write("<br>");
+						generateInputText("Password", "", "password", "password");
+
+					</script>
+				</div>
+				<br><br>	
 				<div id="result"></div>
 				
 		

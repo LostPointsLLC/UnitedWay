@@ -19,8 +19,10 @@
 	margin-bottom: 50px !important;
 	margin:0 auto;
 }
+
+
 p {
-	font: 18px Arial, Helvetica, sans-serif;
+	font: 16px Arial, Helvetica, sans-serif;
 	color: #FFF;
 	text-align:center;
 }
@@ -29,66 +31,20 @@ p {
 	margin-top: 10px;
 	padding-left: 25px;
 }
-#email {
-	display: block;
-	height: 50px;
-	width: 95%;
-	
-	margin: 0 auto;
-	padding: 0;
-	margin-bottom: 5px;
-	
-	background: #f0502f;
-	border: medium solid #FFF;
-	
-	text-align:center;
-	border-radius: 10px;
-	color: white;
+
+#login-fields {
+display: block;
+		 text-align: center;
+position: relative;
+left: -15px;
+
 }
-
-#password {
-	display: block;
-	height: 50px;
-	width: 95%;
-	margin: 0 auto;
-	padding: 0;
-	margin-bottom: 5px;
-
-	background: #fbae42;
-	border: medium solid #FFF;
-	
-	text-align:center;
-	border-radius: 10px;
-	color: white;
-}
-h6 {
-	font: 14px Arial, Helvetica, sans-serif;
-	color: #FFF;
-	padding-top: 15px;
-	padding-left: 25px;
-}
-
-
-/* individual: webkit */
-#email::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}
-#password::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}
-
-
-
 
 #new-user {
 	margin-right: 5px;
 
-
 }
+
 
 #login {
 	margin-left: 5px;

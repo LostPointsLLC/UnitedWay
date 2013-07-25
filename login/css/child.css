@@ -1,36 +1,25 @@
-body {
-    font-family: Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    text-align: center;
-    width:100%;
-    height:100%;
+#mainText {
+	position: relative;
+top: 60px;
+left: 25px;
+}
 
+#sprite {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	margin-top: 60px;
+	background: #7ca3dc;
 }
-#titlebar{
-	height:54px;
-	width:100%;
-	background: #00549b;
-}
-#titleimg{
-	float:left;
-}
-a{
-	background:none !important;
-}
+
+
+
 #form {
-	width: 100%;
-	height: 100%;
-	background-color: #7ca3dc;
 	margin: 0 auto;
 	padding; 0;
 	border-radius: 10px;
 }
 
-
-#color-list {
-	position: relative;
-	top: 130px;
-
-}
 
 
 label {
@@ -77,8 +66,22 @@ top: 120px;
 
 
 /*************************************************************/
+#name-input-box {
+display: block;
 
+left: 40%;
 
+margin: 0 auto;
+	top: 30px;
+
+}
+
+#name-input {
+	width: 250px;
+
+}
+
+/*
 #name-input {
 	border: 0px;
 	width: 95%;
@@ -86,13 +89,13 @@ top: 120px;
 	background-color: #fbae42;
 	
 }
-
+*/
 /* Styles the placeholder of the input */
-#name-input::-webkit-input-placeholder { 
+/*#name-input::-webkit-input-placeholder { 
 	color:#dddddd; 
 	text-transform:uppercase; 
 	opacity: 50%;
-}
+}*/
 
 
 
@@ -129,11 +132,6 @@ top: 120px;
 
 }
 
-p {
-    font: 12px/18px Arial, Helvetica, sans-serif;
-    color: #FFF;
-    
-}
 
 #content {
     position: relative;
@@ -144,7 +142,7 @@ p {
 /*************************************************************/
 
 /* Color select code here */
-
+/* The outside box of the div */
 #color-select {
 	border: 2px solid white;
 	background-color: #f0502f;
@@ -153,22 +151,19 @@ p {
 	height: 80px;
 }
 
+/* The div containing the div... kinda awkward? */
 #colorSelector {
-    	position: relative;
-	width: 36px;
-	height: 36px;
-	top: 10px;
-	left: 47%;	
-	background: images/select.png;
+position: relative;
+left: 49%;
+	
+	text-align: center;
 
 }
 
+/* Contains the actual box */
 #colorSelector div {
-	position: relative;
-	top: 5px;
-	left: 5px;
 	width: 30px;
 	height: 30px;
-	background: images/select.png;
-	
+	border: 2px solid white;
+			border-radius: 3px;
 }

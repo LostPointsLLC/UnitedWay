@@ -1,4 +1,4 @@
-function verfiyRegistration() {
+function verifyRegistration() {
 	var first = document.getElementById("firstname").value;
 	var last = document.getElementById("lastname").value;
 	var phone = document.getElementById("phone").value;

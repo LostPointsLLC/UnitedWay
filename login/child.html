@@ -1,97 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
-    <title>Add a child</title>
-    <script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/generator.js"></script>
-    
-    <link href="../css/default.css" rel="stylesheet" type="text/css" />
-    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="css/child.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css"/>
-    <script src="js/colorpicker.js"></script>
-    <script src"=js/child.js"></script>
-  </head>
-  <body>
-    
-    <form id="form">
-      <div id="titlebar"><img id="titleimg"src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
-      <p>Please fill in your child's information below!</p>
-      <img id="icon" src="images/child/boy-light-blue-mid.png"/> <!--color of the child body changed -->
-      <div id="content">
-	
-	<div id="childname" class="input-info">
-	  <div id="name">
-	    <input id="name-input" type="text" name="name" placeholder="Your child's firstname">
-	  </div>
-	</div>
-	
-        <div id="childbd" class="input-info">
-	  <div id="birthday">
-	    <p>Your child's birthday</p>
-	    <input type="date" name="birthday"/>
-	  </div>
-	</div>
-	
-	<div id="gender-select" class="input-info">
-	  <p>Select your child's gender</p>
-	  <ul>
-	    <li><input id="boy" value="'boy'" type="radio" name="gender"/><label for="boy">Boy</label></li>
-	    <li><input id="girl" value="'girl'" type="radio" name="gender"/><label for="girl">Girl</label></li>
-	  </ul>
-	</div>
-	
-	<div id ="color-select" class = "input-info">
-	  <p>Choose your child's favorite color!</p>
-	  <div id = "colorSelector" align = "center">
-	    <div style = "background-color: #7ca3dc;">
-	    <script>
-	      $('#colorSelector').ColorPicker({
-	      color: '#7ca3dc',
-	      onShow: function(colpkr) {
-	      $(colpkr).fadeIn(500);
-	      return false;
-	      },
-	      
-	      onHide: function(colpkr) {
-	      $(colpkr).fadeOut(500);
-	      return false;
-	      },
-	      
-	      onChange: function(hsb, hex, rgb) {
-	      $('#colorSelector div').css('backgroundColor', '#' + hex);
-	      },
-	      
-	      onSubmit: function(hsb, hex, rgb) {
-	      $('#icon').css('backgroundColor', '#'+hex)
-	      }
-	      });
-	    </script>  
-	    </div> 
-	  </div>
-	</div>
+	<head>
+		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<title>Add a child</title>
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/generator.js"></script>
+		<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css"/>
 
-      </div>
-      
-		<script type="text/javascript">
-			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-			function add() {
-				if(updateDB(true) == -1) return;
-				document.location.href="child.html"; 
-			}
-		</script>
-      
-    <script type="text/javascript">
-		generateButton("Finished!", "finish", "bt-yellow", "finish()");
-		function finish() { 
-			if(updateDB(false) == -1) return;
-			document.location.href="../home/index.html"; 
-		}  
-	</script>
-    </form>
-    
-  </body>
+		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/default.css" rel="stylesheet" type="text/css" />
+		<link href="css/child.css" rel="stylesheet" type="text/css" />
+		<script src="js/colorpicker.js"></script>
+		<script src="js/child.js"></script>
+	</head>
+	<body>
+	
+		<div class='wrapper'>
+			<script>
+				generateHeader("Register Children", false, false);
+			</script>
+			<p id="mainText">Fill in your child's information below!</p>
+			<form id="form">
+				<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
+				<div id="content">
+					<br>
+					<script>
+						generateInputText("Your child&#39s firstname", "name-input-box", "name-input", "text");
+					</script>
+
+					<!--
+						<div id="name">
+							<input id="name-input" type="text" name="name" placeholder="Your child's firstname">
+						</div>-->
+
+					<div id="childbd" class="input-info">
+						<div id="birthday">
+							<p>Your child's birthday</p>
+							<input type="date" name="birthday"/>
+						</div>
+					</div>
+
+					<div id="gender-select" class="input-info">
+						<p>Select your child's gender</p>
+						<ul>
+							<li><input id="boy" value="'boy'" type="radio" name="gender"/><label for="boy">Boy</label></li>
+							<li><input id="girl" value="'girl'" type="radio" name="gender"/><label for="girl">Girl</label></li>
+						</ul>
+					</div>
+
+					<div id ="color-select" class = "input-info">
+						<p>Choose your child's favorite color!</p>
+						<div id = "colorSelector">
+							<div style = "background-color: #7ca3dc;">
+								<script>
+								$('#colorSelector').ColorPicker({
+									color: '#7ca3dc',
+									onShow: function(colpkr) {
+										$(colpkr).fadeIn(500);
+										return false;
+									},
+
+									onHide: function(colpkr) {
+										$(colpkr).fadeOut(500);
+										return false;
+									},
+
+									onChange: function(hsb, hex, rgb) {
+										$('#colorSelector div').css('backgroundColor', '#' + hex);
+										$('#sprite').css('backgroundColor', '#'+hex);
+									},
+
+									onSubmit: function(hsb, hex, rgb) {
+									}
+								});
+								</script>  
+							</div> 
+						</div>
+					</div>
+
+				</div> <!-- End of content div -->
+
+				<script type="text/javascript">
+				generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+				function add() {
+					if(updateDB(true) == -1) return;
+					document.location.href="child.html"; 
+				}
+				</script>
+
+				<script type="text/javascript">
+				generateButton("Finished!", "finish", "bt-yellow", "finish()");
+				function finish() { 
+					if(updateDB(false) == -1) return;
+					document.location.href="../home/index.html"; 
+				}  
+				</script>
+			</form>
+		</div>
+	</body>
 </html>
 
 
