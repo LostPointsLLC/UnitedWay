@@ -7,14 +7,14 @@
 #logo {
 	margin-right: auto;
 	margin-left: auto;
-	height: 205px;
-	width: 300px;
+	height: auto;
+	max-width: 100%;
 	padding-top: 75px;
+	display:block;
 }
 #english-espanol-wrapper {
-	height: 70px;
-	width: 350px;
-	margin:0 auto;
+	height: auto;
+	max-width: 100%;
 }
 a {
 	font: 16px/40px Verdana, Geneva, sans-serif;
@@ -30,18 +30,40 @@ a {
 	margin-top: 7px;
 	margin-right: 7px;
 }
-#english-espanol {
-	height: 70px;
-	width: 130px;
-	margin-right: auto;
-	margin-left: auto;
+#english-espanol li{
+	text-align:center;
+	padding-top:7px;
+	padding-bottom:7px;
 }
-#get-started-button {
-	height: 50px;
-	width: 250px;
+#get-started {
+	height: auto;
+	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 80px;
+	display:block;
 }
 
+/*iPhone */
+@media only screen and (max-device-width: 320px){
+label {
+	font-size: 70px ;
+}
 
+}
+
+@media only screen and (min-device-width: 321px) and (max-device-width: 640px){
+#logo {
+	padding-top: 30px;
+}
+#get-started {
+	padding-top: 20px;
+}
+
+}
+
+@media only screen and (min-width:641px){
+label {
+	font-size: 85px ;
+}
+}

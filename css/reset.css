@@ -24,8 +24,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 body {
 	line-height: 1;
-	height:100%;
-	width:100%;
+	height:auto;
+	max-width:100%;
 	background:#00549b;
 }
 
@@ -69,8 +69,8 @@ vertical-align: top;
 /* adds "phantom" scroll bar to the right in order to prevent shifting of page elements between pages */
 html {
 overflow-y:scroll;
-width:100%;
-height:100%;
+max-width:100%;
+height:auto;
 }
 
 /* use this style to clear floats */
