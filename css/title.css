@@ -47,12 +47,12 @@ a {
 /*iPhone */
 @media only screen and (max-device-width: 320px){
 label {
-	font-size: 70px ;
+	font-size: 60px ;
 }
 
 }
 
-@media only screen and (min-device-width: 321px) and (max-device-width: 640px){
+@media only screen and (min-device-width:321px) and (max-device-width: 640px){
 #logo {
 	padding-top: 30px;
 }
@@ -60,11 +60,11 @@ label {
 	padding-top: 20px;
 }
 label {
-	font-size: 80px ;
+	font-size: 75px ;
 }
 }
 
-@media only screen and (min-width:641px){
+@media only screen and(min-device-width:641px){
 label {
 	font-size: 85px ;
 }
