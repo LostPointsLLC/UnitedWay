@@ -3,39 +3,39 @@
 	<head>
 		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
 		<title>United Way: Log in</title>
-		<script src="../js/generator.js" type="text/javascript"></script>
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/login.css" rel="stylesheet" type="text/css" />
+		<script src="../js/generator.js" type="text/javascript"></script>
 
 	</head>
 
 
 	<body>
 		<div class="wrapper">
-		  
-		  
+
 			<script>
 				generateHeader("Welcome!", false, false);	
 			</script>
 			
-			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p>
-			</div>
+			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p></div>
 	
 			<div id="content">
 				<input type="email" class="text-input" id="email" placeholder="Email address"/>
 				<input type="password" class="text-input" id="password" type="password" placeholder="Password"/>
 				
-				<div id="option-links">
-				
-				<script type="text/javascript">
-					generateButton("I'm a new user", "new-user", "bt-yellow", "registration()");
-					generateButton("Log in", "login", "bt-yellow", "verifyLogin()");
-
-				</script>
-
 				
 				<div id="result"></div>
+				
+		
+				<div id="option-links">
+					<script>
+						generateButton("I'm a new user", "new-user", "bt-yellow", "registration()");
+						generateButton("Log in", "login", "bt-yellow", "verifyLogin()");
+
+					</script>
+				</div>
+				
 
 
 
@@ -96,6 +96,5 @@
 			
 			}
 			</script>
-			</div>
 	</body>
 </html>

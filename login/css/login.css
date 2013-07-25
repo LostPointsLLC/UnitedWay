@@ -68,33 +68,6 @@ h6 {
 	padding-left: 25px;
 }
 
-/* Button Styling */
-/*
-.button {
-   background-image: -webkit-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:    -moz-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:     -ms-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:      -o-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:         linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   border: solid 4px rgba(224,211,224,1);
-   -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-           border-radius: 10px;
-   
-   
-   font-size: 15px;
-   font-family: Sans-serif;
-   line-height: 24px;
-   color: black;
-		
-}
-*/
-#option-links {
-	padding-top: 10px;
-	position: relative;
-	display: block;
-	text-align:center;
-}
 
 /* individual: webkit */
 #email::-webkit-input-placeholder { 
@@ -112,8 +85,20 @@ h6 {
 
 
 #new-user {
-
+	margin-right: 5px;
 
 
 }
 
+#login {
+	margin-left: 5px;
+
+}
+
+#option-links {
+position: absolute;
+bottom: 10px;
+
+left: 50%;
+margin-left: -115px;
+}

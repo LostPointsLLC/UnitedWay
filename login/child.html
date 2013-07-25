@@ -74,21 +74,21 @@
 
       </div>
       
-      <script type="text/javascript">
-	generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-	function add() {
-	if(updateDB(true) == -1) return;
-	document.location.href="child.html"; 
-	}
-      </script>
+		<script type="text/javascript">
+			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+			function add() {
+				if(updateDB(true) == -1) return;
+				document.location.href="child.html"; 
+			}
+		</script>
       
-      <script type="text/javascript">
-	generateButton("Finished!", "finish", "bt-yellow", "finish()");
-	function finish() { 
-	if(updateDB(false) == -1) return;
-	document.location.href="../home/index.html"; 
-	  }  
-      </script>
+    <script type="text/javascript">
+		generateButton("Finished!", "finish", "bt-yellow", "finish()");
+		function finish() { 
+			if(updateDB(false) == -1) return;
+			document.location.href="../home/index.html"; 
+		}  
+	</script>
     </form>
     
   </body>
