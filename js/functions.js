@@ -24,7 +24,7 @@ function calculateAge(months) {
 	if ( (months % 12) > 0) {
 		var year = String(parseInt(months / 12));
 		var month = String(months % 12);
-		var retStr = year + " Yrs, " + month + " Mths";
+		var retStr = year + " Yrs,<br> " + month + " Mths";
 		return retStr;
 	}
 	else {
