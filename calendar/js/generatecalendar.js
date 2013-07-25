@@ -15,7 +15,8 @@ function generateDailyActivity(){
 
 /*Generates the div boxes for champaign public library events on the daily tips page*/
 function generateEvent(){
-    document.write("<div id = 'lib'></div>");
+	document.write("<span id='event-head'>Events</span>");
+    document.write("<div id = 'events'></div>");
 }
 
 /* Generates the div boxes for the main calendar*/

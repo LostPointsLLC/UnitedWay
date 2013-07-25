@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var day = currentDate.getDate();
 	var month = currentDate.getMonth();
     updateDate(day,month);
-  
+
 });
 
 //function to update page with current date, activity of the day and events of the day
@@ -17,24 +17,8 @@ function updateDate(d,m){
     document.getElementById('month-text').innerHTML = monthText;
     //has to offset by 1 because array index starts at 0.
     document.getElementById('activity').innerHTML = "<span id='activity-head'>Activity</span> <br>" + getActivity(day-1,m) 
-	+ "<br><br>" + updateEvent(day-1,m);
-    getLibraryEvent(d,m);
-}
-
-//function to get and update the event of that day
-function updateEvent(d,m){
-var val;
-$.ajax({
-    type: "POST",
-    url: "php/events.php",
-    async:false,
-    cache: false,
-    success: function(data){
-	var obj = jQuery.parseJSON(data);
-	val = "<span id='event-head'>Events</span> <br>" + obj[m][d];
-    }
-});
-    return val;
+	+ "<br><br>";
+	getLibraryEvent(d,m);
 }
 
 //go back to home page
@@ -58,8 +42,7 @@ function getActivity(day,month){
 }
 
 function getLibraryEvent(day, month){
-    /*To be Fixed*/
-  
+    /*To be Fixed*/ 
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
 	  /*  alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
@@ -67,41 +50,41 @@ function getLibraryEvent(day, month){
 	    alert(JSON.stringify(events[i].startTime.getMonth()));
 	    alert("this month is" + month);
 	    */
+
 	    if (((events[i].startTime.getDate()) == day) //change back to day
 		&& (events[i].startTime.getMonth() == month))
 	    {
-		var enttile = document.createElement('p');
-		enttile.appendChild(document.createTextNode([
+	    var eventTitle = document.createElement("h3");
+	    var eventDiv = document.createElement("div");
+		eventTitle.appendChild(document.createTextNode([
 		    events[i].title		   
 		]));
-		document.getElementById('lib').appendChild(enttile);
-		
-		
+
 	/*	var str = events[i].title;
-		document.getElementById('lib').write(str.bold());
+		document.getElementById('events').write(str.bold());
 	*/	
 		var enttime = document.createElement('p');
 		enttime.appendChild(document.createTextNode([
 		    events[i].startTime.toString(),
 		    events[i].endTime.toString()
 		]));
-		document.getElementById('lib').appendChild(enttime);
+		eventDiv.appendChild(enttime);
 		
 		var entlocation = document.createElement('p');
 		entlocation.appendChild(document.createTextNode([
 		    events[i].location
 		]));
-		document.getElementById('lib').appendChild(entlocation);
+		eventDiv.appendChild(entlocation);
 		   
 		var entdes = document.createElement('p');
 		entdes.appendChild(document.createTextNode([
 		    events[i].description
 		]));
-		document.getElementById('lib').appendChild(entdes);
+		eventDiv.appendChild(entdes);
 		  
-		//document.getElementById('lib').appendChild(entry);
-	
-	
+		//document.getElementById('events').appendChild(entry);
+		document.getElementById('events').appendChild(eventTitle);
+		document.getElementById('events').appendChild(eventDiv);
 	    }
 	}
     });

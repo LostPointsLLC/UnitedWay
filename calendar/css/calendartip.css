@@ -102,7 +102,7 @@ body {
 	padding-left: 0;
 	word-wrap: break-word;
 	overflow:auto;
-	height:264px;
+	height:115px;
 }
 
 #activity-head {
@@ -113,13 +113,25 @@ body {
 }
 
 #event-head {
-	font-family: Chunkfive;
-	font-size: 20px;
-
+font-family: Chunkfive;
+font-size: 20px;
+color: white;
+display: block;
+text-align: center;
+}
+#events{
+	height:215px;
+	width:100%;
+	overflow-y:auto;
+}
+.events-wrapper{
+	height:auto;
+	border-bottom-color:white;
+	border-top-color:white;
+	border-width:thin;
+	border-style:solid;
 
 }
-
-
 #home,#back{
 	float:right;
 }

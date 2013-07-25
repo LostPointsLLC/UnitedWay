@@ -103,20 +103,13 @@ function displayTE(m,d)
 {
     document.getElementById('activity').innerHTML = "Activity: <br>" + 
     getActivity(d,m) + "<br><br>"+getTE(m,d);
-    /*getLibraryEvent(d,m);*/
+    getLibraryEvent(d,m);
 }
 
-/**function resizeactivitydiv(){
-   var calheight = $('.ui-datepicker-calendar').height();
-  
-   if (calheight==332){
-    
-    alert(calheight);
-   }
-}**/
-/*
+
+/**
 function getLibraryEvent(day, month){
-  /*To be Fixed
+  To be Fixed
   
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
@@ -193,6 +186,6 @@ function grabData(callback)
 	    });
 	}
     });  
-}
-*/
+}**/
+
 
