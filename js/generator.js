@@ -26,6 +26,8 @@ function generateHeader(text, home, help) {
 
 }
 
+
+
 /* Generates a button with some text and an event
  * Make sure you have default.css linked to your page
  * 
@@ -42,6 +44,9 @@ function generateButton(text, id, css, e) {
 	document.write("<a onClick='" + e + "'><div id='" + id + "' class='button " + css + "'><span class='button-text'>" + text + "</span></div></a>");
 }
 
+
+
+
 /* Generates the calendar button within the daily tips page.*/
 function generateCalBtn() {
 	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
@@ -57,39 +62,17 @@ function generateMainCal(){
 	document.write("<div id = 'calendar'></div><div id = 'activity'></div>");
 }
 
-/* Below is some object oriented code for the favorites page
- * that Shiren helped us make. I'm not sure we'll be using his
- * code for the time being, but it's something to think about
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ *
+ * Make sure these parameters are all strings
  */
-/*
-function listitem(checked, text, id) {
-	this.checked = checked;
-	this.text = text;
-	this.id = id;
-	this.del = false;
-	this.share = false;
+function generateInputText(placeholder, id1, id2, type) {
 
-	this.remove = function() {
-		this.del = true;
-	};
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id=" + id2 + " placeholder='" + placeholder + "' /></div>");
 
-	this.sharfav = function() {
-		this.share = true;
-
-	}
 
 }
-
-function checklist() {
-	this.list = new Array();
-	this.add = function(item) {
-		this.list.push(item);
-
-	}
-
-	this.load = function(json) {
-		var decoded = JSONDecode(json);
-
-
-	}
-}*/

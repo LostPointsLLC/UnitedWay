@@ -26,7 +26,7 @@ function verifyRegistration() {
 			
 			// Returns -1 if the data was already taken
 			if(ret == -1) {
-				alert("Sorry this email address has already been used.");
+				document.getElementById("result").innerHTML = "<p class='fail'>Sorry, this email has already been used.</p>";
 				return;
 			}
 

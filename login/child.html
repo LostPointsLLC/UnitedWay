@@ -21,81 +21,42 @@
 			</script>
 			<p id="mainText">Fill in your child's information below!</p>
 			<form id="form">
-				<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
 				<div id="content">
+					<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
 					<br>
 					<script>
 						generateInputText("Your child&#39s firstname", "name-input-box", "name-input", "text");
 					</script>
-
-					<!--
-						<div id="name">
-							<input id="name-input" type="text" name="name" placeholder="Your child's firstname">
-						</div>-->
-
-					<div id="childbd" class="input-info">
-						<div id="birthday">
+					<div id="birthday-select" class='input-box' >
+						<div id="birthday" >
 							<p>Your child's birthday</p>
 							<input type="date" name="birthday"/>
 						</div>
 					</div>
-
-					<div id="gender-select" class="input-info">
+					<div id="gender-select" class='input-box'>
 						<p>Select your child's gender</p>
-						<ul>
-							<li><input id="boy" value="'boy'" type="radio" name="gender"/><label for="boy">Boy</label></li>
-							<li><input id="girl" value="'girl'" type="radio" name="gender"/><label for="girl">Girl</label></li>
-						</ul>
-					</div>
-
-					<div id ="color-select" class = "input-info">
-						<p>Choose your child's favorite color!</p>
-						<div id = "colorSelector">
-							<div style = "background-color: #7ca3dc;">
-								<script>
-								$('#colorSelector').ColorPicker({
-									color: '#7ca3dc',
-									onShow: function(colpkr) {
-										$(colpkr).fadeIn(500);
-										return false;
-									},
-
-									onHide: function(colpkr) {
-										$(colpkr).fadeOut(500);
-										return false;
-									},
-
-									onChange: function(hsb, hex, rgb) {
-										$('#colorSelector div').css('backgroundColor', '#' + hex);
-										$('#sprite').css('backgroundColor', '#'+hex);
-									},
-
-									onSubmit: function(hsb, hex, rgb) {
-									}
-								});
-								</script>  
-							</div> 
+						<div id='gender-choices'>
+							<input id="boy" value="'boy'" type="radio" name="gender" onClick='changeGender(1)' checked/><label for="boy">Boy</label>
+							<br>
+							<input id="girl" value="'girl'" type="radio" name="gender" onClick="changeGender(2)"/><label for="girl">Girl</label>
 						</div>
 					</div>
 
-				</div> <!-- End of content div -->
-
-				<script type="text/javascript">
-				generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-				function add() {
-					if(updateDB(true) == -1) return;
-					document.location.href="child.html"; 
-				}
-				</script>
-
-				<script type="text/javascript">
-				generateButton("Finished!", "finish", "bt-yellow", "finish()");
-				function finish() { 
-					if(updateDB(false) == -1) return;
-					document.location.href="../home/index.html"; 
-				}  
-				</script>
-			</form>
+					<div id ="color-select" class='input-box'> 
+						<p>Choose your child's favorite color!</p>
+						<div id = "colorSelector">
+							<div style = "background-color: #7ca3dc;"></div> 
+						</div>
+					</div>
+				</form>
+				
+				<div id="options-list">
+					<script type="text/javascript">
+					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+					generateButton("Finished!", "finish", "bt-yellow", "finish()");
+					</script>
+				</div>
+			</div> <!-- End of content div -->
 		</div>
 	</body>
 </html>

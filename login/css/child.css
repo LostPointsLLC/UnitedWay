@@ -8,7 +8,7 @@ left: 25px;
 	display: block;
 	margin: 0 auto;
 	padding: 0;
-	margin-top: 60px;
+	margin-top: 80px;
 	background: #7ca3dc;
 }
 
@@ -21,59 +21,13 @@ left: 25px;
 }
 
 
-
-label {
-	position: relative;
-	left: 10px;
-color: white;
-}
-
-
-
-/* Options list */
-
-#option-link {
-clear: both;
-position: relative;
-top: 120px;
-}
-
-#child-add {
-	text-align:center;
-	top: 150px;
-}
-
-#finish {
-	text-align:center;
-	top: 150px;
-}
-
-
-#childname {
-	border: 2px solid white;
-	background-color: #fbae42;
-	position: relative;
-	top: 80px;
-}
-
-#childbd {
-	border: 2px solid white;
-	background-color: #f0502f;
-	position: relative;
-	top: 85px;
-}
-
-
-
 /*************************************************************/
 #name-input-box {
-display: block;
-
-left: 40%;
-
-margin: 0 auto;
-	top: 30px;
-
+	display: block;
+	left: 40%;
+	margin: 0 auto;
+position: absolute;
+	top: 80px;
 }
 
 #name-input {
@@ -81,56 +35,8 @@ margin: 0 auto;
 
 }
 
-/*
-#name-input {
-	border: 0px;
-	width: 95%;
-	text-align: center;
-	background-color: #fbae42;
-	
-}
-*/
-/* Styles the placeholder of the input */
-/*#name-input::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}*/
 
-
-
-#gender-select {
-    background-color: #fbae42;	
-    margin: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 2px white solid;
-    position: relative;
-    top: 90px;
-}
-
-#gender-select p {
-	margin: 0;
-	text-align: center;
-}
-
-#gender-select * {
-	text-align: left;
-}
-
-#gender-select ul {
-    list-style: none;
-    position: relative;
-    left: 73px;
-}
-.input-info {
-	display: block;
-	margin: 0 auto;
-	padding: 0;
-	width: 95%;	
-	border-radius: 10px;
-
-}
+/************************************************************/
 
 
 #content {
@@ -139,6 +45,72 @@ margin: 0 auto;
 
 }
 
+.input-box {
+
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	left: 25%;
+padding: 5px;
+	border-radius: 10px;
+
+}
+
+
+/***************************** birthdays ************************************/
+
+#birthday-select {
+	top: 100px;
+	border: 2px solid white;
+	background-color: #f0502f;
+margin-top: 40px;
+}
+
+#birthday {
+width: 170px;
+	   text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+#birthday p {
+	font-family: Chunkfive;
+
+}
+
+/************************* gender **********************/
+
+#gender-select {
+    background-color: #fbae42;	
+    margin: 0 auto;
+    border: 2px white solid;
+    top: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#gender-select p {
+	margin: 0;
+	text-align: center;
+	font-family: Chunkfive;
+}
+
+#gender-select #gender-choices {
+	position: relative;
+left: 43%;
+
+}
+
+
+label {
+	position: relative;
+	left: 10px;
+		  font-size: 16px;
+color: white;
+}
+
+/****************************************************************************/
 /*************************************************************/
 
 /* Color select code here */
@@ -146,18 +118,25 @@ margin: 0 auto;
 #color-select {
 	border: 2px solid white;
 	background-color: #f0502f;
-	position: relative;
-	top: 96px;
-	height: 80px;
+	position: absolute;
+	top: 290px;
+height: 70px;
+		padding-bottom: 5px;
+}
+
+#color-select p {
+	font-family: Chunkfive;
+text-align: center;
+
 }
 
 /* The div containing the div... kinda awkward? */
 #colorSelector {
-position: relative;
-left: 49%;
+position: absolute;
+		  margin-top: 5px;
+left: 47%;
 	
 	text-align: center;
-
 }
 
 /* Contains the actual box */
@@ -166,4 +145,29 @@ left: 49%;
 	height: 30px;
 	border: 2px solid white;
 			border-radius: 3px;
+}
+
+
+
+/*************************************************************/
+
+
+/* Options list */
+
+#options-list {	
+position: absolute;
+top: 400px;
+left: 50%;
+margin-left: -140px;
+}
+
+
+
+#child-add {
+	margin-right: 5px;
+
+}
+
+#finish {
+	margin-left: 5px;
 }

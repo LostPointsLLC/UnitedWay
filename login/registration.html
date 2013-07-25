@@ -13,10 +13,8 @@
 		<script src="js/checkLogin.js"></script>
 		<script src="js/registration.js"></script>
 	</head>
-
-
+	
 	<body>
-
 
 		<div class="wrapper">
 		  
@@ -49,22 +47,18 @@
 						generateInputText("Preferred email", "", "email", "text");
 						document.write("<br>");
 
-						generateInputText("Your password", "", "password", "text");
+						generateInputText("Your password", "", "password", "password");
 						document.write("<br>");
-						generateInputText("Confirm password", "", "confirm", "text");
+						generateInputText("Confirm password", "", "confirm", "password");
 
 					</script>
 					</div>
-					<!--
-					<input type="email" class="text-input" id="email" placeholder="Email address"/>
-					<input type="password" class="text-input" id="password" placeholder="Password"/>-->
 				</div>
 
 
 				<script>
 					generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");  
 				</script>
-<!--				<input id="verify-registration" type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>-->
 			</form>
 			<div id="result"></div>
 		</div>

@@ -65,26 +65,66 @@ function updateDB(addAnotherChild) {
 
 }
 
-/*$('#child-color').ColorPicker({
-    color: #FFFF00,
-    onShow: function(colpkr) {
-	//appear
-	$(colpkr).fadeIn(500);
-	return false;
-    },
 
-    onHide: function(colpkr) {
-	//disappear
-	$(colpkr).fadeOut(500);
-	return false;
-    },
-    
-    onChange: function(hsb, hex, rgb) {
-	//modify stuff
-	$('#child-color').css('backgroundColor', '#' + hex);
-    },
+// Called when one of the radio buttons is clicked
+// 1 is boy
+// 2 is girl
+function changeGender(gender) {
 
-    onSubmit: function(hsb, hex, rgb) {
-	$('#icon').css('backgroundColor', '#'+hex);
-    },
-)};*/
+	
+	// Changes the images
+	var sprite = document.getElementById("sprite");
+	switch(gender) {
+		case 1:
+			sprite.src ="images/child/boy-darkblue-mid.png";
+			break;
+		case 2:
+			sprite.src = "images/child/girl-darkblue-mid.png"
+			break;
+	}
+
+}
+
+
+// Note: I'm anticipating that this colorpicker is going to run slow on a mobile device
+$(document).ready(function() {
+	$('#colorSelector').ColorPicker({
+		color: '#7ca3dc',
+		onShow: function(colpkr) {
+			$(colpkr).fadeIn(500);
+			return false;
+		},
+
+		onHide: function(colpkr) {
+			$(colpkr).fadeOut(500);
+			return false;
+		},
+
+		onChange: function(hsb, hex, rgb) {
+			$('#colorSelector div').css('backgroundColor', '#' + hex);
+			$('#sprite').css('backgroundColor', '#'+hex);
+		},
+
+		onSubmit: function(hsb, hex, rgb) {
+		}
+	});
+
+});
+
+
+
+
+
+
+
+function add() {
+	if(updateDB(true) == -1) return;
+	document.location.href="child.html"; 
+}
+
+
+
+function finish() { 
+	if(updateDB(false) == -1) return;
+	document.location.href="../home/index.html"; 
+}  
