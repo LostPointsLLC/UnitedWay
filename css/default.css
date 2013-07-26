@@ -81,7 +81,7 @@ a:hover{
 /* For the generateHeader() function. */
 /* See those comment things on the side? IT MEANS DON'T TOUCH!!! */
 /**/.header {
-/**/	height: 50px;
+/**/	height: auto;
 		width: 100%;
 /**/	position: fixed;
 /**/	background-color: #7ca3dc;
@@ -90,7 +90,7 @@ a:hover{
 /**/
 /**/.title {
 /**/
-/**/	height: 50px;
+/**/	height: auto;
 /**/	position: relative;
 /**/	left: 25px;
 /**/	line-height:50px;
@@ -111,8 +111,28 @@ a:hover{
 /**/	
 /**/
 /**/}
+/*smartphones*/
+/*
+@media only screen and (max-device-width: 320px) and (max-width:320px){
+.header {
+	height: 120px;
+	width: 100%;
+	position: fixed;
+	background-color: #7ca3dc;
+	z-index: 10;
+	white-space: nowrap;
+}
+.title {
+	position:relative;
 
-
+	line-height: 120px;
+	font-size: 6em;
+}
+#help-bt, #fav-bt, #settings-bt, #home-bt{
+	width:120px;
+	height:auto;
+}
+}*/
 
 /* Classes for the buttons */
 .button {

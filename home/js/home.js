@@ -18,12 +18,12 @@ function generateHomeHeader(text, fav, settings, help) {
 				
 
 	if(help) 
-		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img src='../images/help-button.png'/></a></div>");
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img id = 'help-bt' src='../images/help-button.png'/></a></div>");
 		
 	if(settings)
-		document.write("<div class='settings'><a href='../settings/'><img src='images/settings-button.png'/></a></div>");
+		document.write("<div class='settings'><a href='../settings/'><img id = 'settings-bt' src='images/settings-button.png'/></a></div>");
 	if(fav) 
-		document.write("<div class='fav'><a href='../favorites/'><img src='images/favorites-button-small.png'/></a></div>");
+		document.write("<div class='fav'><a href='../favorites/'><img id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
 
 	document.write("</div>");	
 
