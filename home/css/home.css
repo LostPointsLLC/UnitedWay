@@ -26,39 +26,62 @@
 	padding-top: 57px;
 }
 #level1, #level2, #level3{
-	margin:0 auto;
-	width:350px;
-	font-size:0;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	font-size: 0;
 	line-height: 0;
+	text-align: center;
 }
-
-.big-icon {
- 	display:block;
-	float: left;
-	width: 150px;
-	height: 150px;
+.big-icon{
+	width:40%;
 }
-
-@media only screen and (max-width: 320px),(max-device-width: 320px) {
-	#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
- 	{
-	width:130px;
-	margin-left:13px;
-
-	}
+.tablet-buttons{
+	width: 100%;
+	text-align:center;
+	padding-top: 57px;
+	display:none;
 }
-
-/**/.fav {
+/**/.fav{
 /**/	float: right;
 /**/	border-right: 1px solid #003366;
 /**/	border-left: 1px solid #003366;
+	
 /**/}
 
 
 
-/**/.settings {
+/**/.settings{
 /**/	float: right;
 /**/	border-right: 1px solid #003366;
+		
 /**/}
 
 
+@media only screen and (max-device-width: 480px) {
+.main-buttons {
+	padding-top: 100px;
+}
+}
+
+/*portrait tablets, portrait ipad*/
+@media only screen and (min-device-width:640px) and (max-device-width: 960px){
+	.tablet-buttons{
+	display:none;
+}
+	.main-buttons {
+	display:inline-block;
+	max-width:40%;
+}
+
+}
+
+/*For landscape tablets*/
+@media only screen and (min-device-width:961px){
+	.tablet-buttons{
+	display:block;
+}
+	.main-buttons {
+	display:none;
+}
+}
