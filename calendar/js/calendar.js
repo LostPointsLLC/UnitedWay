@@ -83,25 +83,10 @@ function getActivity(day,month){
 }
 
 //function to display today's event below the main calendar
-function getTE(m,d){
-var val;
-$.ajax({
-        type: "POST",
-        url: "php/events.php",
-        async:false,
-        cache: false,
-        success: function(data){
-            var obj = jQuery.parseJSON(data);
-            val = "Events: <br>" + obj[m][d]
-        }
-     });   
-    return val;
-}
-
 function displayTE(m,d)
 {
     document.getElementById('activity').innerHTML = "<span id='activity-head'>Activity</span> <br>" + 
-    getActivity(d,m) + "<br><br>"+getTE(m,d);
+    getActivity(d,m) + "<br><br>";
     getLibraryEvent(d+1,m);
 }
 

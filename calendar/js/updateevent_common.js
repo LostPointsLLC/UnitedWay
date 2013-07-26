@@ -12,7 +12,7 @@ function updateDate(d,m)
     
     document.getElementById('activity').innerHTML = 
 	"<span id='activity-head'>Activity</span> <br>" + 
-	getActivity(d-1,m) + "<br><br>"+getEvent(d-1,m);
+	getActivity(d-1,m) + "<br><br>";
     getLibraryEvent(d,m);
     
 }
@@ -36,19 +36,4 @@ function getActivity(day,month){
 	return tipsArray[month][day];
 }
 
-//function to get and update the event of that day
-function getEvent(d,m){
-var val;
-$.ajax({
-        type: "POST",
-        url: "php/events.php",
-        async:false,
-        cache: false,
-        success: function(data){
-            var obj = jQuery.parseJSON(data);
-            val = "<span id='event-head'>Events</span> <br>" + obj[m][d];
-        }
-     });   
-    return val;
-}
 
