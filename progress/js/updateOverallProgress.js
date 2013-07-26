@@ -54,7 +54,7 @@ function updateProgress(param) {
 			// Second Row
 			tableString[++i] = "<tr><td ></td><td></td><td></td><td></td></tr>";
 			// Third Row
-			tableString[++i] = "<tr><td class = 'cell' colspan='4'><progress class = 'progress' value = '" + overallPerc + "' max='100'></progress></td></tr>";
+			tableString[++i] = "<tr><td class = 'cell' colspan='4'><div class = 'progress' value = '" + overallPerc + "' max='100'><div class=\"progressbar\" style = \'width:"+overallPerc+"%; \'></div></div></td></tr>";
 			tableString[++i] = "</table>";
 			
 			anchor.innerHTML = tableString.join('');

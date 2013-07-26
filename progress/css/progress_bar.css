@@ -4,12 +4,16 @@
 
 */
 html{
-	height:100%;
-	width:100%;
 	background:#00549b;
 }
 body{
 	margin:0;
+}
+.progressbar{
+	height:20px;
+	background:#40E823;
+	border-radius: 10px;
+
 }
 #content{
 	width:100%;

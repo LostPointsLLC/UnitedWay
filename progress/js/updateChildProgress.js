@@ -79,7 +79,7 @@ function updateProgress(cid, param) {
 function addProgressBar(category, percentage) {
 	// Changes the progress bar value
 	var progressbar = document.getElementById(category);
-	progressbar.value = percentage;
+	progressbar.style.width = percentage+"%";
 	$('#percentage' + category).text(percentage + "%");
 }
 
