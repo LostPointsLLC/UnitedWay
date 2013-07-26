@@ -37,12 +37,16 @@
 
 /********************* Parity ************************/
 .even {
-
+	width:99.5%;
 	background-color: #9999FF;
+	height:auto;
+	overflow:auto;
 }
 .odd {
+	width:99.5%;
 	background-color: #00549b;
-
+	height:auto;
+	overflow:auto;
 }
 
 .delete {
