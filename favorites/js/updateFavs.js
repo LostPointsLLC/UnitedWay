@@ -4,7 +4,7 @@
 function updateFavs() {
 
 	var jsonString = "jsonString=" + JSON.stringify(deleteArray);	
-	alert(jsonString);
+	//alert(jsonString);
 	$.ajax({
 		type: "POST",
 		url: "php/updateFavs.php",
@@ -12,7 +12,7 @@ function updateFavs() {
 		cache: false,
 		async: false,
 		success: function(data) {
-			alert(data);
+			//alert(data);
 
 		}
 	});
