@@ -108,7 +108,7 @@ function displayFavTips(tipsArray) {
 
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + tip.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
-		outputString += "<a>" + tipArray[parseInt(tip.tip_id)] + "</a>";
+		outputString += "<a class='tip-content' title='" + tip.tip_id + "'>" + tipArray[parseInt(tip.tip_id)] + "</a>";
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";

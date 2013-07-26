@@ -22,7 +22,8 @@
 	min-height: 60px;
 	color: white;
 	font-size: 18px;
-
+	overflow: hidden;
+	/*white-space: nowrap;*/
 
 }
 
