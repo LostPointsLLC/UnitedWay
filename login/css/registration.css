@@ -1,13 +1,11 @@
 #mainText {
 	width: 100%;
 	padding-top: 35px;
-	padding-left: 25px;
-	padding-right: 25px;
-	line-height: 1px;
-	margin-bottom: 50px;
-color: white;
-position: relative;
-		  z-index: 10;
+	line-height: 20px;
+	margin-bottom: 25px;
+	color: white;
+	position: relative;
+	text-align: center;
 }
 
 
@@ -15,9 +13,9 @@ position: relative;
 /* The input fields **********************************/
 #personal-info {
 display: block;
-		 text-align: center;
+text-align: center;
 position: relative;
-left: -30px;
+
 	  margin-bottom: 30px;
 }
 
@@ -34,34 +32,34 @@ left: -30px;
 
 #lastname-box {
 	position: relative;
-	margin-left: 40px;
+
 
 }
 
 /***************************/
 #login-info{
 
-display: inline-block;
+display: block;
 position: relative;
-left: 30%;
+text-align:center;
 }
 
 
 #login-info-buttons {
-	margin-left: 25px;
+	
 }
 
 #email {
-width: 400px;
+width: 110%;
 }
 
 #password {
-width: 300px;
+width: 110%;
 
 }
 
 #confirm {
-width: 300px;
+width: 110%;
 
 }
 
@@ -92,9 +90,10 @@ width: 300px;
 
 
 #verify-registration {
-	position: relative;
-top: 100px;
-left: 100px;
+	display:block;
+top: 50px;
+width:90%;
+margin:0 auto;
 }
 
 
