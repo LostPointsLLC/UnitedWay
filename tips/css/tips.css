@@ -40,8 +40,8 @@ html, body {
 #child-div {
 
 display: block;
-	margin: 0 auto;
-
+margin: 0 auto;
+text-align:center;
 
 }
 .child-name {
