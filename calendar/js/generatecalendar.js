@@ -15,9 +15,11 @@ function generateDailyActivity(){
 
 /*Generates the div boxes for champaign public library events on the daily tips page*/
 function generateEvent(){
-	document.write("<span id='event-head'>Events</span>");
+    document.write("<span id='event-head'>Events</span>");
     document.write("<div id = 'events'></div>");
 }
+
+/*I think I need to add something here*/
 
 /* Generates the div boxes for the main calendar*/
 

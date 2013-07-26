@@ -42,27 +42,17 @@ function getActivity(day,month){
 }
 
 function getLibraryEvent(day, month){
-    /*To be Fixed*/ 
+
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	  /*  alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
-	    alert("today date is" + day);
-	    alert(JSON.stringify(events[i].startTime.getMonth()));
-	    alert("this month is" + month);
-	    */
-
 	    if (((events[i].startTime.getDate()) == day) //change back to day
 		&& (events[i].startTime.getMonth() == month))
 	    {
-	    var eventTitle = document.createElement("h3");
-	    var eventDiv = document.createElement("div");
+		var eventTitle = document.createElement("h3");
+		var eventDiv = document.createElement("div");
 		eventTitle.appendChild(document.createTextNode([
 		    events[i].title		   
-		]));
-
-	/*	var str = events[i].title;
-		document.getElementById('events').write(str.bold());
-	*/	
+		]));	
 		var enttime = document.createElement('p');
 		enttime.appendChild(document.createTextNode([
 		    events[i].startTime.toString(),
@@ -82,7 +72,7 @@ function getLibraryEvent(day, month){
 		]));
 		eventDiv.appendChild(entdes);
 		  
-		//document.getElementById('events').appendChild(entry);
+	
 		document.getElementById('events').appendChild(eventTitle);
 		document.getElementById('events').appendChild(eventDiv);
 	    }
@@ -142,4 +132,4 @@ function grabData(callback)
     });  
 }
 
-//---------------------------------------------------------------------
+

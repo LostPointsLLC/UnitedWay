@@ -42,51 +42,41 @@ function getActivity(day,month){
 	return tipsArray[month][day];
 }
 
-//--------------------------------------------------------------
+
 function getLibraryEvent(day, month){
-  /*To be Fixed*/
   
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	    /*alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
-	    alert("today date is" + day);
-	    alert(JSON.stringify(events[i].startTime.getMonth()));
-	    alert("this month is" + month);
-	    */
 	    if (((events[i].startTime.getDate()) == day)
 		&& (events[i].startTime.getMonth() == month))
 	    {
-	var enttile = document.createElement('p');
-		enttile.appendChild(document.createTextNode([
+		var eventTitle = document.createElement("h3");
+		var eventDiv = document.createElement("div");
+		eventTitle.appendChild(document.createTextNode([
 		    events[i].title		   
 		]));
-		document.getElementById('lib').appendChild(enttile);
 		
-		
-	/*	var str = events[i].title;
-		document.getElementById('lib').write(str.bold());
-	*/	
 		var enttime = document.createElement('p');
 		enttime.appendChild(document.createTextNode([
 		    events[i].startTime.toString(),
 		    events[i].endTime.toString()
 		]));
-		document.getElementById('lib').appendChild(enttime);
+		eventDiv.appendChild(enttime);
 		
 		var entlocation = document.createElement('p');
 		entlocation.appendChild(document.createTextNode([
 		    events[i].location
 		]));
-		document.getElementById('lib').appendChild(entlocation);
+		eventDiv.appendChild(entlocation);
 		   
 		var entdes = document.createElement('p');
 		entdes.appendChild(document.createTextNode([
 		    events[i].description
 		]));
-		document.getElementById('lib').appendChild(entdes);
-		  
-		//document.getElementById('lib').appendChild(entry);
-	
+		eventDiv.appendChild(entdes);
+
+		document.getElementById('events').appendChild(eventTitle);
+		document.getElementById('events').appendChild(eventDiv);
 	    }
 	}
     });

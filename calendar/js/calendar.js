@@ -45,8 +45,7 @@ $('#calendar').datepicker({
             }
             prevdate = datestr; //assigns the date selected to the prevdate variable
             displayTE(m,d); //calls function to display the activity and event below the main calendar
-        },
-        
+        },     
     });
 
 
@@ -61,8 +60,8 @@ $(document).ready(function() {
 //function to go to calendar tip page
 function linkTopage(param)
 {
-	sessionStorage.date = param;
-	document.location.href = "calendartip.html";
+    sessionStorage.date = param;
+    document.location.href = "calendartip.html";
 //alert(sessionStorage.date);
 }
 
@@ -101,36 +100,48 @@ $.ajax({
 
 function displayTE(m,d)
 {
-    document.getElementById('activity').innerHTML = "Activity: <br>" + 
+    document.getElementById('activity').innerHTML = "<span id='activity-head'>Activity</span> <br>" + 
     getActivity(d,m) + "<br><br>"+getTE(m,d);
-    getLibraryEvent(d,m);
+    getLibraryEvent(d-1,m);
 }
 
-
-/**
 function getLibraryEvent(day, month){
-  To be Fixed
-  
+
+    var $div =  document.getElementById('events');
+   
+    $div.innerHTML = "";
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	    alert("the event date is" + JSON.stringify(events[i].startTime.getDate()));
-	    alert("today date is" + day);
-	    alert(JSON.stringify(events[i].startTime.getMonth()));
-	    alert("this month is" + month);
-	    
-	    if ((events[i].startTime.getDate() == day)
+	    if (((events[i].startTime.getDate()-2) == day) //change back to day
 		&& (events[i].startTime.getMonth() == month))
 	    {
-		var entry = document.createElement('div');
-		entry.appendChild(document.createTextNode([
-		    events[i].title,
+		var eventTitle = document.createElement("h3");
+		var eventDiv = document.createElement("div");
+		eventTitle.appendChild(document.createTextNode([
+		    events[i].title		   
+		]));	
+		var enttime = document.createElement('p');
+		enttime.appendChild(document.createTextNode([
 		    events[i].startTime.toString(),
-		    events[i].endTime.toString(),
-		    events[i].location,
+		    events[i].endTime.toString()
+		]));
+		eventDiv.appendChild(enttime);
+		
+		var entlocation = document.createElement('p');
+		entlocation.appendChild(document.createTextNode([
+		    events[i].location
+		]));
+		eventDiv.appendChild(entlocation);
+		   
+		var entdes = document.createElement('p');
+		entdes.appendChild(document.createTextNode([
 		    events[i].description
-		].join('--')));
-		  document.getElementById('lib').appendChild(entry);
+		]));
+		eventDiv.appendChild(entdes);
+		  
 	
+		$div.appendChild(eventTitle);
+		$div.appendChild(eventDiv);
 	    }
 	}
     });
@@ -186,6 +197,7 @@ function grabData(callback)
 	    });
 	}
     });  
-}**/
+}
+
 
 
