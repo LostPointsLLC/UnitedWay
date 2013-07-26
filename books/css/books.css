@@ -5,7 +5,8 @@
 
 #title {
     text-align: center;
-    font-size: 30px;
+    font-size: 30px!important;
     font-family: Chunkfive;
-    margin: 4px 25px 0 25px;
+    margin: 0px 25px 0 25px;
+    padding-top:60px;
     }

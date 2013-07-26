@@ -23,7 +23,7 @@ html, body {
 	font-size:1em;
 	border:1px solid #00549b;
 	padding:3px 7px 2px 7px;
-
+	text-align:center;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
@@ -54,7 +54,7 @@ color: white;
 .age-text {
 
 	font-size: 20px;
-
+	float:right;
 }
 
 

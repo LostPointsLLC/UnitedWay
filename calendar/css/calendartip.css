@@ -44,8 +44,7 @@
 body {
     margin:auto;
     padding:0px;
-    width:100%;
-    height:100%;
+    background:#00549b;
 }
 #calendar-container{
     background: #00549b;
@@ -111,7 +110,6 @@ body {
     overflow-y:auto;
     text-align: center;
     position: relative;
-
 }
 
 .events-wrapper{

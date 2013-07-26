@@ -9,7 +9,7 @@
 	margin-left: auto;
 	height: auto;
 	max-width: 100%;
-	padding-top: 75px;
+
 	display:block;
 }
 #english-espanol-wrapper {
@@ -40,19 +40,21 @@ a {
 	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 80px;
 	display:block;
+	margin-top:30px;
 }
 
 /*mobile phones */
+/*
 @media only screen and (min-device-width: 320px){
 label {
 	font-size: 60px ;
 }
 
-}
+}*/
 
 /*tablets*/
+/*
 @media only screen and (min-device-width:768px){
 #logo {
 	padding-top: 30px;
@@ -63,4 +65,4 @@ label {
 label {
 	font-size: 75px ;
 }
-}
+}*/
