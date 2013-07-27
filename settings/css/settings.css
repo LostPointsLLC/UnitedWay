@@ -2,9 +2,17 @@
 	padding-top:50px;
 }
 
+#content {
+	position: relative;
+	top: 20px;
+
+}
+
+
 .child-table {
+position: relative;
+		  margin-bottom: 30px;
 	border: 1px solid #00549b;
-	padding: 3px 7px 2px 7px;
 	width:100%;
 }
 
@@ -94,6 +102,13 @@ right: 100px;
 }
 
 
+/*******************************************************************/
 
 
+#addChild {
+	position: relative;
+	top: 150px;
+	left: 50%;
+	margin-left: -61px;
+}
 

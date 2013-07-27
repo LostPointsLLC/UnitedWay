@@ -4,7 +4,7 @@
 function initializeSettings() {	
 
 	// If there is something in sessionStorage, then we just go to listChildren and be happy
-	if(typeof sessionStorage.jsonString !== "undefined") {
+	if((typeof(sessionStorage.jsonString) !== "undefined") && !parseInt(sessionStorage.dirty)) {
 		listChildren(sessionStorage.jsonString);
 		return;
 	}
@@ -67,7 +67,8 @@ function listChildren(param) {
 			tableString[++i] = "<td class='nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] = "<td class='ageCell'><span class='age-text'>" + ageFormatted + "</span></td>";
 			tableString[++i] = "<td class='editCell'><img class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>";
-			tableString[++i] = "<td class='deleteCell'><img class='delete' src='../images/remove-button-blkoutline.png' /></td></tr>"
+			tableString[++i] = "<td class='deleteCell'><img class='delete' onClick='deleteChild()' src='../images/remove-button-blkoutline.png' /></td>"
+			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');	// Makes this bigass array into one bigass string
 			fragment.appendChild(anchor);
@@ -79,9 +80,4 @@ function listChildren(param) {
 		}
 	}
 	content.appendChild(fragment);
-}
-
-function linkToCategory(inChildID) {
-	sessionStorage.cid = inChildID; // Store child ID
-	document.location.href = "personal_cat.html";
 }
