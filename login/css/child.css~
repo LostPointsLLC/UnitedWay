@@ -8,8 +8,13 @@ text-align:center;
 	display: block;
 	margin: 0 auto;
 	padding: 0;
+<<<<<<< Updated upstream
+	margin-top: 100px;
+	background: #7ca3dc;
+=======
 	margin-top: 100px;
 	background: #ffffff;
+>>>>>>> Stashed changes
 }
 
 

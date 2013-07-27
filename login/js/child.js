@@ -1,46 +1,14 @@
-/* Swaps the input of the button colors into *actual* colors */
-/*$(document).ready(function() {
-
-	// Recreates the buttons by hiding each one
-	// then replaces each radio button with an <a> element
-	$('input[name="color"]').hide().each(function() {			// Any input element with name="color" will go thru here
-		// Inserts <a> elements here
-		$('<a '
-			+ ' id=' + this.id
-			+ ' class="radio-fx '								// Assigns the class 'radio-fx' 
-			+ this.name											// Reassigns its name 
-			+ '" href="#"><span class="radio' 
-			+ (this.checked ? ' radio-checked' : '')			// Leaves button checked if checked, otherwise it isn't 
-			+ '"></span></a>').insertAfter(this);				// Appends the <a> to the hidden radio button
-	});
-
-	// Finds the button that's been clicked, and passes it to the callback function as "e"
-	$('.radio-fx').on('click', function(e) {
-		$check = $(this).prev('input:radio');					
-		var unique = '.' + this.className.split(' ')[1] + ' span';
-		$(unique).attr('class', 'radio');
-		$(this).find('span').attr('class', 'radio-checked');
-		$check.attr('checked', true);
-	}).on('keydown', function(e) {
-		if ((e.keyCode ? e.keyCode : e.which) == 32) {
-			$(this).trigger('click');							
-		}
-	});
-
-
-	// Allows for multiple skins to be displayed
-	$('#change-skin').change(function() {
-		$('form table').attr('id', this.value);
-	});
-
-});
-*/
-
 /* Updates the database */
 function updateDB(addAnotherChild) {
 	var posts = $("#form").serialize();						// Finds the checked items, then concatenates as a datastring
-	posts += "&child_parentID=" + sessionStorage.pid;
 
+	var name = document.getElementById("name").value;		// Don't know why this wasn't added in the serialize()
+
+	var color = document.getElementById("sprite").style.backgroundColor; // Sorry I have to hardcode this in. 
+	color = (color != "") ? color : 'rgb(100, 100, 100)';
+
+	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color;
+	alert("The post string is: " + posts);
 	if(posts.search("=&") != -1) {
 		if(addAnotherChild) {
 			alert("Please fill in all of the fields.");
@@ -60,6 +28,10 @@ function updateDB(addAnotherChild) {
 		data: posts,
 		cache: false,
 		async: false,
+		success: function(data) {
+			alert(data);
+
+		}
 	});
 	return 0;
 
@@ -89,7 +61,6 @@ function changeGender(gender) {
 // Note: I'm anticipating that this colorpicker is going to run slow on a mobile device
 $(document).ready(function() {
 	$('#colorSelector').ColorPicker({
-		color: '#7ca3dc',
 		onShow: function(colpkr) {
 			$(colpkr).fadeIn(500);
 			return false;
@@ -119,6 +90,8 @@ $(document).ready(function() {
 
 function add() {
 	if(updateDB(true) == -1) return;
+
+	return;
 	document.location.href="child.html"; 
 }
 

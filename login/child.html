@@ -25,7 +25,8 @@
 					<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
 					<br>
 					<script>
-						generateInputText("Your child&#39s firstname", "name-input-box", "name-input", "text");
+					// Note: DO NOT DELETE "name", OTHERWISE THE DB IS GOING TO FAIL
+					generateInputText("Your child&#39s firstname", "name-input-box", "name", "text");
 					</script>
 					<div id="birthday-select" class='input-box' >
 						<div id="birthday" >
@@ -45,7 +46,7 @@
 					<div id ="color-select" class='input-box'> 
 						<p>Choose your child's favorite color!</p>
 						<div id = "colorSelector">
-							<div style = "background-color: #7ca3dc;"></div> 
+							<div id='color' style="background-color: #ffffff;"></div> 
 						</div>
 					</div>
 				</form>

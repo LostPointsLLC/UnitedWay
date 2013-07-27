@@ -57,6 +57,10 @@
 			function verifyLogin() {
 				var iEmail = document.getElementById("email").value;
 				var iPass = document.getElementById("password").value;
+				if(iEmail == "test") {
+					document.getElementById("result").innerHTML = "<p id='fail'>Sorry, don't use this account anymore. You should test this app using your own account.</p>";
+					return;
+				}
 				// Variables used for XML/HTTP Request.
 				var httpRequest;
 				var loginUrl = "php/login.php";
