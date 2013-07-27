@@ -15,7 +15,6 @@ function unfavorite(fav_id) {
 function promptUser(fav_id) {
 	try {
 		var anchor = document.getElementById(String(fav_id)).firstChild.firstChild;
-		console.log(anchor);
 		var text = anchor.innerHTML;
 	}
 	

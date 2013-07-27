@@ -25,7 +25,8 @@
 					<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
 					<br>
 					<script>
-						generateInputText("Your child&#39s firstname", "name-input-box", "name-input", "text");
+					// Note: DO NOT DELETE "name", OTHERWISE THE DB IS GOING TO FAIL
+					generateInputText("Your child&#39s firstname", "name-input-box", "name", "text");
 					</script>
 					<div id="birthday-select" class='input-box' >
 						<div id="birthday" >
@@ -45,7 +46,7 @@
 					<div id ="color-select" class='input-box'> 
 						<p>Choose your child's favorite color!</p>
 						<div id = "colorSelector">
-							<div style = "background-color: #7ca3dc;"></div> 
+							<div id='color' style="background-color: #ffffff;"></div> 
 						</div>
 					</div>
 				</form>
@@ -53,7 +54,13 @@
 				<div id="options-list">
 					<script type="text/javascript">
 					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-					generateButton("Finished!", "finish", "bt-yellow", "finish()");
+					var fromSettings = parseInt(sessionStorage.fromSettings);
+					if(fromSettings) {
+						generateButton("Finished!", "finish", "bt-yellow", "settings()");
+					}
+					else {
+						generateButton("Finished!", "finish", "bt-yellow", "finish()");
+					}
 					</script>
 				</div>
 			</div> <!-- End of content div -->

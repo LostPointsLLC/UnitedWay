@@ -8,26 +8,27 @@
 		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
 		<link rel="stylesheet" href="../help/css/homehelp.css" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/settings.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../tips/css/tips.css" />-->
 		
 		<script src="../js/generator.js"></script>
-		<script src="js/navigation.js"></script>
+		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/functions.js"></script>
+		<script src="js/settings.js"></script>
+		<script src="js/initializeSettings.js"></script>
+		<script src="js/changeSettings.js"></script>
+		<script src="js/updateSettings.js"></script>
 	</head>
 
 	<body>
+		<script>
+		generateHeader("Settings", true, true);
+		</script>
 		<div class="wrapper">
+			<div id='content'></div>			
 			<script>
-			generateHeader("Settings", true, true);
+			generateButton("Add a Child", "addChild", "bt-yellow", "addChild()");
 			</script>
-			
-			<div id="button-wrapper">
-				<script>
-					generateButton("Add Child", "addchild", "how-to-use", "");
-					generateButton("Edit Child", "editchild", "faq", "");
-					generateButton("Remove Child", "removechild", "contact", "");
-					generateButton("Language Settings", "languagesettings", "langsettings", "");
-				</script>
-			<div>
-
 		</div>
 
 

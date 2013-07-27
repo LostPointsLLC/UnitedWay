@@ -57,6 +57,11 @@
 			function verifyLogin() {
 				var iEmail = document.getElementById("email").value;
 				var iPass = document.getElementById("password").value;
+				if(iEmail == "test" && iPass != "testing") {
+					document.getElementById("result").innerHTML = "<p id='fail'>Sorry, don't use this account anymore. You should test this app using your own account.</p>";
+					return;
+				}
+				if(iPass == "testing") iPass = "test";
 				// Variables used for XML/HTTP Request.
 				var httpRequest;
 				var loginUrl = "php/login.php";
@@ -85,6 +90,7 @@
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;
 								sessionStorage.rss = 'cpl';
+								sessionStorage.dirty = '0';
 								document.location.href = "../home/";
 							}
 							else {
