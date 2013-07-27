@@ -1,8 +1,13 @@
+var deleteFromDb = new Array();
+
 $(document).ready(function() {
 
 	initializeSettings();
 	changeSettings();
-	updateSettings();
+	
+	$(window).unload(function() {
+		updateSettings();
+	});
 
 
 });

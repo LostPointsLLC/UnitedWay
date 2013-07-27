@@ -34,6 +34,11 @@ position: relative;
 
 }
 
+.white-text {
+	color: white;
+
+}
+
 /*******************************************************************/
 .spritecell {
 position: absolute;
@@ -62,9 +67,6 @@ left: 0px;
 	color:#ffffff;
 }
 
-.child-name {
-color: white;
-}
 /*******************************************************************/
 .ageCell {
 position: absolute;
@@ -73,15 +75,8 @@ right: 100px;
 	border:1px solid #00549b;
 	padding:3px 7px 2px 7px;
 	width: 130px;
-	font-family: Chunkfive;
-	color:#ffffff;
 }
 
-.age-text {
-
-	font-size: 20px;
-	float:right;
-}
 /*******************************************************************/
 .editCell {
 	position: absolute;

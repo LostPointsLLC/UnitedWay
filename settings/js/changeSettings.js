@@ -1,5 +1,6 @@
+// Yarr empty function
 function changeSettings() {
-
+	return;
 
 }
 
@@ -13,19 +14,53 @@ function editChild() {
 
 
 function deleteChild(name, id) {
-	if(promptDelete(name)) {
-		makeBlackWhiteText("age", id);
-		makeBlackWhiteText("name", id);
-		makeBlackWhite("edit", id);
-		makeBlackWhite("delete", id);
 
+	// In case of undoing a delete
+	if($("#age" + String(id)).hasClass("black-white-text")) {
+		changeWhite(id);
+		var index = deleteFromDb.indexOf(id);
+		deleteFromDb.splice(index, 1);
 	}
+
+
+	else if(promptDelete(name)) {
+		changeBlack(id);
+		deleteFromDb.push(id);
+	}
+	console.log(JSON.stringify(deleteFromDb));
+}
+
+function changeWhite(id) {
+	
+	makeWhiteText("age", id);
+	makeWhiteText("name", id);
+	makeWhite("edit", id);
+	makeWhite("delete", id);
+}
+
+function changeBlack(id) {
+
+	makeBlackWhiteText("age", id);
+	makeBlackWhiteText("name", id);
+	makeBlackWhite("edit", id);
+	makeBlackWhite("delete", id);
+
+}
+
+function makeWhite(element, id) {
+	$("#" + element + String(id)).removeClass("black-white");
 }
 
 function makeBlackWhiteText(element, id) {
-	$("#" + element + String(id)).removeClass("child-name").addClass("black-white-text");
+	$("#" + element + String(id)).removeClass("white-text").addClass("black-white-text");
 
 }
+
+function makeWhiteText(element, id) {
+	$("#" + element + String(id)).removeClass("black-white-text").addClass("white-text");
+
+}
+
 
 function makeBlackWhite(element, id) {
 	$("#" + element + String(id)).addClass("black-white");
