@@ -8,7 +8,6 @@ function updateDB(addAnotherChild) {
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
 
 	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color;
-	alert("The post string is: " + posts);
 	if(posts.search("=&") != -1) {
 		if(addAnotherChild) {
 			alert("Please fill in all of the fields.");
@@ -28,10 +27,6 @@ function updateDB(addAnotherChild) {
 		data: posts,
 		cache: false,
 		async: false,
-		success: function(data) {
-			alert(data);
-
-		}
 	});
 	return 0;
 
