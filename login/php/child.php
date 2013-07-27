@@ -19,7 +19,7 @@
 	 */
 	$querystring = "INSERT INTO children 
 	(child_parentID, child_name, health_code, language_code, social_code, other_code, child_gender, child_birthday, child_color) VALUES 
-	($parentID, '$name', $health_code, $language_code, $social_code, $other_code, $gender, $birthday, '$color')";
+	($parentID, '$name', $health_code, $language_code, $social_code, $other_code, $gender, '$birthday', '$color')";
 	
 
 	mysqli_query($dbConnection, $querystring) or die ("error: Querystring is $querystring:" . mysqli_error($dbConnection));

@@ -12,7 +12,6 @@ $(document).ready(function() {
 		cache: false,
 		success: function(data){
 			sessionStorage.jsonString = data; // store database data string as a session variable
-			alert(data);
 			initializeProgress(data);
 		}
 	 });	 
@@ -46,7 +45,6 @@ function initializeProgress(param) {
 			
 			var gender = obj[key]["child_gender"];
 			var genderImg;
-			console.log(gender);
 			switch(gender) {
 				case 'boy':
 					genderImg = 'child/boy-darkblue-small';

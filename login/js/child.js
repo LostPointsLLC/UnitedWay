@@ -8,12 +8,18 @@ function updateDB(addAnotherChild) {
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
 
 	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color;
+
+	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
+
+		// Triggered if the user intended to add another child
 		if(addAnotherChild) {
 			alert("Please fill in all of the fields.");
 			return -1;
 		}
-
+		
+		// If the user didn't intend to add another child, and not everything 
+		// was entered into the db, it just returns 0. Nothing significant.
 		else return 0;
 	}
 	/* TODO: Make requirements for which fields should be added */
@@ -85,8 +91,6 @@ $(document).ready(function() {
 
 function add() {
 	if(updateDB(true) == -1) return;
-
-	return;
 	document.location.href="child.html"; 
 }
 
@@ -95,4 +99,9 @@ function add() {
 function finish() { 
 	if(updateDB(false) == -1) return;
 	document.location.href="../home/index.html"; 
-}  
+}
+
+function settings() {
+	if(updateDB(false) == -1) return;
+	document.location.href="../settings/";
+}
