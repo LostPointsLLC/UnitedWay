@@ -32,9 +32,21 @@ function listChildren(param) {
 			var anchor = document.createElement('div');
 			var tableString = new Array(6);
 			
+			var gender = obj[key]["child_gender"];
+			var genderImg;
+			switch(gender) {
+				case 'boy':
+					genderImg = 'child/boy-darkblue-small';
+					break;
+				default:
+					genderImg = 'child/girl-darkblue-small';
+					break;
+			}
+
+
 			var i = 0;
 			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' >";
-			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src = '../images/" + obj[key]["child_gender"] + ".png' /></td>";
+			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
 			tableString[++i] = "<td class = 'nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] = "<td class = 'ageCell'><span class='age-text'>" + ageFormatted + "</span></td></tr>" ;
 			tableString[++i] = "</table>";
