@@ -12,13 +12,14 @@ $(document).ready(function() {
 		cache: false,
 		success: function(data){
 			sessionStorage.jsonString = data; // store database data string as a session variable
-			updateProgress(data);
+			alert(data);
+			initializeProgress(data);
 		}
 	 });	 
 });
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
-function updateProgress(param) {
+function initializeProgress(param) {
 	var obj = jQuery.parseJSON(param);
 	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
@@ -39,16 +40,28 @@ function updateProgress(param) {
 			var totalCount = health_code.length + language_code.length + social_code.length + other_code.length;
 			var overallPerc = (totalChecked / totalCount) * 100;
 			
-			//Calculate child's age
-			var ageInMonths = calculateMonth(obj[key]["child_birthday"]);
+			var ageInMonths = calculateMonth(obj[key]["child_birthday"]);				//Calculate child's age
 			var ageFormatted = calculateAge(ageInMonths);
-			var genderImg = obj[key]["child_gender"];
+			
+			
+			var gender = obj[key]["child_gender"];
+			var genderImg;
+			console.log(gender);
+			switch(gender) {
+				case 'boy':
+					genderImg = 'child/boy-darkblue-small';
+					break;
+				default:
+					genderImg = 'child/girl-darkblue-small';
+					break;
+			}
+
 			var anchor = document.createElement('div');
 			var tableString = new Array(8);
 			var i = 0;
 			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")'>";
 			// First Row
-			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img src = '../images/" + genderImg + ".png' height='42' width='42'></td>";
+			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img id='" + key + "' src = '../images/" + genderImg + ".png' height='42' width='42' style='background-color: " + obj[key]['child_color'] + "'></td>";
 			tableString[++i] = "<td class = 'cell' colspan = '4'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] = "<td class = 'ageCell' rowspan = '3'><span class='age-text'>" + ageFormatted + "</span></td></tr>";
 			// Second Row
@@ -64,6 +77,7 @@ function updateProgress(param) {
 			var line = document.createElement('div');
 			line.id = "line";
 			fragment.appendChild(line);	
+
 		}
 	}
 	content.appendChild(fragment);

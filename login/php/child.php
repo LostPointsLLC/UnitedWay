@@ -1,7 +1,7 @@
 <?php
 
 	require('connect.php');	
-	$name 		= $_POST['name'];
+	$name 		= mysqli_real_escape_string($dbConnection, $_POST['name']);
 	$birthday 	= $_POST['birthday'];
 	$gender		= $_POST['gender'];
 	$color		= $_POST['color'];
