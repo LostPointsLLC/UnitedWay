@@ -5,9 +5,10 @@ function getLibraryEvent(day, month){
     $div.innerHTML = "";
     grabData(function(events) {
 	for(var i=0;i<events.length;i++) {
-	    if (((events[i].startTime.getDate()) == day) //change back to day
+	    if (((events[i].startTime.getDate()) == day) 
 		&& (events[i].startTime.getMonth() == month))
 	    {
+	
 		var eventTitle = document.createElement("h3");
 		var eventDiv = document.createElement("div");
 		eventTitle.appendChild(document.createTextNode([
@@ -37,6 +38,9 @@ function getLibraryEvent(day, month){
 		$div.appendChild(eventDiv);
 	    }
 	}
+	if($div.innerHTML == "")
+	    $div.innerHTML = "No Events for Today.";
+	
     });
    
 }
@@ -47,6 +51,8 @@ function grabData(callback)
     google.load('feeds','1',{
 	'callback':function(){
 	    var feed = new google.feeds.Feed('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2');
+	    feed.setNumEntries(50);
+	    feed.includeHistoricalEntries();
 	    feed.load(function(res){
 		if(res.error){
 		    throw new Error('Problem occurred updating the event feed.');

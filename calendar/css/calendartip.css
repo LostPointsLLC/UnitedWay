@@ -110,6 +110,8 @@ body {
     overflow-y:auto;
     text-align: center;
     position: relative;
+    color: white;
+    font: 21px arial;
 }
 
 .events-wrapper{

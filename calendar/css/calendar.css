@@ -74,6 +74,8 @@ body{
     text-align: center;
     position: relative;
     background:#7ca3dc!important;
+    color: white;
+    font: 17px arial;
 }
 
 .events-wrapper{
