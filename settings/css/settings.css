@@ -16,6 +16,24 @@ position: relative;
 	width:100%;
 }
 
+.black-white {
+
+	-webkit-filter: grayscale(1);
+}
+
+.text {
+
+	text-align: center;
+	font-size: 20px;
+	font-family: Chunkfive;
+
+}
+
+.black-white-text {
+	color: gray;
+
+}
+
 /*******************************************************************/
 .spritecell {
 position: absolute;
@@ -45,10 +63,7 @@ left: 0px;
 }
 
 .child-name {
-	font-size: 20px;
-	font-family: Chunkfive;
 color: white;
-	   text-align: center;
 }
 /*******************************************************************/
 .ageCell {

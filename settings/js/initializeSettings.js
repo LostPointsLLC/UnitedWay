@@ -50,24 +50,24 @@ function listChildren(param) {
 					genderImg = 'child/girl-darkblue-small';
 					break;
 			}
-			/*	<table class="ch">
+			/*	<table id="key" class="ch">
 			 *		<tr>
-			 *			<td class='cell'><img class='sprite' style='background-color: obj[key]['child-color']' src='genderImg'/></td>
+			 *			<td class='cell'><img id='sprite + key' class='sprite' style='background-color: obj[key]['child-color']' src='genderImg'/></td>
 			 *			<td class='nameCell'><span class='child-name'>obj[key]['child_name']</span></td>
 			 *			<td class='ageCell'><span class='age-text'>ageFormatted</span></td>
-			 *			<td class='editcell'><img class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>
-			 *			<td class='deletecell'><img class='delete' src='remove-btn-blkoutline.png'/></td>
+			 *			<td class='editcell'><img id='edit + key' class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>
+			 *			<td class='deletecell'><img id='delete + key' class='delete' src='remove-btn-blkoutline.png' onClick='deleteChild(name, id)'/></td>
 			 *		<tr>
 			 *	<table>
 			 */
 
 			var i = 0;
 			tableString[i] = "<table id=" + key + " class = 'child-table'>";
-			tableString[++i] = "<tr><td class = 'spritecell'><img class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
-			tableString[++i] = "<td class='nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
-			tableString[++i] = "<td class='ageCell'><span class='age-text'>" + ageFormatted + "</span></td>";
-			tableString[++i] = "<td class='editCell'><img class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>";
-			tableString[++i] = "<td class='deleteCell'><img class='delete' onClick='deleteChild()' src='../images/remove-button-blkoutline.png' /></td>"
+			tableString[++i] = "<tr><td class = 'spritecell'><img id='sprite" + key + "' class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
+			tableString[++i] = "<td class='nameCell'><span id='name" + key + "' class='text child-name'>" + obj[key]["child_name"] + "</span></td>";
+			tableString[++i] = "<td class='ageCell'><span id='age" + key + "' class='age-text'>" + ageFormatted + "</span></td>";
+			tableString[++i] = "<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>";
+			tableString[++i] = "<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, " + key + ")' /></td>"
 			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');	// Makes this bigass array into one bigass string
