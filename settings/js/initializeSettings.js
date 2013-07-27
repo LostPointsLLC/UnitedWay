@@ -55,19 +55,21 @@ function listChildren(param) {
 			 *			<td class='cell'><img class='sprite' style='background-color: obj[key]['child-color']' src='genderImg'/></td>
 			 *			<td class='nameCell'><span class='child-name'>obj[key]['child_name']</span></td>
 			 *			<td class='ageCell'><span class='age-text'>ageFormatted</span></td>
-			 *			<td class='edit-cell'><img class='edit' src='../images/wrench.jpg'/></td>
-			 *			<td class='delete-cell'><img class='delete' src='remove-btn-blkoutline.png'/></td>
+			 *			<td class='editcell'><img class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>
+			 *			<td class='deletecell'><img class='delete' src='remove-btn-blkoutline.png'/></td>
 			 *		<tr>
 			 *	<table>
 			 */
 
 			var i = 0;
-			tableString[i] = "<table class = 'child-table'>";
-			tableString[++i] = "<tr><td class = 'cell'><img class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
-			tableString[++i] = "<td class = 'nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
-			tableString[++i] = "<td class = 'ageCell'><span class='age-text'>" + ageFormatted + "</span></td></tr>" ;
+			tableString[i] = "<table id=" + key + " class = 'child-table'>";
+			tableString[++i] = "<tr><td class = 'spritecell'><img class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
+			tableString[++i] = "<td class='nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
+			tableString[++i] = "<td class='ageCell'><span class='age-text'>" + ageFormatted + "</span></td>";
+			tableString[++i] = "<td class='editCell'><img class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>";
+			tableString[++i] = "<td class='deleteCell'><img class='delete' src='../images/remove-button-blkoutline.png' /></td></tr>"
 			tableString[++i] = "</table>";
-			anchor.innerHTML = tableString.join('');
+			anchor.innerHTML = tableString.join('');	// Makes this bigass array into one bigass string
 			fragment.appendChild(anchor);
 			
 			// Add line
