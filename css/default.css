@@ -3,9 +3,14 @@
 /* Introduces the Chunkfive font family into the stylesheet */
 @font-face {
     font-family: 'Chunkfive';
-    src: url('../fonts/Chunkfive.otf');
+    src: url('../fonts/chunkfive-webfont.eot');
+    src: url('../fonts/chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/chunkfive-webfont.woff') format('woff'),
+         url('../fonts/chunkfive-webfont.ttf') format('truetype'),
+         url('../fonts/chunkfive-webfont.svg#chunkfive') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
 
 /* Setting the DEFAULT settings for a paragraph
