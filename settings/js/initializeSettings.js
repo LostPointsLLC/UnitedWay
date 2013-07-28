@@ -52,7 +52,7 @@ function listChildren(param) {
 			}
 			/*	<table id="key" class="ch">
 			 *		<tr>
-			 *			<td class='cell'><img id='sprite + key' class='sprite' style='background-color: obj[key]['child-color']' src='genderImg'/></td>
+			 *			<td class='cell'><img id='sprite + key' class='sprite' style='background-color: obj[key]['child_color']' src='genderImg'/></td>
 			 *			<td class='nameCell'><span class='text white-text'>obj[key]['child_name']</span></td>
 			 *			<td class='ageCell'><span class='text white-text'>ageFormatted</span></td>
 			 *			<td class='editcell'><img id='edit + key' class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>
@@ -67,7 +67,7 @@ function listChildren(param) {
 			tableString[++i] =	   "<td class = 'spritecell'><img id='sprite" + key + "' class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
 			tableString[++i] =	   "<td class='nameCell'><span id='name" + key + "' class='text white-text'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] =	   "<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
-			tableString[++i] =	   "<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>";
+			tableString[++i] =	   "<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(" + key + ")'/></td>";
 			tableString[++i] =	   "<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, " + key + ")' /></td>"
 			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";

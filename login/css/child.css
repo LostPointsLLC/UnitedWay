@@ -120,13 +120,13 @@ color: white;
 	background-color: #f0502f;
 	position: absolute;
 	top: 290px;
-height: 70px;
+	height: 70px;
 		padding-bottom: 5px;
 }
 
 #color-select p {
 	font-family: Chunkfive;
-text-align: center;
+	text-align: center;
 
 }
 

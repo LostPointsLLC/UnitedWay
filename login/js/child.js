@@ -77,16 +77,40 @@ $(document).ready(function() {
 			$('#sprite').css('backgroundColor', '#'+hex);
 		},
 
-		onSubmit: function(hsb, hex, rgb) {
-		}
 	});
+	
+		
+	
+	// Indicates that we're entering from the settings page, and 
+	// we want to change attributes of a child
+	if(parseInt(sessionStorage.edit_childID) > 0) {
+		initializeEditingPage(parseInt(sessionStorage.edit_childID));
+	
+	}
+	
 
 });
 
+// Uses the existing jsonString to change the settings on the page
+function initializeEditingPage(id) {
+	var attributes = jQuery.parseJSON(sessionStorage.jsonString);
+	var name 		= attributes[id]["child_name"];
+	var birthday 	= attributes[id]["child_birthday"];
+	var gender		= attributes[id]["child_gender"];
+	var color		= attributes[id]["child_color"];
+	console.log(color);
+	document.getElementById("name").value = name;
+	document.getElementById("sprite").style.backgroundColor = color;
+	document.getElementById("color").style.backgroundColor = color;
+	if(gender == 'boy') {
+		document.getElementById("boy").value = true;
+	}
+	else document.getElementById("girl").value = true;
+	document.getElementById("bday").value = birthday;
+	
 
 
-
-
+}
 
 
 function add() {

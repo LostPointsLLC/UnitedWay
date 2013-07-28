@@ -5,10 +5,11 @@ function changeSettings() {
 }
 
 
-function editChild() {
-	alert("edit child button pressed");
+function editChild(id) {
+	alert("edit child button pressed: " + id);
 	sessionStorage.dirty = '1';
-
+	sessionStorage.edit_childID = id;
+	document.location.href='../login/child.html';
 }
 
 

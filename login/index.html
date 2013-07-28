@@ -89,8 +89,9 @@
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;
-								sessionStorage.rss = 'cpl';
-								sessionStorage.dirty = '0';
+								sessionStorage.rss = 'cpl';				// For the news feed page.
+								sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
+								sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
 								document.location.href = "../home/";
 							}
 							else {
