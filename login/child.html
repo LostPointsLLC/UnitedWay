@@ -49,21 +49,23 @@
 							<div id='color' style="background-color: #ffffff;"></div> 
 						</div>
 					</div>
-				</form>
-				
-				<div id="options-list">
-					<script type="text/javascript">
-					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-					var fromSettings = parseInt(sessionStorage.fromSettings);
-					if(fromSettings) {
-						generateButton("Finished!", "finish", "bt-yellow", "settings()");
-					}
-					else {
-						generateButton("Finished!", "finish", "bt-yellow", "finish()");
-					}
-					</script>
 				</div>
-			</div> <!-- End of content div -->
+			</form>
+				
+			<div id='result'></div>
+			<div id="options-list">
+				<script type="text/javascript">
+				generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+				var fromSettings = parseInt(sessionStorage.fromSettings);
+				if(fromSettings) {
+					generateButton("Finished!", "finish", "bt-yellow", "settings()");
+				}
+				else {
+					generateButton("Finished!", "finish", "bt-yellow", "finish()");
+				}
+				</script>
+			</div>
+
 		</div>
 	</body>
 </html>

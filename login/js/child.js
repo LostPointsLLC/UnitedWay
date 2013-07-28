@@ -1,20 +1,23 @@
 /* Updates the database */
 function updateDB(addAnotherChild) {
 	var posts = $("#form").serialize();						// Finds the checked items, then concatenates as a datastring
-
 	var name = document.getElementById("name").value;		// Don't know why this wasn't added in the serialize()
-
 	var color = document.getElementById("sprite").style.backgroundColor; // Sorry I have to hardcode this in. 
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
-
 	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color;
-
+	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
 
 		// Triggered if the user intended to add another child
 		if(addAnotherChild) {
-			alert("Please fill in all of the fields.");
+			var result = document.getElementById("result");
+			if(name == "") 
+				result.innerHTML = "<p>Please fill in your child's name</p>";
+				
+			else if(document.getElementById("bday").value == "") {
+				result.innerHTML = "<p>Please provide your child's birthday</p>";
+			}
 			return -1;
 		}
 		
@@ -98,7 +101,7 @@ function initializeEditingPage(id) {
 	var birthday 	= attributes[id]["child_birthday"];
 	var gender		= attributes[id]["child_gender"];
 	var color		= attributes[id]["child_color"];
-	console.log(color);
+	
 	document.getElementById("name").value = name;
 	document.getElementById("sprite").style.backgroundColor = color;
 	document.getElementById("color").style.backgroundColor = color;
@@ -108,8 +111,6 @@ function initializeEditingPage(id) {
 	else document.getElementById("girl").value = true;
 	document.getElementById("bday").value = birthday;
 	
-
-
 }
 
 

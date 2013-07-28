@@ -156,12 +156,17 @@ left: 47%;
 
 #options-list {	
 position: absolute;
-top: 400px;
+top: 500px;
 width:100%;
 text-align:center;
 }
 
+#result {
+	position: absolute;
+	top: 470px;
+	margin-left: 25px;
 
+}
 
 #child-add {
 	margin-right: 5px;
