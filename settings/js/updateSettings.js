@@ -7,10 +7,8 @@ function updateSettings() {
 		data: jsonString,
 		cache: false,
 		async: false,
-		success: function(data) {
-			alert(data);
-
-		}
 	});
+	
+	sessionStorage.dirty = 1;
 
 }

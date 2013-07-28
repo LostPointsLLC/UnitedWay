@@ -1,7 +1,7 @@
 #mainText {
 	position: relative;
 top: 60px;
-text-align:center;
+margin-left: 25px;
 }
 
 #sprite {
@@ -156,14 +156,14 @@ left: 47%;
 
 #options-list {	
 position: absolute;
-top: 500px;
+top: 535px;
 width:100%;
 text-align:center;
 }
 
 #result {
 	position: absolute;
-	top: 470px;
+	top: 490px;
 	margin-left: 25px;
 
 }

@@ -11,14 +11,8 @@ function updateDB(addAnotherChild) {
 
 		// Triggered if the user intended to add another child
 		if(addAnotherChild) {
-			var result = document.getElementById("result");
-			if(name == "") 
-				result.innerHTML = "<p>Please fill in your child's name</p>";
-				
-			else if(document.getElementById("bday").value == "") {
-				result.innerHTML = "<p>Please provide your child's birthday</p>";
-			}
-			return -1;
+			return showFailPrompt(name, document.getElementById("bday").value)
+
 		}
 		
 		// If the user didn't intend to add another child, and not everything 
@@ -40,6 +34,101 @@ function updateDB(addAnotherChild) {
 	return 0;
 
 }
+
+// Returns 0 if there are no empty fields.
+function showFailPrompt(name, birthday) {
+	var result = document.getElementById("result");
+	if(name == "")  {
+		result.innerHTML = "<p>Please fill in your child's name</p>";
+		return -1;
+	}
+	else if(birthday == "") {
+		result.innerHTML = "<p>Please provide your child's birthday</p>";
+		return -1;
+	}
+	
+	return 0;
+
+}
+
+// Uses a query to update the database
+function editDB() {
+
+	var birthday = document.getElementById("bday").value;
+	var name = document.getElementById("name").value;
+
+	if(showFailPrompt(name, birthday) == -1) return;
+	
+	var color = document.getElementById("color").style.backgroundColor;
+	var boy_gender = document.getElementById("boy").value;
+
+	// Send the query iff fields were changed
+	var dataString = getDataString(name, birthday, color, boy_gender);
+	
+	if(dataString) {
+	
+		$.ajax({
+			type: "POST",
+			url: "php/editChild.php",
+			data: dataString,
+			cache: false,
+			async: false,
+			success: function(data){
+				alert(data);
+			
+			}
+		});
+	
+		sessionStorage.dirty = '1';
+	}
+	sessionStorage.removeItem('edit_childID');
+	document.location.href="../settings/";
+	
+}
+
+
+// Creates a data string to be sent back into the DB
+// Any empty string means no changes have to be made.
+// If there are no changes, then this function returns zero.
+function getDataString(name, birthday, color, boy_gender) {
+
+	// First check whether it's actually worth returning a string
+	var id = sessionStorage.edit_childID;
+	var attributes = jQuery.parseJSON(sessionStorage.jsonString);
+	var flag = false;
+	var posts = "name=";
+	
+	if(attributes[id]["child_name"] != name) {
+		posts += name;
+		flag = true;
+	}
+	
+	posts += "&birthday=";
+	if(attributes[id]["child_birthday"] != birthday) {
+		posts += birthday;
+		flag = true;
+	}
+	
+	posts += "&color=";
+	if(attributes[id]["child_color"] != color) {
+		posts += color;
+		flag = true;
+	}
+
+	posts += "&gender=";
+	if(((attributes[id]["child_gender"] == 'boy') == boy_gender)) {
+		posts += 'girl';
+		flag = true;
+	
+	}
+	
+	posts += "&id=" + sessionStorage.edit_childID;
+	
+
+	if(flag) return posts;
+	else return flag;
+}
+
 
 
 // Called when one of the radio buttons is clicked
@@ -86,9 +175,8 @@ $(document).ready(function() {
 	
 	// Indicates that we're entering from the settings page, and 
 	// we want to change attributes of a child
-	if(parseInt(sessionStorage.edit_childID) > 0) {
+	if(parseInt(sessionStorage.edit_childID) >= 0) {
 		initializeEditingPage(parseInt(sessionStorage.edit_childID));
-	
 	}
 	
 
@@ -102,13 +190,17 @@ function initializeEditingPage(id) {
 	var gender		= attributes[id]["child_gender"];
 	var color		= attributes[id]["child_color"];
 	
+	
 	document.getElementById("name").value = name;
 	document.getElementById("sprite").style.backgroundColor = color;
 	document.getElementById("color").style.backgroundColor = color;
 	if(gender == 'boy') {
-		document.getElementById("boy").value = true;
+		document.getElementById("boy").checked = true;
 	}
-	else document.getElementById("girl").value = true;
+	else {
+		document.getElementById("girl").checked = true;
+		changeGender(2);
+	}
 	document.getElementById("bday").value = birthday;
 	
 }
@@ -116,6 +208,7 @@ function initializeEditingPage(id) {
 
 function add() {
 	if(updateDB(true) == -1) return;
+	sessionStorage.fromSettings = '0';
 	document.location.href="child.html"; 
 }
 
@@ -123,10 +216,12 @@ function add() {
 
 function finish() { 
 	if(updateDB(false) == -1) return;
+	sessionStorage.fromSettings = '0';
 	document.location.href="../home/index.html"; 
 }
 
 function settings() {
 	if(updateDB(false) == -1) return;
+	sessionStorage.fromSettings = '0';
 	document.location.href="../settings/";
 }

@@ -19,6 +19,7 @@
 			<script>
 				generateHeader("Register Children", false, false);
 			</script>
+			<br>
 			<p id="mainText">Fill in your child's information below!</p>
 			<form id="form">
 				<div id="content">
@@ -55,12 +56,19 @@
 			<div id='result'></div>
 			<div id="options-list">
 				<script type="text/javascript">
-				generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+				
 				var fromSettings = parseInt(sessionStorage.fromSettings);
+				var childID = parseInt(sessionStorage.edit_childID);
 				if(fromSettings) {
+					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
 					generateButton("Finished!", "finish", "bt-yellow", "settings()");
 				}
+				else if(childID >= 0) {
+					generateButton("Done editing", "edit", "bt-yellow", "editDB()");
+				
+				}
 				else {
+					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
 					generateButton("Finished!", "finish", "bt-yellow", "finish()");
 				}
 				</script>

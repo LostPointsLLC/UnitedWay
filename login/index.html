@@ -51,6 +51,7 @@
 			<script type="text/javascript">	// Create HTTP request for server
 			// Sends request to match user input with user data table on Lostpoint Database
 			function registration() {
+				setDefaultStorage();
 				document.location.href="registration.html";
 
 			}
@@ -89,9 +90,7 @@
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							if(typeof(Storage) !== "undefined"){
 								sessionStorage.pid = ret;
-								sessionStorage.rss = 'cpl';				// For the news feed page.
-								sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-								sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
+								setDefaultStorage();								
 								document.location.href = "../home/";
 							}
 							else {
@@ -107,6 +106,13 @@
 				httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				httpRequest.send(params);
 			
+			}
+			
+			function setDefaultStorage() {
+				sessionStorage.rss = 'cpl';				// For the news feed page.
+				sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
+				sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
+				sessionStorage.fromSettings = '0';
 			}
 			</script>
 	</body>

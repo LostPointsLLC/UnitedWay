@@ -12,9 +12,19 @@ $(document).ready(function() {
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
+	var genderImg;
+	switch(gender) {
+		case 'boy':
+			genderImg = 'child/boy-darkblue-small';
+			break;
+		default:
+			genderImg = 'child/girl-darkblue-small';
+			break;
+	}
+	
 	
 	var portrait = document.getElementById("child");
-	portrait.innerHTML = "<img src='../images/" + gender +".png' width='50' height='50' alt='' /><br><span class='child-name'>" + childName + "</span>"
+	portrait.innerHTML = "<img src='../images/" + genderImg + ".png' width='50' height='50' style='background-color: " + jObj[childID]['child_color'] + "'/><br><span class='child-name'>" + childName + "</span>"
 	
 	// Create array that indexes child id's
 	var indexList = new Array();
