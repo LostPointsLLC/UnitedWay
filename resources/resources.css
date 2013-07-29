@@ -37,11 +37,21 @@
 }
 
 /*separate styling for st.joseph since the name is too long*/
-.stJoseph {
+/*.stJoseph {
 
 	position: relative;
 	margin-left: 20px;	
-	padding-top: 6px;
-	font-family: helvetica, geneva, sans serif
+	padding-top: 15px;
+	font-family: helvetica, geneva, sans serif;
+	padding-left: 25.5px;	
+	padding-right: 25.5px;
+
+}*/
+
+
+.backarrow{
+
+	position:relative;
+	left:15px;
 
 }
