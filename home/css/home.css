@@ -36,6 +36,7 @@
 .big-icon{
 	width:40%;
 }
+
 .tablet-buttons{
 	width: 100%;
 	text-align:center;
@@ -81,7 +82,7 @@
 }*/
 
 /*For landscape tablets*/
-@media only screen and (min-device-width:961px)and (orientation:landscape){
+@media only screen and (min-device-width:961px) and (orientation:landscape){
 	.tablet-buttons{
 	display:block;
 }

@@ -76,3 +76,23 @@ function generateInputText(placeholder, id1, id2, type) {
 
 
 }
+//function to generate header and sub header in registration page
+function generateMainText(param){
+	document.write(param);
+}
+
+//function to generate id = personal-info
+function generatePersInfo(){
+	if(sessionStorage.lang=="ENG")
+		document.write("<p>Please provide your personal information below.</p>");
+	else
+		document.write("<p>Por favor, a continuaci&oacute;n proporcione su informaci&oacute;n personal.</p>");
+}
+
+//function to generate id = login-info
+function generateLoginInfo(){
+	if(sessionStorage.lang=="ENG")
+		document.write("<p>Please provide the information you would like to use to log into our app.</p>");
+	else
+		document.write("<p>Por favor, proporcione la informaci&oacute;n que desea utilizar para iniciar sesi&oacute;n en nuestra aplicaci&oacute;n.</p>");
+}

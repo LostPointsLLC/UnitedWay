@@ -7,6 +7,7 @@
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/default.css" rel="stylesheet" type="text/css"/>
 		<link href="css/title.css" rel="stylesheet" type="text/css" />
+		<script src="js/langselect.js"></script>
 	</head>
 
 	<body>
@@ -17,10 +18,10 @@
 			<div id="english-espanol-wrapper">
 				<ul id="english-espanol">
 					
-					<li><input type='radio' name='language' value="ENG" checked/>
+					<li><input type='radio' name='language' value="ENG" checked onclick = "handleclick(this)"/>
 					<label for="english">ENGLISH</label></li>
 					
-					<li><input type='radio' name='language' value="ESP"/>
+					<li><input type='radio' name='language' value="ESP" onclick = "handleclick(this)"/>
 					<label for="spanish">ESPA&Ntilde;OL</label></li>
 					
 				</ul>
