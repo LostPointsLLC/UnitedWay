@@ -29,7 +29,10 @@ p {
 
 #fail {
 	margin-top: 10px;
-	padding-left: 25px;
+}
+
+#result{
+	text-align:center;
 }
 
 #login-fields {
@@ -55,4 +58,10 @@ left: -15px;
 position: relative;
 top: 65px;
 text-align:center;
+}
+
+@media only screen and (max-device-width: 380px){
+#login {
+	margin-top:5px;
+}
 }
