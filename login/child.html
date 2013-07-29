@@ -17,35 +17,53 @@
 	
 		<div class='wrapper'>
 			<script>
+			if(sessionStorage.lang=="ENG"){
 				generateHeader("Register Children", false, false);
+				generateMainText("<br><p id=\"mainText\">Fill in your child's information below!</p>");
+			}
+			else{
+				generateHeader("Registrar los ni&ntilde;os", false, false);
+				generateMainText("<br><p id=\"mainText\">Complete la informaci&oacute;n de su hijo menor!</p>");
+			}
 			</script>
-			<br>
-			<p id="mainText">Fill in your child's information below!</p>
 			<form id="form">
 				<div id="content">
 					<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
 					<br>
 					<script>
 					// Note: DO NOT DELETE "name", OTHERWISE THE DB IS GOING TO FAIL
+					if(sessionStorage.lang=="ENG")
 					generateInputText("Your child&#39s firstname", "name-input-box", "name", "text");
+					else
+					generateInputText("Nombre de su hijo", "name-input-box", "name", "text");
 					</script>
 					<div id="birthday-select" class='input-box' >
 						<div id="birthday" >
-							<p>Your child's birthday</p>
+							<script>
+							if(sessionStorage.lang=="ENG")
+								generateMainText("<p>Your child's birthday</p>");
+							else
+								generateMainText("<p>El cumplea&ntilde;os de su hijo</p>");
+							</script>
+							
 							<input id='bday' type="date" name="birthday"/>
 						</div>
 					</div>
 					<div id="gender-select" class='input-box'>
-						<p>Select your child's gender</p>
-						<div id='gender-choices'>
-							<input id="boy" value="'boy'" type="radio" name="gender" onClick='changeGender(1)' checked/><label for="boy">Boy</label>
-							<br>
-							<input id="girl" value="'girl'" type="radio" name="gender" onClick="changeGender(2)"/><label for="girl">Girl</label>
-						</div>
+						<script>
+							if(sessionStorage.lang=="ENG")
+								generateMainText("<p>Select your child's gender</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label></div>");
+							else
+								generateMainText("<p>Elija el sexo de su hijo</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Chico</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Chica</label></div>");
+						</script>
 					</div>
-
-					<div id ="color-select" class='input-box'> 
-						<p>Choose your child's favorite color!</p>
+					<div id ="color-select" class='input-box'>
+					<script>
+						if(sessionStorage.lang=="ENG")
+							generateMainText("<p>Choose your child's favorite color!</p>");
+						else
+							generateMainText("<p>Elige el color favorito de su hijo!</p>");
+					</script> 
 						<div id = "colorSelector">
 							<div id='color' style="background-color: #ffffff;"></div> 
 						</div>
@@ -60,16 +78,31 @@
 				var fromSettings = parseInt(sessionStorage.fromSettings);
 				var childID = parseInt(sessionStorage.edit_childID);
 				if(fromSettings) {
+					if(sessionStorage.lang=="ENG"){
 					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
 					generateButton("Finished!", "finish", "bt-yellow", "settings()");
+					}
+					else{
+					generateButton("A&ntilde;adir otro ni&ntilde;o", "child-add", "bt-yellow", "add()");
+					generateButton("Acabado!", "finish", "bt-yellow", "settings()");	
+					}
 				}
 				else if(childID >= 0) {
+					if(sessionStorage.lang=="ENG")
 					generateButton("Done editing", "edit", "bt-yellow", "editDB()");
+					else
+					generateButton("Terminar la edici&oacute;n de", "edit", "bt-yellow", "editDB()");
 				
 				}
 				else {
+					if(sessionStorage.lang=="ENG"){
 					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
 					generateButton("Finished!", "finish", "bt-yellow", "finish()");
+					}
+					else{
+					generateButton("A&ntilde;adir otro ni&ntilde;o", "child-add", "bt-yellow", "add()");
+					generateButton("Acabado!", "finish", "bt-yellow", "finish()");
+					}
 				}
 				</script>
 			</div>
