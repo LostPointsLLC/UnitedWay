@@ -15,25 +15,37 @@
 	</head>
 	
 	<body>
-<script>
-				generateHeader("Register Here", false, true);
+	<script>
+		if(sessionStorage.lang=="ENG")
+			generateHeader("Register Here", false, true);
+		else
+			generateHeader("Reg&iacute;strese aqu&iacute;", false, true);
 			</script>
 		<div class="wrapper">
-		  
-		  
-			
 			<br><br><br>
-			<div id="mainText"><p>Welcome to the United Way of Champaign Pre-K app! Please create a new user account below.</p>
-			</div>
-			
+			<script>
+			if(sessionStorage.lang=="ENG")
+				generateMainText("<div id=\"mainText\"><p>Welcome to the United Way of Champaign Pre-K app! Please create a new user account below.</p></div>");
+			else
+				generateMainText("<div id=\"mainText\"><p>Bienvenido a la United Way de Champaign Pre-K aplicaci&oacute;n! Por favor, cree una cuenta de usuario a continuaci&oacute;n.</p></div>");
+			</script>
 			<form>
 				<div id="personal-info">
-					<p>Please provide your personal information below.</p>
 					<script>
+						if(sessionStorage.lang=="ENG"){
+						generateMainText("<p>Please provide your personal information below.</p>");
 						generateInputText("First name", "firstname-box",  "firstname", "text");
 						generateInputText("Last name", "lastname-box", "lastname", "text");
 						document.write("<br>");
 						generateInputText("Phone Number", "", "phone", "telephone");
+					}
+					else{
+						generateMainText("<p>Por favor proporcione su informaci&oacute;n personal a continuaci&oacute;n.</p>");
+						generateInputText("Nombre", "firstname-box",  "firstname", "text");
+						generateInputText("Apellido", "lastname-box", "lastname", "text");
+						document.write("<br>");
+						generateInputText("N&uacute;mero de tel&eacute;fono", "", "phone", "telephone");
+					}
 					</script>
 				<!--
 					<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
@@ -41,23 +53,34 @@
 					<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>-->
 				</div>
 				<div id="login-info">
-					<p>Please provide the information you would like to use to log into our app.</p>
-					<div id='login-info-buttons'>
+					
 					<script>
+					if(sessionStorage.lang=="ENG"){
+						generateMainText("<p>Please provide the information you would like to use to log into our app.</p><div id='login-info-buttons'>");
 						generateInputText("Preferred email", "", "email", "text");
 						document.write("<br>");
-
 						generateInputText("Your password", "", "password", "password");
 						document.write("<br>");
 						generateInputText("Confirm password", "", "confirm", "password");
-
+					}
+					else{
+						generateMainText("<p>Por favor, proporcione la informaci&oacute;n que desea utilizar para iniciar sesi&oacute;n en nuestra aplicaci&oacute;n.</p><div id='login-info-buttons'>");
+						generateInputText("Preferred email", "", "email", "text");
+						document.write("<br>");
+						generateInputText("La contrase&ntilde;a", "", "password", "password");
+						document.write("<br>");
+						generateInputText("Confirmar contrase&ntilde;a", "", "confirm", "password");
+					}
 					</script>
 					</div>
 				</div>
 
 
 				<script>
-					generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");  
+					if(sessionStorage.lang=="ENG")
+					generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");
+					else
+					generateButton("me Registrar", "verify-registration", "bt-yellow", "verifyRegistration()");
 				</script>
 			</form>
 			<div id="result"></div>

@@ -15,18 +15,28 @@
 		<div class="wrapper">
 
 			<script>
-				generateHeader("Welcome!", false, false);	
+			if(sessionStorage.lang=="ENG"){
+				generateHeader("Welcome!", false, false);
+				generateMainText("<br><div id=\"mainText\"><p>Welcome to United Way's Pre-K app! Please log in below.</p></div>");
+			}
+				else{
+				generateHeader("Bienvenida!", false, false);
+				generateMainText("<br><div id=\"mainText\"><p>Bienvenido a App Pre-K de United Way! Por favor ingrese a continuaci&oacute;n.</p></div>");
+			}
 			</script>
-			<br>	
-			<div id="mainText"><p>Welcome to United Way's Pre-K app! Please log in below.</p></div>
-	
 			<div id="content">
-
 				<div id='login-fields'>
 					<script>
+					if(sessionStorage.lang=="ENG"){
 						generateInputText("Email Address", "", "email", "email");
 						document.write("<br>");
 						generateInputText("Password", "", "password", "password");
+					}
+					else{
+						generateInputText("Email Address", "", "email", "email");
+						document.write("<br>");
+						generateInputText("Contrase&ntilde;a", "", "password", "password");
+					}
 
 					</script>
 				</div>
@@ -36,8 +46,14 @@
 		
 				<div id="option-links">
 					<script>
+					if(sessionStorage.lang=="ENG"){
 						generateButton("I'm a new user", "new-user", "bt-yellow", "registration()");
 						generateButton("Log in", "login", "bt-yellow", "verifyLogin()");
+					}
+					else{
+						generateButton("Soy un nuevo usuario", "new-user", "bt-yellow", "registration()");
+						generateButton("Iniciar la sesi&oacute;n", "login", "bt-yellow", "verifyLogin()");
+					}
 
 					</script>
 				</div>
@@ -84,7 +100,10 @@
 					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
 						var ret = parseInt(httpRequest.responseText);
 						if (ret == 0) { // unSuccessful Login
+							if(sessionStorage.lang=="ENG")
 							document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
+							else
+							document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
 						}
 						else { // Successful login	
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
@@ -95,7 +114,10 @@
 							}
 							else {
 								// Add old client support (cookies) later, browser share for IE 7- 
+								if(sessionStorage.lang=="ENG")
 								document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+								else
+								document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
 							}
 						}
 					}

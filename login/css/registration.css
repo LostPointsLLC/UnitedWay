@@ -91,7 +91,7 @@ width: 110%;
 
 #verify-registration {
 	display:block;
-top: 50px;
+top: 60px;
 width:90%;
 margin:0 auto;
 }
@@ -128,7 +128,10 @@ form{
 
 .fail {
 	margin-top: 10px;
-	margin-left: 25px;
+}
 
-
+#result{
+	position:relative;
+	text-align:center;
+	bottom:30px;
 }
