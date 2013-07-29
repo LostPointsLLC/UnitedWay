@@ -13,6 +13,7 @@
 	margin: 0 auto;
 	padding-top: 50px;
 
+
 }
 
 .textcontent {
@@ -27,9 +28,11 @@
 .inner-text {
 
 	position: relative;
-	margin-left: 20px;	
+	/*margin-left: 20px;*/	
 	padding-top: 15px;
-	font-family: helvetica, geneva, sans serif
+	font-family: helvetica, geneva, sans serif;
+	padding-left: 25.5px;	
+	padding-right: 25.5px;
 
 }
 
