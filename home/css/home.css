@@ -81,7 +81,7 @@
 }*/
 
 /*For landscape tablets*/
-@media only screen and (min-width:961px){
+@media only screen and (min-device-width:961px)and (orientation:landscape){
 	.tablet-buttons{
 	display:block;
 }
