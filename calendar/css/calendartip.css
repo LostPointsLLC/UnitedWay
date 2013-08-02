@@ -81,7 +81,7 @@ body {
 
 #activity {
     text-align: center;
-    font: 21px arial;
+    font: 17px arial;
     color: #FFF;
     padding-top: 20px;
     padding-left: 0;
@@ -92,12 +92,12 @@ body {
 
 #activity-head {
     font-family: Chunkfive;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 #event-head {
     font-family: Chunkfive;
-    font-size: 20px;
+    font-size: 26px;
     color: white;
     display: block;
     text-align: center;
@@ -111,7 +111,7 @@ body {
     text-align: center;
     position: relative;
     color: white;
-    font: 21px arial;
+    font: 17px arial;
 }
 
 .events-wrapper{
