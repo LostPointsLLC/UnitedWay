@@ -7,13 +7,14 @@ function checkAlpha(string) {
 }
 
 // Returns false if there is a non-number char
-function checkNumbers(string) {
+/*function checkNumbers(string) {
 	var numbers = /^[0-9]/;
 	if(string.match(numbers))
 		return true;
 	else return false;
 
 }
+*/
 
 // TODO: Figure out how to check for the
 // existence of an email address

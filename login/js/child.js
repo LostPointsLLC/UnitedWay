@@ -8,82 +8,75 @@ function updateDB(addAnotherChild) {
 	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
-
-		// Triggered if the user intended to add another child
-		if(addAnotherChild) {
-			return showFailPrompt(name, document.getElementById("bday").value)
-
-		}
-		
-		// If the user didn't intend to add another child, and not everything 
-		// was entered into the db, it just returns 0. Nothing significant.
-		else return 0;
+	    // Triggered if the user intended to add another child
+	    if(addAnotherChild) {
+		return showFailPrompt(name, document.getElementById("bday").value)
+	    }
+	    // If the user didn't intend to add another child, and not everything 
+	    // was entered into the db, it just returns 0. Nothing significant.
+	    else return 0;
 	}
-	/* TODO: Make requirements for which fields should be added */
-
-
-	// Executes if one of the buttons is pressed
-	$.ajax({
-
-		type: "POST",
-		url: "php/child.php",
-		data: posts,
-		cache: false,
-		async: false,
-	});
-	return 0;
-
+    /* TODO: Make requirements for which fields should be added */
+ 
+    // Executes if one of the buttons is pressed
+    $.ajax({
+	type: "POST",
+	url: "php/child.php",
+	data: posts,
+	cache: false,
+	async: false,
+    });
+    return 0;
+    
 }
 
 // Returns 0 if there are no empty fields.
 function showFailPrompt(name, birthday) {
-	var result = document.getElementById("result");
-	if(name == "")  {
-		result.innerHTML = "<p>Please fill in your child's name</p>";
-		return -1;
-	}
-	else if(birthday == "") {
-		result.innerHTML = "<p>Please provide your child's birthday</p>";
-		return -1;
-	}
-	
-	return 0;
-
+    var result = document.getElementById("result");
+    if(name == "")  {
+	result.innerHTML = "<p>Please fill in your child's name</p>";
+	return -1;
+    }
+    else if(birthday == "") {
+	result.innerHTML = "<p>Please provide your child's birthday</p>";
+	return -1;
+    }
+    return 0;    
 }
 
 // Uses a query to update the database
 function editDB() {
-
-	var birthday = document.getElementById("bday").value;
-	var name = document.getElementById("name").value;
-
-	if(showFailPrompt(name, birthday) == -1) return;
+    
+    var birthday = document.getElementById("bday").value;
+    var name = document.getElementById("name").value;
+    
+    if(showFailPrompt(name, birthday) == -1) return;
+    
+    var color = document.getElementById("color").style.backgroundColor;
+    var boy_gender = document.getElementById("boy").value;
+    
+    // Send the query iff fields were changed
+    var dataString = getDataString(name, birthday, color, boy_gender);
+    
+    if(dataString) {
 	
-	var color = document.getElementById("color").style.backgroundColor;
-	var boy_gender = document.getElementById("boy").value;
-
-	// Send the query iff fields were changed
-	var dataString = getDataString(name, birthday, color, boy_gender);
-	
-	if(dataString) {
-	
-		$.ajax({
-			type: "POST",
-			url: "php/editChild.php",
+	$.ajax({
+	    type: "POST",
+	    url: "php/editChild.php",
 			data: dataString,
-			cache: false,
-			async: false,
-			success: function(data){
-				alert(data);
-			
-			}
-		});
+	    cache: false,
+	    async: false,
+	    success: function(data){
+		alert(data);
+		
+	    }
+	});
 	
-		sessionStorage.dirty = '1';
-	}
-	sessionStorage.removeItem('edit_childID');
-	document.location.href="../settings/";
-	
+	sessionStorage.dirty = '1';
+    }
+    sessionStorage.removeItem('edit_childID');
+    document.location.href="../settings/";
+    
 }
 
 
