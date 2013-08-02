@@ -29,25 +29,20 @@ function verifyRegistration() {
 				document.getElementById("result").innerHTML = "<p class='fail'>Sorry, this email has already been used.</p>";
 				return;
 			}
-
 			// Returns an int >= 0 that represents the user ID
 			else if(ret >= 0) {
-																														 
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				/* Incorrect code */
 				if(typeof(Storage) !== "undefined"){
 					sessionStorage.pid = ret;	
 					document.location.href="child.html";
 				}
-				
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
 					document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 				}
-																														 
-			}
-
-			// Otherwise we have an error
+													}
+	// Otherwise we have an error
 			else {
 				alert("Strange error occured. Check code");
 			
