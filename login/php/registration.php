@@ -1,9 +1,19 @@
 <?php
 
-	require("connect.php");
+	/**
+	 * php/Favorites.php
+	 * Author: Henry Lin (Minor additions: Paul Kim)
+	 * 
+	 * PHP script used by :
+	 *     login/js/registration.js
+	 *
+	 * Queries from tables: users
+	 * Updates tables: users
+	 */
+	 
+	require("../../php/connect.php");
 	$first 	= strip_tags($_POST['pFname']);
 	$last	= strip_tags($_POST['pLname']);
-
 	$pass	= strip_tags($_POST['pPass']);
 	$email	= mysqli_real_escape_string($dbConnection, $_POST['pEmail']);
 	
@@ -24,8 +34,8 @@
 
 	// Now we can safely insert these values into the database
 	// Note that this is object oriented style of programming, but the above is using procedural style
-	$query = $dbConnection->prepare("INSERT INTO users(user_first, user_last, user_email, user_phone, user_password) VALUES (?, ?, ?, ?, ?)");
-	$query->bind_param('sssss', $first, $last, $email, $pass);
+	$query = $dbConnection->prepare("INSERT INTO users(user_first, user_last, user_email, user_password) VALUES (?, ?, ?, ?)");
+	$query->bind_param('ssss', $first, $last, $email, $pass);
 	if(!$query->execute()) die("Error: " . mysqli_error($dbConnection) . ". Query was " . $querystring);
 	$query->store_result();
 
