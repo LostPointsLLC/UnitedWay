@@ -6,7 +6,7 @@ margin-left: 25px;
 
 #sprite {
 	display: block;
-	margin: 0 auto;
+
 	padding: 0;
 	margin-top: 100px;
 	background: #ffffff;
@@ -16,15 +16,16 @@ margin-left: 25px;
 
 #form {
 	margin: 0 auto;
-	padding; 0;
+	padding: 0;
 	border-radius: 10px;
+	margin-left: 25px;
 }
 
 
 /*************************************************************/
 #name-input-box {
 	display: block;
-	text-align:center;
+
 	margin: 0 auto;
 
 
@@ -64,26 +65,24 @@ padding-bottom:5px;
 #birthday-select {
 	top: 100px;
 	border: 2px solid white;
-	background-color: #f0502f;
+
 margin-top: 40px;
 }
 
 #birthday {
 width: 170px;
-	   text-align: center;
-margin-left: auto;
-margin-right: auto;
+
 }
 
 #birthday p {
-	font-family: Chunkfive;
+	font-family: arial;
 
 }
 
 /************************* gender **********************/
 
 #gender-select {
-    background-color: #fbae42;	
+
     margin: 0 auto;
     border: 2px white solid;
     top: 200px;
@@ -93,13 +92,13 @@ margin-right: auto;
 
 #gender-select p {
 	margin: 0;
-	text-align: center;
-	font-family: Chunkfive;
+
+	font-family: arial;
 }
 
 #gender-select #gender-choices {
 	position: relative;
-	text-align:center;
+
 }
 
 
@@ -117,7 +116,6 @@ color: white;
 /* The outside box of the div */
 #color-select {
 	border: 2px solid white;
-	background-color: #f0502f;
 	position: absolute;
 	top: 290px;
 	height: 70px;
@@ -125,8 +123,8 @@ color: white;
 }
 
 #color-select p {
-	font-family: Chunkfive;
-	text-align: center;
+	font-family: arial;
+
 
 }
 
@@ -134,9 +132,8 @@ color: white;
 #colorSelector {
 position: absolute;
 		  margin-top: 5px;
-left: 47%;
+
 	
-	text-align: center;
 }
 
 /* Contains the actual box */
