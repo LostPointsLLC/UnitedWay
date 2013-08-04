@@ -3,7 +3,7 @@
 		Handles all data requests from web/mobile application
 		
 	*/
-	require("connect.php");
+	require("../../php/connect.php");
 	// Prevent Cross Site Scripting Attacks
     $user_email = strip_tags($_POST['pUser']);
     $user_pass = strip_tags($_POST['pPass']);
