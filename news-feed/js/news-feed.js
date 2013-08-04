@@ -35,27 +35,5 @@ $(document).ready(function() {
 	});
 });
 
-/* Generates the header of the favorites page.
- * This function is slightly different than others because it adds news feed favorites 
- * to the database
- * 
- * @param text	: A string containing the text for the title
- * @param home	: A boolean of whether the home button should be shown
- * @param help	: A boolean of whether the help button should be shown
- */
-function generateHeader(text, home, help) {
-	document.write("<div class='header' id='header'>");	
-	// Writes the header to the DOM
-	document.write("<div class='title' style='color: white'>" + text + "</div>");
-				
-
-	if(help) 
-		document.write("<div class='help'><a onClick='onHelp()'><img src='../images/help-button.png'/></a></div>");
-	if(home) 
-		document.write("<div class='home'><a onClick='onExit()'><img src='../images/home-button.png'/></a></div>");
-
-	document.write("</div>");	
-
-}
 
 

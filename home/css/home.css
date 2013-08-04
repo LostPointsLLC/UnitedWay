@@ -45,8 +45,8 @@
 }
 /**/.fav{
 /**/	float: right;
-/**/	border-right: 1px solid #003366;
-/**/	border-left: 1px solid #003366;
+/**/	/*border-right: 1px solid #003366;*/
+/**/	/*border-left: 1px solid #003366;*/
 		width:50px;
 		height:50px;
 /**/}
@@ -55,7 +55,7 @@
 
 /**/.settings{
 /**/	float: right;
-/**/	border-right: 1px solid #003366;
+/**/	/*border-right: 1px solid #003366;*/
 		width:50px;
 		height:50px;
 /**/}

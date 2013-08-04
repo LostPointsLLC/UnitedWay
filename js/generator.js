@@ -15,12 +15,12 @@ function generateHeader(text, home, help) {
 	document.write("<div class='header' id='header'>");	
 	// Writes the header to the DOM
 	document.write("<div class='title' style='color: white'>" + text + "</div>");
-				
+	
 
 	if(help) 
-		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img id = 'help-bt' src='../images/help-button.png'/></a></div>");
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img class='head-bt' id='help-bt' src='../images/help-button.png'/></a></div>");
 	if(home) 
-		document.write("<div class='home'><a href='../home/'><img id = 'home-bt' src='../images/home-button.png'/></a></div>");
+		document.write("<div class='home'><a href='../home/'><img class='head-bt' id = 'home-bt' src='../images/home-button.png'/></a></div>");
 
 	document.write("</div>");	
 
@@ -49,7 +49,7 @@ function generateButton(text, id, css, e) {
 
 /* Generates the calendar button within the daily tips page.*/
 function generateCalBtn() {
-	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
+	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img class='head-bt' id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
 }
 
 /* Generates the div boxes for date, activity and events on the daily tips page in calendar*/

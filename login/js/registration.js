@@ -7,9 +7,9 @@ function verifyRegistration() {
 	
 	// Check checkLogin.js for documentation
 	// DOES NOT VERIFY THE PASSWORD
+
 	if(!checkLogin(first, last, email, pass, confirm)) return;
-	
-	
+
 	// Variables used for XML/HTTP Request.
 	var httpRequest;
 	var loginUrl = "php/registration.php";

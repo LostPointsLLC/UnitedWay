@@ -1,22 +1,33 @@
-#mainText {
-	width: 100%;
-	padding-top: 35px;
+.mainText {
+
 	line-height: 20px;
-	margin-bottom: 25px;
 	color: white;
 	position: relative;
-	text-align: center;
+	width: 90%;
+	font-weight: strong;
 }
 
+#top-text {
+	padding-top: 35px;
+	margin-bottom: 15px;
+}
 
+.wrapper {
+	position: absolute;
+	left: 0px;
+	padding-left: 25px;
+	width: 95%;
+}
+
+p {
+	padding-bottom: 10px;
+}
 
 /* The input fields **********************************/
 #personal-info {
-display: block;
-text-align: center;
-position: relative;
-
-	  margin-bottom: 30px;
+	display: block;
+	position: relative;
+	margin-bottom: 30px;
 }
 
 
@@ -41,7 +52,7 @@ position: relative;
 
 display: block;
 position: relative;
-text-align:center;
+
 }
 
 
@@ -63,62 +74,16 @@ width: 110%;
 
 }
 
-/*
-#password {
-	background: #f0502f;
-	border: medium solid #FFF;
-}
-#email {
-	background: #f0502f;
-	border: medium solid #FFF;
-}
-#lastname {
-	background: #f0502f;
-	border: medium solid #FFF;
-}
-#firstname {
-	background: #f0502f;
-	border: medium solid #FFF;
-}
-#phone {
-	background: #f0502f;
-	border: medium solid #FFF;
-}*/
-
-
 /*******************************************************/
 
 
 #verify-registration {
-	display:block;
+display:block;
 top: 60px;
-width:90%;
-margin:0 auto;
-}
-
-
-
-
-
-/*
-.text-input {
-	display: block;
-	height: 50px;
-	width: 95%;	
-	margin: 0 auto;
-	padding: 0;
-	margin-bottom: 5px;
-	
-	background: #f0502f;
-	border: medium solid #FFF;
-	
-	text-indent: 25px;
-	border-radius: 10px;
-	color: white;
-
+width: 110px;
 
 }
-*/
+
 
 form{
 	height:100%;
@@ -132,6 +97,6 @@ form{
 
 #result{
 	position:relative;
-	text-align:center;
+
 	bottom:30px;
 }
