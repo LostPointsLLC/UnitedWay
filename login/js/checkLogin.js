@@ -25,13 +25,19 @@ function checkEmail(email) {
     return re.test(email);
 }
 
-//checks if a password length is at least 5 characters long
+//checks if a password length is at least 5 characters long or 20 characters long
+//return 0 = acceptable length
+//return 1 = length less than 5
+//return 2 = length greater than 20
 function checkPass(pass){
 	if(pass.length<5){
-		return false;
+		return 1;
+	}
+	else if(pass.length>20){
+		return 2;
 	}
 	else
-		return true;
+		return 0;
 }
 
 //function to check if your password matches with confirm password.
@@ -99,12 +105,22 @@ function checkLogin(first, last, email, pass, confirm) {
 		}
 		flag = false; 
 	}
-	else if(!checkPass(pass)) {
-		if(sessionStorage.lang=="ENG"){
-		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please type in a password that is at least 5 characters long.</p>";
+	else if(checkPass(pass)==1 || checkPass(pass)==2) {
+		if(checkPass(pass)==1){
+			if(sessionStorage.lang=="ENG"){
+			document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please type in a password that is at least 5 characters long.</p>";
+			}
+			else{
+			document.getElementById("result").innerHTML = "<p class='fail'>Error en el registro. Por favor escriba una contrase&ntilde;a de al menos 5 caracteres.</p>";
+			}
 		}
 		else{
-		document.getElementById("result").innerHTML = "<p class='fail'>Error en el registro. Por favor escriba una contrase&ntilde;a de al menos 5 caracteres.</p>";
+			if(sessionStorage.lang=="ENG"){
+			document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please type in a password that is at most 20 characters long.</p>";
+			}
+			else{
+			document.getElementById("result").innerHTML = "<p class='fail'>Error en el registro. Por favor, escriba una contrase&ntilde;a que tenga al como m&aacute;ximo 20 caracteres de longitud.</p>";
+			}
 		}
 		flag = false; 
 	}
