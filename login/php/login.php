@@ -18,13 +18,13 @@
 		$userQuery->fetch();
         if ($userQuery->num_rows == 1) {
 			// Successful login, echo out parentID.
-			echo $column1;
+			echo 1;
         }
         else {
 			// Unsuccessful Login.
-            echo 0;
+            echo -1;
         }
-    } else echo 0; 
+    } else echo -1; 
 	
 	mysqli_close($dbConnection);
 
