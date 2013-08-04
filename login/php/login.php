@@ -39,7 +39,7 @@
         }
         else {
 			// Unsuccessful Login.
-            echo "FAIL";
+            echo "FAIL:-1";
         }
     } else echo "SERVER_FAIL"; 
 	
