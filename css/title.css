@@ -1,9 +1,15 @@
 #title-screen-wrapper {
 	height: 100%;
 	width: 100%;
-	background: #00549b;
+	background: #00529b;
 	margin: 0 auto;
 }
+
+body {
+	background: #00529b;
+
+}
+
 #logo {
 	margin-right: auto;
 	margin-left: auto;
@@ -16,7 +22,7 @@
 
 #english-espanol-wrapper {
 	height: auto;
-	width: 150px;
+	width: 125px;
 	max-width: 100%;
 	margin: 0 auto 0 auto;
 }
@@ -44,18 +50,12 @@
 	margin-top: 7px;
 	margin-right: 7px;
 }
-	
-#get-started {
-
-
-	width: 104px;
-	
-}	
+		
 	
 	
 #get-started {
 	position: relative;
-	width: 104px;
+	width: 110px;
 	
 	height: auto;
 	max-width: 100%;
@@ -64,6 +64,14 @@
 	display:block;
 	margin-top:30px;
 }
+
+label {
+	color: white;
+	font-family: arial;	
+	font-size: 20px;
+}
+
+
 
 /*mobile phones */
 /*

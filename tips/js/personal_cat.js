@@ -7,7 +7,22 @@ $(document).ready(function() {
 	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
 	var child = document.getElementById("child");
-	child.innerHTML = '<img src="../images/' + gender + '.png" width="60" height="60" /><br> \
+	
+	var gender = obj[key]["child_gender"];
+	var genderImg;
+	switch(gender) {
+		case 'boy':
+			genderImg = 'child/boy-darkblue-small.png';
+			break;
+		default:
+			genderImg = 'child/girl-darkblue-small.png';
+			break;
+	}	
+	
+	
+	
+	
+	child.innerHTML = '<img src=' + genderImg + ' width="60" height="60" /><br> \
 						<div id="child-div"><span class="child-name">' + childName + '</span></div>';
 	// Create array that indexes child id's
 	var indexList = new Array();
