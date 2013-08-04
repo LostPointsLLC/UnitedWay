@@ -1,19 +1,19 @@
 function verifyRegistration() {
 	var first = document.getElementById("firstname").value;
 	var last = document.getElementById("lastname").value;
-	var phone = document.getElementById("phone").value;
 	var email = document.getElementById("email").value;
 	var pass = document.getElementById("password").value;
+	var confirm = document.getElementById("confirm").value;
 	
 	// Check checkLogin.js for documentation
 	// DOES NOT VERIFY THE PASSWORD
-	if(!checkLogin(first, last, phone, email, pass)) return;
+	if(!checkLogin(first, last, email, pass, confirm)) return;
 	
 	
 	// Variables used for XML/HTTP Request.
 	var httpRequest;
 	var loginUrl = "php/registration.php";
-	var params = "pFname=" + first + "&pLname=" + last+ "&pPhone=" + phone+ "&pEmail=" + email +"&pPass=" + pass;
+	var params = "pFname=" + first + "&pLname=" + last+ "&pEmail=" + email +"&pPass=" + pass;
 
 	$.ajax({
 		type: "POST",
