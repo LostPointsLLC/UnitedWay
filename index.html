@@ -7,6 +7,7 @@
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/default.css" rel="stylesheet" type="text/css"/>
 		<link href="css/title.css" rel="stylesheet" type="text/css" />
+		<script src='js/generator.js'></script>
 		<script src="js/langselect.js"></script>
 	</head>
 
@@ -30,8 +31,14 @@
 			</div>
 			
 	
-
-			<a id="login-button" href="login/"><img id="get-started" src="images/get-started-button.png"/></a>
+			<script>
+				generateButton('Get Started!', 'get-started', 'bt-yellow', 'getStarted()');
+				function getStarted() {
+					document.location.href='login/';
+				
+				}
+			</script>
+			<!--<a id="login-button" href="login/"><img id="get-started" src="images/get-started-button.png"/></a>-->
 
 
 
