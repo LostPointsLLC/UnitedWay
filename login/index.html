@@ -98,17 +98,19 @@
 				// Handle PHP returns
 				httpRequest.onreadystatechange=function() {
 					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-						var ret = parseInt(httpRequest.responseText);
-						if (ret == -1) { // unSuccessful Login
+						var str = httpRequest.responseText.split(":");
+						var ret = str[0];
+						alert(ret);
+						if (ret == "FAIL") { // unSuccessful Login
 							if(sessionStorage.lang=="ENG")
 							document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
 							else
 							document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
 						}
-						else if(ret==1){ // Successful login	
+						else if(ret=="SUCCESS"){ // Successful login	
 							// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 							if(typeof(Storage) !== "undefined"){
-								sessionStorage.pid = ret;
+								sessionStorage.pid = str[1];
 								setDefaultStorage();								
 								document.location.href = "../home/";
 							}
