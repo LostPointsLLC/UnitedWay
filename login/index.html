@@ -98,8 +98,9 @@
 				// Handle PHP returns
 				httpRequest.onreadystatechange=function() {
 					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-						var str = httpRequest.responseText.split(":");
-						var ret = str[0];
+						var str = httpRequest.responseText.trim().split(":");
+						alert(str);
+						var ret = str[0].trim();
 						alert(ret);
 						if (ret == "FAIL") { // unSuccessful Login
 							if(sessionStorage.lang=="ENG")
