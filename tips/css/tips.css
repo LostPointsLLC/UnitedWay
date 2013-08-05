@@ -4,6 +4,9 @@ html, body {
 	margin: 0 auto;
 	background:#00549b;
 }
+
+
+
 .ch {
 	border: 1px solid #00549b;
 	padding: 3px 7px 2px 7px;
@@ -37,19 +40,6 @@ html, body {
 	color:#ffffff;
 }
 
-#child-div {
-
-display: block;
-margin: 0 auto;
-text-align:center;
-
-}
-.child-name {
-	font-size: 20px;
-	font-family: Chunkfive;
-color: white;
-	   text-align: center;
-}
 
 .age-text {
 
@@ -58,26 +48,14 @@ color: white;
 }
 
 
-
-
-
-
-
-
-
-
-
-#arrow {
-	position: absolute;
-	top: 15.5%;
-	left: 36%;
+.child-name {
+	font-size: 20px;
+	font-family: Chunkfive;
+color: white;
+	   text-align: center;
 }
-#child p  {
-	padding-top: 7px;
-	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
-	color:#ffffff;
-	text-align: center
-}
+
+
 #child-wrapper {
 	height: 125px;
 	width: 100%;
@@ -91,20 +69,7 @@ color: white;
 
 	margin: 0 auto;
 }
-#child img {
-	padding-top: 10px;
-}
-#right-arrow {
-	width: 50px;
-	float: right;
-}
-#left-arrow {
-	float: left;
-	width: 50px;
-}
-#right-arrow, #left-arrow img{
-	padding-top:32px;
-}
+
 
 /****************THE HEALTH BUTTON*******************/
 .button-text{

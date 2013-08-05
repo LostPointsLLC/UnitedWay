@@ -8,7 +8,7 @@ $(document).ready(function() {
 	var childName = jObj[childID]["child_name"];
 	var child = document.getElementById("child");
 	
-	var gender = obj[key]["child_gender"];
+	var gender = jObj[childID]["child_gender"];
 	var genderImg;
 	switch(gender) {
 		case 'boy':
@@ -18,12 +18,17 @@ $(document).ready(function() {
 			genderImg = 'child/girl-darkblue-small.png';
 			break;
 	}	
+	/*	<div id='child'>
+	 * 		<img class="child-img" src="../images/genderImg" style="background-color: jObj[childID]['child_color']"><br>
+	 * 		<div id="child-name-div">
+	 * 		 	<span class="child-name">childName</span>
+	 * 		</div>;
+	 *	</div>
+	 */
 	
 	
-	
-	
-	child.innerHTML = '<img src=' + genderImg + ' width="60" height="60" /><br> \
-						<div id="child-div"><span class="child-name">' + childName + '</span></div>';
+	child.innerHTML = 	'<img class="child-img" src="../images/' + genderImg + '" style="background-color: ' + jObj[childID]["child_color"] + '"><br>'
+	child.innerHTML += 	'<div id="child-name-div"><span class="child-name">' + childName + '</span></div>';
 	// Create array that indexes child id's
 	var indexList = new Array();
 	for (var key in jObj) {
