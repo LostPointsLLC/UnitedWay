@@ -11,7 +11,6 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-		alert(data);
 			sessionStorage.jsonString = data; // store database data string as a session variable
 			initializeProgress(data);
 		}

@@ -71,7 +71,7 @@ function listChildren(param) {
 			tableString[i] = "<table id=" + key + " class = 'child-table'>";
 			tableString[++i] = "<tr>";
 			tableString[++i] =	   	"<td class = 'spritecell'>";
-			tableString[++i] =		"<img id='sprite" + key + "' class='sprite' src='../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/>";
+			tableString[++i] =		"<img id='sprite" + key + "' class='sprite' src='../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/><br>";
 			tableString[++i] =		"<span class='text white-text'>" + obj[key]['child_name'] + "</span>";
 			tableString[++i] = 		"</td>";
 			tableString[++i] =		"<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
