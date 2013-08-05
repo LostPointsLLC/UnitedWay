@@ -21,25 +21,24 @@
 	// Do we require the hashes to be portable to older systems (less secure)?
 	$hash_portable = FALSE;
 	$hasher = new PasswordHash($hash_cost_log2, $hash_portable);
-	$hash = $hasher->HashPassword($user_pass);
-	unset($hasher);
+	//unset($hasher);
 	
 	// Prevent SQL injections with prepared statements
 	// mySQL connection variable: $dbConnection 
-    $userQuery = $dbConnection ->prepare("SELECT * FROM users WHERE user_email= ? AND user_password= ?");
-    $userQuery->bind_param('ss', $user_email, $user_pass);
+    $userQuery = $dbConnection ->prepare("SELECT user_id, user_password FROM users WHERE user_email = ?");
+    $userQuery->bind_param('s', $user_email);
     if ($userQuery->execute()){
         $userQuery->store_result();
-        $userQuery->bind_result($column1, $column2, $column3, $column4, $column5, $column6, $column7); // We want to give the user $column1
+        $userQuery->bind_result($pid, $pass);
 		$userQuery->fetch();
-        if ($userQuery->num_rows == 1) {
+        if ($hasher->CheckPassword($user_pass, $pass)) {
 			// Successful login, echo out parentID.
-			$retStr = "SUCCESS:$column1";
+			$retStr = "SUCCESS:$pid";
 			echo $retStr;
         }
         else {
 			// Unsuccessful Login.
-            echo "FAIL:-1";
+            echo "FAIL:$pass";
         }
     } else echo "SERVER_FAIL"; 
 	
