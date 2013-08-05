@@ -2,22 +2,18 @@
 	padding-top:50px;
 }
 
-p {
-	margin-left: 25px;
-
-}
 
 
 #content {
 	position: relative;
 	top: 20px;
-
+	margin-left: 25px;
 }
 
 
 .child-table {
-position: relative;
-		  margin-bottom: 30px;
+	position: relative;
+	margin-bottom: 15px;
 	border: 1px solid #00549b;
 	width:100%;
 }
@@ -51,7 +47,7 @@ position: relative;
 left: 0px;
 	font-size:1em;
 	border:1px solid #00549b;
-	padding:3px 7px 2px 7px;
+	padding: 0;
 	width: 50px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
