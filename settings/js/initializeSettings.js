@@ -30,7 +30,10 @@ function listChildren(param) {
 	var obj = jQuery.parseJSON(param);
 	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
-	
+	if(obj.length == 0) {
+		content.innerHTML = "<p>You don't seem to have any registered children. Click below to create one!</p>";	
+
+	}
 	for (var key in obj) {
 		if (obj.hasOwnProperty(key)) {
 		
@@ -52,8 +55,11 @@ function listChildren(param) {
 			}
 			/*	<table id="key" class="ch">
 			 *		<tr>
-			 *			<td class='cell'><img id='sprite + key' class='sprite' style='background-color: obj[key]['child_color']' src='genderImg'/></td>
-			 *			<td class='nameCell'><span class='text white-text'>obj[key]['child_name']</span></td>
+			 *			<td class='cell'>
+			 				<img id='sprite + key' class='sprite' style='background-color: obj[key]['child_color']' src='genderImg'/>
+			 				<span class='text white-text'>obj[key]['child_name']</span>
+			 			</td>
+			 *			
 			 *			<td class='ageCell'><span class='text white-text'>ageFormatted</span></td>
 			 *			<td class='editcell'><img id='edit + key' class='edit' src='../images/wrench.jpg' onClick='editChild()'/></td>
 			 *			<td class='deletecell'><img id='delete + key' class='delete' src='remove-btn-blkoutline.png' onClick='deleteChild(name, id)'/></td>
@@ -64,11 +70,13 @@ function listChildren(param) {
 			var i = 0;
 			tableString[i] = "<table id=" + key + " class = 'child-table'>";
 			tableString[++i] = "<tr>";
-			tableString[++i] =	   "<td class = 'spritecell'><img id='sprite" + key + "' class='sprite' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
-			tableString[++i] =	   "<td class='nameCell'><span id='name" + key + "' class='text white-text'>" + obj[key]["child_name"] + "</span></td>";
-			tableString[++i] =	   "<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
-			tableString[++i] =	   "<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(" + key + ")'/></td>";
-			tableString[++i] =	   "<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, " + key + ")' /></td>"
+			tableString[++i] =	   	"<td class = 'spritecell'>";
+			tableString[++i] =		"<img id='sprite" + key + "' class='sprite' src='../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/>";
+			tableString[++i] =		"<span class='text white-text'>" + obj[key]['child_name'] + "</span>";
+			tableString[++i] = 		"</td>";
+			tableString[++i] =		"<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
+			tableString[++i] =		"<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(" + key + ")'/></td>";
+			tableString[++i] =		"<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, " + key + ")' /></td>"
 			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');	// Makes this bigass array into one bigass string
