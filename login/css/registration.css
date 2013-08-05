@@ -4,7 +4,6 @@
 	color: white;
 	position: relative;
 	width: 90%;
-	font-weight: strong;
 }
 
 #top-text {
@@ -18,6 +17,8 @@
 	padding-left: 25px;
 	width: 95%;
 }
+
+
 
 p {
 	padding-bottom: 10px;
