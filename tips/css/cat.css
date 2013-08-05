@@ -23,15 +23,17 @@
 #child {
 	position: relative;
 	top: 10px;
-	width: auto;
+	height: 135px;
+	width: 100px;
+	margin: 0 auto;
 }
 
 .child-img {
-position: relative;
+	position: relative;
 	width: 50px;
 	height: 50px;
-	left: 50%;
-	margin-left: -25px;
+	left: 25px;
+	
 }
 #child p  {
 	padding-top: 7px;
