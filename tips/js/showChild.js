@@ -22,7 +22,7 @@ function listChildren(param) {
 	var obj = jQuery.parseJSON(param);
 	var content = document.getElementById("content");
 	
-	if(!obj.length) {
+	if(obj.length == 0) {
 		content.innerHTML = "<p style='position: relative; left: 25px; padding-right: 35px;'>It seems like you haven't registered any children. Click <a href='../settings/' style='color: red'>here</a> to register a few children!</a></p>";
 		return;
 	
