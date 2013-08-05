@@ -1,12 +1,30 @@
-.book-label {
+.arrow {
+	position: absolute;
+	top: 50px;
 
-    color: yellow !important;
+
 }
 
-#title {
-    text-align: center;
-    font-size: 30px!important;
-    font-family: Chunkfive;
-    margin: 0px 25px 0 25px;
-    padding-top:60px;
-    }
+.right {
+	right: 0px;
+
+}
+
+.left {
+	left: 0px;
+
+}
+
+.title-box {
+	height: 50px;
+	text-align: center;
+
+}
+
+.title-text {
+	position: relative;
+	margin: 0 auto;
+	top: 30%;
+	font-family: Chunkfive;
+}
+
