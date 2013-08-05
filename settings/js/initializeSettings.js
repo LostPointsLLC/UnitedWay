@@ -31,7 +31,7 @@ function listChildren(param) {
 	var content = document.getElementById("content");
 	var fragment = document.createDocumentFragment();
 	if(obj.length == 0) {
-		content.innerHTML = "<p>You don't seem to have any registered children. Click below to create one!</p>";	
+		content.innerHTML = "<p style='padding-right: 35px'>You don't seem to have any registered children. Click below to create one!</p>";	
 
 	}
 	for (var key in obj) {
