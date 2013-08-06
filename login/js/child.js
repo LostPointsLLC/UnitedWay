@@ -7,7 +7,6 @@ function updateDB(addAnotherChild) {
 	var bdayArray = String(bday).split("/");
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
 	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;
-	alert(posts);	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
 	    // Triggered if the user intended to add another child
