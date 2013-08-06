@@ -10,6 +10,7 @@
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/child.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../js/jscolor-1.4.1/jscolor.js"></script>
 		<script src="js/colorpicker.js"></script>
 		<script src="js/child.js"></script>
 	</head>
@@ -52,9 +53,7 @@
 						<div class='input'>
 							<div class='pencil'></div>
 							<div id='gender-line' class='text-input' width='255px'>
-							
 
-							
 								<p>Your child&#39s gender</p>
 								<div id='gender'> 
 									<input id='boy' value='boy' type='radio' name='gender' onClick='changeGender(1)' checked />
@@ -85,7 +84,38 @@
 						</script>
 						-->
 					</div>
-					<div id ="color-select" class='input-box'>
+					
+					<!-- A possible option for our colorpicker to look like -->
+					<!--
+					<div id ="color-select" class='input'>
+					
+
+						<div class='input'>
+							<div class='pencil'></div>
+							<div id='gender-line' class='text-input' width='255px'>
+
+								<p>Choose your child&#39s favorite color!</p>
+							
+							</div>
+							<input class="color {slider: false, required: false, valueElement: ''}">
+						</div>																
+
+					
+					
+						<p>Choose your child's favorite color!</p>
+						<input class="color {slider: false, required: false, valueElement: ''}">
+					</div>
+					-->
+					
+					<div id ="color-select" class='input'>
+						<p>Choose your child's favorite color!</p>		
+						<input id='color' class="color {slider: false, required: false, valueElement: ''}">					
+					</div>
+					
+					
+
+						
+					<!--
 					<script>
 						if(sessionStorage.lang=="ENG")
 							generateMainText("<p>Choose your child's favorite color!</p>");
@@ -95,6 +125,8 @@
 						<div id = "colorSelector">
 							<div id='color' style="background-color: #ffffff;"></div> 
 						</div>
+
+					-->
 					</div>
 				</div>
 			</form>

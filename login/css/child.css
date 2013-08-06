@@ -188,8 +188,29 @@ color: white;
 /****************************************************************************/
 /*************************************************************/
 
+
+#color-select {
+	position: relative;
+	top: 10px;
+	left: 20px;
+}
+
+#color-select > p:first-child {
+	margin-bottom: 10px;
+}
+
+#color {
+	width: 50px;
+	display: block;
+	margin: 0 auto;
+}
+
+
+
+
 /* Color select code here */
 /* The outside box of the div */
+/*
 #color-select {
 	border: 2px solid white;
 	position: absolute;
@@ -203,16 +224,17 @@ color: white;
 
 
 }
-
+*/
 /* The div containing the div... kinda awkward? */
-#colorSelector {
+/*#colorSelector {
 position: absolute;
 		  margin-top: 5px;
 
 	
 }
-
+*/
 /* Contains the actual box */
+/*
 #colorSelector div {
 	width: 30px;
 	height: 30px;
@@ -220,7 +242,7 @@ position: absolute;
 			border-radius: 3px;
 }
 
-
+*/
 
 /*************************************************************/
 
