@@ -1,16 +1,18 @@
 /* Updates the database */
 function updateDB(addAnotherChild) {
-	var posts = $("#form").serialize();						// Finds the checked items, then concatenates as a datastring
-	var name = document.getElementById("name").value;		// Don't know why this wasn't added in the serialize()
+	var posts = $("#form").serialize();									// Finds the checked items, then concatenates as a datastring
+	var name = document.getElementById("name").value;					// Don't know why this wasn't added in the serialize()
 	var color = document.getElementById("sprite").style.backgroundColor; // Sorry I have to hardcode this in. 
+	var bday = document.getElementById("bday").value;
+	var bdayArray = String(bday).split("/");
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
-	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color;
-	
+	posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;
+	alert(posts);	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
 	    // Triggered if the user intended to add another child
 	    if(addAnotherChild) {
-		return showFailPrompt(name, document.getElementById("bday").value)
+		return showFailPrompt(name, bday)
 	    }
 	    // If the user didn't intend to add another child, and not everything 
 	    // was entered into the db, it just returns 0. Nothing significant.
@@ -20,11 +22,14 @@ function updateDB(addAnotherChild) {
  
     // Executes if one of the buttons is pressed
     $.ajax({
-	type: "POST",
-	url: "php/child.php",
-	data: posts,
-	cache: false,
-	async: false,
+		type: "POST",
+		url: "php/child.php",
+		data: posts,
+		cache: false,
+		async: false,
+		success: function(data) {
+			console.log(data);
+		}
     });
     return 0;
     
