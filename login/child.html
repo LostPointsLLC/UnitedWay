@@ -41,21 +41,49 @@
 						<div id="birthday" >
 							<script>
 							if(sessionStorage.lang=="ENG")
-								generateMainText("<p>Your child's birthday</p>");
+								generateInputBlurText("Your child&#39s birthday (mm/yy)", "", "bday", "text", "checkLegalBday()");
 							else
-								generateMainText("<p>El cumplea&ntilde;os de su hijo</p>");
+								generateInputBlurText("El cumplea&ntilde;os de su hijo", "", "bday", "text", "checkLegalBday()");
 							</script>
 							
-							<input id='bday' type="date" name="birthday"/>
 						</div>
 					</div>
 					<div id="gender-select" class='input-box'>
+						<div class='input'>
+							<div class='pencil'></div>
+							<div id='gender-line' class='text-input' width='255px'>
+							
+
+							
+								<p>Your child&#39s gender</p>
+								<div id='gender'> 
+									<input id='boy' value='boy' type='radio' name='gender' onClick='changeGender(1)' checked />
+									<label id='boy-label' for="boy">Boy</label><br>
+									
+									<input id="girl" value='girl' type='radio' name='gender' onClick="changeGender(2)"/>
+									<label id='girl-label' for='girl'>Girl</label>
+								</div>
+							</div>
+															
+
+							<!--<input type="text" class='text-input' />-->
+						</div>
+					<!--
 						<script>
-							if(sessionStorage.lang=="ENG")
-								generateMainText("<p>Select your child's gender</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label></div>");
-							else
-								generateMainText("<p>Elija el sexo de su hijo</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Chico</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Chica</label></div>");
+
+						if(sessionStorage.lang=="ENG") {
+							generateInputFocusBlurText("Your child&#39s gender", "", "gender", "text", "showGenderInputs()", "");
+							
+						
+							//generateMainText("<p>Select your child's gender</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label></div>");
+						}
+						else {
+							generateInputText("Elija el sexo de su hijo", "", "", "text", "");
+						}
+							//generateMainText("<p>Elija el sexo de su hijo</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Chico</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Chica</label></div>");
+
 						</script>
+						-->
 					</div>
 					<div id ="color-select" class='input-box'>
 					<script>

@@ -1,9 +1,7 @@
 // Returns false if there is a non-alpha char
 function checkAlpha(string) {
 	var alphabet = /^[a-zA-Z]/;
-	if(string.match(alphabet))
-		return true;
-	else return false;
+	return string.match(alphabet)
 }
 
 // Returns false if there is a non-number char
@@ -42,10 +40,8 @@ function checkPass(pass){
 
 //function to check if your password matches with confirm password.
 function matchPass(pass,confirm){
-	if(pass!=confirm){
-		return false;
-	}
-	return true;
+	return (pass==confirm)
+
 }
 
 //function to check if all the fields are filled

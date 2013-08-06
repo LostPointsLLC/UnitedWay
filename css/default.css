@@ -250,6 +250,8 @@ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#
 .input {
 	position: relative;
 	display: inline-block;
+	height: 43px;
+	
 	
 }
 .pencil {

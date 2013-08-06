@@ -9,6 +9,7 @@ margin-left: 25px;
 
 	padding: 0;
 	margin-top: 100px;
+	margin-left: 100px;
 	background: #ffffff;
 }
 
@@ -32,7 +33,7 @@ margin-left: 25px;
 }
 
 #name {
-	width: 250px;
+	width: 255px;
 
 }
 
@@ -45,7 +46,7 @@ margin-left: 25px;
     bottom: 30px;	
 
 }
-
+/*
 .input-box {
 
 	position: absolute;
@@ -58,10 +59,16 @@ padding-bottom:5px;
 	border-radius: 10px;
 
 }
-
+*/
 
 /***************************** birthdays ************************************/
+#bday {
+	width: 255px;
 
+}
+
+
+/*
 #birthday-select {
 	top: 100px;
 	border: 2px solid white;
@@ -77,10 +84,79 @@ width: 170px;
 #birthday p {
 	font-family: arial;
 
-}
+}*/
 
 /************************* gender **********************/
+#gender-line {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 30px;
+	height: 30px;
+	border-width: 0px 0px 1px 0px;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+	border-bottom-right-radius: 10px;
+	margin-top: 5px;
+	font-size: 15px;
+	text-indent: 10px;
+	color: white;
+	width:250px;
+}
 
+#gender-line > p {
+	text-transform:uppercase; 
+	color: white;
+	opacity: 0.85;
+	font-size: 15px;
+	position: absolute;
+	top: 5px;
+	
+}
+
+#gender {
+	position: absolute;
+	right: 5px;
+	bottom: -5px;
+	width: 55px;
+	height: 43px;
+}
+
+#boy {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#boy-label {
+	position: inherit;
+	left: 10px;
+	top: 0;
+}
+
+#girl {
+	position: absolute;
+	left: 0;
+	top: 18px;
+
+}
+
+#girl-label {
+	position: inherit;
+	left: 10px;
+	top: 18px;
+}
+
+label {
+	position: relative;
+	left: 10px;
+	font-size: 16px;
+	color: white;
+	font-family: arial;
+}
+
+
+/*
 #gender-select {
 
     margin: 0 auto;
@@ -108,7 +184,7 @@ label {
 		  font-size: 16px;
 color: white;
 }
-
+*/
 /****************************************************************************/
 /*************************************************************/
 

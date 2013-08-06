@@ -30,6 +30,46 @@ function updateDB(addAnotherChild) {
     
 }
 
+
+/* Displays on screen whether the string was in an
+ * acceptable format.
+ */
+function checkLegalBday() {
+
+	var bday = document.getElementById("bday");
+
+	var dates = bday.value.split('/');
+	if(dates.length == 2 && isLegalMonth(dates[0]) && isLegalYear(dates[1])) {
+		document.getElementById("result").innerHTML = "";
+	}
+	else {
+		document.getElementById("result").innerHTML = "<p>Please provide your child's birthday in the format specified</p>";
+		bday.value = "";
+	
+	}
+}
+
+function isLegalMonth(month) {
+	var numbers = /^[0-9]/;
+	
+	// First checks if the string is a number
+	if(!month.match(numbers)) return false;
+
+	// Checks if the int is 0 < month < 13
+	var mm = parseInt(month);
+	return ((0 < mm) && (mm < 13));
+}
+
+/* Returns true if the year is in 'yy' format
+ * Does not check whether the inputted year is more
+ * than the current year
+ */
+function isLegalYear(year) {
+	return year.length == 2
+	
+}
+
+
 // Returns 0 if there are no empty fields.
 function showFailPrompt(name, birthday) {
     var result = document.getElementById("result");
@@ -119,7 +159,7 @@ function getDataString(name, birthday, color, boy_gender) {
 	
 
 	if(flag) return posts;
-	else return flag;
+	else return false;
 }
 
 
@@ -143,6 +183,13 @@ function changeGender(gender) {
 
 }
 
+/* Shows the gender choices
+ */
+function showGenderInputs() {
+	alert("Hello world");
+/*
+	document.write("<input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label>");*/
+}
 
 // Note: I'm anticipating that this colorpicker is going to run slow on a mobile device
 $(document).ready(function() {

@@ -72,10 +72,59 @@ function generateMainCal(){
  */
 function generateInputText(placeholder, id1, id2, type) {
 
-	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id=" + id2 + " placeholder='" + placeholder + "' /></div>");
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' /></div>");
 
 
 }
+
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user leaves the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputBlurText(placeholder, id1, id2, type, e) {
+
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onblur='" + e + "'/></div>");
+
+
+}
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user enters the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputFocusText(placeholder, id1, id2, type, e) {
+
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onfocus='" + e + "'/></div>");
+
+
+}
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user enters the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputFocusBlurText(placeholder, id1, id2, type, e1, e2) {
+
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onfocus='" + e1 + "' onblur='" + e2 + "' /></div>");
+
+
+}
+
+
+
 //function to generate header and sub header in registration page
 function generateMainText(param){
 	document.write(param);
