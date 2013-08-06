@@ -183,16 +183,18 @@ function changeGender(gender) {
 
 }
 
-/* Shows the gender choices
- */
-function showGenderInputs() {
-	alert("Hello world");
-/*
-	document.write("<input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label>");*/
+function changeSpriteColor(color) {
+	document.getElementById("sprite").style.backgroundColor= "#" + color;
+	document.getElementById("color").value = "";
+
 }
 
 // Note: I'm anticipating that this colorpicker is going to run slow on a mobile device
 $(document).ready(function() {
+	
+	// Obsolete code: we aren't using this colorpicker
+	// anymore.
+/*
 	$('#colorSelector').ColorPicker({
 		onShow: function(colpkr) {
 			$(colpkr).fadeIn(500);
@@ -210,7 +212,7 @@ $(document).ready(function() {
 		},
 
 	});
-	
+	*/
 		
 	
 	// Indicates that we're entering from the settings page, and 

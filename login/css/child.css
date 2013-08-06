@@ -199,13 +199,11 @@ color: white;
 	margin-bottom: 10px;
 }
 
-#color {
-	width: 50px;
-	display: block;
+#color-box{
 	margin: 0 auto;
+	display: block;
+	width: 55px;
 }
-
-
 
 
 /* Color select code here */

@@ -10,8 +10,10 @@
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/child.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="../js/jscolor-1.4.1/jscolor.js"></script>
-		<script src="js/colorpicker.js"></script>
+		
+		<script src='../js/spectrum/spectrum.js'></script>
+		<link rel='stylesheet' href='../js/spectrum/spectrum.css' />
+		
 		<script src="js/child.js"></script>
 	</head>
 	<body>
@@ -108,8 +110,26 @@
 					-->
 					
 					<div id ="color-select" class='input'>
-						<p>Choose your child's favorite color!</p>		
-						<input id='color' class="color {slider: false, required: false, valueElement: ''}">					
+						<p>Choose your child's favorite color!</p>
+						<div id='color-box'>
+							<input type='text' id="color" />
+							<script>
+							$("#color").spectrum({
+								showPaletteOnly: true,
+								showPalette: true,
+								color: "white",
+								palette: [
+									['black', 'white', 'blanchedalmond',
+									'rgb(255, 128, 0);', 'hsv 100 70 50'],
+									['red', 'yellow', 'green', 'blue', 'violet']
+								],
+								change: function(color) {
+									document.getElementById("sprite").style.backgroundColor=color.toHexString();
+								
+								}
+							});
+							</script>
+						</div>
 					</div>
 					
 					
