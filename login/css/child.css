@@ -249,9 +249,9 @@ position: absolute;
 
 #options-list {	
 position: absolute;
-top: 535px;
+top: 430px;
+left: 25px;
 width:100%;
-text-align:center;
 }
 
 #result {
