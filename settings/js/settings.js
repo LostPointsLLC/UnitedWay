@@ -11,3 +11,8 @@ $(document).ready(function() {
 
 
 });
+
+function logout(){
+	localStorage.clear();
+	document.location.href = "../login/";
+}

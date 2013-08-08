@@ -1,8 +1,13 @@
 $(document).ready(function() {
-	var childID = sessionStorage.cid.toString();
-	var jsonStr = sessionStorage.jsonString;
+	if(localStorage.remember == 1){
+		var childID = localStorage.cid.toString();
+		var jsonStr = localStorage.jsonString;
+	}
+	else{
+		var childID = sessionStorage.cid.toString();
+		var jsonStr = sessionStorage.jsonString;
+	}
 	var jObj = jQuery.parseJSON(jsonStr);
-	
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
@@ -40,11 +45,21 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex > 0) { // Not the first child in list
-			sessionStorage.cid = indexList[thisIndex - 1];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[thisIndex - 1];
+			}
+			else{
+				sessionStorage.cid = indexList[thisIndex - 1];
+			}
 			location.reload();
 		}
 		else { // wrap around if first child
-			sessionStorage.cid = indexList[lastIndex];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[lastIndex];
+			}
+			else{
+				sessionStorage.cid = indexList[lastIndex];
+			}
 			location.reload();
 		}
 	});
@@ -53,11 +68,21 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex < lastIndex) { // Not the last child in list
-			sessionStorage.cid = indexList[thisIndex + 1];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[thisIndex + 1];
+			}
+			else{
+				sessionStorage.cid = indexList[thisIndex + 1];
+			}
 			location.reload();
 		}
 		else {
-			sessionStorage.cid = indexList[0];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[0];
+			}
+			else{
+				sessionStorage.cid = indexList[0];
+			}
 			location.reload();
 		}
 	});	
@@ -65,21 +90,41 @@ $(document).ready(function() {
 });
 
 function healthTips() {
-	sessionStorage.tCat = "health";
+	if(localStorage.remember==1){
+		localStorage.tCat = "health";
+	}
+	else{
+		sessionStorage.tCat = "health";
+	}
 	document.location.href = "personal_tips.html";
 }
 
 function growthTips() {
-	sessionStorage.tCat = "growth";
+	if(localStorage.remember==1){
+		localStorage.tCat = "growth";
+	}
+	else{
+		sessionStorage.tCat = "growth";
+	}
 	document.location.href = "personal_tips.html";
 }
 
 function safetyTips() {
-	sessionStorage.tCat = "safety";
+	if(localStorage.remember==1){
+		localStorage.tCat = "safety";
+	}
+	else{
+		sessionStorage.tCat = "safety";
+	}
 	document.location.href = "personal_tips.html";
 }
 
 function playTips() {
-	sessionStorage.tCat = "playtime";
+	if(localStorage.remember==1){
+		localStorage.tCat = "playtime";
+	}
+	else{
+		sessionStorage.tCat = "playtime";
+	}
 	document.location.href = "personal_tips.html";
 }
