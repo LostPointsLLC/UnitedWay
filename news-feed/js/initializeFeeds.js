@@ -108,11 +108,17 @@ function getRSSItem(entry, i) {
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'>" + entry.title + "</a>";
-	content += "<p style='margin: 0'>" + getTimes(entry.content) + "</p>";
+	content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
 	return outerdiv + innerdiv + content + "<br><br>";
 
 }
 
+function getLocation(content) {
+	//grab location
+	var locobj = content.split('<br>')[1].split(' at ');
+	return locobj[1];
+
+}
 
 function getTimes(content) {
 	var timeobj	= content.split('<br>')[0].split(' ');
