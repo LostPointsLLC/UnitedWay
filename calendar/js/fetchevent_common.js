@@ -21,17 +21,23 @@ function getLibraryEvent(day, month){
 				var eventDiv = document.createElement("div");
 				
 				/* Displays the event's title */
+				var eventLink = document.createElement("a");
+				eventLink.setAttribute("href", events[i].url);
 				var eventTitle = document.createElement("h3");
+				eventTitle.style.margin = "0";
 				eventTitle.appendChild(document.createTextNode([
 					events[i].title		   
 				]));
-				eventDiv.appendChild(eventTitle);
+				eventLink.appendChild(eventTitle);
+				
+				eventDiv.appendChild(eventLink);
 				
 				/* Displays the start and end times on the screen */
 				var time = document.createElement("p");
-				var timeText = new String("");
-				timeText += "<p><span style='font-weight: bold'>Start time:</span> " + getCentralTime(events[i].startTime) + "</p>";
-				timeText += "<p><span style='font-weight: bold'>End time:</span> " + getCentralTime(events[i].endTime) + "</p>";
+				time.style.margin = "0";
+				var timeText = "";
+				timeText += "<span>From</span> " + getCentralTime(events[i].startTime) + " <span>to</span> " + getCentralTime(events[i].endTime);
+				//timeText += "<p><span>End time:</span> " + getCentralTime(events[i].endTime) + "</p>";
 				console.log(timeText);
 				time.innerHTML = timeText;
 				eventDiv.appendChild(time);
@@ -46,19 +52,18 @@ function getLibraryEvent(day, month){
 				*/
 				/* Displays the event's location */
 				var entlocation = document.createElement('p');
-				entlocation.appendChild(document.createTextNode([
-					events[i].location
-				]));
+				var locText = "";
+				locText += "<span>Location:</span> " + events[i].location;
+				entlocation.innerHTML = locText;
 				eventDiv.appendChild(entlocation);
 				
 				/* Displays the Event's description */
 				var entdes = document.createElement('p');
-				entdes.appendChild(document.createTextNode([
-					events[i].description
-				]));
+				var desText = "";
+				desText += "<div><span>Description:</span> " + events[i].description + "</div>";
+				entdes.innerHTML = desText;
 				eventDiv.appendChild(entdes);
 				  
-			
 				//$div.appendChild(eventTitle);
 				$div.appendChild(eventDiv);
 			}
@@ -98,39 +103,43 @@ function grabData(callback)
 				var events = [];
 				var ents = res.feed.entries;
 				for (var i = 0; i < ents.length; i++){
-				//all obj here are actually an array of subtrings
-				//split <-> join
-				//grab date/time
-				var timeobj = ents[i].content.split('<br>')[0].split(' ');
-				var startTime = new Date();
-				var endTime = new Date();
-				
-				var datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(6,8).join(' ')].join(' ');
-				startTime.setTime(Date.parse(datestring));
-				
-				datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
-				endTime.setTime(Date.parse(datestring));
-				
-				//grab location
-				var locobj = ents[i].content.split('<br>')[1].split(' ');
-				var location = new String(locobj.slice(1).join(' '));
-				
-				//grab event decription
-				var desobj = ents[i].content.split('<br>')[3];
-				
-				var description = new String(desobj);
-				
-				/* Pushes the just-defined event object into an array
-				 * called 'events'
-				 */
-				events.push({
-					'title':ents[i].title,
-					'startTime':startTime,
-					'endTime':endTime,
-					'location':location,
-					'description':description
-				});
+					//all obj here are actually an array of subtrings
+					//split <-> join
+					//grab date/time
+					var timeobj = ents[i].content.split('<br>')[0].split(' ');
+					var startTime = new Date();
+					var endTime = new Date();
+					
+					var datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(6,8).join(' ')].join(' ');
+					startTime.setTime(Date.parse(datestring));
+					
+					datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
+					endTime.setTime(Date.parse(datestring));
+					
+					//grab location
+					var locobj = ents[i].content.split('<br>')[1].split(' ');
+					var location = new String(locobj.slice(1).join(' '));
+					
+					//grab event decription
+					var desobj = ents[i].content.split('<br>')[3];
+					
+					var description = new String(desobj);
+					var shortDesc = description.substr(0, 150);
+					if(description.length != shortDesc.length) shortDesc += "...";
+					
+					/* Pushes the just-defined event object into an array
+					 * called 'events'
+					 */
+					events.push({
+						'title':ents[i].title,
+						'startTime':startTime,
+						'endTime':endTime,
+						'location':location,
+						'description':shortDesc,
+						'url': ents[i].link
+					});
 				}
+				
 				callback(events);
 			}
 			});
