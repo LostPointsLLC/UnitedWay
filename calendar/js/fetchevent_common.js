@@ -17,8 +17,6 @@ function getLibraryEvent(day, month){
 		for(var i=0;i<events.length;i++) {
 			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
 			{
-				console.log(JSON.stringify(events[i].startTime));
-				
 				
 				var eventDiv = document.createElement("div");
 				
@@ -72,9 +70,12 @@ function getLibraryEvent(day, month){
    
 }
 
+/* Returns the time of the event in central time.
+ * Formats the time correctly.
+ */
 function getCentralTime(date) {
-	return date;
-
+	var time = date.toLocaleTimeString();
+	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
 }
 
 
