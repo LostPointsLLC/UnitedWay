@@ -21,7 +21,14 @@
 		<div class="wrapper">
 			<script type="text/javascript">
 				var category = "";
-				switch(sessionStorage.cat.toString()) {
+				var storedCat;
+				if(localStorage.remember==1){
+					storedCat = localStorage.cat.toString();
+				}
+				else{
+					storedCat = sessionStorage.cat.toString();
+				}
+				switch(storedCat) {
 					case "1":
 						category = "Health &\nWell Being";
 						break;
