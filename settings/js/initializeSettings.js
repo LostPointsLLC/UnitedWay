@@ -29,7 +29,12 @@ function initializeSettings() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-			sessionStorage.jsonString = data; // store database data string as a session variable
+			if(localStorage.remember ==1){
+				localStorage.jsonString = data;
+			}
+			else{
+				sessionStorage.jsonString = data; // store database data string as a session variable
+			}
 			listChildren(data);
 		}
 	 });	 
