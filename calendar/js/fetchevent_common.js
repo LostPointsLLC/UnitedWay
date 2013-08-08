@@ -106,6 +106,18 @@ function grabData(callback)
 					//all obj here are actually an array of subtrings
 					//split <-> join
 					//grab date/time
+					
+					/* Each one of the entries has a 'content' field which pulls from the <description> xml tag.
+					 * Read the google feeds API documentation to understand what's going on:
+					 *
+					 * https://developers.google.com/feed/v1/reference
+					 *
+					 * If you don't understand xml, xml is similar to html (html is actually a type of xml), and so
+					 * xml has the same tree structure. The Google API is simply a way to parse the xml into a "nicer" form.
+					 *
+					 * So correction: The person who wrote the crux of this code didn't write a scraper. The google API created a 
+					 * scraper, and he's just using that.
+					 */
 					var timeobj = ents[i].content.split('<br>')[0].split(' ');
 					var startTime = new Date();
 					var endTime = new Date();
