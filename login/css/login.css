@@ -7,8 +7,15 @@
 	margin-bottom: 50px !important;
 
 }
-
-
+label{
+	color: white;
+	font-family: arial;
+	font-size: 15px;
+}
+#rememberme{
+	padding-left:25px;
+	padding-top:10px;
+}
 p {
 	font: 16px Arial, Helvetica, sans-serif;
 	color: #FFF;
