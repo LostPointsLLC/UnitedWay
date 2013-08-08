@@ -94,7 +94,6 @@ function displayfeed(result){
 				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 			}
 			
-			
 			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 			var innerdiv = "<div class='item-text-box'>";
 			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
