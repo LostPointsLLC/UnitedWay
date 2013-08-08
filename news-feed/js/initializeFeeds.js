@@ -94,9 +94,14 @@ function displayfeed(result){
 				rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 			}
 			
+			// Gets the start and end times of an event
+			var time = getTimes(entries[i].content);
+			
+			// Concatentates all of the information above into a div
 			var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 			var innerdiv = "<div class='item-text-box'>";
 			var content	= "<a href='" + entries[i].link + "'>" + entries[i].title + "</a>";
+			content += "<p style='margin: 0'>" + time + "</p>";
 
 			feedContainer.innerHTML += outerdiv + innerdiv + content + backdiv;
 		}
@@ -128,6 +133,29 @@ function displayfeed(result){
 		}	
 
 	}
+}
+
+
+function getTimes(content) {
+	var timeobj	= content.split('<br>')[0].split(' ');
+	var startTime = new Date();
+	var endTime = new Date();
+
+	var datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(6,8).join(' ')].join(' ');
+	startTime.setTime(Date.parse(datestring));
+	
+	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
+	endTime.setTime(Date.parse(datestring));
+
+	return "From " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
+}
+
+/* Returns the time of the event in central time.
+ * Formats the time correctly.
+ */
+function getCentralTime(date) {
+	var time = date.toLocaleTimeString();
+	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
 }
 
 
@@ -192,7 +220,6 @@ function checkIfFavorited(entry) {
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + sessionStorage.pid;
-	console.log(datastring);
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",
@@ -201,8 +228,7 @@ function getFavoritedNews() {
 		cache: false,
 		async: false, // must be synchronous, sorry! 
 		success: function(idArray) {
-			// For debug
-			console.log(idArray);
+			
 			var pairArray = jQuery.parseJSON(idArray);
 			for(var i = 0; i < pairArray.length; i++) {
 				var link = pairArray[i][1];
