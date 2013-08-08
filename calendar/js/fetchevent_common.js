@@ -1,46 +1,55 @@
+/* A scraper that retrieves the dates and times of a set of events.
+ * @Author: Braxton Spence
+ * @Edited: Pingxiao Ye, Henry Lin
+ */
 function getLibraryEvent(day, month){
 
     var $div =  document.getElementById('events');
    
     $div.innerHTML = "";
+	
+	/* Uses the grabData function defined below, as well as the defined lambda
+	 * function, to 1. Scrape the data, and 2. display the data on the screen.
+	 */ 
     grabData(function(events) {
-	for(var i=0;i<events.length;i++) {
-	    if (((events[i].startTime.getDate()) == day) 
-		&& (events[i].startTime.getMonth() == month))
-	    {
 	
-		var eventTitle = document.createElement("h3");
-		var eventDiv = document.createElement("div");
-		eventTitle.appendChild(document.createTextNode([
-		    events[i].title		   
-		]));	
-		var enttime = document.createElement('p');
-		enttime.appendChild(document.createTextNode([
-		    events[i].startTime.toString(),
-		    events[i].endTime.toString()
-		]));
-		eventDiv.appendChild(enttime);
 		
-		var entlocation = document.createElement('p');
-		entlocation.appendChild(document.createTextNode([
-		    events[i].location
-		]));
-		eventDiv.appendChild(entlocation);
-		   
-		var entdes = document.createElement('p');
-		entdes.appendChild(document.createTextNode([
-		    events[i].description
-		]));
-		eventDiv.appendChild(entdes);
-		  
-	
-		$div.appendChild(eventTitle);
-		$div.appendChild(eventDiv);
-	    }
-	}
-	if($div.innerHTML == "")
-	    $div.innerHTML = "No Events for Today.";
-	
+		for(var i=0;i<events.length;i++) {
+			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
+			{
+				console.log(JSON.stringify(events[i].startTime));
+				var eventTitle = document.createElement("h3");
+				var eventDiv = document.createElement("div");
+				eventTitle.appendChild(document.createTextNode([
+					events[i].title		   
+				]));	
+				var enttime = document.createElement('p');
+				enttime.appendChild(document.createTextNode([
+					events[i].startTime.toString(),
+					events[i].endTime.toString()
+				]));
+				eventDiv.appendChild(enttime);
+				
+				var entlocation = document.createElement('p');
+				entlocation.appendChild(document.createTextNode([
+					events[i].location
+				]));
+				eventDiv.appendChild(entlocation);
+				   
+				var entdes = document.createElement('p');
+				entdes.appendChild(document.createTextNode([
+					events[i].description
+				]));
+				eventDiv.appendChild(entdes);
+				  
+			
+				$div.appendChild(eventTitle);
+				$div.appendChild(eventDiv);
+			}
+		}
+		if($div.innerHTML == "")
+			$div.innerHTML = "No Events for Today.";
+		
     });
    
 }
