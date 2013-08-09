@@ -16,7 +16,7 @@
 	
 	<body>
 		<script>
-		if(sessionStorage.lang=="ENG")
+		if(localStorage.lang=="ENG")
 			generateHeader("Register Here", false, true);
 		else
 			generateHeader("Reg&iacute;strese aqu&iacute;", false, true);
@@ -25,7 +25,7 @@
 		<div class="wrapper">
 	    <br><br>
 		<script>
-		if(sessionStorage.lang=="ENG")
+		if(localStorage.lang=="ENG")
 			generateMainText("<div id='top-text' class=\"mainText\"><p style='font-weight: bold'>Please create a new user account below.</p></div>");
 		else
 			generateMainText("<div id='top-text' class=\"mainText\"><p style='font-weight: bold'>Por favor, cree una cuenta de usuario a continuaci&oacute;n.</p></div>");
@@ -34,7 +34,7 @@
 		<form>
 			<div id="personal-info">
 				<script>
-				if(sessionStorage.lang=="ENG"){
+				if(localStorage.lang=="ENG"){
 					generateMainText("<div class='mainText'><p>Please provide your personal information.</p></div>");
 					generateInputText("First name", "firstname-box", "firstname", "text");	
 					document.write("<br>");
@@ -52,7 +52,7 @@
 			</div>
 			<div id="login-info">
 				<script>
-				if(sessionStorage.lang=="ENG"){
+				if(localStorage.lang=="ENG"){
 					generateMainText("<div class='mainText'><p>Please provide the information you would like to use to log into our app.</p><div id='login-info-buttons'></div>");
 					generateInputText("Preferred email", "", "email", "text");
 					document.write("<br>");
@@ -73,7 +73,7 @@
 					
 					
 			<script>
-			if(sessionStorage.lang=="ENG")
+			if(localStorage.lang=="ENG")
 				generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");
 			else
 				generateButton("me Registrar", "verify-registration", "bt-yellow", "verifyRegistration()");
