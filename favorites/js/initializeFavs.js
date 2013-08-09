@@ -2,7 +2,7 @@
 
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-	var favHeap = getFavHeap(parseInt(sessionStorage.pid));
+	var favHeap;
 	if(localStorage.remember==1){
 		var favHeap = getFavHeap(parseInt(localStorage.pid));
 	}
