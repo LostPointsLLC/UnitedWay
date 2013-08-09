@@ -32,6 +32,12 @@
 	position:relative;
 	top:55px;
 }
+.ui-collapsible-content, .ui-collapsible-set .ui-collapsible.ui-last-child {
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
 .ui-mobile, .ui-mobile body {
 	background:#00549b;
 }
