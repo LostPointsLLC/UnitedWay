@@ -41,14 +41,20 @@
 .ui-mobile, .ui-mobile body {
 	background:#00549b;
 }
+
+
 .ui-mobile .ui-page-active {
 	background:#00549b;
 }
 .ui-body-c{
 	text-shadow:none;
 }
+
+
+
+
 .ui-icon{
-display:none !important;
+/*display:none !important;*/
 }
 .ui-btn-text{
 	font-size: 16px;
@@ -74,7 +80,7 @@ display:none !important;
 	font-weight:normal;
 }
 .ui-btn-up-c {
-	background-image:none;
+	/*background-image:none;*/
 	background:#00549b;
 	color:white;
 	text-shadow:none;

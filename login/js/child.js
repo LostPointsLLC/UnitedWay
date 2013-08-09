@@ -196,29 +196,6 @@ function changeSpriteColor(color) {
 // Note: I'm anticipating that this colorpicker is going to run slow on a mobile device
 $(document).ready(function() {
 	
-	// Obsolete code: we aren't using this colorpicker
-	// anymore.
-/*
-	$('#colorSelector').ColorPicker({
-		onShow: function(colpkr) {
-			$(colpkr).fadeIn(500);
-			return false;
-		},
-
-		onHide: function(colpkr) {
-			$(colpkr).fadeOut(500);
-			return false;
-		},
-
-		onChange: function(hsb, hex, rgb) {
-			$('#colorSelector div').css('backgroundColor', '#' + hex);
-			$('#sprite').css('backgroundColor', '#'+hex);
-		},
-
-	});
-	*/
-		
-	
 	// Indicates that we're entering from the settings page, and 
 	// we want to change attributes of a child
 
