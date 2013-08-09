@@ -48,13 +48,21 @@ function verifyLogin() {
 			else if(ret=="SUCCESS"){ // Successful login	
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
+					// Assign Local Objects used throughout app
 					localStorage.pid = str[1]; // pid
-					// Child JSON Object
-					localStorage.childJsonObject = str[2];
-					// Tip JSON Object
-					localStorage.childJsonObject = str[3];
-					// Rss JSON Object
-					localStorage.childJsonObject = str[4];
+					localStorage.childJsonObject = str[2]; // Child JSON Object
+					localStorage.tipJsonObject = str[3]; // Tip JSON Object
+					localStorage.rssJsonObject = str[4]; // Rss JSON Object
+					
+					// Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
+					// Keep an assoc array of child ID's
+					var childDB = {}; // new object
+					var childJObj = jQuery.parseJSON(str[2]);
+					for (var key in childJObj) {
+						childDB[key] = false; // every untouched child is initialized as false.
+					}
+					localStorage.childTracker = JSON.stringify(childDB);
+					
 					
 					localStorage.remember=1;
 					setDefaultStorage();								
