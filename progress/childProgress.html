@@ -16,12 +16,18 @@
 	<body>
 		<!-- HEADER-->
 		<script type="text/javascript">
+		if(localStorage.lang=="ENG")
 			generateHeader("Checklists", true, true); // Header
+		else
+			generateHeader("Listas", true, true);
 		</script>
 		<div class="wrapper">
 			<!-- HEALTH BUTTON-->
 			<script type="text/javascript">
+			if(localStorage.lang=="ENG")
 				generateButton("Health & Well Being", "health-bt", "bt-health", "clickHealth()"); // Health Button
+			else
+				generateButton("Salud y bienestar", "health-bt", "bt-health", "clickHealth()");
 			</script>
 			<div class = "pb-ctn">
 				<div class="detail" value='0' max='100'>
@@ -32,7 +38,10 @@
 			
 			<!-- LANGUAGE BUTTON-->
 			<script type="text/javascript">
-				generateButton("Language & General", "lang-bt", "bt-lang", "clickLang()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Language & General", "lang-bt", "bt-lang", "clickLang()"); // Lang button
+			else
+				generateButton("Idioma y generales", "lang-bt", "bt-lang", "clickLang()");
 			</script>
 			<div class = "pb-ctn">
 				<div  class="detail" value='0' max='100'>
@@ -43,7 +52,10 @@
 			
 			<!-- SOCIAL BUTTON-->
 			<script type="text/javascript">
-				generateButton("Social & Emotional Prep.", "social-bt", "bt-social", "clickSocial()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Social & Emotional Prep", "social-bt", "bt-social", "clickSocial()"); // Social & Emotional prep Button
+			else
+				generateButton("Preparaci&oacute;n social y emocional", "social-bt", "bt-social", "clickSocial()");
 			</script>
 			<div class = "pb-ctn">
 				<div class="detail" value='0' max='100'>
@@ -54,7 +66,10 @@
 
 			<!-- OTHER BUTTON-->
 			<script type="text/javascript">
-				generateButton("Other", "other-bt", "bt-other", "clickOther()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Other", "other-bt", "bt-other", "clickOther()"); // Other Button
+			else
+				generateButton("otro", "other-bt", "bt-other", "clickOther()");
 			</script>
 			<div class = "pb-ctn">
 				<div class="detail" value='0' max='100'>
