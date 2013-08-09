@@ -37,7 +37,7 @@ function verifyLogin() {
 			console.log(str);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
 				else
 				document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
@@ -46,19 +46,20 @@ function verifyLogin() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				if(typeof(Storage) !== "undefined"){
 					localStorage.pid = str[1];
+					localStorage.remember=1;
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
-					if(sessionStorage.lang=="ENG")
+					if(localStorage.lang=="ENG")
 						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 					else
 						document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
 				}
 			}
 			else{
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "Server error. Please try again later";
 				else
 					document.getElementById("result").innerHTML = "Error del servidor. Por favor, vuelve a intentarlo m&aacute;s tarde ...";
@@ -73,7 +74,7 @@ function verifyLogin() {
 
 function setDefaultStorage() {
 	localStorage.rss = 'cpl';				// For the news feed page.
-	localStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
+	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.jsonString variable is dirty
 	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
 	localStorage.fromSettings = '0';	
 }

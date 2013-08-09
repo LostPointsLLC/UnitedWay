@@ -52,4 +52,5 @@ function verifyRegistration() {
 		}
 
 	});
+	localStorage.remember=1;
 }
