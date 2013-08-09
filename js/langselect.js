@@ -1,8 +1,8 @@
 //default language is English
-sessionStorage.lang = "ENG";
+localStorage.lang = "ENG";
 
 function handleclick(myRadio) {
     //alert('Value: ' + myRadio.value);
-    sessionStorage.lang = myRadio.value;
+    localStorage.lang = myRadio.value;
     //alert(sessionStorage.lang);
 }
