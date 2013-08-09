@@ -1,7 +1,11 @@
 // Displayes the RSS feed on the page.
 function initializeFeed() {
 
-	var feed = sessionStorage.rss;
+	var feed;
+	if(localStorage.remember==1)
+		feed = localStorage.rss;
+	else
+		feed = sessionStorage.rss;
 	var rssurl;
 	var limit = 8;
 	var title;
@@ -203,7 +207,11 @@ function checkIfFavorited(entry) {
 
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
-	var datastring = "user_id=" + sessionStorage.pid;
+	var datastring;
+	if(localStorage.remember==1)
+		datastring = "user_id=" + localStorage.pid;
+	else
+		datastring = "user_id=" + sessionStorage.pid;
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",
