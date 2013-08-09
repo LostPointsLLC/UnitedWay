@@ -53,9 +53,12 @@ function verifyLogin() {
 					localStorage.childJsonObject = str[2]; // Child JSON Object
 					localStorage.tipJsonObject = str[3]; // Tip JSON Object
 					localStorage.rssJsonObject = str[4]; // Rss JSON Object
-					
-					// Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
-					// Keep an assoc array of child ID's
+					/*
+					 * Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
+					 * These objects MUST be cleared and re-initialized after syncing with the database (this is handled in update script).
+					 */
+					 
+					// Keep an associative array of child ID's
 					var childDB = {}; // new object
 					var childJObj = jQuery.parseJSON(str[2]);
 					for (var key in childJObj) {
@@ -63,7 +66,24 @@ function verifyLogin() {
 					}
 					localStorage.childTracker = JSON.stringify(childDB);
 					
+					// Keep addFavArr and delFavArr for favouring/unfavouring tips.
+					var addFavArr = {};
+					var delFavArr = {};
+					addFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
 					
+					delFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
+					
+					localStorage.addObj = JSON.stringify(addFavArr);
+					localStorage.delObj = JSON.stringify(delFavArr); 
+					console.log(localStorage.addObj);
+					console.log(localStorage.delObj);
+					// etc...
 					localStorage.remember=1;
 					setDefaultStorage();								
 					document.location.href = "../home/";

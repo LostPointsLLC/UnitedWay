@@ -5,9 +5,11 @@
  * delFavArr
  *
  */
+var addFavArr;
+var delFavArr;
 
-var addFavArr = new Array ();
-var delFavArr = new Array ();
+var addObj;
+var delObj;
 
 var ageIndex;
 var taskCat;
@@ -16,7 +18,7 @@ $(document).ready(function() {
 	// Display Picture
 	var tipCategory = localStorage.tCat.toString();
 	// PHP query 
-	var jObj = jQuery.parseJSON(localStorage.jsonString);
+	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
 	var pid = localStorage.pid.toString();
 	var childID = localStorage.cid;
 	taskCat = localStorage.tCat.toString();
@@ -24,11 +26,18 @@ $(document).ready(function() {
 	// Then get whatever age category the child fits in.
 	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
 	ageIndex = calcCat(monthcount);
-	
-	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&ageIndex=" + ageIndex;
 	console.log("age in month is is : " + monthcount);
 	console.log("age category is : " + ageIndex);
 	
+	// Initialize addFavArr and delFavArr
+	addObj = jQuery.parseJSON(localStorage.addObj);
+	addFavArr = addObj[taskCat][ageIndex];
+	
+	delObj = jQuery.parseJSON(localStorage.delObj);
+	delFavArr = delObj[taskCat][ageIndex];
+	
+	/*
+	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&ageIndex=" + ageIndex;
 	$.ajax({
 		type: "POST",
 		url: "php/fetchFavTips.php",
@@ -39,9 +48,12 @@ $(document).ready(function() {
 			displayTips(data);
 		}
 	 });
+	 */
 	 
-	 
-	 //displayTips();
+	 // Get specific tip array.
+	 var tipMasterArr = jQuery.parseJSON(localStorage.tipJsonObject);
+	 var tipArr = tipMasterArr[taskCat][ageIndex];
+	 displayTips(JSON.stringify(tipArr));
 });
 
 /**
@@ -50,7 +62,7 @@ $(document).ready(function() {
 
 function displayTips(param) {
 	// Use session data to figure out child age
-	var jObj = jQuery.parseJSON(localStorage.jsonString);
+	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
 	var childID = localStorage.cid;
 	// Category ID "health", "growth", "safety", "playtime"
 	var tipCategory = localStorage.tCat.toString();
@@ -112,14 +124,14 @@ function displayTips(param) {
 	$(document).on("click", ".tip-ctn-even", function() {
 		$(this).attr("class","tip-ctn-even-fav");
 		var favIndex = $(this).attr('id');
-		var favIndex = parseInt(favIndex);
+		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
 	$(document).on("click", ".tip-ctn-odd", function() {
 		$(this).attr("class","tip-ctn-odd-fav");
 		var favIndex = $(this).attr('id');
-		var favIndex = parseInt(favIndex);
+		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
@@ -127,14 +139,14 @@ function displayTips(param) {
 	$(document).on("click", ".tip-ctn-even-fav", function() {
 		$(this).attr("class","tip-ctn-even");
 		var favIndex = $(this).attr('id');
-		var favIndex = parseInt(favIndex);
+		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 
 	$(document).on("click", ".tip-ctn-odd-fav", function() {
 		$(this).attr("class","tip-ctn-odd");
 		var favIndex = $(this).attr('id');
-		var favIndex = parseInt(favIndex);
+		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 }
@@ -154,7 +166,7 @@ function addToFavArr(favIndex) {
 	if (index != -1) {
 		delFavArr.splice(index, 1);
 	}
-	else {
+	else {  
 		addFavArr.push(favIndex);
 	}
 }
@@ -162,7 +174,7 @@ function addToFavArr(favIndex) {
 // Opposite of addToFavArr
 function delToFavArr(favIndex) {
 	var index = addFavArr.indexOf(favIndex)
-	if (index 	!= -1) {
+	if (index 	!= -1) { 
 		addFavArr.splice(index, 1);
 	}
 	else {
@@ -175,6 +187,27 @@ function goBack() {
 }
 
 $(window).unload( function () {
+	// Loop through tip JSON object, adjust changes in add/delFavArrs
+	var tipMasterArr = jQuery.parseJSON(localStorage.tipJsonObject);
+	var tipArray = tipMasterArr[taskCat][ageIndex];
+	for (var i = 0; i < addFavArr.length; i++) {
+		tipArray.push(addFavArr[i]);
+	}
+	
+	for (var i = 0; i < delFavArr.length; i++) {
+		var index = tipArray.indexOf(delFavArr[i]);
+		if (index != -1) { // element exists
+			tipArray.splice(index, 1);
+		}
+	}
+	// seal the deal
+	localStorage.tipJsonObject = JSON.stringify(tipMasterArr);
+	localStorage.addObj = JSON.stringify(addObj);
+	localStorage.delObj = JSON.stringify(delObj);
+	console.log(localStorage.tipJsonObject);
+	console.log(localStorage.addObj);
+	console.log(localStorage.delObj);
+	/*
 	var addStr = JSON.stringify(addFavArr);
 	var delStr = JSON.stringify(delFavArr);
 	
@@ -192,4 +225,5 @@ $(window).unload( function () {
 			console.log(data);
 		}
 	});
+	*/
 });

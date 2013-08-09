@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var childID = localStorage.cid.toString();
-	var jsonStr = localStorage.jsonString;
+	var jsonStr = localStorage.childJsonObject;
 	var jObj = jQuery.parseJSON(jsonStr);
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
