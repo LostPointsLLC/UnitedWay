@@ -92,6 +92,7 @@ function displayfeed(result){
 *		<a class='item-text'> Title of Headline </a>
 *		</div>
 *	</div>
+*
 */
 function getRSSItem(entry, i) {
 	// Binds a class to items based upon parity numbered rss items

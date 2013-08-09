@@ -117,18 +117,24 @@ margin-right: 55px;
 
 
 /*******************************************************************/
-
+#options {
+	position: relative;
+	top: 20px;
+	
+	width: 230px;
+	margin: 0 auto;
+	display: block;
+}
 
 #addChild {
 	position: relative;
-	top: 30px;
-	left: 50%;
-	margin-left: -61px;
+	
+
 }
 
 #logout{
 	position: relative;
-	top: 83px;
-	left: 50%;
-	margin-left: -101px;
+	margin-left: 10px;
+
+
 }
