@@ -27,7 +27,16 @@ p {
 }
 
 #result{
+	position:absolute;
 	padding-left:25px;
+}
+
+#loader {
+	position:absolute;
+	display: block;
+	padding: 0;
+	margin-top: 10px;
+	margin-left: 100px;
 }
 
 #login-fields {

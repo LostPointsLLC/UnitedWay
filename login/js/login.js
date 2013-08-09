@@ -9,10 +9,12 @@ function registration() {
 function verifyLogin() {
 	var iEmail = document.getElementById("email").value;
 	var iPass = document.getElementById("password").value;
+	/* I think everybody saw this by now (should delete in next rev)
 	if(iEmail == "test" && iPass != "testing") {
 		document.getElementById("result").innerHTML = "<p id='fail'>Sorry, don't use this account anymore. You should test this app using your own account.</p>";
 		return;
 	}
+	*/
 	if(iPass == "testing") iPass = "test";
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
@@ -33,8 +35,9 @@ function verifyLogin() {
 		// Handle PHP returns
 		httpRequest.onreadystatechange=function() {
 		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-			var str = httpRequest.responseText.trim().split(":");
-			console.log(str);
+			var response = httpRequest.responseText.trim();
+			var str = response.split("|");
+			console.log(response);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
 				if(sessionStorage.lang=="ENG")
@@ -43,7 +46,7 @@ function verifyLogin() {
 				document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
 			}
 			else if(ret=="SUCCESS"){ // Successful login	
-				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
+				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
 					if(localStorage.remember == 1){
 						localStorage.pid = str[1];
@@ -51,6 +54,7 @@ function verifyLogin() {
 					else{
 						sessionStorage.pid = str[1];
 					}
+					
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
@@ -71,6 +75,7 @@ function verifyLogin() {
 		}
 	}	
 	// Send the request to server!
+	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
 	httpRequest.open("POST",loginUrl,true);
 	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	httpRequest.send(params);	
