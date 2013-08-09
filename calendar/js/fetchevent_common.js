@@ -42,18 +42,10 @@ function getLibraryEvent(day, month){
 				time.innerHTML = timeText;
 				eventDiv.appendChild(time);
 				
-				/*
-				var enttime = document.createElement('p');
-				enttime.appendChild(document.createTextNode([
-					events[i].startTime.toString(),
-					events[i].endTime.toString()
-				]));
-				eventDiv.appendChild(enttime);
-				*/
 				/* Displays the event's location */
 				var entlocation = document.createElement('p');
 				var locText = "";
-				locText += "<span>Location:</span> " + events[i].location;
+				locText += "<span>Location:</span> Champaign Public Library, " + events[i].location;
 				entlocation.innerHTML = locText;
 				eventDiv.appendChild(entlocation);
 				
@@ -129,8 +121,8 @@ function grabData(callback)
 					endTime.setTime(Date.parse(datestring));
 					
 					//grab location
-					var locobj = ents[i].content.split('<br>')[1].split(' ');
-					var location = new String(locobj.slice(1).join(' '));
+					var locobj = ents[i].content.split('<br>')[1].split(' at ');
+					var location = locobj[1];
 					
 					//grab event decription
 					var desobj = ents[i].content.split('<br>')[3];
