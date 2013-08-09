@@ -14,10 +14,12 @@
 		<script src="../js/generator.js"></script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/functions.js"></script>
+		<script src="../js/langselect.js"></script>
 		<script src="js/settings.js"></script>
 		<script src="js/initializeSettings.js"></script>
 		<script src="js/changeSettings.js"></script>
 		<script src="js/updateSettings.js"></script>
+
 	</head>
 
 	<body>
@@ -28,6 +30,12 @@
 			<div id='content'></div>
 			<div id='options'>
 				<script>
+				if(localStorage.lang=="ENG"){
+					document.write("<div><span>Language</span><input type='radio' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div>");
+				}
+				else{
+					document.write("<div><span>Language</span><input type='radio' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" checked onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div>");
+				}
 				generateButton("Add a Child", "addChild", "bt-yellow", "addChild()");
 				generateButton("Logout", "logout", "bt-yellow", "logout()");
 				</script>
