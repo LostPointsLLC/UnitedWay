@@ -7,19 +7,19 @@ function getLibraryEvent(day, month){
     var $div =  document.getElementById('events');
    
     $div.innerHTML = "";
-	
+
 	/* Uses the grabData function defined below, as well as the defined lambda
 	 * function, to 1. Scrape the data, and 2. display the data on the screen.
 	 */ 
     grabData(function(events) {
-	
-		
+
+
 		for(var i=0;i<events.length;i++) {
 			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
 			{
-				
+
 				var eventDiv = document.createElement("div");
-				
+
 				/* Displays the event's title */
 				var eventLink = document.createElement("a");
 				eventLink.setAttribute("href", events[i].url);
@@ -29,9 +29,9 @@ function getLibraryEvent(day, month){
 					events[i].title		   
 				]));
 				eventLink.appendChild(eventTitle);
-				
+
 				eventDiv.appendChild(eventLink);
-				
+
 				/* Displays the start and end times on the screen */
 				var time = document.createElement("p");
 				time.style.margin = "0";
@@ -41,28 +41,36 @@ function getLibraryEvent(day, month){
 				console.log(timeText);
 				time.innerHTML = timeText;
 				eventDiv.appendChild(time);
-				
+
+				/*
+				var enttime = document.createElement('p');
+				enttime.appendChild(document.createTextNode([
+					events[i].startTime.toString(),
+					events[i].endTime.toString()
+				]));
+				eventDiv.appendChild(enttime);
+				*/
 				/* Displays the event's location */
 				var entlocation = document.createElement('p');
 				var locText = "";
-				locText += "<span>Location:</span> Champaign Public Library, " + events[i].location;
+				locText += "<span>Location:</span> " + events[i].location;
 				entlocation.innerHTML = locText;
 				eventDiv.appendChild(entlocation);
-				
+
 				/* Displays the Event's description */
 				var entdes = document.createElement('p');
 				var desText = "";
 				desText += "<div><span>Description:</span> " + events[i].description + "</div>";
 				entdes.innerHTML = desText;
 				eventDiv.appendChild(entdes);
-				  
+
 				//$div.appendChild(eventTitle);
 				$div.appendChild(eventDiv);
 			}
 		}
 		if($div.innerHTML == "")
 			$div.innerHTML = "No Events for Today.";
-		
+
     });
    
 }
@@ -98,7 +106,7 @@ function grabData(callback)
 					//all obj here are actually an array of subtrings
 					//split <-> join
 					//grab date/time
-					
+
 					/* Each one of the entries has a 'content' field which pulls from the <description> xml tag.
 					 * Read the google feeds API documentation to understand what's going on:
 					 *
@@ -113,24 +121,24 @@ function grabData(callback)
 					var timeobj = ents[i].content.split('<br>')[0].split(' ');
 					var startTime = new Date();
 					var endTime = new Date();
-					
+
 					var datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(6,8).join(' ')].join(' ');
 					startTime.setTime(Date.parse(datestring));
-					
+
 					datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 					endTime.setTime(Date.parse(datestring));
-					
+
 					//grab location
-					var locobj = ents[i].content.split('<br>')[1].split(' at ');
-					var location = locobj[1];
-					
+					var locobj = ents[i].content.split('<br>')[1].split(' ');
+					var location = new String(locobj.slice(1).join(' '));
+
 					//grab event decription
 					var desobj = ents[i].content.split('<br>')[3];
-					
+
 					var description = new String(desobj);
 					var shortDesc = description.substr(0, 150);
 					if(description.length != shortDesc.length) shortDesc += "...";
-					
+
 					/* Pushes the just-defined event object into an array
 					 * called 'events'
 					 */
@@ -143,13 +151,10 @@ function grabData(callback)
 						'url': ents[i].link
 					});
 				}
-				
+
 				callback(events);
 			}
 			});
 		}
     });  
 }
-
-
-
