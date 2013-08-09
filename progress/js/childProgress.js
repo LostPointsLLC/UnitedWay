@@ -5,8 +5,16 @@
 */
 
 $(document).ready(function() {
-	var childID = sessionStorage.cid.toString();
-	var jsonStr = sessionStorage.jsonString;
+	var childID;
+	var jsonStr;
+	if(localStorage.remember==1){
+		childID = localStorage.cid.toString();
+		jsonStr = localStorage.jsonString;
+	}
+	else{
+		childID = sessionStorage.cid.toString();
+		jsonStr = sessionStorage.jsonString;
+	}
 	var jObj = jQuery.parseJSON(jsonStr);
 	
 	// Print picture of child based on gender
@@ -37,11 +45,21 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex > 0) { // Not the first child in list
-			sessionStorage.cid = indexList[thisIndex - 1];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[thisIndex - 1];
+			}
+			else{
+				sessionStorage.cid = indexList[thisIndex - 1];
+			}
 			location.reload();
 		}
 		else { // wrap around if first child
-			sessionStorage.cid = indexList[lastIndex];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[lastIndex];
+			}
+			else{
+				sessionStorage.cid = indexList[lastIndex];
+			}
 			location.reload();
 		}
 	});
@@ -50,11 +68,22 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex < lastIndex) { // Not the last child in list
-			sessionStorage.cid = indexList[thisIndex + 1];
+			
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[thisIndex + 1];
+			}
+			else{
+				sessionStorage.cid = indexList[thisIndex + 1];
+			}
 			location.reload();
 		}
 		else {
-			sessionStorage.cid = indexList[0];
+			if(localStorage.remember==1){
+				localStorage.cid = indexList[0];
+			}
+			else{
+				sessionStorage.cid = indexList[0];
+			}
 			location.reload();
 		}
 	});
@@ -94,20 +123,40 @@ function addProgressBar(category, percentage) {
 }
 
 function clickHealth() {
-	sessionStorage.cat = "1";
+	if(localStorage.remember==1){
+		localStorage.cat = "1";
+	}
+	else{
+		sessionStorage.cat = "1";
+	}
 	document.location.href = "checklist.html";
 }
 
 function clickLang() {
-	sessionStorage.cat = "2";
+	if(localStorage.remember==1){
+		localStorage.cat = "2";
+	}
+	else{
+		sessionStorage.cat = "2";
+	}
 	document.location.href = "checklist.html";
 }
 
 function clickSocial() {
-	sessionStorage.cat = "3";
+	if(localStorage.remember==1){
+		localStorage.cat = "3";
+	}
+	else{
+		sessionStorage.cat = "3";
+	}
 	document.location.href = "checklist.html";
 }
 function clickOther() {
-	sessionStorage.cat = "4";
+	if(localStorage.remember==1){
+		localStorage.cat = "4";
+	}
+	else{
+		sessionStorage.cat = "4";
+	}
 	document.location.href = "checklist.html";
 }

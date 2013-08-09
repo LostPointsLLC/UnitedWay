@@ -1,19 +1,21 @@
 #mainText {
 	position: relative;
-
+	padding-left:25px;
 	padding-top: 57px;
 	padding-right: 35px;
 	line-height: 1px;
 	margin-bottom: 50px !important;
 
 }
-
-.wrapper {
-position: relative;
-	left: 25px;
-
+label{
+	color: white;
+	font-family: arial;
+	font-size: 15px;
 }
-
+#rememberme{
+	padding-left:25px;
+	padding-top:10px;
+}
 p {
 	font: 16px Arial, Helvetica, sans-serif;
 	color: #FFF;
@@ -25,13 +27,13 @@ p {
 }
 
 #result{
-	text-align:center;
+	padding-left:25px;
 }
 
 #login-fields {
 	display: block;
 	position: relative;
-
+	padding-left:25px;
 }
 
 #new-user {
@@ -48,7 +50,7 @@ p {
 #option-links {
 position: relative;
 top: 65px;
-
+padding-left:25px;
 }
 
 @media only screen and (max-device-width: 380px){

@@ -2,15 +2,25 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 function initializeSettings() {	
-
-	// If there is something in sessionStorage, then we just go to listChildren and be happy
-	if((typeof(sessionStorage.jsonString) !== "undefined") && !parseInt(sessionStorage.dirty)) {
+	if(localStorage.remember==1){
+		if((typeof(localStorage.jsonString) !== "undefined") && !parseInt(localStorage.dirty)) {
+		listChildren(localStorage.jsonString);
+		return;
+		}
+		else{// Otherwise we have to pull from the db
+			var parentID = localStorage.pid.toString();	
+		}
+	}
+	else{
+		// If there is something in sessionStorage, then we just go to listChildren and be happy
+		if((typeof(sessionStorage.jsonString) !== "undefined") && !parseInt(sessionStorage.dirty)) {
 		listChildren(sessionStorage.jsonString);
 		return;
+		}
+		else{// Otherwise we have to pull from the db
+			var parentID = sessionStorage.pid.toString();
+		}
 	}
-
-	// Otherwise we have to pull from the db
-	var parentID = sessionStorage.pid.toString();
 	var dataString = "parentID=" + parentID;
 	
 	$.ajax({
@@ -19,7 +29,12 @@ function initializeSettings() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-			sessionStorage.jsonString = data; // store database data string as a session variable
+			if(localStorage.remember ==1){
+				localStorage.jsonString = data;
+			}
+			else{
+				sessionStorage.jsonString = data; // store database data string as a session variable
+			}
 			listChildren(data);
 		}
 	 });	 

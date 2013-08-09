@@ -18,9 +18,9 @@ function generateHeader(text, home, help) {
 	
 
 	if(help) 
-		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img class='head-bt' id='help-bt' src='../images/help-button.png'/></a></div>");
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'rel=\"external\"><img class='head-bt' id='help-bt' src='../images/help-button.png'/></a></div>");
 	if(home) 
-		document.write("<div class='home'><a href='../home/'><img class='head-bt' id = 'home-bt' src='../images/home-button.png'/></a></div>");
+		document.write("<div class='home'><a href='../home/' rel=\"external\"><img class='head-bt' id = 'home-bt' src='../images/home-button.png'/></a></div>");
 
 	document.write("</div>");	
 

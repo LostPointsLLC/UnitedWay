@@ -2,7 +2,13 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
-	var parentID = sessionStorage.pid.toString();
+	var parentID;
+	if(localStorage.remember==1){
+		parentID = localStorage.pid.toString();
+	}
+	else{
+		parentID = sessionStorage.pid.toString();
+	}
 	var dataString = "parentID=" + parentID;
 	
 	$.ajax({
@@ -11,7 +17,12 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-			sessionStorage.jsonString = data; // store database data string as a session variable
+			if(localStorage.remember==1){
+				localStorage.jsonString = data; // store database data string as a persistent variable
+			}
+			else{
+				sessionStorage.jsonString = data; // store database data string as a session variable
+			}
 			initializeProgress(data);
 		}
 	 });	 
@@ -89,6 +100,11 @@ function initializeProgress(param) {
 }
 
 function linkToCategory(inChildID) {
-	sessionStorage.cid = inChildID;
+	if(localStorage.remember==1){
+		localStorage.cid = inChildID;
+	}
+	else{
+		sessionStorage.cid = inChildID;
+	}
 	document.location.href = "childProgress.html";
 }

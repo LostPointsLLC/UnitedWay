@@ -8,8 +8,16 @@ var gBin;
 var dataString;
 
 $(document).ready(function() {
-	var childID = sessionStorage.cid.toString(); // session current child ID
-	var taskCat = sessionStorage.cat.toString(); // session current task category
+	var childID; // session current child ID
+	var taskCat; // session current task category
+	if(localStorage.remember==1){
+		childID = localStorage.cid.toString(); // persistent current child ID
+		taskCat = localStorage.cat.toString(); // persistent current task category
+	}
+	else{
+		childID = sessionStorage.cid.toString(); // session current child ID
+		taskCat = sessionStorage.cat.toString(); // session current task category
+	}
 	dataString = "childID=" + childID + "&taskID=" + taskCat;
 
 	$.ajax({
@@ -36,14 +44,25 @@ $(document).ready(function() {
 // Called when page is being exited	
 $(window).unload( function () {
 	var newProgressStr = gBin.join('');				// Converts the global array into a string
-
+	var currentJsonStr;
+	var catStorage;
+	var childID;
 	// First update current session variables, to correctly print percentages
-	var currentJsonStr = sessionStorage.jsonString;
+	if(localStorage.remember==1){
+		currentJsonStr = localStorage.jsonString;
+		catStorage = localStorage.cat.toString();
+		childID = localStorage.cid.toString();
+	}
+	else{
+		currentJsonStr = sessionStorage.jsonString;
+		catStorage = sessionStorage.cat.toString();
+		childID = sessionStorage.cid.toString();
+	}
 	var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
 	
 	// Figure out what category check list this is
 	var category = "";
-	switch(sessionStorage.cat.toString()) {
+	switch(catStorage) {
 		case "1":
 			category = "health_code";
 			break;
@@ -57,9 +76,13 @@ $(window).unload( function () {
 			category = "other_code";
 			break;
 	}
-	var childID = sessionStorage.cid.toString(); 
 	parsedCurrentJsonStr[childID][category] = newProgressStr;
-	sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
+	if(localStorage.remember == 1){
+		localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
+	}
+	else{
+		sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
+	}
 	var updateString = dataString + "&newString=" + newProgressStr;
 	
 	$.ajax({ // update database with new check binary string

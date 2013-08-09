@@ -5,6 +5,7 @@
  * within this file.
  */
 function changeFeeds(sel) {
+<<<<<<< HEAD
     try {
 	var value = sel.options[sel.selectedIndex].value;
 	if(value == feedData.source) return;
@@ -19,6 +20,28 @@ function changeFeeds(sel) {
     {
 	return;
     }
+=======
+
+	try {
+		var value = sel.options[sel.selectedIndex].value;
+		if(value == feedData.source) return;
+		
+		if(localStorage.remember==1){
+			localStorage.rss = value;
+		}
+		else{
+			sessionStorage.rss = value;
+		}
+		document.location.href="index.html";		// Seems counterintuitive, but this
+													// will unload the window, so favorites will be saved
+	}
+
+	// By default, without this try-catch block, an uncaught alert will be thrown.
+	// This will stop all other javascript on this page =(
+	catch(error) {
+		return;
+	}
+>>>>>>> eb652b89bc87724cb115beea8b476992428fc62c
 }
 
 // Decides what to do with an element that has chosen to be favorited

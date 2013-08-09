@@ -1,10 +1,13 @@
 
-
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-
-	var favHeap = getFavHeap(parseInt(sessionStorage.pid));
-
+	var favHeap;
+	if(localStorage.remember==1){
+		favHeap = getFavHeap(parseInt(localStorage.pid));
+	}
+	else{
+		favHeap = getFavHeap(parseInt(sessionStorage.pid));
+	}
 	displayFavNews(favHeap.rssArray);
 	displayFavTips(favHeap.tipsArray);
 	displayFavEvents(favHeap.eventsArray);

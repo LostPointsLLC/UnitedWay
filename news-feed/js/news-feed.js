@@ -27,11 +27,10 @@ function rssData(url, limit, title, source) {
  */
 $(document).ready(function() {
 
-	initializeFeed();						// Stage 1
-	changeFeeds();							// Stage 2
-
-	$(window).unload(function() {
-		updateFeeds();						// Stage 3
+    initializeFeed();	// Stage 1		
+    changeFeeds();	// Stage 2
+    $(window).unload(function() {
+	updateFeeds();	// Stage 3
 	});
 });
 
