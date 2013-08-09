@@ -6,14 +6,8 @@ function updateFeeds() {
 	var removeString = getRemoveString();
 	var addString = getAddString();
 	var category = "rss";
-	var datastring;
 	// Appends the user ID to the query
-	if(localStorage.remember==1)
-		datastring = "user_id=" + localStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
-	else
-		datastring = "user_id=" + sessionStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
-
-
+	var	datastring = "user_id=" + localStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
 	console.log(datastring);
 	
 	$.ajax({ 
