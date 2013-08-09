@@ -1,12 +1,6 @@
 $(document).ready(function() {
-	if(localStorage.remember == 1){
-		var childID = localStorage.cid.toString();
-		var jsonStr = localStorage.jsonString;
-	}
-	else{
-		var childID = sessionStorage.cid.toString();
-		var jsonStr = sessionStorage.jsonString;
-	}
+	var childID = localStorage.cid.toString();
+	var jsonStr = localStorage.jsonString;
 	var jObj = jQuery.parseJSON(jsonStr);
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
@@ -45,21 +39,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex > 0) { // Not the first child in list
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[thisIndex - 1];
-			}
-			else{
-				sessionStorage.cid = indexList[thisIndex - 1];
-			}
+			localStorage.cid = indexList[thisIndex - 1];
 			location.reload();
 		}
 		else { // wrap around if first child
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[lastIndex];
-			}
-			else{
-				sessionStorage.cid = indexList[lastIndex];
-			}
+			localStorage.cid = indexList[lastIndex];
 			location.reload();
 		}
 	});
@@ -68,21 +52,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex < lastIndex) { // Not the last child in list
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[thisIndex + 1];
-			}
-			else{
-				sessionStorage.cid = indexList[thisIndex + 1];
-			}
+			localStorage.cid = indexList[thisIndex + 1];
 			location.reload();
 		}
 		else {
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[0];
-			}
-			else{
-				sessionStorage.cid = indexList[0];
-			}
+			localStorage.cid = indexList[0];
 			location.reload();
 		}
 	});	
@@ -90,41 +64,21 @@ $(document).ready(function() {
 });
 
 function healthTips() {
-	if(localStorage.remember==1){
-		localStorage.tCat = "health";
-	}
-	else{
-		sessionStorage.tCat = "health";
-	}
+	localStorage.tCat = "health";
 	document.location.href = "personal_tips.html";
 }
 
 function growthTips() {
-	if(localStorage.remember==1){
-		localStorage.tCat = "growth";
-	}
-	else{
-		sessionStorage.tCat = "growth";
-	}
+	localStorage.tCat = "growth";
 	document.location.href = "personal_tips.html";
 }
 
 function safetyTips() {
-	if(localStorage.remember==1){
-		localStorage.tCat = "safety";
-	}
-	else{
-		sessionStorage.tCat = "safety";
-	}
+	localStorage.tCat = "safety";
 	document.location.href = "personal_tips.html";
 }
 
 function playTips() {
-	if(localStorage.remember==1){
-		localStorage.tCat = "playtime";
-	}
-	else{
-		sessionStorage.tCat = "playtime";
-	}
+	localStorage.tCat = "playtime";
 	document.location.href = "personal_tips.html";
 }

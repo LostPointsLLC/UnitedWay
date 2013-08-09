@@ -13,24 +13,13 @@ var ageIndex;
 var taskCat;
  
 $(document).ready(function() {
-	if(localStorage.remember == 1){
-		// Display Picture
-		var tipCategory = localStorage.tCat.toString();
-		// PHP query 
-		var jObj = jQuery.parseJSON(localStorage.jsonString);
-		var pid = localStorage.pid.toString();
-		var childID = localStorage.cid;
-		taskCat = localStorage.tCat.toString();
-	}
-	else{
-		// Display Picture
-		var tipCategory = sessionStorage.tCat.toString();
-		// PHP query 
-		var jObj = jQuery.parseJSON(sessionStorage.jsonString);
-		var pid = sessionStorage.pid.toString();
-		var childID = sessionStorage.cid;
-		taskCat = sessionStorage.tCat.toString();
-	}
+	// Display Picture
+	var tipCategory = localStorage.tCat.toString();
+	// PHP query 
+	var jObj = jQuery.parseJSON(localStorage.jsonString);
+	var pid = localStorage.pid.toString();
+	var childID = localStorage.cid;
+	taskCat = localStorage.tCat.toString();
 	// Get child age in months (from functions.js)
 	// Then get whatever age category the child fits in.
 	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
@@ -60,20 +49,11 @@ $(document).ready(function() {
  */
 
 function displayTips(param) {
-	if(localStorage.remember == 1){
-		// Use session data to figure out child age
-		var jObj = jQuery.parseJSON(localStorage.jsonString);
-		var childID = localStorage.cid;
-		// Category ID "health", "growth", "safety", "playtime"
-		var tipCategory = localStorage.tCat.toString();
-	}
-	else{
-		// Use session data to figure out child age
-		var jObj = jQuery.parseJSON(sessionStorage.jsonString);
-		var childID = sessionStorage.cid;
-		// Category ID "health", "growth", "safety", "playtime"
-		var tipCategory = sessionStorage.tCat.toString();
-	}
+	// Use session data to figure out child age
+	var jObj = jQuery.parseJSON(localStorage.jsonString);
+	var childID = localStorage.cid;
+	// Category ID "health", "growth", "safety", "playtime"
+	var tipCategory = localStorage.tCat.toString();
 	// Get child age in months (from functions.js)
 	// Then get whatever age category the child fits in.
 	var monthcount = calculateMonth(jObj[childID]["child_birthday"]);
@@ -200,7 +180,7 @@ $(window).unload( function () {
 	
 	console.log("Add these items" + addStr);
 	console.log("Remove these items" + delStr);
-	var dataString = "user_id=" + sessionStorage.pid + "&removeString=" + delStr + "&addString=" + addStr + "&category=" + "tip" + "&age=" + ageIndex + "&tCat=" + taskCat;
+	var dataString = "user_id=" + localStorage.pid + "&removeString=" + delStr + "&addString=" + addStr + "&category=" + "tip" + "&age=" + ageIndex + "&tCat=" + taskCat;
 	
 	$.ajax({ // update database
 		type: "POST",

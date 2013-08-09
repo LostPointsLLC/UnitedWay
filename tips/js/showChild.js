@@ -2,13 +2,7 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
-	var parentID;
-	if(localStorage.remember == 1){
-		parentID = localStorage.pid.toString();
-	}
-	else{
-		parentID = sessionStorage.pid.toString();
-	}
+	var parentID = localStorage.pid.toString();
 	var dataString = "parentID=" + parentID;
 	
 	$.ajax({
@@ -17,12 +11,7 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-			if(localStorage.remember == 1){
-				localStorage.jsonString = data; // store database data string as a session variable
-			}
-			else{
-				sessionStorage.jsonString = data; // store database data string as a session variable
-			}
+			localStorage.jsonString = data; // store database data string as a session variable
 			listChildren(data);
 		}
 	 });	 
@@ -81,11 +70,6 @@ function listChildren(param) {
 }
 
 function linkToCategory(inChildID) {
-	if(localStorage.remember == 1){
-		localStorage.cid = inChildID; // store database data string as a persistent variable
-	}
-	else{
-		sessionStorage.cid = inChildID; // store database data string as a session variable
-	}
+	localStorage.cid = inChildID; // store database data string as a persistent variable
 	document.location.href = "personal_cat.html";
 }
