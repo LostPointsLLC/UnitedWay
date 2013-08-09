@@ -48,18 +48,9 @@ function verifyLogin() {
 			else if(ret=="SUCCESS"){ // Successful login	
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
-<<<<<<< HEAD
-					if(localStorage.remember == 1){
-						localStorage.pid = str[1];
-					}	
-					else{
-						sessionStorage.pid = str[1];
-					}
-					
-=======
 					localStorage.pid = str[1];
 					localStorage.remember=1;
->>>>>>> cd78620693c09a8db56d836ea5729d8e144e9605
+					
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
