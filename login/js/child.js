@@ -6,12 +6,8 @@ function updateDB(addAnotherChild) {
 	var bday = document.getElementById("bday").value;
 	var bdayArray = String(bday).split("/");
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
-	if(localStorage.remember==1){//if persistent login
-		posts = "name=" + name + "&child_parentID=" + localStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;	
-	}
-	else{
-		posts = "name=" + name + "&child_parentID=" + sessionStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;
-	}
+	posts = "name=" + name + "&child_parentID=" + localStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;	
+	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
 	    // Triggered if the user intended to add another child
@@ -118,18 +114,10 @@ function editDB() {
 		
 	    }
 	});
-	
-	if(localStorage.remember==1)
 		localStorage.dirty = '1';
-	else	
-		sessionStorage.dirty = '1';
     }
-    if(localStorage.remember==1){
-    	localStorage.removeItem('edit_childID');
-    }
-    else{
-    	sessionStorage.removeItem('edit_childID');
-    }
+    
+    localStorage.removeItem('edit_childID');
     document.location.href="../settings/";
     
 }
@@ -140,17 +128,10 @@ function editDB() {
 // If there are no changes, then this function returns zero.
 function getDataString(name, birthday, color, boy_gender) {
 
-	var id;
-	var attributes;
 	// First check whether it's actually worth returning a string
-	if(localStorage.remember==1){
-		id = localStorage.edit_childID;
-		attributes = jQuery.parseJSON(localStorage.jsonString);
-	}
-	else{
-		id = sessionStorage.edit_childID;
-		attributes = jQuery.parseJSON(sessionStorage.jsonString);
-	}
+	var	id = localStorage.edit_childID;
+	var	attributes = jQuery.parseJSON(localStorage.jsonString);
+
 	var flag = false;
 	var posts = "name=";
 	
@@ -240,29 +221,15 @@ $(document).ready(function() {
 	
 	// Indicates that we're entering from the settings page, and 
 	// we want to change attributes of a child
-	if(localStorage.remember==1){
-		if(parseInt(localStorage.edit_childID) >= 0) {
-			initializeEditingPage(parseInt(localStorage.edit_childID));
-		}
-	}
-	else{
-		if(parseInt(sessionStorage.edit_childID) >= 0) {
-			initializeEditingPage(parseInt(sessionStorage.edit_childID));
-		}
-	}
-	
 
+	if(parseInt(localStorage.edit_childID) >= 0) {
+		initializeEditingPage(parseInt(localStorage.edit_childID));
+	}
 });
 
 // Uses the existing jsonString to change the settings on the page
 function initializeEditingPage(id) {
-	var attributes;
-	if(localStorage.remember==1){
-		attributes = jQuery.parseJSON(localStorage.jsonString);
-	}
-	else{
-		attributes = jQuery.parseJSON(sessionStorage.jsonString);
-	}
+	var	attributes = jQuery.parseJSON(localStorage.jsonString);
 	var name 		= attributes[id]["child_name"];
 	var birthday 	= attributes[id]["child_birthday"];
 	var gender		= attributes[id]["child_gender"];
@@ -286,12 +253,7 @@ function initializeEditingPage(id) {
 
 function add() {
 	if(updateDB(true) == -1) return;
-	if(localStorage.remember==1){
-		localStorage.fromSettings = '0';
-	}
-	else{
-		sessionStorage.fromSettings = '0';
-	}
+	localStorage.fromSettings = '0';
 	document.location.href="child.html"; 
 }
 
@@ -299,22 +261,12 @@ function add() {
 
 function finish() { 
 	if(updateDB(false) == -1) return;
-	if(localStorage.remember==1){
-		localStorage.fromSettings = '0';
-	}
-	else{
-		sessionStorage.fromSettings = '0';
-	}
+	localStorage.fromSettings = '0';
 	document.location.href="../home/index.html"; 
 }
 
 function settings() {
 	if(updateDB(false) == -1) return;
-	if(localStorage.remember==1){
-		localStorage.fromSettings = '0';
-	}
-	else{
-		sessionStorage.fromSettings = '0';
-	}
+	localStorage.fromSettings = '0';
 	document.location.href="../settings/";
 }

@@ -5,16 +5,10 @@
 */
 
 $(document).ready(function() {
-	var childID;
-	var jsonStr;
-	if(localStorage.remember==1){
-		childID = localStorage.cid.toString();
-		jsonStr = localStorage.jsonString;
-	}
-	else{
-		childID = sessionStorage.cid.toString();
-		jsonStr = sessionStorage.jsonString;
-	}
+
+	var	childID = localStorage.cid.toString();
+	var	jsonStr = localStorage.jsonString;
+
 	var jObj = jQuery.parseJSON(jsonStr);
 	
 	// Print picture of child based on gender
@@ -45,21 +39,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex > 0) { // Not the first child in list
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[thisIndex - 1];
-			}
-			else{
-				sessionStorage.cid = indexList[thisIndex - 1];
-			}
+			localStorage.cid = indexList[thisIndex - 1];
 			location.reload();
 		}
 		else { // wrap around if first child
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[lastIndex];
-			}
-			else{
-				sessionStorage.cid = indexList[lastIndex];
-			}
+			localStorage.cid = indexList[lastIndex];
 			location.reload();
 		}
 	});
@@ -68,22 +52,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex < lastIndex) { // Not the last child in list
-			
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[thisIndex + 1];
-			}
-			else{
-				sessionStorage.cid = indexList[thisIndex + 1];
-			}
+			localStorage.cid = indexList[thisIndex + 1];
 			location.reload();
 		}
 		else {
-			if(localStorage.remember==1){
-				localStorage.cid = indexList[0];
-			}
-			else{
-				sessionStorage.cid = indexList[0];
-			}
+			localStorage.cid = indexList[0];
 			location.reload();
 		}
 	});
@@ -123,40 +96,20 @@ function addProgressBar(category, percentage) {
 }
 
 function clickHealth() {
-	if(localStorage.remember==1){
-		localStorage.cat = "1";
-	}
-	else{
-		sessionStorage.cat = "1";
-	}
+	localStorage.cat = "1";
 	document.location.href = "checklist.html";
 }
 
 function clickLang() {
-	if(localStorage.remember==1){
-		localStorage.cat = "2";
-	}
-	else{
-		sessionStorage.cat = "2";
-	}
+	localStorage.cat = "2";
 	document.location.href = "checklist.html";
 }
 
 function clickSocial() {
-	if(localStorage.remember==1){
-		localStorage.cat = "3";
-	}
-	else{
-		sessionStorage.cat = "3";
-	}
+	localStorage.cat = "3";
 	document.location.href = "checklist.html";
 }
 function clickOther() {
-	if(localStorage.remember==1){
-		localStorage.cat = "4";
-	}
-	else{
-		sessionStorage.cat = "4";
-	}
+	localStorage.cat = "4";
 	document.location.href = "checklist.html";
 }

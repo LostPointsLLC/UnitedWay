@@ -8,16 +8,8 @@ var gBin;
 var dataString;
 
 $(document).ready(function() {
-	var childID; // session current child ID
-	var taskCat; // session current task category
-	if(localStorage.remember==1){
-		childID = localStorage.cid.toString(); // persistent current child ID
-		taskCat = localStorage.cat.toString(); // persistent current task category
-	}
-	else{
-		childID = sessionStorage.cid.toString(); // session current child ID
-		taskCat = sessionStorage.cat.toString(); // session current task category
-	}
+	var childID = localStorage.cid.toString(); // localStorage current child ID
+	var taskCat = localStorage.cat.toString(); // localStorage current task category
 	dataString = "childID=" + childID + "&taskID=" + taskCat;
 
 	$.ajax({
@@ -44,20 +36,12 @@ $(document).ready(function() {
 // Called when page is being exited	
 $(window).unload( function () {
 	var newProgressStr = gBin.join('');				// Converts the global array into a string
-	var currentJsonStr;
-	var catStorage;
-	var childID;
+	
 	// First update current session variables, to correctly print percentages
-	if(localStorage.remember==1){
-		currentJsonStr = localStorage.jsonString;
-		catStorage = localStorage.cat.toString();
-		childID = localStorage.cid.toString();
-	}
-	else{
-		currentJsonStr = sessionStorage.jsonString;
-		catStorage = sessionStorage.cat.toString();
-		childID = sessionStorage.cid.toString();
-	}
+	var	currentJsonStr = localStorage.jsonString;
+	var	catStorage = localStorage.cat.toString();
+	var	childID = localStorage.cid.toString();
+
 	var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
 	
 	// Figure out what category check list this is
@@ -77,12 +61,7 @@ $(window).unload( function () {
 			break;
 	}
 	parsedCurrentJsonStr[childID][category] = newProgressStr;
-	if(localStorage.remember == 1){
-		localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-	}
-	else{
-		sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-	}
+	localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
 	var updateString = dataString + "&newString=" + newProgressStr;
 	
 	$.ajax({ // update database with new check binary string

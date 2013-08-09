@@ -40,7 +40,7 @@ function verifyLogin() {
 			console.log(response);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
 				else
 				document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
@@ -48,6 +48,7 @@ function verifyLogin() {
 			else if(ret=="SUCCESS"){ // Successful login	
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
+<<<<<<< HEAD
 					if(localStorage.remember == 1){
 						localStorage.pid = str[1];
 					}	
@@ -55,19 +56,23 @@ function verifyLogin() {
 						sessionStorage.pid = str[1];
 					}
 					
+=======
+					localStorage.pid = str[1];
+					localStorage.remember=1;
+>>>>>>> cd78620693c09a8db56d836ea5729d8e144e9605
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
-					if(sessionStorage.lang=="ENG")
+					if(localStorage.lang=="ENG")
 						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 					else
 						document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
 				}
 			}
 			else{
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "Server error. Please try again later";
 				else
 					document.getElementById("result").innerHTML = "Error del servidor. Por favor, vuelve a intentarlo m&aacute;s tarde ...";
@@ -82,26 +87,8 @@ function verifyLogin() {
 }	
 
 function setDefaultStorage() {
-	if(localStorage.remember==1){
-		localStorage.rss = 'cpl';				// For the news feed page.
-		localStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		localStorage.fromSettings = '0';	
-	}
-	else{
-		sessionStorage.rss = 'cpl';				// For the news feed page.
-		sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		sessionStorage.fromSettings = '0';
-	}	
-}
-var count = 0;
-//function to rmb login settings
-function rmblogin(){
-	count++;//count is used to check if user checks or unchecks the box.
-	localStorage.remember = 1;
-	if(count==2){
-		localStorage.clear();//clears the bit of remembering pid.
-		count = 0;
-}	
+	localStorage.rss = 'cpl';				// For the news feed page.
+	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.jsonString variable is dirty
+	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
+	localStorage.fromSettings = '0';	
 }

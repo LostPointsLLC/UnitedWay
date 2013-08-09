@@ -6,7 +6,7 @@ function changeSettings() {
 
 
 function editChild(id) {
-	sessionStorage.edit_childID = id;
+	localStorage.edit_childID = id;
 	document.location.href='../login/child.html';
 }
 
@@ -73,8 +73,8 @@ function promptDelete(name) {
 
 
 function addChild() {
-	sessionStorage.dirty = '1';
-	sessionStorage.fromSettings = '1';
+	localStorage.dirty = '1';
+	localStorage.fromSettings = '1';
 	document.location.href="../login/child.html";
 }
 
