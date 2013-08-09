@@ -108,7 +108,7 @@ function getRSSItem(entry, i) {
 
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
-	var content	= "<a href='" + entry.link + "'>" + entry.title + "</a>";
+	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
 	return outerdiv + innerdiv + content;
