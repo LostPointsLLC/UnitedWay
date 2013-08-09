@@ -3,28 +3,129 @@
 <!-- A VERY temporary solution to a actual rss file until we can get one running -->
 <html lang = "en">
 
-	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
-		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
-		<link rel="stylesheet" href="../css/jqueryui.css" type="text/css"/>
-		<link rel="stylesheet" href="css/books.css" type="text/css"/>
-		<script src="../js/generator.js"></script>
-		<script src="../js/jquery-1.10.1.min.js"></script>
-		<script src="../js/jqueryui.js"></script>
-
-		<script src='js/books.js'></script>
-		<title>Books</title> 
-	</head>
+<head>
+	<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/default.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
+	<link rel="stylesheet" href="css/books.css" type="text/css"/>
+	<script src="../js/generator.js"></script>
+	<script src="../js/jquery-1.10.1.min.js"></script>
+	<script src="../js/jquery.mobile-1.3.2.js"></script>
+	<script src='js/books.js'></script>
+	<title>Books</title> 
+</head>
   
-	<body>
-		<!--<div id='headAnchor'></div>-->
-		<script>
-		generateHeader("Books", true, true);
-		</script>
-		<div class="wrapper">
-			<br><br><br>
-			<div id='content'></div>
-		</div>
-	</body>
+<body>
+<script>
+	generateHeader("Books", true, true);
+</script>
+<div class="wrapper">
+	<div class='title-box'>
+		<h2 class='title-text'>0-2 Years</h2>
+	</div>
+	<a onmousedown="changeBooks(2)"><img class='arrow right' src="../images/right-arrow.png" alt="right arrow"></a>
+	<div id="page1">
+		<div data-role="content">
+			<div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed="false">
+					<h5>Board Books</h5>
+					<p><i>The Bear Went Over the Mountain</i> by Rosemary Wells</p>
+					<p><i>Brown Bear, Brown Bear, What Do You See?</i> by Bill Martin, Jr.</p>
+					<p><i>Clap Hands</i> by Helen Oxenbury</p>
+					<p><i>Goodnight Moon</i> by Margaret Wise Brown</p>
+					<p><i>Moo, Baa, La, La, La</i> by Sandra Boynton</p>
+					<p><i>Old MacDonald Had a Farm</i> by Pam Adams</p>
+					<p><i>Peek-a-who?!</i> by Nina Laden</p>
+					<p><i>Wheels on the Bus</i> by Raffi</p>
+				</div>
+      			<div data-role="collapsible">
+        			<h3>Nursery Rhymes & Poetry Favorites</h3>
+        			<p><i>Good For You! Toddler Rhymes for Toddler Times</i> by Stephanie Calmenson</p>
+        			<p><i>Read Aloud Rhymes for the Very Young</i></p>
+        			<p><i>Tomie dePaola&lsquo;s Mother Goose</i> by Tomie dePaola</p>
+        			<p><i>Welcome, Baby! Baby Rhymes for Baby Times</i> by Stephanie Calmenson</p>
+        			<p><i>Pat-A-Cake and Other Play Rhymes</i> by Joanna Cole</p>
+      			</div>
+      			<div data-role="collapsible">
+       				<h3>Good "Looking: Books"</h3>
+        			<p>
+        			Babies watch everything. Books with strong color contrasts really grab their attention. So, take your little one on your lap, hold one of these books about eighteen inches from your baby&lsquo; s face and begin. And remember: your warmth, the sound of your voice, and your closeness are the real story!
+      				</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Black & White Books</h3>
+        			<p><i>Look at the Animals!</i> by Peter Linenthal</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Books with Bright Colors</h3>
+        			<p><i>Quite Loud</i> by Leslie Patricelli</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Faces</h3>
+        			<p>Babies are born predisposed to find faces interesting. Research has shown that an infant pays attention to human faces longer than anything else.</p>
+        			<p><i>Baby Faces: Eat!</i> by Roberta Grobel Intrater</p>
+        			<p><i>Baby Faces: Smile!</i> by Roberta Grobel Intrater</p>
+        			<p><i>Baby Faces: Splash!</i> by Roberta Grobel Intrater</p>
+        			<p><i>Baby Faces</i> by Margaret Miller</p> 
+        			<p><i>Clap Hands</i> by Helen Oxenbury</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Common Objects to Identify (First Words)</h3>
+        			<p>Infants are most interested in pictures of familiar things. Picture books that pair a picture of a single object with a word help children to learn new vocabulary.</p>
+        			<p><i>Baby&lsquo;s First Words</i> by Vic Heatherton</p>
+        			<p><i>My Food (Getting to Know the World)</i> by Heidi Johansen</p>
+        			<p><i>Baby Bathtime</i> by Dawn Serit</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Daily Routines</h3>
+        			<p><i>Time for Bed</i> by Mem Fox</p>
+        			<p><i>Uh-oh!</i> by Rachel Isadora</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Books to Manipulate</h3>
+        			<p>As soon as they are able, young children are &ldquo;hands-on&rdquo; learners. Using books that they can rattle, touch and feel, lift-the-lap, etc. engages their senses and adds interest.</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Touch & Feel</h3>
+        			<p><i>Bathtime (touch & feel)</i> by DK Publishing</p>
+        			<p><i>Pat the Bunny</i>by Dorothy Kunhardt</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Lift-the-flap</h3>
+        			<p><i>Peek-a-Moo</i> by Marie Torres Cimarusti</p>
+        			<p><i>Where&lsquo;s Spot?</i> by Eric Hill</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Playful Language</h3>
+        			<p><i>Perfect Piggies: A Book! A Song!: A Celebration</i> by Sandra Boynton</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>American Sign Language</h3>
+        			<p><i>Teach Your Baby to Sign: An Illustrated Guide to Simple Sign Language for Babies</i> by Monica Beyer</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Diversity</h3>
+        			<p><i>Global Babies by Global Fund for Children</i></p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Stories to Share</h3>
+        			<p><i>A Good Day</i> by Kevin Henkes</p>
+        			<p><i>Guess How Much I Love You?</i> by Sam McBratney</p>
+        			<p><i>Read to Your Bunny</i> by Rosemary Wells</p>
+      			</div>
+      			<div data-role="collapsible">
+        			<h3>Stories to Read in Toddler Storytime</h3>
+        			<p><i>Five Little Monkeys Jumping on the Bed</i> by Eileen Christelow</p>
+        			<p><i>It Looked Like Spilt Milk</i> by Charles Shaw</p>
+        			<p><i>Old MacDonald</i> by Jessica Souhami</p>
+        			<p><i>Spots, Feathers and Curly Tails</i> by Nancy Tafuri</p>
+        			<p><i>I Went Walking</i>by Sue Williams</p>
+        			<p><i>How Do Dinosaurs Say Good Night?</i> by Jane Yolen</p>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+</div>
+</body>
 </html>
