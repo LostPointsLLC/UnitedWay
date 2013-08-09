@@ -15,7 +15,7 @@
 		<div class="wrapper">
 
 			<script>
-			if(sessionStorage.lang=="ENG"){
+			if(localStorage.lang=="ENG"){
 				generateHeader("Welcome!", false, false);
 				generateMainText("<br><div id=\"mainText\"><p class='mini-head'>Welcome to the United Way of Champaign County Pre-K app!</p><p>Please log in below.</p></div>");
 			}
@@ -27,11 +27,10 @@
 			<div id="content">
 				<div id='login-fields'>
 					<script>
-					if(sessionStorage.lang=="ENG"){
+					if(localStorage.lang=="ENG"){
 						generateInputText("Email Address", "", "email", "email");
 						document.write("<br>");
 						generateInputText("Password", "", "password", "password");
-						document.write("<div id=\"rememberme\"><input type='checkbox' name='rememberme' onmousedown = \"rmblogin()\"/><label for=\"rememberme\">Remember Me?</label></div>");
 					}
 					else{
 						generateInputText("Email Address", "", "email", "email");
@@ -47,7 +46,7 @@
 		
 				<div id="option-links">
 					<script>
-					if(sessionStorage.lang=="ENG"){
+					if(localStorage.lang=="ENG"){
 						generateButton("I'm a new user", "new-user", "bt-yellow", "registration()");
 						generateButton("Log in", "login", "bt-yellow", "verifyLogin()");
 					}

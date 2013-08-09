@@ -45,12 +45,7 @@ function verifyLogin() {
 			else if(ret=="SUCCESS"){ // Successful login	
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				if(typeof(Storage) !== "undefined"){
-					if(localStorage.remember == 1){
-						localStorage.pid = str[1];
-					}	
-					else{
-						sessionStorage.pid = str[1];
-					}
+					localStorage.pid = str[1];
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
@@ -77,26 +72,8 @@ function verifyLogin() {
 }	
 
 function setDefaultStorage() {
-	if(localStorage.remember==1){
-		localStorage.rss = 'cpl';				// For the news feed page.
-		localStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		localStorage.fromSettings = '0';	
-	}
-	else{
-		sessionStorage.rss = 'cpl';				// For the news feed page.
-		sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		sessionStorage.fromSettings = '0';
-	}	
-}
-var count = 0;
-//function to rmb login settings
-function rmblogin(){
-	count++;//count is used to check if user checks or unchecks the box.
-	localStorage.remember = 1;
-	if(count==2){
-		localStorage.clear();//clears the bit of remembering pid.
-		count = 0;
-}	
+	localStorage.rss = 'cpl';				// For the news feed page.
+	localStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
+	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
+	localStorage.fromSettings = '0';	
 }
