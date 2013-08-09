@@ -17,7 +17,10 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Resources", true, true);
+			if(localStorage.lang=="ENG")
+				generateHeader("Resources", true, true);
+			else
+				generateHeader("Recursos", true, true);
 			</script>
 
 			<div class="content">
