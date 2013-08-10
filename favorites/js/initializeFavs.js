@@ -13,13 +13,13 @@ function initializeFavs() {
 	displayFavEvents(favHeap.eventsArray);
 	
 	assignDataRoles();
+	$('#set').collapsibleset('refresh');
 }
 
 function assignDataRoles() {
 
 	/* Assigns the "collapsible" data role to sections */
 	var sections = document.getElementsByClassName("section");
-	alert(sections);
 	for(var i = 0; i < sections.length; i++)
 		sections[i].setAttribute("data-role", "collapsible");
 
