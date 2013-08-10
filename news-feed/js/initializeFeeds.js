@@ -151,22 +151,40 @@ function getOptions() {
 
 	switch(feed) {
 		case 'cpl':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+			else
+				return " \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option> \
 				<option value='uw'>United Way Blog</option>"
 
 		case 'uw':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option> \
 				<option value='cm'>Chambanamoms</option>"
+			else
+				return " \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
+				<option value='cm'>Chambanamoms</option>"
 
 		case 'cm':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='cm'>Chambanamoms</option> \
 				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option>"
+			else
+				return " \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>"
 
 		default:
 			console.log("Get henry to debug this page. It's not working right!!");
