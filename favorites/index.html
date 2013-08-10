@@ -22,21 +22,39 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Favorites", true, true);
+			if(localStorage.lang=="ENG")
+				generateHeader("Favorites", true, true);
+			else
+				generateHeader("Favoritos", true, true);
 			</script>
 			<br><br><br>
 			<div data-role="content">
 				<div data-role="collapsible-set">
 					<div data-role="collapsible">
-						<h3 id="news-feed-head">News Feed</h3>
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"news-feed-head\">News Feed</h3>");
+						else
+							document.write("<h3 id=\"news-feed-head\">Noticias RSS</h3>");
+						</script>
 						<div id="news-feed-content"></div>
 					</div>
 					<div data-role="collapsible">
-						<h3 id="tips-head">Tips</h3>
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"tips-head\">Tips</h3>");
+						else
+							document.write("<h3 id=\"tips-head\">Consejos</h3>");
+						</script>
 						<div id="tips-content"></div>
 					</div>
 					<div data-role="collapsible">
-						<h3 id="events-head">Events</h3>
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"events-head\">Events</h3>");
+						else
+							document.write("<h3 id=\"events-head\">Eventos</h3>");
+						</script>
 						<div id="events-content"></div>
 					</div>
 				</div>
