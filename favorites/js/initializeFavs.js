@@ -1,13 +1,7 @@
 
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-	var favHeap;
-	if(localStorage.remember==1){
-		favHeap = getFavHeap(parseInt(localStorage.pid));
-	}
-	else{
-		favHeap = getFavHeap(parseInt(sessionStorage.pid));
-	}
+	var favHeap = getFavHeap(parseInt(localStorage.pid));
 	displayFavNews(favHeap.rssArray);
 	displayFavTips(favHeap.tipsArray);
 	displayFavEvents(favHeap.eventsArray);
@@ -52,7 +46,10 @@ function displayFavNews(rssArray) {
 	 */
 	var outputString = "";
 	if(!rssArray.length) {
-		outputString += "<p>No news to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No news to display!</p>";
+		else
+			outputString += "<p>No hay noticias para mostrar!</p>";
 		rssPointer.innerHTML += outputString;
 		return;
 	}	 
@@ -90,7 +87,10 @@ function displayFavTips(tipsArray) {
 	 
 	var outputString = "";
 	if(!tipsArray.length) {
-		outputString += "<p>No tips to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No tips to display!</p>";
+		else
+			outputString += "<p>No hay consejos para mostrar!</p>";
 		tipsPointer.innerHTML += outputString;
 		return;
 	}	
@@ -151,7 +151,10 @@ function displayFavEvents(eventsArray) {
 	 * We don't have the content from the scraper yet, so we'll let that one rest.
 	 */
 	if(!eventsArray.length) {
-		outputString += "<p>No events to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No events to display!</p>";
+		else
+			outputString += "<p>No hay eventos para mostrar!</p>";
 		eventsPointer.innerHTML += outputString;
 		return;
 	}

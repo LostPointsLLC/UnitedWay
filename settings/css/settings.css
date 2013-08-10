@@ -40,7 +40,11 @@
 	color: white;
 
 }
-
+.language{
+	padding-top:33px;
+	padding-left:25px;
+	padding-bottom:35px;
+}
 /*******************************************************************/
 .spritecell {
 position: relative;
@@ -126,15 +130,20 @@ margin-right: 55px;
 	display: block;
 }
 
+#langname{
+	float:left;
+}
+#inputbox{
+position: relative;
+width: 120px;
+float: right;
+right:5px;
+}
 #addChild {
 	position: relative;
-	
-
 }
 
 #logout{
 	position: relative;
 	margin-left: 10px;
-
-
 }
