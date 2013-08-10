@@ -8,8 +8,27 @@ var gBin;
 var dataString;
 
 $(document).ready(function() {
+	
 	var childID = localStorage.cid.toString(); // localStorage current child ID
 	var taskCat = localStorage.cat.toString(); // localStorage current task category
+	switch(taskCat) {
+		case "1":
+			category = "health_code";
+			break;
+		case "2":
+			category = "language_code";
+			break;
+		case "3":
+			category = "social_code";
+			break;
+		case "4":
+			category = "other_code";
+			break;
+	}
+	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
+	var binStr = jObj[childID][category]; // fetch binary string from object
+	console.log(binStr);
+	/*
 	dataString = "childID=" + childID + "&taskID=" + taskCat;
 
 	$.ajax({
@@ -31,10 +50,58 @@ $(document).ready(function() {
 			});
 		}
 	});
+	*/
+	initializeTasks(binStr, taskCat);
+	$("input").change(function(){
+		if (!$(this).is(':checked')) {
+			var clickedID = $(this).attr('id');
+			gBin[parseInt(clickedID)] = "b";
+		}
+		else {
+			var clickedID = $(this).attr('id');
+			gBin[parseInt(clickedID)] = "a";
+		}
+	});
+	
 });
 			
 // Called when page is being exited	
 $(window).unload( function () {
+	var newProgressStr = gBin.join('');				// Converts the global array into a string
+	
+	// First update current session variables, to correctly print percentages
+	var	catStorage = localStorage.cat.toString();
+	var	childID = localStorage.cid.toString();
+
+	var parsedCurrentJsonStr = jQuery.parseJSON(localStorage.childJsonObject);
+	
+	// Figure out what category check list this is
+	var category = "";
+	switch(catStorage) {
+		case "1":
+			category = "health_code";
+			break;
+		case "2":
+			category = "language_code";
+			break;
+		case "3":
+			category = "social_code";
+			break;
+		case "4":
+			category = "other_code";
+			break;
+	}
+	// Configure child dirty bit collection, used later when sync with online database
+	var childDB = jQuery.parseJSON(localStorage.childTracker);
+	childDB[childID] = true;
+	localStorage.childTracker = JSON.stringify(childDB);
+	
+	// Store final version back into child JSON object
+	parsedCurrentJsonStr[childID][category] = newProgressStr;
+	localStorage.childJsonObject = JSON.stringify(parsedCurrentJsonStr);
+	console.log(localStorage.childTracker);
+
+	/*
 	var newProgressStr = gBin.join('');				// Converts the global array into a string
 	
 	// First update current session variables, to correctly print percentages
@@ -71,6 +138,8 @@ $(window).unload( function () {
 		cache: false,
 		async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
 	});
+	
+	*/
 });
 
 // Iterate through array of task bits, create list of tasks based off of this

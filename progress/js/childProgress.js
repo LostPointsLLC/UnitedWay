@@ -7,7 +7,7 @@
 $(document).ready(function() {
 
 	var	childID = localStorage.cid.toString();
-	var	jsonStr = localStorage.jsonString;
+	var	jsonStr = localStorage.childJsonObject;
 
 	var jObj = jQuery.parseJSON(jsonStr);
 	

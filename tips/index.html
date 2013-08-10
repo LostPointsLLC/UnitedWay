@@ -17,7 +17,10 @@
 
 	<body>
 		<script type="text/javascript">
-		generateHeader("Tips", true, true);
+		if(localStorage.lang=="ENG")
+			generateHeader("Tips", true, true);
+		else
+			generateHeader("Consejos", true, true);
 		</script>
 		<div class="wrapper">
 			<div id = "content"></div>

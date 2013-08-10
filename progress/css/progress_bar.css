@@ -101,7 +101,9 @@ body{
 	margin-bottom: 12px;
 	color:#ffffff;
 }
-
+.button-text{
+	top:-4px;
+}
 /****************THE HEALTH BUTTON*******************/
 
 .bt-health {

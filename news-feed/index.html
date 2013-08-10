@@ -23,7 +23,10 @@
 	</head>
 	<body>
 		<script>
-		generateHeader("News Feeds", true, true);
+		if(localStorage.lang=="ENG")
+			generateHeader("News Feeds", true, true);
+		else
+			generateHeader("Noticias Externas", true, true);
 		</script>
 		<div class="wrapper">			
 			<div id="content">

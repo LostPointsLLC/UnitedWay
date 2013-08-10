@@ -1,35 +1,5 @@
-<!DOCTYPE html>
-<!-- Changed from: <html xmlns="http://www.w3.org/1999/xhtml"> -->
-<!-- A VERY temporary solution to a actual rss file until we can get one running -->
-<html lang = "en">
-
-<head>
-	<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
-	<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-	<link rel="stylesheet" href="../css/default.css" type="text/css"/>
-
-	
-		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
-		<link rel="stylesheet" href="css/books.css" type="text/css"/>
-	<script src="../js/generator.js"></script>
-	<script src="../js/jquery-1.10.1.min.js"></script>
 	<script src="../js/jquery.mobile-1.3.2.js"></script>
-	<script src='js/books.js'></script>
-  <script>
-    function checkLang(){
-      if(localStorage.lang=="ESP")
-        document.location.href = "books_es.html";
-    }
-    checkLang();
-  </script>
-	<title>Books</title> 
-</head>
-  
-<body>
-<script>
-	generateHeader("Books", true, true);
-</script>
-<div class="wrapper">
+<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 	<div class='title-box'>
 		<h2 class='title-text'>0-2 Years</h2>
 	</div>
@@ -37,7 +7,7 @@
 	<div id="page1">
 		<div data-role="content">
 			<div data-role="collapsible-set">
-				<div data-role="collapsible">
+				<div data-role="collapsible" data-collapsed="false">
 					<h5>Board Books</h5>
 					<p><i>The Bear Went Over the Mountain</i> by Rosemary Wells</p>
 					<p><i>Brown Bear, Brown Bear, What Do You See?</i> by Bill Martin, Jr.</p>
@@ -135,6 +105,3 @@
     		</div>
   		</div>
 	</div>
-</div>
-</body>
-</html>
