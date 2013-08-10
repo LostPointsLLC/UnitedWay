@@ -69,7 +69,7 @@
 	border-radius: 0;
 }
 .ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner {
-	padding-left:25px;
+	/*padding-left:25px;*/
 }
 .ui-collapsible-inset .ui-collapsible-content {
 	padding: 1em 2.2em;
