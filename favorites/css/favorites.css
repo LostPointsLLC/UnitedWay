@@ -56,3 +56,22 @@
 	margin-right: 10px;
 	margin-top: 20%
 }
+
+
+/******************** accordion ***********************/
+.ui-content {
+	padding: 0;
+
+}
+
+#content {
+	position: relative;
+	top: 50px;
+
+}
+
+.ui-btn-text {
+	position: relative;
+	left: 30px;
+
+}
