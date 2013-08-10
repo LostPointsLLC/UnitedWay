@@ -50,14 +50,15 @@ function displayFavNews(rssArray) {
 			outputString += "<p>No news to display!</p>";
 		else
 			outputString += "<p>No hay noticias para mostrar!</p>";
+			
 		rssPointer.innerHTML += outputString;
 		return;
 	}	 
+	
 	for(var i = 0; i < rssArray.length ; i++) {
 		var rss = rssArray[i];
-		var parity 		= (i % 2 == 0) ? "even" : "odd";
 		var last 	= (i == rssArray.length-1) ? "last-item" : "";
-		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + rss.fav_id +"'>"
+		outputString += "<div class='list-item " + last + "' id='" + rss.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
 		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
 		outputString += "</div>";
