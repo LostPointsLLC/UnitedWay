@@ -37,6 +37,7 @@ function verifyLogin() {
 		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
 			var response = httpRequest.responseText.trim();
 			var str = response.split("|");
+			console.log("===== Raw User Data brought from login.php =====");
 			console.log(response);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
@@ -49,10 +50,19 @@ function verifyLogin() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
 					// Assign Local Objects used throughout app
-					localStorage.pid = str[1]; // pid
+					localStorage.pid = str[1].trim(); // pid
 					localStorage.childJsonObject = str[2]; // Child JSON Object
 					localStorage.tipJsonObject = str[3]; // Tip JSON Object
-					localStorage.rssJsonObject = str[4]; // Rss JSON Object
+					
+					var linkIdArray = {};
+					var pairArray = jQuery.parseJSON(str[4]);
+					for(var i = 0; i < pairArray.length; i++) {
+						var link = pairArray[i][1];
+						var id = pairArray[i][0];
+						linkIdArray[link] = id;		// Stores everything as a link-id pair
+					}
+					localStorage.rssJsonObject = JSON.stringify(linkIdArray); // Rss JSON Object
+					localStorage.rssBackupObject = JSON.stringify(linkIdArray); // Rss Backup (for remove array)
 					/*
 					 * Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
 					 * These objects MUST be cleared and re-initialized after syncing with the database (this is handled in update script).
@@ -81,8 +91,12 @@ function verifyLogin() {
 					
 					localStorage.addObj = JSON.stringify(addFavArr);
 					localStorage.delObj = JSON.stringify(delFavArr); 
-					console.log(localStorage.addObj);
-					console.log(localStorage.delObj);
+					
+					// Keep add & remove arrays for rss favorites.
+					localStorage.rssAddObj = "{}";
+					localStorage.rssRemObj = "{}";
+					localStorage.fakeIdIncrement = "0";
+					
 					// etc...
 					localStorage.remember=1;
 					setDefaultStorage();								

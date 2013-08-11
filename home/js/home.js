@@ -26,5 +26,22 @@ function generateHomeHeader(text, fav, settings, help) {
 		document.write("<div class='fav'><a href='../favorites/'><img class='head-bt' id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
 
 	document.write("</div>");	
-
+	/*
+	console.log("===== Child JSON Object =====");
+	console.log(localStorage.childJsonObject);
+	console.log("===== Tip JSON Object =====");
+	console.log(localStorage.tipJsonObject);
+	*/
+	//console.log("===== Rss JSON Object =====");
+	//console.log(localStorage.rssJsonObject);
+	/*
+	console.log("===== Child Dirty-bit collection =====");
+	console.log(localStorage.childTracker);
+	console.log("===== Add & Remove arrays for favoured/unfavoured tips =====");
+	console.log(localStorage.addObj);
+	console.log(localStorage.delObj);
+	*/
+	//console.log("===== Add & Remove arrays for favoured/unfavoured feeds, fake id increment =====");
+	//console.log(localStorage.rssAddObj);
+	//console.log(localStorage.rssRemObj);
 }
