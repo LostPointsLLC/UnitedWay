@@ -7,9 +7,11 @@
 .content {
 
 	margin: 0 auto;
-	padding-top: 110px;
+	position: relative;
+	top: 120px;
 }
 
+/*
 .content > div {
 	height: 39px;
 	border-top: 1px solid #cccccc;
@@ -19,7 +21,7 @@
 .content > div:last-child {
 	border-bottom: 1px solid #cccccc;
 
-}
+}*/
 
 .inner-text {
 	position: relative;
