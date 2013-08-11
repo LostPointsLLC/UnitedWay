@@ -8,6 +8,7 @@ function initializeFavs() {
 	
 	assignDataRoles();
 	$('#set').collapsibleset('refresh');
+	
 }
 
 function assignDataRoles() {
