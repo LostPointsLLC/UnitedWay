@@ -1,19 +1,41 @@
-/* Introduces the Chunkfive font family into the stylesheet */
-@font-face {
-    font-family: 'Chunkfive';
-    src: url('../fonts/Chunkfive-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 .wrapper{
 	height:auto;
 }
+
+
 .content {
 
 	margin: 0 auto;
-	padding-top: 55px;
+	padding-top: 110px;
 }
 
+.content > div {
+	height: 39px;
+	border-top: 1px solid #cccccc;
+
+}
+
+.content > div:last-child {
+	border-bottom: 1px solid #cccccc;
+
+}
+
+.inner-text {
+	position: relative;
+	top: 12px;
+	text-indent: 25px;
+	vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+/*
 .textcontent {
 	margin: 0 auto;
 	padding-left: 25.5px;
@@ -22,17 +44,19 @@
 	padding-top:57px;
 }
 
+/*
 .inner-text {
 
 	position: relative;
 	/*margin-left: 20px;*/	
+	/*
 	padding-top: 15px;
 	font-family: helvetica, geneva, sans serif;
 	padding-left: 25.5px;	
 	padding-right: 25.5px;
 
 }
-
+*/
 /*separate styling for st.joseph since the name is too long*/
 /*.stJoseph {
 
@@ -45,10 +69,11 @@
 
 }*/
 
-
+/*
 .backarrow{
 
 	position:relative;
 	left:15px;
 
 }
+*/

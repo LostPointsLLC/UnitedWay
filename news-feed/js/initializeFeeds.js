@@ -85,8 +85,6 @@ function displayfeed(result){
 *
 */
 function getRSSItem(entry, i) {
-	// Binds a class to items based upon parity numbered rss items
-	var parity = assignParity(i);
 
 	// Checks whether an item has been favorited or not
 	var favorite;
@@ -100,7 +98,7 @@ function getRSSItem(entry, i) {
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
 
-	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
@@ -190,17 +188,6 @@ function getOptions() {
 }
 
 
-
-
-
-
-
-function assignParity(i) {
-
-	if(i % 2 == 0)	return "even";
-	else 			return "odd";
-
-}
 
 /* Checks whether the entry is in the global feedArray
  * Currently, I can only do a O(n) algorithm for this, but
