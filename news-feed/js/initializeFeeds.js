@@ -110,7 +110,7 @@ function getRSSItem(entry, i) {
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
-		content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
+		content += "<p style='margin: 0'>" + getTimes(entry.content);
 	return outerdiv + innerdiv + content;
 
 }
