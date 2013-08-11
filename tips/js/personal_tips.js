@@ -109,27 +109,37 @@ function displayTips(param) {
 			ctnClass = "tip-ctn-odd";
 			ppClass = "pp-odd";
 		}
+		
+		// Determines whether an item is the last one or not. If it is, assign it the "last-item" class
+		var last;
+		if(i == tipArray.length - 1) 
+			last = "";
+		else last = "last-item";
+		
+		
 			
 		var entry;
 		if (jQuery.inArray(i, favArray) != -1) {
-			entry = "<div id = '" + i + "' class='" + ctnClass + "-fav' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div id = '" + i + "' class='" + ctnClass + "-fav tip-item " + last + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
 		}
 		else {
-			entry = "<div id = '" + i + "' class='" + ctnClass + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div id = '" + i + "' class='" + ctnClass + " tip-item " + last + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
 		}
+		
+
 		$("#frontpiece").append(entry);
 	}
 	// Bind tips (.on, live method)
 	// WHEN USER CLICKS TO FAVORITE
 	$(document).on("click", ".tip-ctn-even", function() {
-		$(this).attr("class","tip-ctn-even-fav");
+		$(this).removeClass("tip-ctn-even").addClass("tip-ctn-even-fav"); 
 		var favIndex = $(this).attr('id');
 		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
 	$(document).on("click", ".tip-ctn-odd", function() {
-		$(this).attr("class","tip-ctn-odd-fav");
+		$(this).removeClass("tip-ctn-odd").addClass("tip-ctn-even-fav");
 		var favIndex = $(this).attr('id');
 		var favIndex = favIndex;
 		addToFavArr(favIndex);
@@ -137,14 +147,14 @@ function displayTips(param) {
 	
 	// WHEN USER CLICKS TO UNFAVORITE
 	$(document).on("click", ".tip-ctn-even-fav", function() {
-		$(this).attr("class","tip-ctn-even");
+		$(this).removeClass("tip-ctn-even-fav").addClass("tip-ctn-even");
 		var favIndex = $(this).attr('id');
 		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 
 	$(document).on("click", ".tip-ctn-odd-fav", function() {
-		$(this).attr("class","tip-ctn-odd");
+		$(this).removeClass("tip-ctn-odd-fav").addClass("tip-ctn-odd");
 		var favIndex = $(this).attr('id');
 		var favIndex = favIndex;
 		delToFavArr(favIndex);

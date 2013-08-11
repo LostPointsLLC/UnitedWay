@@ -211,37 +211,50 @@ vertical-align: middle;
 	width: 100%;
 
 }
-.tip-ctn-even-fav,
-.tip-ctn-even{
+
+.tip-item {
 	margin: 0 auto;
-	width: 100%;
 	display: block;
-	border-bottom: #003366 2px solid;
-	background-color: #00549b;
+	
+	border-top: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+
+	background-image: url("../../images/unpressed-star-button-even.png");
+	background-repeat:no-repeat;
+	background-position: 97% 50%;
+	background-size:40px 40px;
+	
+}
+
+.tip-ctn-even-fav, .tip-ctn-even{
+
+
 	background-image:url("../../images/unpressed-star-button-even.png");
 	background-repeat:no-repeat;
-	background-position:95% 50%;
+	background-position: 97% 50%;
 	background-size:40px 40px;
 }
-.tip-ctn-odd-fav,
-.tip-ctn-odd{
-	margin: 0 auto;
-	width: 100%;
-	display: block;
-	border-bottom: #003366 2px solid;
-	background-color: #9999ff;
-	background-image:url("../../images/unpressed-star-button-even.png");
+.tip-ctn-odd-fav, .tip-ctn-odd{
+
+	background-image: url("../../images/unpressed-star-button-even.png");
 	background-repeat:no-repeat;
-	background-position:95% 50%;
+	background-position: 97% 50%;
 	background-size:40px 40px;
 }
 
 .tip-ctn-even-fav {
 	background-image:url("../../images/star-button.png");
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+	background-size:40px 40px;
 }
 
 .tip-ctn-odd-fav {
 	background-image:url("../../images/star-button.png");
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+	background-size:40px 40px;
 }
 
 .tip {
@@ -249,6 +262,7 @@ vertical-align: middle;
 	padding: 10px 10px 10px 10px;
 	width: 80%;
 	display: inline-block;
+	color: white;
 
 
 }
@@ -257,14 +271,6 @@ vertical-align: middle;
 .pp-odd,
 .pp{
 	font-family: arial, helvetica, sans-serif;
-}
-
-.pp-even {
-	color: white;
-}
-
-.pp-odd {
-	color: white;
 }
 
 .wrapper{
