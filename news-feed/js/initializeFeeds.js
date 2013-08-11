@@ -132,9 +132,9 @@ function getTimes(content) {
 
 	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 	endTime.setTime(Date.parse(datestring));
-
-	return "From " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
+	return timeobj[1] + " " + timeobj[2] + " " + timeobj[3].slice(0, timeobj.indexOf(",")) + " from " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
 }
+
 
 /* Returns the time of the event in central time.
  * Formats the time correctly.
