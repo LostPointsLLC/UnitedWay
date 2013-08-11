@@ -65,18 +65,12 @@ function displayfeed(result){
 	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 
-	// For some reason, the champaign public library feeds always displays in the wrong order =_=
-	if(feedData.source == 'cpl')
-		for(var i = entries.length - 1; i>=0; i--) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i); 
-		}
-	// Everything else is displayed in the right order
-	else {
-		for(var i = 0; i < entries.length; i++) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i);
-		}	
 
-	}
+	for(var i = 0; i < entries.length; i++) {
+		feedContainer.innerHTML += getRSSItem(entries[i], i);
+	}	
+
+	
 }
 
 // Puts all of the rss feed items on the page, and highlights them
