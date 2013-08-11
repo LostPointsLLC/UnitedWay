@@ -1,34 +1,179 @@
-body {
-    font-family: Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    text-align: center;
-    width:100%;
-    height:100%;
-
-}
-#titlebar{
-	height:54px;
-	width:100%;
-	background: #00549b;
-}
-#titleimg{
-	float:left;
-}
-a{
-	background:none !important;
-}
-#form {
-	width: 100%;
-	height: 100%;
-	background-color: #7ca3dc;
-	margin: 0 auto;
-	padding; 0;
-	border-radius: 10px;
-}
-
-
-#color-list {
+#mainText {
 	position: relative;
-	top: 130px;
+top: 60px;
+margin-left: 25px;
+}
+
+#sprite {
+	display: block;
+
+	padding: 0;
+	margin-top: 100px;
+	margin-left: 100px;
+	background: #ffffff;
+}
+
+
+
+#form {
+	margin: 0 auto;
+	padding: 0;
+	border-radius: 10px;
+	margin-left: 25px;
+}
+
+
+/*************************************************************/
+#name-input-box {
+	display: block;
+
+	margin: 0 auto;
+
+
+}
+
+#name {
+	width: 255px;
+
+}
+
+
+/************************************************************/
+
+
+#content {
+    position: relative;
+    bottom: 30px;	
+
+}
+/*
+.input-box {
+
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width: 99%;
+
+padding-top: 5px;
+padding-bottom:5px;
+	border-radius: 10px;
+
+}
+*/
+
+/***************************** birthdays ************************************/
+#bday {
+	width: 255px;
+
+}
+
+
+/*
+#birthday-select {
+	top: 100px;
+	border: 2px solid white;
+
+margin-top: 40px;
+}
+
+#birthday {
+width: 170px;
+
+}
+
+#birthday p {
+	font-family: arial;
+
+}*/
+
+/************************* gender **********************/
+#gender-line {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 30px;
+	height: 30px;
+	border-width: 0px 0px 1px 0px;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+	border-bottom-right-radius: 10px;
+	margin-top: 5px;
+	font-size: 15px;
+	text-indent: 10px;
+	color: white;
+	width:250px;
+}
+
+#gender-line > p {
+	text-transform:uppercase; 
+	color: white;
+	opacity: 0.85;
+	font-size: 15px;
+	position: absolute;
+	top: 5px;
+	
+}
+
+#gender {
+	position: absolute;
+	right: 5px;
+	bottom: -5px;
+	width: 55px;
+	height: 43px;
+}
+
+#boy {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#boy-label {
+	position: inherit;
+	left: 10px;
+	top: 0;
+}
+
+#girl {
+	position: absolute;
+	left: 0;
+	top: 18px;
+
+}
+
+#girl-label {
+	position: inherit;
+	left: 10px;
+	top: 18px;
+}
+
+label {
+	position: relative;
+	left: 10px;
+	font-size: 16px;
+	color: white;
+	font-family: arial;
+}
+
+
+/*
+#gender-select {
+
+    margin: 0 auto;
+    border: 2px white solid;
+    top: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#gender-select p {
+	margin: 0;
+
+	font-family: arial;
+}
+
+#gender-select #gender-choices {
+	position: relative;
 
 }
 
@@ -36,139 +181,91 @@ a{
 label {
 	position: relative;
 	left: 10px;
+		  font-size: 16px;
 color: white;
 }
+*/
+/****************************************************************************/
+/*************************************************************/
 
+
+#color-select {
+	position: relative;
+	top: 10px;
+	left: 20px;
+}
+
+#color-select > p:first-child {
+	margin-bottom: 10px;
+}
+
+#color-box{
+	margin: 0 auto;
+	display: block;
+	width: 55px;
+}
+
+
+/* Color select code here */
+/* The outside box of the div */
+/*
+#color-select {
+	border: 2px solid white;
+	position: absolute;
+	top: 290px;
+	height: 70px;
+		padding-bottom: 5px;
+}
+
+#color-select p {
+	font-family: arial;
+
+
+}
+*/
+/* The div containing the div... kinda awkward? */
+/*#colorSelector {
+position: absolute;
+		  margin-top: 5px;
+
+	
+}
+*/
+/* Contains the actual box */
+/*
+#colorSelector div {
+	width: 30px;
+	height: 30px;
+	border: 2px solid black;
+			border-radius: 3px;
+}
+
+*/
+
+/*************************************************************/
 
 
 /* Options list */
 
-#option-link {
-clear: both;
-position: relative;
-top: 120px;
+#options-list {	
+position: absolute;
+top: 430px;
+left: 25px;
+width:100%;
+}
+
+#result {
+	position: absolute;
+	top: 490px;
+	margin-left: 25px;
+
 }
 
 #child-add {
-	text-align:center;
-	top: 150px;
+	margin-right: 5px;
+
 }
 
 #finish {
-	text-align:center;
-	top: 150px;
-}
-
-
-#childname {
-	border: 2px solid white;
-	background-color: #fbae42;
-	position: relative;
-	top: 80px;
-}
-
-#childbd {
-	border: 2px solid white;
-	background-color: #f0502f;
-	position: relative;
-	top: 85px;
-}
-
-
-
-/*************************************************************/
-
-
-#name-input {
-	border: 0px;
-	width: 95%;
-	text-align: center;
-	background-color: #fbae42;
-	
-}
-
-/* Styles the placeholder of the input */
-#name-input::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}
-
-
-
-#gender-select {
-    background-color: #fbae42;	
-    margin: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 2px white solid;
-    position: relative;
-    top: 90px;
-}
-
-#gender-select p {
-	margin: 0;
-	text-align: center;
-}
-
-#gender-select * {
-	text-align: left;
-}
-
-#gender-select ul {
-    list-style: none;
-    position: relative;
-    left: 73px;
-}
-.input-info {
-	display: block;
-	margin: 0 auto;
-	padding: 0;
-	width: 95%;	
-	border-radius: 10px;
-
-}
-
-p {
-    font: 12px/18px Arial, Helvetica, sans-serif;
-    color: #FFF;
-    
-}
-
-#content {
-    position: relative;
-    bottom: 30px;	
-
-}
-
-/*************************************************************/
-
-/* Color select code here */
-
-#color-select {
-	border: 2px solid white;
-	background-color: #f0502f;
-	position: relative;
-	top: 96px;
-	height: 80px;
-}
-
-#colorSelector {
-    	position: relative;
-	width: 36px;
-	height: 36px;
-	top: 10px;
-	left: 47%;	
-	background: images/select.png;
-
-}
-
-#colorSelector div {
-	position: relative;
-	top: 5px;
-	left: 5px;
-	width: 30px;
-	height: 30px;
-	background: images/select.png;
-	
+	margin-left: 5px;
 }

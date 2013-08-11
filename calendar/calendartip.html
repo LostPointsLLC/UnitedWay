@@ -1,16 +1,16 @@
 <html>
 <head>
-  <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+  <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
   <link rel = "stylesheet" type="text/css" href="../css/default.css" />	
   <link rel = "stylesheet" href="css/calendartip.css" type="text/css"/>
-
-  
   <script src = "../js/generator.js"></script>  
   <script src = "../js/google-apis.js"></script>
   <script src = "../js/jquery-1.10.1.min.js"></script>
   <script src = "js/jquery.ui.datepicker.min.js"></script>
 
-  <script src = "js/generatecalendar.js"></script>
+  <script src = "js/updateevent_common.js"></script>
+  <script src = "js/fetchevent_common.js"></script>
+  <script src = "js/generatecalendar_common.js"></script>
   <script src = "js/tipsarray.js"></script>
   <script src = "js/calendartip.js"></script>
 
@@ -19,7 +19,10 @@
 <body>
   <div class = "wrapper">
     <script type="text/javascript">
-      generateHeader("Calendar", true, true); 
+      if(localStorage.lang=="ENG")
+        generateHeader("Calendar", true, true);
+      else
+        generateHeader("calendario", true, true); 
       generateDailyActivity();
       generateEvent();    
       generateCalBtn();

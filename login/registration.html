@@ -2,39 +2,86 @@
 <form action = "php/mobileregisterhandler.php" method = "post">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<title>United Way: Register</title>
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
-		
+		<link href="../css/default.css" rel="stylesheet" type="text/css"/>
+
 		<link href="css/registration.css" rel="stylesheet" type="text/css" />
+		<script src="../js/generator.js"></script>
 		<script src="js/checkLogin.js"></script>
 		<script src="js/registration.js"></script>
 	</head>
-
-
-	<body>
-
-
-		<div id="registration-wrapper">
-		  
-		  
-			<div id="titleBar"><img src="images/welcome-title.png"/></div>
-
-
-			<div id="mainText"><p>Welcome to the United Way of Champaign Pre-k app. You can register here!  </p>
-			</div>
 	
-			<div>
-				<input type="text" class="text-input" id="firstname" placeholder="First Name"/>
-				<input type="text" class="text-input" id="lastname" placeholder="Last Name"/>
-				<input type="tel" class="text-input" id="phone" placeholder="Phone Number (only numbers)"/>
-				<input type="email" class="text-input" id="email" placeholder="Email address"/>
-				<input type="password" class="text-input" id="password" placeholder="Password"/>
-			</div>
+	<body>
+		<script>
+		if(localStorage.lang=="ENG")
+			generateHeader("Register Here", false, true);
+		else
+			generateHeader("Reg&iacute;strese aqu&iacute;", false, true);
+		</script>
+		
+		<div class="wrapper">
+	    <br><br>
+		<script>
+		if(localStorage.lang=="ENG")
+			generateMainText("<div id='top-text' class=\"mainText\"><p style='font-weight: bold'>Please create a new user account below.</p></div>");
+		else
+			generateMainText("<div id='top-text' class=\"mainText\"><p style='font-weight: bold'>Por favor, cree una cuenta de usuario a continuaci&oacute;n.</p></div>");
+		</script>
+		
+		<form>
+			<div id="personal-info">
+				<script>
+				if(localStorage.lang=="ENG"){
+					generateMainText("<div class='mainText'><p>Please provide your personal information.</p></div>");
+					generateInputText("First name", "firstname-box", "firstname", "text");	
+					document.write("<br>");
+					generateInputText("Last name", "lastname-box", "lastname", "text");
 
-			<input id="verify-registration" type="button" class="button" name="button" Value="Click" onClick="verfiyRegistration()"/>
-			<div id="result"></div>
+				}
+				else{
+					generateMainText("<div class='mainText'><p>Por favor proporcione su informaci&oacute;n personal .</p></div>");
+					generateInputText("Nombre", "firstname-box",    "firstname", "text");	
+					document.write("<br>");
+					generateInputText("Apellido", "lastname-box", "lastname", "text");
+
+				}
+				</script>
+			</div>
+			<div id="login-info">
+				<script>
+				if(localStorage.lang=="ENG"){
+					generateMainText("<div class='mainText'><p>Please provide the information you would like to use to log into our app.</p><div id='login-info-buttons'></div>");
+					generateInputText("Preferred email", "", "email", "text");
+					document.write("<br>");
+					generateInputText("Your password", "", "password", "password");
+					document.write("<br>");
+					generateInputText("Confirm password", "", "confirm", "password");
+				}
+				else{
+					generateMainText("<div class='mainText'><p>Por favor, proporcione la informaci&oacute;n que desea utilizar para iniciar sesi&oacute;n en nuestra aplicaci&oacute;n.</p><div id='login-info-buttons'></div>");
+					generateInputText("Preferred email", "", "email", "text");
+					document.write("<br>");
+					generateInputText("La contrase&ntilde;a", "", "password", "password");
+					document.write("<br>");
+					generateInputText("Confirmar contrase&ntilde;a", "", "confirm", "password");
+				}
+				</script>
+			</div>
+					
+					
+			<script>
+			if(localStorage.lang=="ENG")
+				generateButton("Register me", "verify-registration", "bt-yellow", "verifyRegistration()");
+			else
+				generateButton("me Registrar", "verify-registration", "bt-yellow", "verifyRegistration()");
+			</script>
+		</form>
+		<div id="result"></div>
 		</div>
 	</body>
+	
 </html>
+			            

@@ -1,10 +1,7 @@
 
-
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-
-	var favHeap = getFavHeap(parseInt(sessionStorage.pid));
-
+	var favHeap = getFavHeap(parseInt(localStorage.pid));
 	displayFavNews(favHeap.rssArray);
 	displayFavTips(favHeap.tipsArray);
 	displayFavEvents(favHeap.eventsArray);
@@ -30,7 +27,10 @@ function displayFavNews(rssArray) {
 	 */
 	var outputString = "";
 	if(!rssArray.length) {
-		outputString += "<p>No news to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No news to display!</p>";
+		else
+			outputString += "<p>No hay noticias para mostrar!</p>";
 		rssPointer.innerHTML += outputString;
 		return;
 	}	 
@@ -79,7 +79,10 @@ function displayFavTips(tipsArray) {
 	 
 	var outputString = "";
 	if(!tipsArray.length) {
-		outputString += "<p>No tips to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No tips to display!</p>";
+		else
+			outputString += "<p>No hay consejos para mostrar!</p>";
 		tipsPointer.innerHTML += outputString;
 		return;
 	}	
@@ -108,7 +111,7 @@ function displayFavTips(tipsArray) {
 
 		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + tip.fav_id +"'>"
 		outputString += "<div class='item-text-box'>";
-		outputString += "<a>" + tipArray[parseInt(tip.tip_id)] + "</a>";
+		outputString += "<a class='tip-content' title='" + tip.tip_id + "'>" + tipArray[parseInt(tip.tip_id)] + "</a>";
 		outputString += "</div>";
 		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
 		outputString += "</div>";
@@ -153,7 +156,10 @@ function displayFavEvents(eventsArray) {
 	 * We don't have the content from the scraper yet, so we'll let that one rest.
 	 */
 	if(!eventsArray.length) {
-		outputString += "<p>No events to display!</p>";
+		if(localStorage.lang=="ENG")
+			outputString += "<p>No events to display!</p>";
+		else
+			outputString += "<p>No hay eventos para mostrar!</p>";
 		eventsPointer.innerHTML += outputString;
 		return;
 	}

@@ -2,56 +2,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<title>Favorites</title>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<link rel="stylesheet" href="css/favorites-jqueryui.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 		<link rel="stylesheet" href="css/favorites.css" type="text/css"/>
 		<script src="../js/generator.js"></script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
-		<script src="../js/jqueryui.js"></script>
+		<script src="../js/jquery.mobile-1.3.2.js"></script>
 		<script src="../js/tips.js"></script>
 		<script src="../js/functions.js"></script>
-		
 		<script src="js/initializeFavs.js"></script>
 		<script src="js/changeFavs.js"></script>
 		<script src="js/updateFavs.js"></script>
 		<script src="js/favorites.js"></script>
-
 	</head>
 
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Favorites", true, true);
+			if(localStorage.lang=="ENG")
+				generateHeader("Favorites", true, true);
+			else
+				generateHeader("Favoritos", true, true);
 			</script>
 			<br><br><br>
-			<div id="content">
-				<h3 id="news-feed-head">News Feed</h3>
-				<div id="news-feed-content">
+			<div data-role="content">
+				<div data-role="collapsible-set">
+					<div data-role="collapsible">
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"news-feed-head\">News Feed</h3>");
+						else
+							document.write("<h3 id=\"news-feed-head\">Noticias RSS</h3>");
+						</script>
+						<div id="news-feed-content"></div>
+					</div>
+					<div data-role="collapsible">
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"tips-head\">Tips</h3>");
+						else
+							document.write("<h3 id=\"tips-head\">Consejos</h3>");
+						</script>
+						<div id="tips-content"></div>
+					</div>
+					<div data-role="collapsible">
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 id=\"events-head\">Events</h3>");
+						else
+							document.write("<h3 id=\"events-head\">Eventos</h3>");
+						</script>
+						<div id="events-content"></div>
+					</div>
 				</div>
-				
-				<h3 id="tips-head">Tips</h3>
-				<div id="tips-content">
-				</div>
-				
-				
-				<h3 id="events-head">Events</h3>
-				<div id="events-content">
-				</div>
-			</div> <!-- End content -->
-			
-			
+			</div> <!-- End content -->	
 		</div> <!-- End wrapper div -->
-		
-		
-	
-		<script>
-		$("#content").accordion({collapsible: true, heightStyle: "content"});
-		</script>
-		
 	</body>
-
-
 </html>

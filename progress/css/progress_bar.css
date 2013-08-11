@@ -4,12 +4,16 @@
 
 */
 html{
-	height:100%;
-	width:100%;
 	background:#00549b;
 }
 body{
 	margin:0;
+}
+.progressbar{
+	height:20px;
+	background:#40E823;
+	border-radius: 10px;
+
 }
 #content{
 	width:100%;
@@ -70,7 +74,6 @@ body{
 	text-align: center;
 }
 #child img {
-	padding-top: 10px;
 	text-align:center;
 }
 
@@ -98,7 +101,9 @@ body{
 	margin-bottom: 12px;
 	color:#ffffff;
 }
-
+.button-text{
+	top:-4px;
+}
 /****************THE HEALTH BUTTON*******************/
 
 .bt-health {

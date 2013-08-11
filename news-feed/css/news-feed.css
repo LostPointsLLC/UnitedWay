@@ -48,8 +48,8 @@ body{
 
 .item-text-box {
 
-	width: 70%;
-	margin-top: 10px;
+	width: 85%;
+	margin-top: 5px;
 	margin-left: 25px;
 
 }
@@ -65,7 +65,6 @@ body{
 
 	border-top: 1px solid #003366;
 	border-bottom: 1px solid #003366;
-	background-color: #9999FF;
 }
 
 

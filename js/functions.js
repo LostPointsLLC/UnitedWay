@@ -21,15 +21,23 @@
  */
 
 function calculateAge(months) {
+    if(localStorage.lang=="ENG"){
+        var yrs = " Yrs,<br> ";
+        var mth = " Mths";
+    }
+    else{
+        var yrs = " a&ntilde;o,<br> ";
+        var mth = " meses";
+    }
 	if ( (months % 12) > 0) {
 		var year = String(parseInt(months / 12));
 		var month = String(months % 12);
-		var retStr = year + " Yrs, " + month + " Mths";
+		var retStr = year + yrs + month + mth;
 		return retStr;
 	}
 	else {
 		var month = String(months);
-		var retStr = month + " Mths";
+		var retStr = month + mth;
 		return retStr;
 	}
 }

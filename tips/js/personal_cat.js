@@ -1,14 +1,33 @@
 $(document).ready(function() {
-	var childID = sessionStorage.cid.toString();
-	var jsonStr = sessionStorage.jsonString;
+	var childID = localStorage.cid.toString();
+	var jsonStr = localStorage.childJsonObject;
 	var jObj = jQuery.parseJSON(jsonStr);
-	
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
 	var childName = jObj[childID]["child_name"];
 	var child = document.getElementById("child");
-	child.innerHTML = '<img src="../images/' + gender + '.png" width="60" height="60" /><br> \
-						<div id="child-div"><span class="child-name">' + childName + '</span></div>';
+	
+	var gender = jObj[childID]["child_gender"];
+	var genderImg;
+	switch(gender) {
+		case 'boy':
+			genderImg = 'child/boy-darkblue-small.png';
+			break;
+		default:
+			genderImg = 'child/girl-darkblue-small.png';
+			break;
+	}	
+	/*	<div id='child'>
+	 * 		<img class="child-img" src="../images/genderImg" style="background-color: jObj[childID]['child_color']"><br>
+	 * 		<div id="child-name-div">
+	 * 		 	<span class="child-name">childName</span>
+	 * 		</div>;
+	 *	</div>
+	 */
+	
+	
+	child.innerHTML = 	'<img class="child-img" src="../images/' + genderImg + '" style="background-color: ' + jObj[childID]["child_color"] + '"><br>'
+	child.innerHTML += 	'<div id="child-name-div"><span class="child-name">' + childName + '</span></div>';
 	// Create array that indexes child id's
 	var indexList = new Array();
 	for (var key in jObj) {
@@ -20,11 +39,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex > 0) { // Not the first child in list
-			sessionStorage.cid = indexList[thisIndex - 1];
+			localStorage.cid = indexList[thisIndex - 1];
 			location.reload();
 		}
 		else { // wrap around if first child
-			sessionStorage.cid = indexList[lastIndex];
+			localStorage.cid = indexList[lastIndex];
 			location.reload();
 		}
 	});
@@ -33,11 +52,11 @@ $(document).ready(function() {
 		var thisIndex = indexList.indexOf(childID);
 		var lastIndex = indexList.length - 1;
 		if (thisIndex < lastIndex) { // Not the last child in list
-			sessionStorage.cid = indexList[thisIndex + 1];
+			localStorage.cid = indexList[thisIndex + 1];
 			location.reload();
 		}
 		else {
-			sessionStorage.cid = indexList[0];
+			localStorage.cid = indexList[0];
 			location.reload();
 		}
 	});	
@@ -45,21 +64,21 @@ $(document).ready(function() {
 });
 
 function healthTips() {
-	sessionStorage.tCat = "health";
+	localStorage.tCat = "health";
 	document.location.href = "personal_tips.html";
 }
 
 function growthTips() {
-	sessionStorage.tCat = "growth";
+	localStorage.tCat = "growth";
 	document.location.href = "personal_tips.html";
 }
 
 function safetyTips() {
-	sessionStorage.tCat = "safety";
+	localStorage.tCat = "safety";
 	document.location.href = "personal_tips.html";
 }
 
 function playTips() {
-	sessionStorage.tCat = "playtime";
+	localStorage.tCat = "playtime";
 	document.location.href = "personal_tips.html";
 }

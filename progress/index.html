@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
         <title>Overall Progress</title>
 		<link rel="stylesheet" type="text/css" href="../css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/progress_bar.css" />
@@ -10,12 +10,15 @@
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/generator.js"></script>
 		<script src="../js/functions.js"></script>
-		<script src = "js/updateOverallProgress.js"></script>
+		<script src = "js/progress.js"></script>
     </head>
     <!-- Call updateProgress from the start-->	
 	<body>
 		<script type="text/javascript">
+			if(localStorage.lang=="ENG")
 				generateHeader("Select Child", true, true);
+			else
+				generateHeader("Seleccione ni&ntilde;o", true, true);
 			</script>
 		<div class="wrapper">
 			<div id = "content"></div>

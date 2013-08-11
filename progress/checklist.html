@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+       <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
         <title>Category Progress</title>
 		<!-- SCRIPTS GO HERE -->
 		<link rel="stylesheet" type="text/css" href="../css/default.css" />
@@ -10,29 +10,51 @@
 		<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="../js/generator.js"></script>
 		<script type="text/javascript" src="js/tasks.js"></script>
-		<script type="text/javascript" src="js/updateChecklist.js"></script>
+		<script type="text/javascript" src="js/checklist.js"></script>
     </head>
     <!-- Call updateProgress from the start-->
 	<body>
 		<!-- HEADER-->
 		<script type="text/javascript">
+		if(localStorage.lang=="ENG")
 			generateHeader("Checklists", true, true); // Header
+		else
+			generateHeader("Listas", true, true); // Header
 		</script>
 		<div class="wrapper">
 			<script type="text/javascript">
 				var category = "";
-				switch(sessionStorage.cat.toString()) {
+				var storedCat;
+				if(localStorage.remember==1){
+					storedCat = localStorage.cat.toString();
+				}
+				else{
+					storedCat = sessionStorage.cat.toString();
+				}
+				switch(storedCat) {
 					case "1":
+					if(localStorage.lang=="ENG")
 						category = "Health &\nWell Being";
+					else
+						category = "Salud y bienestar";
 						break;
 					case "2":
+					if(localStorage.lang=="ENG")
 						category = "Language &\nGeneral Knowledge";
+					else
+						category = "Idioma y generales";
 						break;
 					case "3":
+					if(localStorage.lang=="ENG")
 						category = "Social &\nEmotional Preparation";
+					else
+						category = "Preparaci&oacute;n social y emocional";
 						break;
 					case "4":
+					if(localStorage.lang=="ENG")
 						category = "Other Areas &\nDevelopment";
+					else
+						category = "Otras &aacute;reas y el desarrollo";
 						break;
 				}
 				generateSubTitle(category);

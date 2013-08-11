@@ -1,27 +1,47 @@
 #title-screen-wrapper {
 	height: 100%;
 	width: 100%;
-	background: #00549b;
+	background: #00529b;
 	margin: 0 auto;
 }
+
+body {
+	background: #00529b;
+
+}
+
 #logo {
 	margin-right: auto;
 	margin-left: auto;
 	height: auto;
 	max-width: 100%;
-	padding-top: 75px;
+	margin-top:30px;
 	display:block;
 }
+
+
 #english-espanol-wrapper {
 	height: auto;
+	width: 125px;
 	max-width: 100%;
+	margin: 0 auto 0 auto;
 }
-a {
-	font: 16px/40px Verdana, Geneva, sans-serif;
-	text-decoration: none;
-	color: #FFF;
-	text-align: center;
+
+/*
+#english-espanol {
+	position: relative;
+	margin: 0 auto;
+
+}*/
+
+#english-espanol li{
+	padding-top:7px;
+	padding-bottom:7px;
 }
+
+
+
+
 #checkbox {
 	background: #FFF;
 	height: 25px;
@@ -30,40 +50,48 @@ a {
 	margin-top: 7px;
 	margin-right: 7px;
 }
-#english-espanol li{
-	text-align:center;
-	padding-top:7px;
-	padding-bottom:7px;
-}
+		
+	
+	
 #get-started {
+	position: relative;
+	width: 110px;
+	
 	height: auto;
 	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 80px;
 	display:block;
+	margin-top:30px;
 }
 
-/*iPhone */
-@media only screen and (max-device-width: 320px){
 label {
-	font-size: 70px ;
+	color: white;
+	font-family: arial;	
+	font-size: 20px;
 }
 
+
+
+/*mobile phones */
+/*
+@media only screen and (min-device-width: 320px){
+label {
+	font-size: 60px ;
 }
 
-@media only screen and (min-device-width: 321px) and (max-device-width: 640px){
+}*/
+
+/*tablets*/
+/*
+@media only screen and (min-device-width:768px){
 #logo {
 	padding-top: 30px;
 }
 #get-started {
 	padding-top: 20px;
 }
-
-}
-
-@media only screen and (min-width:641px){
 label {
-	font-size: 85px ;
+	font-size: 75px ;
 }
-}
+}*/

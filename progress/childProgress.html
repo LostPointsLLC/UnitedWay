@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
         <title>Detailed Progress</title>
 		<link rel="stylesheet" type="text/css" href="../css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/progress_bar.css" />
@@ -9,49 +9,72 @@
 		<!-- Include Le Javscript here-->
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/generator.js"></script>
-		<script type="text/javascript" src = "js/updateChildProgress.js"></script>
+		<script type="text/javascript" src = "js/childProgress.js"></script>
     </head>
     <!-- Call updateProgress from the start-->
 
 	<body>
 		<!-- HEADER-->
 		<script type="text/javascript">
+		if(localStorage.lang=="ENG")
 			generateHeader("Checklists", true, true); // Header
+		else
+			generateHeader("Listas", true, true);
 		</script>
 		<div class="wrapper">
 			<!-- HEALTH BUTTON-->
 			<script type="text/javascript">
+			if(localStorage.lang=="ENG")
 				generateButton("Health & Well Being", "health-bt", "bt-health", "clickHealth()"); // Health Button
+			else
+				generateButton("Salud y bienestar", "health-bt", "bt-health", "clickHealth()");
 			</script>
 			<div class = "pb-ctn">
-				<progress id="1" class="detail" value='0' max='100'></progress>
+				<div class="detail" value='0' max='100'>
+					<div id="1"class="progressbar"></div>
+				</div>
 				<a id="percentage1" class="percentage"></a>
 			</div>
 			
 			<!-- LANGUAGE BUTTON-->
 			<script type="text/javascript">
-				generateButton("Language & General", "lang-bt", "bt-lang", "clickLang()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Language & General", "lang-bt", "bt-lang", "clickLang()"); // Lang button
+			else
+				generateButton("Idioma y generales", "lang-bt", "bt-lang", "clickLang()");
 			</script>
 			<div class = "pb-ctn">
-				<progress id="2" class="detail" value='0' max='100'></progress>
+				<div  class="detail" value='0' max='100'>
+					<div id="2" class="progressbar"></div>
+				</div>
 				<a id="percentage2" class="percentage"></a>
 			</div>
 			
 			<!-- SOCIAL BUTTON-->
 			<script type="text/javascript">
-				generateButton("Social & Emotional Prep.", "social-bt", "bt-social", "clickSocial()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Social & Emotional Prep", "social-bt", "bt-social", "clickSocial()"); // Social & Emotional prep Button
+			else
+				generateButton("Preparaci&oacute;n social y emocional", "social-bt", "bt-social", "clickSocial()");
 			</script>
 			<div class = "pb-ctn">
-				<progress id="3" class="detail" value='0' max='100'></progress>
+				<div class="detail" value='0' max='100'>
+					<div id="3" class="progressbar"></div>
+				</div>
 				<a id="percentage3" class="percentage"></a>
 			</div>
 
 			<!-- OTHER BUTTON-->
 			<script type="text/javascript">
-				generateButton("Other", "other-bt", "bt-other", "clickOther()"); // Health Button
+			if(localStorage.lang=="ENG")
+				generateButton("Other", "other-bt", "bt-other", "clickOther()"); // Other Button
+			else
+				generateButton("otro", "other-bt", "bt-other", "clickOther()");
 			</script>
 			<div class = "pb-ctn">
-				<progress id="4" class="detail" value='0' max='100'></progress>
+				<div class="detail" value='0' max='100'>
+					<div id="4" class="progressbar"></div>
+				</div>
 				<a id="percentage4" class="percentage"></a>
 			</div>			
 			
