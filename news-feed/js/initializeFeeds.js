@@ -65,18 +65,12 @@ function displayfeed(result){
 	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 
-	// For some reason, the champaign public library feeds always displays in the wrong order =_=
-	if(feedData.source == 'cpl')
-		for(var i = entries.length - 1; i>=0; i--) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i); 
-		}
-	// Everything else is displayed in the right order
-	else {
-		for(var i = 0; i < entries.length; i++) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i);
-		}	
 
-	}
+	for(var i = 0; i < entries.length; i++) {
+		feedContainer.innerHTML += getRSSItem(entries[i], i);
+	}	
+
+	
 }
 
 // Puts all of the rss feed items on the page, and highlights them
@@ -110,7 +104,7 @@ function getRSSItem(entry, i) {
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
-		content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
+		content += "<p style='margin: 0'>" + getTimes(entry.content);
 	return outerdiv + innerdiv + content;
 
 }
@@ -132,9 +126,9 @@ function getTimes(content) {
 
 	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 	endTime.setTime(Date.parse(datestring));
-
-	return "From " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
+	return timeobj[1] + " " + timeobj[2] + " " + timeobj[3].slice(0, timeobj.indexOf(",")) + " from " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
 }
+
 
 /* Returns the time of the event in central time.
  * Formats the time correctly.

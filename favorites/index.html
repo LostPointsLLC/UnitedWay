@@ -8,7 +8,10 @@
 		<link rel="stylesheet" href="../css/default.css" type="text/css" />
 		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 		<link rel="stylesheet" href="css/favorites.css" type="text/css"/>
+
 		<script src="../js/generator.js"></script>
+
+		<!--<script src="../js/jqueryui.js"></script>-->
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/jquery.mobile-1.3.2.js"></script>
 		<script src="../js/tips.js"></script>
@@ -17,6 +20,7 @@
 		<script src="js/changeFavs.js"></script>
 		<script src="js/updateFavs.js"></script>
 		<script src="js/favorites.js"></script>
+  		<script src="../js/hideaddressbar.js"></script> 		
 	</head>
 
 	<body>
@@ -27,35 +31,29 @@
 			else
 				generateHeader("Favoritos", true, true);
 			</script>
-			<br><br><br>
-			<div data-role="content">
-				<div data-role="collapsible-set">
-					<div data-role="collapsible">
-						<script>
-						if(localStorage.lang=="ENG")
-							document.write("<h3 id=\"news-feed-head\">News Feed</h3>");
-						else
-							document.write("<h3 id=\"news-feed-head\">Noticias RSS</h3>");
-						</script>
-						<div id="news-feed-content"></div>
+			
+			<div id='title-box'>
+				<h2>Your Favorited Items</h2>
+			</div>
+			
+			<div id='content' data-role='content'>
+				<div id='set' data-role='collapsible-set'>
+				
+					<!-- Set 1 -->
+					<div id="news-feed" class='section' >
+						<h3 id='news-feed-header'>News Feed</h3>
 					</div>
-					<div data-role="collapsible">
-						<script>
-						if(localStorage.lang=="ENG")
-							document.write("<h3 id=\"tips-head\">Tips</h3>");
-						else
-							document.write("<h3 id=\"tips-head\">Consejos</h3>");
-						</script>
-						<div id="tips-content"></div>
+					
+					
+					<!-- Set 2 -->
+					<div id="tips" class='section' >
+						<h3 id='tips-header'>Tips</h3>
 					</div>
-					<div data-role="collapsible">
-						<script>
-						if(localStorage.lang=="ENG")
-							document.write("<h3 id=\"events-head\">Events</h3>");
-						else
-							document.write("<h3 id=\"events-head\">Eventos</h3>");
-						</script>
-						<div id="events-content"></div>
+					
+					<!-- Set 3 -->
+					<div id="events" class='section' >
+						<h3 id='events-header'>Events</h3>
+
 					</div>
 				</div>
 			</div> <!-- End content -->	
