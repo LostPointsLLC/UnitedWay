@@ -17,12 +17,15 @@
 		<script src="js/news-feed.js"></script>
 		<script src="js/updateFeeds.js"></script>
 		<script src="js/changeFeeds.js"></script>
-
+		<script src="../js/hideaddressbar.js"></script>
 	
 	</head>
 	<body>
 		<script>
-		generateHeader("News Feeds", true, true);
+		if(localStorage.lang=="ENG")
+			generateHeader("News Feeds", true, true);
+		else
+			generateHeader("Noticias RSS", true, true);
 		</script>
 		<div class="wrapper">			
 			<div id="content">

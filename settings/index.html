@@ -19,25 +19,35 @@
 		<script src="js/initializeSettings.js"></script>
 		<script src="js/changeSettings.js"></script>
 		<script src="js/updateSettings.js"></script>
-
+		<script src="../js/hideaddressbar.js"></script>
 	</head>
 
 	<body>
 		<script>
-		generateHeader("Settings", true, true);
+		if(localStorage.lang=="ENG")
+			generateHeader("Settings", true, true);
+		else
+			generateHeader("Ajuste", true, true);
 		</script>
 		<div class="wrapper">
 			<div id='content'></div>
+			<script>
+				if(localStorage.lang=="ENG")
+					document.write("<div class = \"text white-text language\"><span id=\"langname\">Language</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
+				else
+					document.write("<div class = \"text white-text language\"><span id=\"langname\">Idioma</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" checked onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
+			</script>
 			<div id='options'>
 				<script>
 				if(localStorage.lang=="ENG"){
-					document.write("<div><span>Language</span><input type='radio' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div>");
+					generateButton("Add a Child", "addChild", "bt-yellow", "addChild()");
+					generateButton("Logout", "logout", "bt-yellow", "logout()");
 				}
 				else{
-					document.write("<div><span>Language</span><input type='radio' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" checked onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div>");
+					generateButton("A&ntilde;adir un ni&ntilde;o", "addChild", "bt-yellow", "addChild()");
+					generateButton("Salir", "logout", "bt-yellow", "logout()");
 				}
-				generateButton("Add a Child", "addChild", "bt-yellow", "addChild()");
-				generateButton("Logout", "logout", "bt-yellow", "logout()");
+
 				</script>
 			</div>
 		</div>

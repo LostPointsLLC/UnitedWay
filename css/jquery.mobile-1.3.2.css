@@ -328,15 +328,8 @@
 .ui-body-c,
 .ui-overlay-c {
 	border: 1px solid 		#aaa /*{c-body-border}*/;
-	color: 					#333 /*{c-body-color}*/;
 	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
-	background: 			#f9f9f9 /*{c-body-background-color}*/;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #f9f9f9 /*{c-body-background-start}*/), to( #eee /*{c-body-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/);
+	
 }
 .ui-overlay-c {
 	background-image: none;
@@ -763,9 +756,9 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 .ui-icon,
 .ui-icon-searchfield:after {
-	background: 						#666 /*{global-icon-color}*/;
-	background: 						rgba(0,0,0,.4) /*{global-icon-disc}*/;
-	background-image: url(images/icons-18-white.png) /*{global-icon-set}*/;
+	background: 						#666;
+	background: 						rgba(0,0,0,.4);
+	background-image: url(images/icons-18-white.png);
 	background-repeat: no-repeat;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
@@ -2121,7 +2114,7 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 .ui-collapsible-collapsed + .ui-collapsible:not(.ui-collapsible-inset) .ui-collapsible-heading .ui-btn { border-top-width: 0; }
 .ui-collapsible-set .ui-collapsible:not(.ui-collapsible-inset) .ui-collapsible-heading .ui-btn { border-top-width: 1px; }
 .ui-collapsible-heading .ui-btn-inner { padding-left: 12px; padding-right: 12px; }
-.ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner { padding-left: 40px; }
+/*.ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner { padding-left: 40px; }*/
 .ui-collapsible-heading .ui-btn-icon-right .ui-btn-inner { padding-right: 40px; }
 .ui-collapsible-heading .ui-btn-icon-top .ui-btn-inner,
 .ui-collapsible-heading .ui-btn-icon-bottom .ui-btn-inner { text-align: center; }

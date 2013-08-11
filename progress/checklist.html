@@ -11,12 +11,16 @@
 		<script type="text/javascript" src="../js/generator.js"></script>
 		<script type="text/javascript" src="js/tasks.js"></script>
 		<script type="text/javascript" src="js/checklist.js"></script>
+		<script src="../js/hideaddressbar.js"></script>
     </head>
     <!-- Call updateProgress from the start-->
 	<body>
 		<!-- HEADER-->
 		<script type="text/javascript">
+		if(localStorage.lang=="ENG")
 			generateHeader("Checklists", true, true); // Header
+		else
+			generateHeader("Listas", true, true); // Header
 		</script>
 		<div class="wrapper">
 			<script type="text/javascript">
@@ -30,16 +34,28 @@
 				}
 				switch(storedCat) {
 					case "1":
+					if(localStorage.lang=="ENG")
 						category = "Health &\nWell Being";
+					else
+						category = "Salud y bienestar";
 						break;
 					case "2":
+					if(localStorage.lang=="ENG")
 						category = "Language &\nGeneral Knowledge";
+					else
+						category = "Idioma y generales";
 						break;
 					case "3":
+					if(localStorage.lang=="ENG")
 						category = "Social &\nEmotional Preparation";
+					else
+						category = "Preparaci&oacute;n social y emocional";
 						break;
 					case "4":
+					if(localStorage.lang=="ENG")
 						category = "Other Areas &\nDevelopment";
+					else
+						category = "Otras &aacute;reas y el desarrollo";
 						break;
 				}
 				generateSubTitle(category);

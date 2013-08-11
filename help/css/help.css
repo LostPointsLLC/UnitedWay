@@ -23,3 +23,9 @@ body{
 	left:-10px;
 
 }
+
+.nextarrow{
+
+	position:fixed;
+	right:14px;
+}

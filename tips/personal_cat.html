@@ -9,10 +9,14 @@
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/generator.js"></script>
 		<script src='js/personal_cat.js'></script>
+		<script src="../js/hideaddressbar.js"></script>		
 	</head>
 	<body>
 		<script type="text/javascript">
+			if(localStorage.lang=="ENG")
 				generateHeader("Tips", true, true);
+			else
+				generateHeader("Consejos", true, true);
 			</script>
 		<div class="wrapper">
 			<div id="child-wrapper">
@@ -28,10 +32,26 @@
 			</div>
 			<div>
 				<script type="text/javascript">
+				//health and well being button
+				if(localStorage.lang=="ENG")
 					generateButton("Health and Well Being", "health", "bt-health", "healthTips()");
+				else
+					generateButton("Salud y bienestar", "health", "bt-health", "healthTips()");
+				//growth and development button
+				if(localStorage.lang=="ENG")
 					generateButton("Growth and Development", "growth", "bt-grow", "growthTips()");
+				else
+					generateButton("El crecimiento y el desarrollo", "growth", "bt-grow", "growthTips()");
+				//safety button
+				if(localStorage.lang=="ENG")
 					generateButton("Safety", "safety", "bt-safe", "safetyTips()");
+				else
+					generateButton("seguridad", "safety", "bt-safe", "safetyTips()");
+				//playtime button
+				if(localStorage.lang=="ENG")
 					generateButton("Playtime", "playtime", "bt-play", "playTips()");
+				else
+					generateButton("recreo", "playtime", "bt-play", "playTips()");
 				</script>
 			</div>
 		</div>

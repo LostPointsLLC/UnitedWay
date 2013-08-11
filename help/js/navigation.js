@@ -6,7 +6,7 @@ function faq() {
 
 
 function how() {
-	document.location.href = "help_howToUse.html";
+	document.location.href = "introduction.html";
 
 }
 

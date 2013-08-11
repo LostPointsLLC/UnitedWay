@@ -65,18 +65,12 @@ function displayfeed(result){
 	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 
-	// For some reason, the champaign public library feeds always displays in the wrong order =_=
-	if(feedData.source == 'cpl')
-		for(var i = entries.length - 1; i>=0; i--) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i); 
-		}
-	// Everything else is displayed in the right order
-	else {
-		for(var i = 0; i < entries.length; i++) {
-			feedContainer.innerHTML += getRSSItem(entries[i], i);
-		}	
 
-	}
+	for(var i = 0; i < entries.length; i++) {
+		feedContainer.innerHTML += getRSSItem(entries[i], i);
+	}	
+
+	
 }
 
 // Puts all of the rss feed items on the page, and highlights them
@@ -91,8 +85,6 @@ function displayfeed(result){
 *
 */
 function getRSSItem(entry, i) {
-	// Binds a class to items based upon parity numbered rss items
-	var parity = assignParity(i);
 
 	// Checks whether an item has been favorited or not
 	var favorite;
@@ -105,11 +97,16 @@ function getRSSItem(entry, i) {
 		favorite = 'nofav';
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
+<<<<<<< HEAD
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " " + parity + " rss-item'>";
+=======
+
+	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " rss-item'>";
+>>>>>>> d0b862ea6a3dd696ca1479da4d8349b5018edbc4
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
-		content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
+		content += "<p style='margin: 0'>" + getTimes(entry.content);
 	return outerdiv + innerdiv + content;
 
 }
@@ -131,9 +128,9 @@ function getTimes(content) {
 
 	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 	endTime.setTime(Date.parse(datestring));
-
-	return "From " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
+	return timeobj[1] + " " + timeobj[2] + " " + timeobj[3].slice(0, timeobj.indexOf(",")) + " from " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
 }
+
 
 /* Returns the time of the event in central time.
  * Formats the time correctly.
@@ -150,22 +147,40 @@ function getOptions() {
 
 	switch(feed) {
 		case 'cpl':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option>"
+			else
+				return " \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option> \
 				<option value='uw'>United Way Blog</option>"
 
 		case 'uw':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option> \
 				<option value='cm'>Chambanamoms</option>"
+			else
+				return " \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
+				<option value='cm'>Chambanamoms</option>"
 
 		case 'cm':
-			return " \
+			if(localStorage.lang=="ENG")
+				return " \
 				<option value='cm'>Chambanamoms</option> \
 				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option>"
+			else
+				return " \
+				<option value='cm'>Chambanamoms</option> \
+				<option value='uw'>United Way Blog</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>"
 
 		default:
 			console.log("Get henry to debug this page. It's not working right!!");
@@ -177,17 +192,6 @@ function getOptions() {
 }
 
 
-
-
-
-
-
-function assignParity(i) {
-
-	if(i % 2 == 0)	return "even";
-	else 			return "odd";
-
-}
 
 /* Checks whether the entry is in the global feedArray
  * Currently, I can only do a O(n) algorithm for this, but

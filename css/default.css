@@ -47,24 +47,42 @@ a:hover{
 	color: #EE9A00;
 }
 
-
+/*
 .even {
 
 	width: 100%;
+<<<<<<< HEAD
+	height: 51px;
+	border-top: 2px solid #003366;
+	font-family: arial;	
+	font-size: 20px;
+	text-indent: 25px;
+
+=======
 	height: 45px;
 	border-top: 1px solid #FFFFFF;
+>>>>>>> 1a6115429f032b0c010fa3292c86f2d615fe75b9
 
 }
 
 .odd {
 
 	width: 100%;
+<<<<<<< HEAD
+	height: 51px;
+	border-top: 2px solid #003366;
+	background-color: #9999FF;
+	font-family: arial;	
+	font-size: 20px;
+	text-indent: 25px;
+=======
 	height: 45px;
 	border-top: 1px solid #FFFFFF;
+>>>>>>> 1a6115429f032b0c010fa3292c86f2d615fe75b9
 
 
 }
-
+*/
 /* styling for the icons in the help pages */
 .icon{
 

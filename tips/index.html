@@ -9,6 +9,7 @@
 		<script src="../js/generator.js"></script>
 		<script src="../js/functions.js"></script>
 		<script src='js/showChild.js'></script>
+		<script src="../js/hideaddressbar.js"></script>
 	</head>
 
 	<!-- A litle problem that I noticed: each "remove-share-button" DIV
@@ -17,7 +18,10 @@
 
 	<body>
 		<script type="text/javascript">
-		generateHeader("Tips", true, true);
+		if(localStorage.lang=="ENG")
+			generateHeader("Tips", true, true);
+		else
+			generateHeader("Consejos", true, true);
 		</script>
 		<div class="wrapper">
 			<div id = "content"></div>

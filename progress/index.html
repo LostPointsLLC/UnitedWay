@@ -11,11 +11,15 @@
 		<script src="../js/generator.js"></script>
 		<script src="../js/functions.js"></script>
 		<script src = "js/progress.js"></script>
+		<script src="../js/hideaddressbar.js"></script>
     </head>
     <!-- Call updateProgress from the start-->	
 	<body>
 		<script type="text/javascript">
+			if(localStorage.lang=="ENG")
 				generateHeader("Select Child", true, true);
+			else
+				generateHeader("Seleccione ni&ntilde;o", true, true);
 			</script>
 		<div class="wrapper">
 			<div id = "content"></div>
