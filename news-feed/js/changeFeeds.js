@@ -23,33 +23,35 @@ function changeFeeds(sel) {
 
 
 // Decides what to do with an element that has chosen to be favorited
-function favorite(id) {
+function favorite(id, url) {
 	
 	// If changing nofav -> fav
-	if(shouldBeFavorited(id)) 	addFeed(id);
-	else 						removeFeed(id);
+	if(shouldBeFavorited(id)) 	addFeed(id, url);
+	else 						removeFeed(id, url);
 }
 
 // Returns false if an item has the fav class
 function shouldBeFavorited(id) {
-	return !($("#" + String(id)).hasClass('fav'));
+	return !($("#" + id).hasClass('fav'));
 }
 
 // A pretty trivial function
 function isInDb(id) {
-	return id >= 0;
+	var idNum = parseInt(id);
+	return idNum >= 0;
 }
 
 // Adds the given id to feedArray
-function addFeed(id) {
+function addFeed(id, url) {
 
 	/* If the id was in the database before, but we're
 	 * adding it back in, then a user must have first pushed the id
 	 * into the removeFromDb array. Now we have to pop it.
 	 */
 	if(isInDb(id))	{
-		var index = removeFromDb.indexOf(id);
-		removeFromDb.splice(index, 1);
+		//var index = removeFromDb.indexOf(id);
+		//removeFromDb.splice(index, 1);
+		delete removeFromDb[url];
 	}
 	else {
 		addToDb.push(id);
@@ -59,14 +61,20 @@ function addFeed(id) {
 
 // Changes the class of the favorite item
 function addFavClass(id) {
-	$("#" + String(id)).removeClass("nofav").addClass("fav");
+	$("#" + id).removeClass("nofav").addClass("fav");
 
 }
 
 // Removes the given id from feedArray
-function removeFeed(id) {
+function removeFeed(id, url) {
 	if(isInDb(id)) {
-		removeFromDb.push(id);
+		// add real ID if possible
+		//removeFromDb.push(id);
+		var bObj = jQuery.parseJSON(localStorage.rssBackupObject);
+		if (url in bObj)
+			removeFromDb[url] = bObj[url];
+		else
+			removeFromDb[url] = id;
 	}
 	else {
 		var index = addToDb.indexOf(id);
@@ -76,7 +84,7 @@ function removeFeed(id) {
 }
 
 function addNofavClass(id) {
-	$("#" + String(id)).removeClass("fav").addClass("nofav");
+	$("#" + id).removeClass("fav").addClass("nofav");
 
 }
 

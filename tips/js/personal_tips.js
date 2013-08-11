@@ -124,14 +124,12 @@ function displayTips(param) {
 	$(document).on("click", ".tip-ctn-even", function() {
 		$(this).attr("class","tip-ctn-even-fav");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
 	$(document).on("click", ".tip-ctn-odd", function() {
 		$(this).attr("class","tip-ctn-odd-fav");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
@@ -139,14 +137,12 @@ function displayTips(param) {
 	$(document).on("click", ".tip-ctn-even-fav", function() {
 		$(this).attr("class","tip-ctn-even");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 
 	$(document).on("click", ".tip-ctn-odd-fav", function() {
 		$(this).attr("class","tip-ctn-odd");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 }
@@ -204,8 +200,11 @@ $(window).unload( function () {
 	localStorage.tipJsonObject = JSON.stringify(tipMasterArr);
 	localStorage.addObj = JSON.stringify(addObj);
 	localStorage.delObj = JSON.stringify(delObj);
+	console.log("=== current tips object === ");
 	console.log(localStorage.tipJsonObject);
+	console.log("=== addObj === ");
 	console.log(localStorage.addObj);
+	console.log("=== delObj === ");
 	console.log(localStorage.delObj);
 	/*
 	var addStr = JSON.stringify(addFavArr);

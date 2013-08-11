@@ -105,8 +105,7 @@ function getRSSItem(entry, i) {
 		favorite = 'nofav';
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
-
-	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
+	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " " + parity + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
@@ -205,9 +204,10 @@ function checkIfFavorited(entry) {
 
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
-	var datastring = "user_id=" + localStorage.pid;
-	var linkIdArray = new Array();
-	$.ajax({ 
+	var datastring = "user_id=" + localStorage.pid.toString();
+	var linkIdArray = jQuery.parseJSON(localStorage.rssJsonObject);
+	/*
+	$.ajax({
 		type: "POST",
 		url: "php/getFavoritedNews.php",
 		data: datastring,
@@ -223,7 +223,8 @@ function getFavoritedNews() {
 			}
 		}
 	});
-
+	*/
+	console.log(linkIdArray);
 	return linkIdArray;
 
 

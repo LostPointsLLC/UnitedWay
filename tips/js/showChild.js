@@ -2,6 +2,7 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
+	/*
 	var parentID = localStorage.pid.toString();
 	var dataString = "parentID=" + parentID;
 	
@@ -15,6 +16,8 @@ $(document).ready(function() {
 			listChildren(data);
 		}
 	 });	 
+	 */
+	 listChildren(localStorage.childJsonObject);
 });
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
