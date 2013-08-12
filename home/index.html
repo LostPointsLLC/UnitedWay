@@ -5,21 +5,23 @@
 		<title>main menu</title>
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../css/default.css" rel="stylesheet" type="text/css"/>
-		<link href="css/home.css" rel="stylesheet" type="text/css" />
-		
+		<link href="css/home.css" rel="stylesheet" type="text/css" />		
 		<script src="js/home.js"></script>
-		<script>
+		<!--<script>
 		function checkLang(){
 		  if(localStorage.lang=="ESP")
 			document.location.href = "home_esp.html";
 		}
 		checkLang();
-	  </script>
+	  </script>-->
 	  <script src="../js/hideaddressbar.js"></script> 
 	</head>
 	<body>
 		<script>
+		if(localStorage.lang=="ENG")
 			generateHomeHeader("Home", true, true, true);
+		else
+			generateHomeHeader("Casa", true, true, true);
 		</script>
 		<div class='wrapper'>			
 			<div class="main-buttons">
