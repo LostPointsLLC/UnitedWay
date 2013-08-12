@@ -2,7 +2,7 @@
  *
  */
 function updateFavs() {
-
+/*
 	var jsonString = "jsonString=" + JSON.stringify(deleteArray);	
 	//alert(jsonString);
 	$.ajax({
@@ -16,5 +16,5 @@ function updateFavs() {
 
 		}
 	});
-
+*/
 }

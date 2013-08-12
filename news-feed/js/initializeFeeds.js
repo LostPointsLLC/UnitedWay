@@ -208,7 +208,7 @@ function getOptions() {
  */
 function checkIfFavorited(entry) {
 	if(entry.link in linkIdArray)
-		return linkIdArray[entry.link];
+		return linkIdArray[entry.link][0];
 	return -1;
 }
 

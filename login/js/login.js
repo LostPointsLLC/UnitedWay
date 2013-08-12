@@ -59,10 +59,13 @@ function verifyLogin() {
 					for(var i = 0; i < pairArray.length; i++) {
 						var link = pairArray[i][1];
 						var id = pairArray[i][0];
-						linkIdArray[link] = id;		// Stores everything as a link-id pair
+						var title = pairArray[i][2];
+						var source = pairArray[i][3];
+						var fav_id = pairArray[i][4];
+						linkIdArray[link] = [id, title, source, fav_id];		// Stores everything as a link-id pair
 					}
 					localStorage.rssJsonObject = JSON.stringify(linkIdArray); // Rss JSON Object
-					localStorage.rssBackupObject = JSON.stringify(linkIdArray); // Rss Backup (for remove array)
+					localStorage.rssBackupObject = JSON.stringify(linkIdArray); // Rss Backup (for remove array, used only in news feed code)
 					/*
 					 * Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
 					 * These objects MUST be cleared and re-initialized after syncing with the database (this is handled in update script).
