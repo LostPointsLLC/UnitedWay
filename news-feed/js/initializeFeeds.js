@@ -103,7 +103,18 @@ function getRSSItem(entry, i) {
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
+	
+	else if(feedData.source == 'uw')
+		content += "<p style='margin: 0'>" + getBlogTimes(entry.publishedDate);
 	return outerdiv + innerdiv + content;
+
+}
+
+/* Returns the published date in a more friendly format */
+function getBlogTimes(publishDate) {
+	console.log(publishDate);
+	var times = publishDate.split(' ');
+	return times[0] + " " + times[1] + " " + times[2] + " " + times[3];
 
 }
 
@@ -124,6 +135,7 @@ function getTimes(content) {
 
 	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 	endTime.setTime(Date.parse(datestring));
+	
 	return timeobj[1] + " " + timeobj[2] + " " + timeobj[3].slice(0, timeobj.indexOf(",")) + " from " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
 }
 
