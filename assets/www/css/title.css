@@ -1,27 +1,47 @@
 #title-screen-wrapper {
 	height: 100%;
 	width: 100%;
-	background: #00549b;
+	background: #00529b;
 	margin: 0 auto;
 }
+
+body {
+	background: #00529b;
+
+}
+
 #logo {
 	margin-right: auto;
 	margin-left: auto;
-	height: 205px;
-	width: 300px;
-	padding-top: 75px;
+	height: auto;
+	max-width: 100%;
+	margin-top:30px;
+	display:block;
 }
+
+
 #english-espanol-wrapper {
-	height: 70px;
-	width: 350px;
-	margin:0 auto;
+	height: auto;
+	width: 125px;
+	max-width: 100%;
+	margin: 0 auto 0 auto;
 }
-a {
-	font: 16px/40px Verdana, Geneva, sans-serif;
-	text-decoration: none;
-	color: #FFF;
-	text-align: center;
+
+/*
+#english-espanol {
+	position: relative;
+	margin: 0 auto;
+
+}*/
+
+#english-espanol li{
+	padding-top:7px;
+	padding-bottom:7px;
 }
+
+
+
+
 #checkbox {
 	background: #FFF;
 	height: 25px;
@@ -30,18 +50,48 @@ a {
 	margin-top: 7px;
 	margin-right: 7px;
 }
-#english-espanol {
-	height: 70px;
-	width: 130px;
+		
+	
+	
+#get-started {
+	position: relative;
+	width: 110px;
+	
+	height: auto;
+	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
+	display:block;
+	margin-top:30px;
 }
-#get-started-button {
-	height: 50px;
-	width: 250px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 80px;
+
+label {
+	color: white;
+	font-family: arial;	
+	font-size: 20px;
 }
 
 
+
+/*mobile phones */
+/*
+@media only screen and (min-device-width: 320px){
+label {
+	font-size: 60px ;
+}
+
+}*/
+
+/*tablets*/
+/*
+@media only screen and (min-device-width:768px){
+#logo {
+	padding-top: 30px;
+}
+#get-started {
+	padding-top: 20px;
+}
+label {
+	font-size: 75px ;
+}
+}*/

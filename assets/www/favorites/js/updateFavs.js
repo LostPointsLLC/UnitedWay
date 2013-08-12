@@ -7,7 +7,7 @@ function updateFavs() {
 	//alert(jsonString);
 	$.ajax({
 		type: "POST",
-		url: "http://web.engr.illinois.edu/~heng3/php/updateFavs.php",
+		url: "http://unitedway.lostpointsllc.com/favoritesphp/updateFavs.php",
 		data: jsonString,
 		cache: false,
 		async: false,

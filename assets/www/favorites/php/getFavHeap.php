@@ -1,5 +1,5 @@
 <?php
-	require("../php/connect.php");
+	require("../../php/connect.php");
 	$fav_userID = $_POST['userID'];
 	$output = array();
 
@@ -46,7 +46,7 @@
 	}
 		
 	function getTipsArray($dbConnection, $fav_userID) {	
-		
+		/*
 		// Execute the tip query
 		$query = $dbConnection->prepare("
 			SELECT tip_id, tips.tip_age, tips.tip_category, tips.tip_content, favorites.fav_id
@@ -77,6 +77,35 @@
 		}
 		
 		return $tipsArray;
+		*/
+		// Execute the tip query
+		$query = $dbConnection->prepare("
+			SELECT fav_typeID, tip_age, tip_category, fav_id
+			FROM 
+				favorites
+			WHERE fav_userID = ? AND fav_type='tip' AND fav_kept = 1;
+		");
+		
+		$query->bind_param('i', $fav_userID); // Sets params to sql query
+		if(!($query->execute())) die("Failed to execute RSS query" . mysqli_error($dbConnection));
+		
+		$query->store_result();
+		$query->bind_result($tip_id, $tip_age, $tip_category, $fav_id);
+		
+		$tipsArray = array();
+		
+		// Now we need to return this as a tips array
+		// $row is an array of a row's items
+		while($query->fetch()) {
+			$row = array();
+			$row[0] = $tip_id;
+			$row[1] = $tip_age;
+			$row[2] = $tip_category;
+			$row[3] = $fav_id;	
+			array_push($tipsArray, $row);
+		}
+		
+		return $tipsArray;
 	}	
 		
 	function getEventsArray($dbConnection, $fav_userID) {	
@@ -85,8 +114,7 @@
 			SELECT event_id, event_date, event_time, event_url, event_place, event_title, event_sponsor, favorites.fav_id
 			FROM 
 				(favorites JOIN events 
-				ON (favorites.fav_typeID = events.event_id
-				AND favorites.fav_type = 'event'))
+				ON (favorites.fav_typeID = events.event_id AND favorites.fav_type = 'event'))
 			WHERE favorites.fav_userID = ? AND favorites.fav_kept = 1;
 		");
 		$query->bind_param('i', $fav_userID); // Sets params to sql query

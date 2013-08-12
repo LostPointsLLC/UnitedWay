@@ -4,14 +4,13 @@ html, body {
 	margin: 0 auto;
 	background:#00549b;
 }
+
+
+
 .ch {
 	border: 1px solid #00549b;
 	padding: 3px 7px 2px 7px;
 	width:100%;
-
-/*
- border='1' bordercolor='#999999' style= cellpadding='2' cellspacing='2' width='300'
- */
 }
 
 .cell {
@@ -27,7 +26,7 @@ html, body {
 	font-size:1em;
 	border:1px solid #00549b;
 	padding:3px 7px 2px 7px;
-
+	text-align:center;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
@@ -40,17 +39,23 @@ html, body {
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
 }
-#arrow {
-	position: absolute;
-	top: 15.5%;
-	left: 36%;
+
+
+.age-text {
+
+	font-size: 20px;
+	float:right;
 }
-#child p  {
-	padding-top: 7px;
-	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
-	color:#ffffff;
-	text-align: center
+
+
+.child-name {
+	font-size: 20px;
+	font-family: Chunkfive;
+color: white;
+	   text-align: center;
 }
+
+
 #child-wrapper {
 	height: 125px;
 	width: 100%;
@@ -58,26 +63,6 @@ html, body {
 
 }
 
-#child {
-	height: 135px;
-	width: 60px;
-
-	margin: 0 auto
-}
-#child img {
-	padding-top: 10px;
-}
-#right-arrow {
-	width: 50px;
-	float: right;
-}
-#left-arrow {
-	float: left;
-	width: 50px;
-}
-#right-arrow, #left-arrow img{
-	padding-top:32px;
-}
 
 /****************THE HEALTH BUTTON*******************/
 .button-text{
@@ -106,8 +91,10 @@ vertical-align: middle;
  	-webkit-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	-moz-box-shadow:inset 1px 1px 0px 0px #dcecfb;
  	box-shadow:inset 1px 1px 0px 0px #dcecfb;
+ 	line-height: 200%;
 
-}.bt-health:hover {
+}
+.bt-health:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #80b5ea), color-stop(100%, #bddbfa) );
 	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
 	background:-ms-linear-gradient( top, #80b5ea 5%, #bddbfa 100% );
@@ -139,14 +126,17 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
-}.bt-grow:hover {
+	line-height: 200%;
+}
+.bt-grow:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #a5cc52), color-stop(100%, #b8e356) );
 	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
 	background:-ms-linear-gradient( top, #a5cc52 5%, #b8e356 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
 	background-color:#a5cc52;
 	
-}.bt-grow:active {
+}
+.bt-grow:active {
 	position:relative;
 	top:1px;
 }
@@ -172,6 +162,7 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	line-height: 200%;
 }.bt-safe:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffc83d), color-stop(100%, #ffc477) );
 	background:-moz-linear-gradient( center top, #ffc83d 5%, #ffc477 100% );
@@ -204,6 +195,7 @@ vertical-align: middle;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
+	line-height: 200%;
 }.bt-play:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ff8c82), color-stop(100%, #f24537) );
 	background:-moz-linear-gradient( center top, #ff8c82 5%, #f24537 100% );
@@ -219,37 +211,50 @@ vertical-align: middle;
 	width: 100%;
 
 }
-.tip-ctn-even-fav,
-.tip-ctn-even{
+
+.tip-item {
 	margin: 0 auto;
-	width: 100%;
 	display: block;
-	border-bottom: #7ca3dc 2px solid;
-	background-color: #00549b;
-	background-image:url("../../images/unpressed-star-button.png");
+	
+	border-top: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+
+	background-image: url("../../images/unpressed-star-button-even.png");
 	background-repeat:no-repeat;
-	background-position:95% 50%;
+	background-position: 97% 50%;
+	background-size:40px 40px;
+	
+}
+
+.tip-ctn-even-fav, .tip-ctn-even{
+
+
+	background-image:url("../../images/unpressed-star-button-even.png");
+	background-repeat:no-repeat;
+	background-position: 97% 50%;
 	background-size:40px 40px;
 }
-.tip-ctn-odd-fav,
-.tip-ctn-odd{
-	margin: 0 auto;
-	width: 100%;
-	display: block;
-	border-bottom: #7ca3dc 2px solid;
-	background-color: #E1EBF5;
-	background-image:url("../../images/unpressed-star-button.png");
+.tip-ctn-odd-fav, .tip-ctn-odd{
+
+	background-image: url("../../images/unpressed-star-button-even.png");
 	background-repeat:no-repeat;
-	background-position:95% 50%;
+	background-position: 97% 50%;
 	background-size:40px 40px;
 }
 
 .tip-ctn-even-fav {
 	background-image:url("../../images/star-button.png");
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+	background-size:40px 40px;
 }
 
 .tip-ctn-odd-fav {
 	background-image:url("../../images/star-button.png");
+	background-repeat: no-repeat;
+	background-position: 97% 50%;
+	background-size:40px 40px;
 }
 
 .tip {
@@ -257,6 +262,7 @@ vertical-align: middle;
 	padding: 10px 10px 10px 10px;
 	width: 80%;
 	display: inline-block;
+	color: white;
 
 
 }
@@ -265,14 +271,6 @@ vertical-align: middle;
 .pp-odd,
 .pp{
 	font-family: arial, helvetica, sans-serif;
-}
-
-.pp-even {
-	color: white;
-}
-
-.pp-odd {
-	color: #00549b;
 }
 
 .wrapper{

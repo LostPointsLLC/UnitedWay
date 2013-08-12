@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 	
 		<title>News Feed</title>
-		
+
+
+		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="css/news-feed.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pulldown.css"/>		
 		<script src="js/google-apis.js"></script>
 		<script>google.load("feeds", "1");</script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
@@ -14,22 +17,17 @@
 		<script src="js/news-feed.js"></script>
 		<script src="js/updateFeeds.js"></script>
 		<script src="js/changeFeeds.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
-		<link rel="stylesheet" type="text/css" href="css/news-feed.css"/>
-		<link rel="stylesheet" type="text/css" href="css/pulldown.css"/>	
+		<script src="../js/hideaddressbar.js"></script>
+	
 	</head>
 	<body>
-		<div class="wrapper">
-			<script>
-				document.write("<div class='header' id='header'>");	
-				// Writes the header to the DOM
-				document.write("<div class='title' style='color: white'>" + "News Feeds" + "</div>");
-				document.write("<div class='help'><a href='../help/" + "News Feeds" + ".html" + "'><img src='../images/help-button.png'/></a></div>");
-				document.write("<div class='home'><a href='../home/index.html'><img src='../images/home-button.png'/></a></div>");
-					document.write("</div>");
-			</script>
-			
+		<script>
+		if(localStorage.lang=="ENG")
+			generateHeader("News Feeds", true, true);
+		else
+			generateHeader("Noticias RSS", true, true);
+		</script>
+		<div class="wrapper">			
 			<div id="content">
 				<div id="feed"></div>
 			</div> <!-- End content div -->

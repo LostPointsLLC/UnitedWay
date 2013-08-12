@@ -4,12 +4,16 @@
 
 */
 html{
-	height:100%;
-	width:100%;
 	background:#00549b;
 }
 body{
 	margin:0;
+}
+.progressbar{
+	height:20px;
+	background:#40E823;
+	border-radius: 10px;
+
 }
 #content{
 	width:100%;
@@ -44,6 +48,10 @@ body{
 	width: 90px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	color:#ffffff;
+
+
+	position: relative;
+	top: 15px;
 }
 
 /* 
@@ -66,7 +74,6 @@ body{
 	text-align: center;
 }
 #child img {
-	padding-top: 10px;
 	text-align:center;
 }
 
@@ -82,11 +89,10 @@ body{
 }
 
 .percentage {
-	font-size:13px;
+	font-size:16px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	position: relative;
 	left: 10px;
-	bottom: 7px;
 }
 
 .pb-ctn {
@@ -95,12 +101,14 @@ body{
 	margin-bottom: 12px;
 	color:#ffffff;
 }
-
+.button-text{
+	top:-4px;
+}
 /****************THE HEALTH BUTTON*******************/
 
 .bt-health {
 
-	font-size:13px;
+	font-size:20px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -137,7 +145,7 @@ body{
 /****************THE LANGUAGE BUTTON*******************/
 
 .bt-lang {
-	font-size:13px;
+	font-size:20px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -174,7 +182,7 @@ body{
 /****************THE SOCIAL BUTTON*******************/
 
 .bt-social {
-	font-size:13px;
+	font-size:20px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -210,7 +218,7 @@ body{
 	
 /****************THE OTHER BUTTON*******************/
 .bt-other {
-	font-size:13px;
+	font-size: 20px;
 	font-family:Chunkfive, arial, helvetica, sans-serif;
 	font-weight:normal;
 	-moz-border-radius:8px;
@@ -243,6 +251,7 @@ body{
 	position:relative;
 	top:1px;
 }
+
 
 
 /********************* Style HTML 5 Progress Bars  *****************************************
@@ -349,8 +358,17 @@ body{
 }
 
 
+.child-name {
+	font-family: Chunkfive;
+	font-size: 20px;	
+	color: white;
+}
 
+.age-text {
+	font-family: Chunkfive;
+	font-size: 20px;
 
+}
 
 
 /*

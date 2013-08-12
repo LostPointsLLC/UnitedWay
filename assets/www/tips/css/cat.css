@@ -1,0 +1,51 @@
+#arrow {
+	position: absolute;
+	top: 15.5%;
+}
+
+
+#right-arrow {
+	width: 50px;
+	float: right;
+}
+#left-arrow {
+	float: left;
+	width: 50px;
+}
+#right-arrow, #left-arrow img{
+	padding-top:32px;
+}
+
+
+
+
+/* Styling the child on top of the page */
+#child {
+	position: relative;
+	top: 10px;
+	height: 135px;
+	width: 100px;
+	margin: 0 auto;
+}
+
+.child-img {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	left: 25px;
+	
+}
+#child p  {
+	padding-top: 7px;
+	font: bold 18px Chunkfive, arial, helvetica, sans-serif;
+	color:#ffffff;
+	text-align: center
+}
+
+#child-name-div {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	text-align:center;
+
+}

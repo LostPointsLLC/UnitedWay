@@ -18,8 +18,7 @@ function tip(tipRow) {
 	this.tip_id = tipRow[0];
 	this.tip_age = tipRow[1];
 	this.tip_category = tipRow[2];
-	this.tip_content = tipRow[3];
-	this.fav_id		= tipRow[4];
+	this.fav_id		= tipRow[3];
 }
 
 

@@ -10,6 +10,8 @@ function grabData(callback)
     google.load('feeds','1',{
 	'callback':function(){
 	    var feed = new google.feeds.Feed('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2');
+	    feed.setNumEntries(50);
+	    feed.includeHistoricalEntries();
 	    feed.load(function(res){
 		if(res.error){
 		    throw new Error('Problem occurred updating the event feed.');

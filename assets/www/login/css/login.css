@@ -1,122 +1,69 @@
-#login-wrapper {
-	background: #7ca3dc;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-}
-
-
-#titleBar {
-	height: 50px;
-	width: 350px;
-	background: #00549b;
-
-}
 #mainText {
-	width: 300px;
+	position: relative;
+	padding-left:25px;
 	padding-top: 57px;
+	padding-right: 35px;
 	line-height: 1px;
 	margin-bottom: 50px !important;
-	margin:0 auto;
+
+}
+label{
+	color: white;
+	font-family: arial;
+	font-size: 15px;
+}
+#rememberme{
+	padding-left:25px;
+	padding-top:10px;
 }
 p {
-	font: 18px Arial, Helvetica, sans-serif;
+	font: 16px Arial, Helvetica, sans-serif;
 	color: #FFF;
-	text-align:center;
+	
 }
 
 #fail {
 	margin-top: 10px;
-	padding-left: 25px;
 }
-#email {
+
+#result{
+	position:absolute;
+	padding-left:25px;
+}
+
+#loader {
+	position:absolute;
 	display: block;
-	height: 50px;
-	width: 95%;
-	
-	margin: 0 auto;
 	padding: 0;
-	margin-bottom: 5px;
-	
-	background: #f0502f;
-	border: medium solid #FFF;
-	
-	text-align:center;
-	border-radius: 10px;
-	color: white;
+	margin-top: 10px;
+	margin-left: 100px;
 }
 
-#password {
+#login-fields {
 	display: block;
-	height: 50px;
-	width: 95%;
-	margin: 0 auto;
-	padding: 0;
-	margin-bottom: 5px;
-
-	background: #fbae42;
-	border: medium solid #FFF;
-	
-	text-align:center;
-	border-radius: 10px;
-	color: white;
-}
-h6 {
-	font: 14px Arial, Helvetica, sans-serif;
-	color: #FFF;
-	padding-top: 15px;
-	padding-left: 25px;
-}
-
-/* Button Styling */
-/*
-.button {
-   background-image: -webkit-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:    -moz-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:     -ms-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:      -o-linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   background-image:         linear-gradient(top, rgba(230,230,230,1) 40%,rgba(200,200,200,1) 100%);
-   border: solid 4px rgba(224,211,224,1);
-   -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-           border-radius: 10px;
-   
-   
-   font-size: 15px;
-   font-family: Sans-serif;
-   line-height: 24px;
-   color: black;
-		
-}
-*/
-#option-links {
-	padding-top: 10px;
 	position: relative;
-	display: block;
-	text-align:center;
+	padding-left:25px;
 }
-
-/* individual: webkit */
-#email::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}
-#password::-webkit-input-placeholder { 
-	color:#dddddd; 
-	text-transform:uppercase; 
-	opacity: 50%;
-}
-
-#content {
-	position: relative;
-
-}
-
 
 #new-user {
-
-
+	margin-right: 5px;
 
 }
 
+
+#login {
+	margin-left: 5px;
+
+}
+
+#option-links {
+position: relative;
+top: 65px;
+padding-left:25px;
+}
+
+@media only screen and (max-device-width: 380px){
+#login {
+	margin-top:5px;
+}
+}

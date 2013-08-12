@@ -1,28 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		
 		<title>Title Screen</title>
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/default.css" rel="stylesheet" type="text/css"/>
 		<link href="css/title.css" rel="stylesheet" type="text/css" />
+		<script src='js/generator.js'></script>
+		<script src="js/langselect.js"></script>
+		<script src="js/persistentlogin.js"></script>
+		<script>
+		checkPersist();
+		localStorage.lang="ENG";//set language to english as default
+		</script>
+		<script src="js/hideaddressbar.js"></script>
 	</head>
 
 	<body>
 		<div id="title-screen-wrapper">
 
-			<div id="logo"><img src="images/logo.png" width="300" height="205" alt="logo" /></div>
+			<div><img id="logo" src="images/logo.png" alt="logo" /></div>
 			<!--end of logo -->
-
-
 			<div id="english-espanol-wrapper">
 				<ul id="english-espanol">
 					
-					<li><input type='radio' name='language' value="ENG" checked/>
+					<li><input type='radio' name='language' value="ENG" checked onclick = "handleclick(this)"/>
 					<label for="english">ENGLISH</label></li>
 					
-					<li><input type='radio' name='language' value="ESP"/>
+					<li><input type='radio' name='language' value="ESP" onclick = "handleclick(this)"/>
 					<label for="spanish">ESPA&Ntilde;OL</label></li>
 					
 				</ul>
@@ -31,8 +37,14 @@
 			</div>
 			
 	
-
-			<a id="login-button" href="login/index.html"><img id="get-started" src="images/get-started-button.png" width="250" height="50" style="margin: 0 auto; display: block;":/></a>
+			<script>
+			generateButton('Get Started!', 'get-started', 'bt-yellow', 'getStarted()');
+			function getStarted() {
+				document.location.href='file:///android_asset/www/login/index.html';
+			
+			}
+			</script>
+			<!--<a id="login-button" href="login/"><img id="get-started" src="images/get-started-button.png"/></a>-->
 
 
 

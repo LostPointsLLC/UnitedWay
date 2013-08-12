@@ -1,0 +1,97 @@
+#home-help-buttons {
+	height: 50px;
+	width: 101px;
+	float: right;
+}
+#home-help-buttons img {
+	padding: 0px;
+	float: right;
+}
+#favorites-wrapper {
+	width: 350px;
+	height: 600px;
+	margin: 0 auto;
+	padding: 0;
+	
+	background: #00549b;
+}
+p {
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #FFF;
+	padding-top: 10px;
+	padding-left: 23px;
+}
+#remove-share-buttons {
+	width: 105px;
+	float: right;
+}
+
+.item-text {
+	width: 200px;
+	height: 50px;
+	float: left;
+}
+
+.favorites-item {
+	height: 50px;
+	width: 344px;
+	border-right: medium solid #769ECF;
+	border-bottom: medium solid #769ECF;
+	border-left: medium solid #769ECF;
+}
+#favorites-title {
+	background: #769ECF;
+	height: 50px;
+	width: 350px;
+}
+
+.delete {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	left: 240px;
+	bottom: 25px;
+	background: url(../images/remove-button.png) no-repeat;
+}
+
+.share {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	left: 295px;
+	bottom: 75px;
+	background: url(../images/share-button.png) no-repeat;
+
+
+
+}
+
+
+
+.headline {
+width: 344px;
+height: 50px;
+	border-right: medium solid #769ECF;
+	border-bottom: medium solid #769ECF;
+	border-left: medium solid #769ECF;
+}
+
+.cat-logo {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	float: right;
+	margin-right: 57px;
+}
+
+.cat-name {
+	position: relative;
+	margin-left: 23px;	
+	padding-top: 10px;
+}
+
+#list-container {
+	/*position: relative;*/
+	bottom: 10px;
+}
+

@@ -1,81 +1,207 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" http-equiv="Content-Type" content="text/html; charset=utf-8,user-scalable=no" />
+		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<title>Add a child</title>
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/generator.js"></script>
-		<link href="../css/default.css" rel="stylesheet" type="text/css" />
+
 		<link href="../css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="../css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/child.css" rel="stylesheet" type="text/css" />
-		<link href="css/colors.css" rel="stylesheet" type="text/css" />
-		<link href="css/sprites.css" rel="stylesheet" type="text/css" />
+		
+		<script src='../js/spectrum/spectrum.js'></script>
+		<link rel='stylesheet' href='../js/spectrum/spectrum.css' />
+		
 		<script src="js/child.js"></script>
+		<script src="../js/hideaddressbar.js"></script>
 	</head>
 	<body>
+	
+		<div class='wrapper'>
+			<script>
+			var childID = parseInt(localStorage.edit_childID);
+			
+			if(localStorage.lang=="ENG"){
+				var headerTitle = "";
+				if(childID >= 0)
+					headerTitle = "Edit Children";
+				else
+					headerTitle = "Register Children";
+				
+				generateHeader(headerTitle, false, false);
+				generateMainText("<br><p id=\"mainText\" style='font-weight: bold'>Fill in your child's information below.</p>");
+			}
+			else{
+				var headerTitle = "";
+				if(childID >= 0)
+					headerTitle = "Editar los ni&ntilde;os";
+				else
+					headerTitle = "Registrar los ni&ntilde;os";
+				generateHeader("Registrar los ni&ntilde;os", false, false);
+				generateMainText("<br><p id=\"mainText\">Complete la informaci&oacute;n de su hijo menor.</p>");
+			}
+			</script>
+			<form id="form">
+				<div id="content">
+					<img id="sprite" src="images/child/boy-darkblue-mid.png"  /> 
+					<br>
+					<script>
+					// Note: DO NOT DELETE "name", OTHERWISE THE DB IS GOING TO FAIL
+					if(localStorage.lang=="ENG")
+					generateInputText("Your child&#39s firstname", "name-input-box", "name", "text");
+					else
+					generateInputText("Nombre de su hijo", "name-input-box", "name", "text");
+					</script>
+					<div id="birthday-select" class='input-box' >
+						<div id="birthday" >
+							<script>
+							if(localStorage.lang=="ENG")
+								generateInputBlurText("Your child&#39s birthday (mm/yy)", "", "bday", "text", "checkLegalBday()");
+							else
+								generateInputBlurText("El cumplea&ntilde;os de su hijo", "", "bday", "text", "checkLegalBday()");
+							</script>
+							
+						</div>
+					</div>
+					<div id="gender-select" class='input-box'>
+						<div class='input'>
+							<div class='pencil'></div>
+							<div id='gender-line' class='text-input' width='255px'>
 
-		<form id="form">
-			<div id="titlebar"><img id="titleimg"src="images/add-child_title.png" width="350" height="54"  alt=""/></div>
+								<p>Your child&#39s gender</p>
+								<div id='gender'> 
+									<input id='boy' value='boy' type='radio' name='gender' onClick='changeGender(1)' checked />
+									<label id='boy-label' for="boy">Boy</label><br>
+									
+									<input id="girl" value='girl' type='radio' name='gender' onClick="changeGender(2)"/>
+									<label id='girl-label' for='girl'>Girl</label>
+								</div>
+							</div>
+															
 
-			<p>Please fill in your child's information below!</p>
+							<!--<input type="text" class='text-input' />-->
+						</div>
+					<!--
+						<script>
 
-			<img id="icon" src="images/boy.png"/>
-			<div id="content">
-				<div id="childname" class="input-info">
-					<div id="name">
-						<input id="name-input" type="text" name="name" placeholder="Your child's firstname">
+						if(localStorage.lang=="ENG") {
+							generateInputFocusBlurText("Your child&#39s gender", "", "gender", "text", "showGenderInputs()", "");
+							
+						
+							//generateMainText("<p>Select your child's gender</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label></div>");
+						}
+						else {
+							generateInputText("Elija el sexo de su hijo", "", "", "text", "");
+						}
+							//generateMainText("<p>Elija el sexo de su hijo</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Chico</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Chica</label></div>");
+
+						</script>
+						-->
+					</div>
+					
+					<!-- A possible option for our colorpicker to look like -->
+					<!--
+					<div id ="color-select" class='input'>
+					
+
+						<div class='input'>
+							<div class='pencil'></div>
+							<div id='gender-line' class='text-input' width='255px'>
+
+								<p>Choose your child&#39s favorite color!</p>
+							
+							</div>
+							<input class="color {slider: false, required: false, valueElement: ''}">
+						</div>																
+
+					
+					
+						<p>Choose your child's favorite color!</p>
+						<input class="color {slider: false, required: false, valueElement: ''}">
+					</div>
+					-->
+					
+					<div id ="color-select" class='input'>
+						<p>Choose your child's favorite color!</p>
+						<div id='color-box'>
+							<input type='text' id="color" />
+							<script>
+							$("#color").spectrum({
+								showPaletteOnly: true,
+								showPalette: true,
+								color: "white",
+								palette: [
+									['black', 'white', 'blanchedalmond',
+									'rgb(255, 128, 0);', 'hsv 100 70 50'],
+									['red', 'yellow', 'green', 'blue', 'violet']
+								],
+								change: function(color) {
+									document.getElementById("sprite").style.backgroundColor=color.toHexString();
+								
+								}
+							});
+							</script>
+						</div>
+					</div>
+					
+					
+
+						
+					<!--
+					<script>
+						if(localStorage.lang=="ENG")
+							generateMainText("<p>Choose your child's favorite color!</p>");
+						else
+							generateMainText("<p>Elige el color favorito de su hijo!</p>");
+					</script> 
+						<div id = "colorSelector">
+							<div id='color' style="background-color: #ffffff;"></div> 
+						</div>
+
+					-->
 					</div>
 				</div>
-
-            <div id="childbd" class="input-info">
-					<div id="birthday">
-						<p>Your child's birthday</p>
-						<input type="date" name="birthday"/>
-					</div>
-				</div>
-
+			</form>
 				
-				<div id="gender-select" class="input-info">
-					<p>Select your child's gender</p>
-					<ul>
-					<li><input id="boy" value="'boy'" type="radio" name="gender"/><label for="boy">Boy</label></li>
-					<li><input id="girl" value="'girl'" type="radio" name="gender"/><label for="girl">Girl</label></li>
-					</ul>
-				</div>
+			<div id='result'></div>
+			<div id="options-list">
+				<script type="text/javascript">
 				
-
-				<p id="fav-color">Choose your child's favorite color!</p>
-
-				<div id="color-list">
-					<input type="color" name="color">
-
-				</div>
-
+				var fromSettings = parseInt(localStorage.fromSettings);
+				localStorage.fromSettings = '0'; // Prevent being able to 'add' children on an 'edit children' page
+				var childID = parseInt(localStorage.edit_childID);
+				if(fromSettings) {
+					if(localStorage.lang=="ENG"){
+					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+					generateButton("Finished!", "finish", "bt-yellow", "settings()");
+					}
+					else{
+					generateButton("A&ntilde;adir otro ni&ntilde;o", "child-add", "bt-yellow", "add()");
+					generateButton("Acabado!", "finish", "bt-yellow", "settings()");	
+					}
+				}
+				else if(childID >= 0) {
+					if(localStorage.lang=="ENG")
+					generateButton("Done editing", "edit", "bt-yellow", "editDB()");
+					else
+					generateButton("Terminar la edici&oacute;n de", "edit", "bt-yellow", "editDB()");
+				
+				}
+				else {
+					if(localStorage.lang=="ENG"){
+					generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
+					generateButton("Finished!", "finish", "bt-yellow", "finish()");
+					}
+					else{
+					generateButton("A&ntilde;adir otro ni&ntilde;o", "child-add", "bt-yellow", "add()");
+					generateButton("Acabado!", "finish", "bt-yellow", "finish()");
+					}
+				}
+				</script>
 			</div>
-			
-			<script type="text/javascript">
-			generateButton("Add Another Child", "child-add", "bt-yellow", "add()");
-			function add() {
-				if(updateDB(true) == -1) return;
-				document.location.href="child.html"; 
-			}
-			</script>
 
-			<script type="text/javascript">
-			generateButton("Finished!", "finish", "bt-yellow", "finish()");
-			function finish() { 
-				if(updateDB(false) == -1) return;
-				document.location.href="../home/index.html"; 
-			}
-
-			</script>
-
-
-			
-
-
-		</form>
-
+		</div>
 	</body>
 </html>
 

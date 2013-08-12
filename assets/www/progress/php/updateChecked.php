@@ -2,7 +2,7 @@
 	/*
 		Handle request for all checked tasks of a child
 	*/
-	require("../connect.php");
+	require("../../php/connect.php");
 	$childID = $_POST['childID']; 
 	$catID = $_POST['taskID']; // category code for tasks
 	$newString = (string)$_POST['newString'];

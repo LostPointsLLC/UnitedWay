@@ -9,7 +9,7 @@
 #main-menu-title {
 	height: 50px;
 	width:100%;
-	background: #789fcd;
+	background: #7ca3dc;
 	position: fixed;
 }
 #titleimg{
@@ -23,34 +23,70 @@
 .main-buttons {
 	width: 100%;
 	vertical-align: middle;
-	padding-top: 57px;
+	padding-top: 50px;
 }
 #level1, #level2, #level3{
-	margin:0 auto;
-	width:350px;
-	font-size:0;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	font-size: 0;
 	line-height: 0;
+	text-align: center;
 }
-#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
- {
- 	display:block;
-	float: left;
+.big-icon{
+	width:40%;
 }
 
-
-.incomplete {
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-
+.tablet-buttons{
+	width: 100%;
+	text-align:center;
+	padding-top: 57px;
+	display:none;
 }
-@media only screen and (max-width: 320px),(max-device-width: 320px) {
-	#news-feed-button, #progress-button,#favorites-button,#tips-button,#resources-button,#calendar-button
- 	{
-	width:130px;
-	margin-left:16px;
+/**/.fav{
+/**/	float: right;
+/**/	/*border-right: 1px solid #003366;*/
+/**/	/*border-left: 1px solid #003366;*/
+		width:50px;
+		height:50px;
+/**/}
 
-	}
+
+
+/**/.settings{
+/**/	float: right;
+/**/	/*border-right: 1px solid #003366;*/
+		width:50px;
+		height:50px;
+/**/}
+
+/*mobile phones */
+/*
+@media only screen and (min-device-width: 320px) {
+.main-buttons {
+	padding-top: 80px;
+}
+}*/
+
+/*portrait tablets, portrait ipad*/
+/*
+@media only screen and (min-device-width:640px) and (max-device-width: 960px){
+	.tablet-buttons{
+	display:none;
+}
+	.main-buttons {
+	display:inline-block;
+	max-width:40%;
+}
+
+}*/
+
+/*For landscape tablets*/
+@media only screen and (min-width:925px){
+	.tablet-buttons{
+	display:block;
+}
+	.main-buttons {
+	display:none;
+}
 }

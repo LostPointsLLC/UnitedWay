@@ -15,16 +15,18 @@ function generateHeader(text, home, help) {
 	document.write("<div class='header' id='header'>");	
 	// Writes the header to the DOM
 	document.write("<div class='title' style='color: white'>" + text + "</div>");
-				
+	
 
 	if(help) 
-		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img src='../images/help-button.png'/></a></div>");
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'rel=\"external\"><img class='head-bt' id='help-bt' src='../images/help-button.png'/></a></div>");
 	if(home) 
-		document.write("<div class='home'><a href='../home/index.html'><img src='../images/home-button.png'/></a></div>");
+		document.write("<div class='home'><a href='../home/index.html' rel=\"external\"><img class='head-bt' id = 'home-bt' src='../images/home-button.png'/></a></div>");
 
 	document.write("</div>");	
 
 }
+
+
 
 /* Generates a button with some text and an event
  * Make sure you have default.css linked to your page
@@ -44,9 +46,10 @@ function generateButton(text, id, css, e) {
 
 
 
+
 /* Generates the calendar button within the daily tips page.*/
 function generateCalBtn() {
-	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
+	document.write("<div class='calbtnwrap'><a href='../calendar/maincalendar.html'><img class='head-bt' id = \"calbtn\"src='../images/calendar-button.png'/></a></div>");
 }
 
 /* Generates the div boxes for date, activity and events on the daily tips page in calendar*/
@@ -60,62 +63,85 @@ function generateMainCal(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Below is some object oriented code for the favorites page
- * that Shiren helped us make. I'm not sure we'll be using his
- * code for the time being, but it's something to think about
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ *
+ * Make sure these parameters are all strings
  */
-/*
-function listitem(checked, text, id) {
-	this.checked = checked;
-	this.text = text;
-	this.id = id;
-	this.del = false;
-	this.share = false;
+function generateInputText(placeholder, id1, id2, type) {
 
-	this.remove = function() {
-		this.del = true;
-	};
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' /></div>");
 
-	this.sharfav = function() {
-		this.share = true;
-
-	}
 
 }
 
-function checklist() {
-	this.list = new Array();
-	this.add = function(item) {
-		this.list.push(item);
 
-	}
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user leaves the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputBlurText(placeholder, id1, id2, type, e) {
 
-	this.load = function(json) {
-		var decoded = JSONDecode(json);
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onblur='" + e + "'/></div>");
 
 
-	}
-}*/
+}
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user enters the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputFocusText(placeholder, id1, id2, type, e) {
+
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onfocus='" + e + "'/></div>");
+
+
+}
+
+/* placeholder: Duh
+ * id1: id of the outer input box
+ * id2: id of the input text box, and nothing else
+ * type: type of the input text
+ * e: Event to be triggered when a user enters the input field
+ *
+ * Make sure these parameters are all strings
+ */
+function generateInputFocusBlurText(placeholder, id1, id2, type, e1, e2) {
+
+	document.write("<div id='" + id1 + "' class='input'><div class='pencil'></div><input type=" + type + " class='text-input' id='" + id2 + "' placeholder='" + placeholder + "' onfocus='" + e1 + "' onblur='" + e2 + "' /></div>");
+
+
+}
+
+
+
+//function to generate header and sub header in registration page
+function generateMainText(param){
+	document.write(param);
+}
+
+//function to generate id = personal-info
+function generatePersInfo(){
+	if(sessionStorage.lang=="ENG")
+		document.write("<p>Please provide your personal information below.</p>");
+	else
+		document.write("<p>Por favor, a continuaci&oacute;n proporcione su informaci&oacute;n personal.</p>");
+}
+
+//function to generate id = login-info
+function generateLoginInfo(){
+	if(sessionStorage.lang=="ENG")
+		document.write("<p>Please provide the information you would like to use to log into our app.</p>");
+	else
+		document.write("<p>Por favor, proporcione la informaci&oacute;n que desea utilizar para iniciar sesi&oacute;n en nuestra aplicaci&oacute;n.</p>");
+}
