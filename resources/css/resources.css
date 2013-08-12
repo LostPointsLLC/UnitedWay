@@ -30,7 +30,10 @@
 	vertical-align: middle;
 }
 
+.ui-disabled {
 
+	opacity: 1;
+}
 
 
 
