@@ -30,7 +30,7 @@ function forgotpw(){
 		async: false,
 		success: function(data) {
 			var res = data.trim();
-			//alert(res);
+			alert(res);
 			//temp pw successfully sent to user email
 			if(res==-1){
 				document.getElementById("result").innerHTML = "A temporary password has been sent to your email.";
