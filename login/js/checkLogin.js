@@ -65,7 +65,7 @@ function checkLogin(first, last, email, pass, confirm) {
 	var flag = true;
 	//Checks if all the inputs are empty
 	if(!checkInputs(first,last,email,pass,confirm)){
-		if(sessionStorage.lang=="ENG"){
+		if(localStorage.lang=="ENG"){
 		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please fill in all the fields.</p>";
 		}
 		else{
@@ -75,7 +75,7 @@ function checkLogin(first, last, email, pass, confirm) {
 	}
 	// Checks the first name
 	else if(!checkAlpha(first)) {
-		if(sessionStorage.lang=="ENG"){
+		if(localStorage.lang=="ENG"){
 		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Your first name isn't all letters.</p>";
 		}
 		else{
@@ -84,7 +84,7 @@ function checkLogin(first, last, email, pass, confirm) {
 		flag = false; 
 	}
 	else if(!checkAlpha(last)) {
-		if(sessionStorage.lang=="ENG"){
+		if(localStorage.lang=="ENG"){
 		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Your last name isn't all letters.</p>";
 		}
 		else{
@@ -93,7 +93,7 @@ function checkLogin(first, last, email, pass, confirm) {
 		flag = false; 
 	}
 	else if(!checkEmail(email)) {
-		if(sessionStorage.lang=="ENG"){
+		if(localStorage.lang=="ENG"){
 		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Your email address is invalid.</p>";
 		}
 		else{
@@ -103,7 +103,7 @@ function checkLogin(first, last, email, pass, confirm) {
 	}
 	else if(checkPass(pass)==1 || checkPass(pass)==2) {
 		if(checkPass(pass)==1){
-			if(sessionStorage.lang=="ENG"){
+			if(localStorage.lang=="ENG"){
 			document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please type in a password that is at least 5 characters long.</p>";
 			}
 			else{
@@ -111,7 +111,7 @@ function checkLogin(first, last, email, pass, confirm) {
 			}
 		}
 		else{
-			if(sessionStorage.lang=="ENG"){
+			if(localStorage.lang=="ENG"){
 			document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Please type in a password that is at most 20 characters long.</p>";
 			}
 			else{
@@ -121,7 +121,7 @@ function checkLogin(first, last, email, pass, confirm) {
 		flag = false; 
 	}
 	else if(!matchPass(pass,confirm)){
-		if(sessionStorage.lang=="ENG"){
+		if(localStorage.lang=="ENG"){
 		document.getElementById("result").innerHTML = "<p class='fail'>Registration failed. Passwords do not match.</p>";
 		}
 		else{
