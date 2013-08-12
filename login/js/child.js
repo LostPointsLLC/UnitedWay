@@ -20,6 +20,35 @@ function updateDB(addAnotherChild) {
 	}
     /* TODO: Make requirements for which fields should be added */
  
+	/*
+	 *	
+	 *  
+	 */
+	 
+	// Add child to localStorage.childJsonObject Object
+	var childJsonObj = jQuery.parseJSON(localStorage.childJsonObject);
+	var health_code	= "'bbbbbb'";
+	var language_code = "'bbbbbbbbbbbbbbb'";
+	var social_code = "'bbbbbbbbb'";
+	var other_code = "'bbbbbbbbbbbbbbbbbbbbbbbbb'";
+	var newChild = {};
+	newChild["child_id"] =  
+	newChild["child_birthday"] = 
+	newChild["child_color"] = 
+	newChild["child_name"] = 
+	newChild["child_gender"] =
+	newChild["child_name"] =
+	newChild["health_code"] =
+	newChild["language_code"] =
+	newChild["social_code"] =
+	newChild["other_code"] =
+	 
+	 
+	 // Add child to new children list
+	 
+	 
+ 
+	/*
     // Executes if one of the buttons is pressed
     $.ajax({
 		type: "POST",
@@ -29,6 +58,7 @@ function updateDB(addAnotherChild) {
 		async: false,
 		
     });
+	*/
     return 0;
     
 }
@@ -103,17 +133,17 @@ function editDB() {
     
     if(dataString) {
 	
-	$.ajax({
-	    type: "POST",
-	    url: "php/editChild.php",
-			data: dataString,
-	    cache: false,
-	    async: false,
-	    success: function(data){
-		alert(data);
-		
-	    }
-	});
+		$.ajax({
+			type: "POST",
+			url: "php/editChild.php",
+				data: dataString,
+			cache: false,
+			async: false,
+			success: function(data){
+			alert(data);
+			
+			}
+		});
 		localStorage.dirty = '1';
     }
     
