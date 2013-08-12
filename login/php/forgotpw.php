@@ -1,5 +1,5 @@
 <?php
-	require ("class.phpmailer.php");
+
 	require("../../php/connect.php");
 	require("../../php/phpass-0.3/PasswordHash.php");
 
@@ -31,17 +31,16 @@
 		//server email details
 		/*$server_un = "joshua.hyk";
 		$domain = "gmail.com";
-		$server_email = $server_un.'@'.$domain;*/
-		$from = "joshua.hyk@gmail.com";
+		$server_email = $server_un.'@'.$domain;
 		//recipients content and email
 		$to = $email;
 		$subject = "Forgot Password";
 		$headers = "MIME-Version: 1.0rn"; 
     	$headers .= "Content-type: text/html; charset=iso-8859-1rn"; 
-		$headers .= "From: Your Site <".$from.">\r\n";
+		$headers .= "From: Your Site <".$server_email.">\r\n";
         $message = "You have requested that you forgot your password.<br>
                     Password: <b>".$temp_pw."<b>";
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers);*/
 
 
         // step 3. print out a statement saying a password has been sent using an echo value
