@@ -1,4 +1,4 @@
-/* Updates the database */
+﻿/* Updates the database */
 function updateDB(addAnotherChild) {
 	var posts = $("#form").serialize();									// Finds the checked items, then concatenates as a datastring
 	var name = document.getElementById("name").value;					// Don't know why this wasn't added in the serialize()
@@ -37,10 +37,10 @@ function updateDB(addAnotherChild) {
 	newChild["child_color"] = color;
 	newChild["child_name"] = name;
 	newChild["child_gender"] = gender;
-	newChild["health_code"] = "'bbbbbb'";
-	newChild["language_code"] = "'bbbbbbbbbbbbbbb'";
-	newChild["social_code"] = "'bbbbbbbbb'";
-	newChild["other_code"] = "'bbbbbbbbbbbbbbbbbbbbbbbbb'";
+	newChild["health_code"] = "bbbbbb";
+	newChild["language_code"] = "bbbbbbbbbbbbbbb";
+	newChild["social_code"] = "bbbbbbbbb";
+	newChild["other_code"] = "bbbbbbbbbbbbbbbbbbbbbbbbb";
 	var newChildStr = JSON.stringify(newChild);
 	
 	// Add child to localStorage.childJsonObject Object
@@ -139,26 +139,30 @@ function showDuplicateNamePrompt (name) {
 
 // Uses a query to update the database
 function editDB() {
-    
+    console.log("THIS IS EDIT");
+	console.log(localStorage.edit_childID);
     var birthday = document.getElementById("bday").value;
     var name = document.getElementById("name").value;
-    
+    console.log("Name " + name);
+	console.log("Birthday " + birthday);
     if(showFailPrompt(name, birthday) == -1) return;
     
     var color = document.getElementById("color").style.backgroundColor;
     var boy_gender = document.getElementById("boy").value;
 	var dataArr = getDataString(name, birthday, color, boy_gender);
-	
+	console.log(dataArr);
 	// Edit child in localStorage.childJsonObject Object
 	var childJsonObj = jQuery.parseJSON(localStorage.childJsonObject);
 	var editedChild = childJsonObj[dataArr["child_id"]];
+	editedChild["child_id"] = dataArr["child_id"];
 	// Edit child
 	editedChild["child_name"] = dataArr["child_name"];
 	editedChild["child_birthday"] = dataArr["child_birthday"];
 	editedChild["child_color"] = dataArr["child_color"];
 	editedChild["child_gender"] = dataArr["child_gender"];
+	console.log(JSON.stringify(editedChild));
 	localStorage.childJsonObject = JSON.stringify(childJsonObj);
-	
+	console.log(localStorage.childJsonObject);
 	localStorage.dirty = '1';
 	
 	/*
@@ -182,11 +186,10 @@ function editDB() {
     */
 	
 
-    localStorage.removeItem('edit_childID');
+    
     document.location.href="../settings/";
     
 }
-
 
 // Creates a data string to be sent back into the DB
 // Any empty string means no changes have to be made.
@@ -197,46 +200,24 @@ function getDataString(name, birthday, color, boy_gender) {
 	var	id = localStorage.edit_childID;
 	var	attributes = jQuery.parseJSON(localStorage.childJsonObject);
 
-	var flag = false;
 	var editAttributes = {};
-	var posts = "name=";
-	
-	if(attributes[id]["child_name"] != name) {
-		editAttributes["child_name"] = name;
-		posts += name;
-		flag = true;
-	}
-	
-	posts += "&birthday=";
-	if(attributes[id]["child_birthday"] != birthday) {
-		editAttributes["child_birthday"] = birthday;
-		posts += birthday;
-		flag = true;
-	}
-	
-	posts += "&color=";
-	if(attributes[id]["child_color"] != color) {
-		editAttributes["child_color"] = color;
-		posts += color;
-		flag = true;
-	}
-
-	posts += "&gender=";
+	editAttributes["child_name"] = name;
+	editAttributes["child_birthday"] = packDateFormat(birthday);
+	editAttributes["child_color"] = color;
 	if((attributes[id]["child_gender"] == 'boy') == boy_gender) {
 		editAttributes["child_gender"] = "girl";
-		posts += 'girl';
-		flag = true;
 	}
 	editAttributes["child_gender"] = "boy";
 	editAttributes["child_id"] = id;
-	posts += "&id=" + id;
 	
-	if(flag) return editAttributes;
+	return editAttributes;
 	// if(flag) return posts;
-	else return false;
 }
 
-
+function packDateFormat(birthday) {
+	var date = birthday.split('/');
+	return '20' + date[1] + '-' + date[0] + '-00'; 
+}
 
 // Called when one of the radio buttons is clicked
 // 1 is boy
@@ -292,8 +273,14 @@ function initializeEditingPage(id) {
 		document.getElementById("girl").checked = true;
 		changeGender(2);
 	}
-	document.getElementById("bday").value = birthday;
+	document.getElementById("bday").value = formatBirthday(birthday);
 	
+}
+function formatBirthday(rawBday) {
+	var date = rawBday.split('-');
+	var yy = date[0].substring(2);
+	var mm = date[1];
+	return mm + '/' + yy;
 }
 
 
@@ -302,8 +289,6 @@ function add() {
 	localStorage.fromSettings = '0';
 	document.location.href="child.html"; 
 }
-
-
 
 function finish() { 
 	if(updateDB(false) == -1) return;

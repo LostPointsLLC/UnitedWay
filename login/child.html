@@ -20,11 +20,24 @@
 	
 		<div class='wrapper'>
 			<script>
+			var childID = parseInt(localStorage.edit_childID);
+			
 			if(localStorage.lang=="ENG"){
-				generateHeader("Register Children", false, false);
+				var headerTitle = "";
+				if(childID >= 0)
+					headerTitle = "Edit Children";
+				else
+					headerTitle = "Register Children";
+				
+				generateHeader(headerTitle, false, false);
 				generateMainText("<br><p id=\"mainText\" style='font-weight: bold'>Fill in your child's information below.</p>");
 			}
 			else{
+				var headerTitle = "";
+				if(childID >= 0)
+					headerTitle = "Editar los ni&ntilde;os";
+				else
+					headerTitle = "Registrar los ni&ntilde;os";
 				generateHeader("Registrar los ni&ntilde;os", false, false);
 				generateMainText("<br><p id=\"mainText\">Complete la informaci&oacute;n de su hijo menor.</p>");
 			}
@@ -156,6 +169,7 @@
 				<script type="text/javascript">
 				
 				var fromSettings = parseInt(localStorage.fromSettings);
+				localStorage.fromSettings = '0'; // Prevent being able to 'add' children on an 'edit children' page
 				var childID = parseInt(localStorage.edit_childID);
 				if(fromSettings) {
 					if(localStorage.lang=="ENG"){

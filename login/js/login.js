@@ -77,10 +77,10 @@ function verifyLogin() {
 					localStorage.childTracker = JSON.stringify(childDB);
 					
 					// Keep list of any new children (their child id's)
-					var newChildren = new Array ();
+					var newChildren = {};
 					localStorage.newChildren = JSON.stringify(newChildren);
 					// Keep list of any deleted childen (their child id's)
-					var delChildren = new Array ();
+					var delChildren = [];
 					localStorage.delChildren = JSON.stringify(delChildren);
 					
 					// Keep addFavArr and delFavArr for favouring/unfavouring tips.

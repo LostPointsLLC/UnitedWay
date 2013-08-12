@@ -55,7 +55,7 @@ function listChildren(param) {
 
 
 			var i = 0;
-			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' >";
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(&quot;" + obj[key]["child_id"] + "&quot;)' >";
 			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
 			tableString[++i] = "<td class = 'nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] = "<td class = 'ageCell'><span class='age-text'>" + ageFormatted + "</span></td></tr>" ;

@@ -138,7 +138,7 @@ function displayTips(param) {
 	});
 	
 	$(document).on("click", ".tip-ctn-odd", function() {
-		$(this).removeClass("tip-ctn-odd").addClass("tip-ctn-even-fav");
+		$(this).removeClass("tip-ctn-odd").addClass("tip-ctn-odd-fav");
 		var favIndex = $(this).attr('id');
 		addToFavArr(favIndex);
 	});

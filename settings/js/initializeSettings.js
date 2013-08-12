@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	localStorage.removeItem('edit_childID'); // This is to prevent 
+});
+
 // Function to update progress. function is called from the start in HTML
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
@@ -76,7 +80,7 @@ function listChildren(param) {
 			tableString[++i] =		"<span class='text white-text'>" + obj[key]['child_name'] + "</span>";
 			tableString[++i] = 		"</td>";
 			tableString[++i] =		"<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
-			tableString[++i] =		"<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(" + key + ")'/></td>";
+			tableString[++i] =		"<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(&quot;" + key + "&quot;)'/></td>";
 			tableString[++i] =		"<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, &quot;" + key + "&quot;)' /></td>"
 			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";

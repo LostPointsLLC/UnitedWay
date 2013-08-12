@@ -1,8 +1,12 @@
-/* A file inspired by Shiren Mathai.
+/* 
  * This code is not as efficient as it could be
  * because it hasn't been "minified". (Google it if you aren't
  * familiar with the term.) However, this code is readable.
  */
+ 
+ $(document).ready(function() {
+	localStorage.removeItem('edit_childID');
+});
 
 /* Generates the header of each page.
  * Make sure you have default.css linked to your page
