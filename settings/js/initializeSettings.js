@@ -77,7 +77,7 @@ function listChildren(param) {
 			tableString[++i] = 		"</td>";
 			tableString[++i] =		"<td class='ageCell'><span id='age" + key + "' class='text white-text'>" + ageFormatted + "</span></td>";
 			tableString[++i] =		"<td class='editCell'><img id='edit" + key + "' class='edit' src='../images/wrench.jpg' onClick='editChild(" + key + ")'/></td>";
-			tableString[++i] =		"<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, " + key + ")' /></td>"
+			tableString[++i] =		"<td class='deleteCell'><img id='delete" + key + "' class='delete' src='../images/remove-button-blkoutline.png' onClick='deleteChild(&#39" + obj[key]["child_name"] + "&#39, &quot;" + key + "&quot;)' /></td>"
 			tableString[++i] = "</tr>";
 			tableString[++i] = "</table>";
 			anchor.innerHTML = tableString.join('');	// Makes this bigass array into one bigass string
