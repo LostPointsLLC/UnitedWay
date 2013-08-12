@@ -1,5 +1,5 @@
 <?php
-
+	require("class.phpmailer.php");
 	require("../../php/connect.php");
 	require("../../php/phpass-0.3/PasswordHash.php");
 
@@ -28,24 +28,39 @@
 		$changeQuery->execute()|| fail('MySQL execute', $db->error);
 		
 		// step 2. sends the unhashed password to the user's email
-		//server email details
-		/*$server_un = "joshua.hyk";
-		$domain = "gmail.com";
-		$server_email = $server_un.'@'.$domain;
-		//recipients content and email
-		$to = $email;
-		$subject = "Forgot Password";
-		$headers = "MIME-Version: 1.0rn"; 
-    	$headers .= "Content-type: text/html; charset=iso-8859-1rn"; 
-		$headers .= "From: Your Site <".$server_email.">\r\n";
-        $message = "You have requested that you forgot your password.<br>
-                    Password: <b>".$temp_pw."<b>";
-        mail($to, $subject, $message, $headers);*/
 
+        $mail = new PHPMailer();  
+ 
+		$mail->IsSMTP();  // telling the class to use SMTP
+		$mail->Mailer = "smtp";
+		/*NEED TO GET FROM SHIREN*/
+		//sender's details. e.g. Admin
+		$mail->Host = "ssl://smtp.gmail.com";
+		$mail->Port = 465;
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		/*NEED TO GET FROM SHIREN*/
+		$mail->Username = "yourusername@gmail.com"; // SMTP username
+		$mail->Password = "yourpassword"; // SMTP password 
+ 
+ 		//Contents in the email
+		$mail->From     = "email address sender"; //sender's email address
+		$mail->AddAddress("$email");  
+ 
+		$mail->Subject  = "Forgot Password";
+		$mail->Body     = "You have requested that you forgot your password. 
 
-        // step 3. print out a statement saying a password has been sent using an echo value
-		echo -1;
-		mysqli_close($dbConnection);
+Password: ".$temp_pw." 
+
+Please login with this password and change your password in the settings page.";
+		// step 3. print out a statement saying a password has been sent using an echo value
+		if(!$mail->Send()) {
+			echo 'Message was not sent.';
+			echo 'Mailer error: ' . $mail->ErrorInfo;
+		}
+		else {
+			echo -1;
+			mysqli_close($dbConnection);
+		}
 	}
 
 	function get_post_var($var) {
