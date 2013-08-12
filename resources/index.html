@@ -9,12 +9,13 @@
 
 		<script src="../js/generator.js"></script>
 		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
-		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<link rel="stylesheet" href="css/resources.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
+		<!--<link rel="stylesheet" href="../css/reset.css" type="text/css"/>-->
+		<link rel="stylesheet" href="css/resources.css" type="text/css"/>
+
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/jquery.mobile-1.3.2.js"></script>		
-		
+		<script src='js/resources.js'></script>
 		
 		<!-- Stylesheets -->
 		<script src="../js/hideaddressbar.js"></script>		
@@ -30,20 +31,39 @@
 			</script>
 
 			<div class="content" data-role='content'>
-				<div data-role='collapsible-set'>	
+				<div id='set' data-role='collapsible-set'>	
 	
-					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3>United Way Champaign</h3>
-						<p><i>Quite Loud</i> by Leslie Patricelli</p>
+
+	
+	
+					<div id='uwchampaign' data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 id='uwchampaign-header' class='ui-disabled'>United Way Champaign</h3>
+
 					</div>
 
-					<div data-role='collapsible' data-theme='b' data-iconpos="right">
-						<h3>Chambanamoms</h3>
-						<p><i>Quite Loud</i> by Leslie Patricelli</p>
+					<div id='chambanamoms' data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 id='chambanamoms-header' class='ui-disabled'>Chambanamoms</h3>
+
 					</div>
 	
-					
-					
+					<script>
+					var headers = document.getElementsByTagName("h3");
+					headers[0].parentNode.setAttribute("onmousedown", "uwchampaign()");
+					headers[1].parentNode.setAttribute("onmousedown", "chambanamoms()");
+
+
+
+					function uwchampaign() {
+					document.location.href="http://www.uwayhelps.org/";
+
+					}
+
+					function chambanamoms() {
+					document.location.href="http://www.chambanamoms.com/";
+
+					}
+
+					</script>
 
 <!-------------------------------->
 					<div data-role='collapsible' data-theme='b' data-iconpos="right">
@@ -94,7 +114,7 @@
 					
 					
 					
-					<div data-role='collapsible' data-iconpos="right" data-content-theme="c">
+					<div data-role='collapsible' data-iconpos="right" data-theme="b" data-collapsed='false' data-content-theme="a">
 						<h3>Kindergarten Registration</h3>
 	
 						<p> All parents/legal guardians of children who will be five years of age on or before September 1 are encouraged to register their children for kindergarten. </p>
@@ -104,19 +124,20 @@
 
 						<p>In most cases, the parent/legal guardian will need to bring the following for kindergarten registration:</p>
 
-						   <ul>
-							  <li>Child’s official birth certificate (with raised seal)</li>
-							  <li>Child’s social security number</li>
-							  <li>Proof of residency (required for all registrations) – copy of signed mortgage, contract to build or lease agreement showing the owner/resident’s name and address or TWO of the following items:
-								 <ul>
-									<li>Utility bills which have the name and address of the resident</li>
-									<li>Valid driver’s license</li>
-									<li>Voter registration card</li>
-									<li>State medical card</li>
-									<li>Notarized affidavit of residency from the parent or person with whom the child is residing, affirming that the child eats and sleeps at the residence</li>
-								 </ul>
+						<ul>
+							<li>Child’s official birth certificate (with raised seal)</li>
+							<li>Child’s social security number</li>
+							<li>Proof of residency (required for all registrations) – copy of signed mortgage, contract to build or lease agreement showing the owner/resident’s name and address or TWO of the following items:
+							
+							<ul>
+								<li>Utility bills which have the name and address of the resident</li>
+								<li>Valid driver’s license</li>
+								<li>Voter registration card</li>
+								<li>State medical card</li>
+								<li>Notarized affidavit of residency from the parent or person with whom the child is residing, affirming that the child eats and sleeps at the residence</li>
+							</ul>
 
-						   </ul> 
+						</ul> 
 
 						<p> All students entering kindergarten must provide documentation of a current
 						physical examination and immunizations PRIOR to starting school, AND proof of a dental exam. You do not need proof of a physical or dental exam to register your child.</p>
@@ -126,7 +147,7 @@
 
 					</div>
 
-					<div data-role='collapsible' data-iconpos="right">
+					<div data-role='collapsible' data-iconpos="right" data-theme="b" data-content-theme="a">
 						<h3>Childhood Immunization</h3>
 
 						<p> Recommended schedule, birth to 18 years </p>
@@ -394,10 +415,12 @@
 						
 					</div>
 
-					<div data-role='collapsible'>
+					<div data-role='collapsible' data-theme='b' data-iconpos="right">
 						<h3>Sponsors</h3>
 						Still under development!!
 					</div>
+					
+					
 				</div> <!-- collapsible set -->
 			</div> <!-- content -->
 

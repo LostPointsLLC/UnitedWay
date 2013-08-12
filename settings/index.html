@@ -8,17 +8,20 @@
 		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
 		<link rel="stylesheet" href="../help/css/homehelp.css" type="text/css"/>
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="css/settings.css" />
 		<!--<link rel="stylesheet" type="text/css" href="../tips/css/tips.css" />-->
 		
 		<script src="../js/generator.js"></script>
 		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/jquery.mobile-1.3.2.js"></script>
 		<script src="../js/functions.js"></script>
 		<script src="../js/langselect.js"></script>
 		<script src="js/settings.js"></script>
 		<script src="js/initializeSettings.js"></script>
 		<script src="js/changeSettings.js"></script>
 		<script src="js/updateSettings.js"></script>
+		<script src="js/changePassword.js"></script>
 		<script src="../js/hideaddressbar.js"></script>
 	</head>
 
@@ -32,11 +35,29 @@
 		<div class="wrapper">
 			<div id='content'></div>
 			<script>
-				if(localStorage.lang=="ENG")
+				if(localStorage.lang=="ENG"){
 					document.write("<div class = \"text white-text language\"><span id=\"langname\">Language</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
+				}
+					
 				else
 					document.write("<div class = \"text white-text language\"><span id=\"langname\">Idioma</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" checked onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
 			</script>
+			<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-icon="check" data-theme="a" data-transition="pop">Change Password</a>
+				<div data-role="popup" id="popupMenu" data-theme="a">
+    				<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+        				<form>
+            				<div style="padding:10px 20px;">
+              					<label for="cpw" class="ui-hidden-accessible">Current Password:</label>
+              					<input type="text" id="curr_pw" value="" placeholder="Current Password" data-theme="a">
+              					<label for="npw" class="ui-hidden-accessible">New Password:</label>
+              					<input type="password" id="new_pw" value="" placeholder="New Password" data-theme="a">
+              					<label for="rnpw" class="ui-hidden-accessible">Confirm New Password:</label>
+              					<input type="password" id="confirm_pw" value="" placeholder="Confirm Password" data-theme="a">
+              					<button type="submit" data-theme="b" data-icon="check" onmousedown="changePw()">Change Password
+            				</div>
+       					</form>
+    				</div>
+				</div>
 			<div id='options'>
 				<script>
 				if(localStorage.lang=="ENG"){
