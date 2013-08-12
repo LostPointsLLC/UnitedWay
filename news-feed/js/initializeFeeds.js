@@ -98,7 +98,7 @@ function getRSSItem(entry, i) {
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
 	
-	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " " + parity + " rss-item'>";
+	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 	if(feedData.source == 'cpl')
