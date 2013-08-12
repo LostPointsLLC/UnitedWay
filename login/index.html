@@ -9,6 +9,8 @@
 		<script src='../js/jquery-1.10.1.min.js'></script>
 		<script src="../js/generator.js" type="text/javascript"></script>
 		<script src="js/login.js" type="text/javascript"></script>
+		<script src="js/checklogin.js" type="text/javascript"></script>
+		<script src="js/forgotpw.js" type="text/javascript"></script>
 		<script src="../js/hideaddressbar.js"></script>
 	</head>
 
@@ -33,6 +35,7 @@
 						generateInputText("Email Address", "", "email", "email");
 						document.write("<br>");
 						generateInputText("Password", "", "password", "password");
+						document.write("<div onmousedown = \"forgotpw()\">Forgot Password?</div>");
 					}
 					else{
 						generateInputText("Email Address", "", "email", "email");
