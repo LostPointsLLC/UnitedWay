@@ -106,7 +106,7 @@ function verifyLogin() {
 					
 					// etc...
 					localStorage.remember=1;
-					setDefaultStorage();								
+					setDefaultStorage();
 					document.location.href = "../home/";
 				}
 				else {
@@ -134,7 +134,7 @@ function verifyLogin() {
 
 function setDefaultStorage() {
 	localStorage.rss = 'cpl';				// For the news feed page.
-	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.jsonString variable is dirty
+	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.childJsonObject variable is dirty
 	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
 	localStorage.fromSettings = '0';	
 }

@@ -1,6 +1,8 @@
 function updateSettings() {
 
 	var jsonString = "jsonString=" + JSON.stringify(deleteFromDb);	
+	console.log(jsonString);
+	/*
 	$.ajax({
 		type: "POST",
 		url: "php/updateChildren.php",
@@ -8,5 +10,7 @@ function updateSettings() {
 		cache: false,
 		async: false,
 	});
+	
+	*/
 	localStorage.dirty = 1;
 }

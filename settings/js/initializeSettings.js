@@ -11,7 +11,7 @@ function initializeSettings() {
 	}
 
 	var dataString = "parentID=" + parentID;
-	
+	/*
 	$.ajax({
 		type: "POST",
 		url: "../php/fetchSummary.php",
@@ -21,7 +21,9 @@ function initializeSettings() {
 			localStorage.jsonString = data;// store database data string as a localstorage variable
 			listChildren(data);
 		}
-	 });	 
+	 });
+	 */
+	 listChildren(localStorage.childJsonObject);
 }
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.

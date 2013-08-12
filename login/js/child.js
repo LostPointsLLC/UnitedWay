@@ -4,15 +4,21 @@ function updateDB(addAnotherChild) {
 	var name = document.getElementById("name").value;					// Don't know why this wasn't added in the serialize()
 	var color = document.getElementById("sprite").style.backgroundColor; // Sorry I have to hardcode this in. 
 	var bday = document.getElementById("bday").value;
+	var gender = posts.split("=")[1];
 	var bdayArray = String(bday).split("/");
 	color = (color != "") ? color : 'rgb(100, 100, 100)';
 	posts = "name=" + name + "&child_parentID=" + localStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;	
+	console.log(localStorage.edit_childID);
+	// Checks if the user already has a child with the same name (this cannot be allowed)
+	if (checkDuplicateName(name)) {
+		return showDuplicateNamePrompt (name);
+	}
 	
 	// Triggered if not all of the fields were inputted
 	if(posts.search("=&") != -1) {
 	    // Triggered if the user intended to add another child
 	    if(addAnotherChild) {
-		return showFailPrompt(name, bday)
+			return showFailPrompt(name, bday)
 	    }
 	    // If the user didn't intend to add another child, and not everything 
 	    // was entered into the db, it just returns 0. Nothing significant.
@@ -21,32 +27,30 @@ function updateDB(addAnotherChild) {
     /* TODO: Make requirements for which fields should be added */
  
 	/*
-	 *	
-	 *  
+	 *	Update local objects
 	 */
 	 
+	// Create new child object
+	var newChild = {};
+	newChild["child_id"] = "1" + name; // So the parseInt(localStorage.edit_childID) check returns true
+	newChild["child_birthday"] = "20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;
+	newChild["child_color"] = color;
+	newChild["child_name"] = name;
+	newChild["child_gender"] = gender;
+	newChild["health_code"] = "'bbbbbb'";
+	newChild["language_code"] = "'bbbbbbbbbbbbbbb'";
+	newChild["social_code"] = "'bbbbbbbbb'";
+	newChild["other_code"] = "'bbbbbbbbbbbbbbbbbbbbbbbbb'";
+	var newChildStr = JSON.stringify(newChild);
+	
 	// Add child to localStorage.childJsonObject Object
 	var childJsonObj = jQuery.parseJSON(localStorage.childJsonObject);
-	var health_code	= "'bbbbbb'";
-	var language_code = "'bbbbbbbbbbbbbbb'";
-	var social_code = "'bbbbbbbbb'";
-	var other_code = "'bbbbbbbbbbbbbbbbbbbbbbbbb'";
-	var newChild = {};
-	newChild["child_id"] =  
-	newChild["child_birthday"] = 
-	newChild["child_color"] = 
-	newChild["child_name"] = 
-	newChild["child_gender"] =
-	newChild["child_name"] =
-	newChild["health_code"] =
-	newChild["language_code"] =
-	newChild["social_code"] =
-	newChild["other_code"] =
-	 
-	 
-	 // Add child to new children list
-	 
-	 
+	childJsonObj[newChild["child_id"]] = newChild;
+	localStorage.childJsonObject = JSON.stringify(childJsonObj);
+	// Add child to new children list
+	var newChildrenObj = jQuery.parseJSON(localStorage.newChildren);
+	newChildrenObj[newChild["child_id"]] = newChild;
+	localStorage.newChildren = JSON.stringify(newChildrenObj);
  
 	/*
     // Executes if one of the buttons is pressed
@@ -102,6 +106,15 @@ function isLegalYear(year) {
 	
 }
 
+function checkDuplicateName(name) {
+	var childrenObj = jQuery.parseJSON(localStorage.childJsonObject);
+	for (var cid in childrenObj) {
+		if (childrenObj[cid]["child_name"] == name) {
+			return true;
+		}
+	}
+	return false;
+}
 
 // Returns 0 if there are no empty fields.
 function showFailPrompt(name, birthday) {
@@ -117,6 +130,13 @@ function showFailPrompt(name, birthday) {
     return 0;    
 }
 
+function showDuplicateNamePrompt (name) {
+	var result = document.getElementById("result");
+	result.innerHTML = "<p>You already have a child with the same name!</p>";
+	return -1;
+}
+
+
 // Uses a query to update the database
 function editDB() {
     
@@ -127,8 +147,21 @@ function editDB() {
     
     var color = document.getElementById("color").style.backgroundColor;
     var boy_gender = document.getElementById("boy").value;
-    
-    // Send the query iff fields were changed
+	var dataArr = getDataString(name, birthday, color, boy_gender);
+	
+	// Edit child in localStorage.childJsonObject Object
+	var childJsonObj = jQuery.parseJSON(localStorage.childJsonObject);
+	var editedChild = childJsonObj[dataArr["child_id"]];
+	// Edit child
+	editedChild["child_name"] = dataArr["child_name"];
+	editedChild["child_birthday"] = dataArr["child_birthday"];
+	editedChild["child_color"] = dataArr["child_color"];
+	editedChild["child_gender"] = dataArr["child_gender"];
+	localStorage.childJsonObject = JSON.stringify(childJsonObj);
+	
+	localStorage.dirty = '1';
+	
+	/*
     var dataString = getDataString(name, birthday, color, boy_gender);
     
     if(dataString) {
@@ -146,7 +179,9 @@ function editDB() {
 		});
 		localStorage.dirty = '1';
     }
-    
+    */
+	
+
     localStorage.removeItem('edit_childID');
     document.location.href="../settings/";
     
@@ -160,39 +195,44 @@ function getDataString(name, birthday, color, boy_gender) {
 
 	// First check whether it's actually worth returning a string
 	var	id = localStorage.edit_childID;
-	var	attributes = jQuery.parseJSON(localStorage.jsonString);
+	var	attributes = jQuery.parseJSON(localStorage.childJsonObject);
 
 	var flag = false;
+	var editAttributes = {};
 	var posts = "name=";
 	
 	if(attributes[id]["child_name"] != name) {
+		editAttributes["child_name"] = name;
 		posts += name;
 		flag = true;
 	}
 	
 	posts += "&birthday=";
 	if(attributes[id]["child_birthday"] != birthday) {
+		editAttributes["child_birthday"] = birthday;
 		posts += birthday;
 		flag = true;
 	}
 	
 	posts += "&color=";
 	if(attributes[id]["child_color"] != color) {
+		editAttributes["child_color"] = color;
 		posts += color;
 		flag = true;
 	}
 
 	posts += "&gender=";
-	if(((attributes[id]["child_gender"] == 'boy') == boy_gender)) {
+	if((attributes[id]["child_gender"] == 'boy') == boy_gender) {
+		editAttributes["child_gender"] = "girl";
 		posts += 'girl';
 		flag = true;
-	
 	}
-	
+	editAttributes["child_gender"] = "boy";
+	editAttributes["child_id"] = id;
 	posts += "&id=" + id;
 	
-
-	if(flag) return posts;
+	if(flag) return editAttributes;
+	// if(flag) return posts;
 	else return false;
 }
 
@@ -230,18 +270,17 @@ $(document).ready(function() {
 	// we want to change attributes of a child
 
 	if(parseInt(localStorage.edit_childID) >= 0) {
-		initializeEditingPage(parseInt(localStorage.edit_childID));
+		initializeEditingPage(localStorage.edit_childID);
 	}
 });
 
-// Uses the existing jsonString to change the settings on the page
+// Uses the existing childJsonObject to change the settings on the page
 function initializeEditingPage(id) {
-	var	attributes = jQuery.parseJSON(localStorage.jsonString);
+	var	attributes = jQuery.parseJSON(localStorage.childJsonObject);
 	var name 		= attributes[id]["child_name"];
 	var birthday 	= attributes[id]["child_birthday"];
 	var gender		= attributes[id]["child_gender"];
 	var color		= attributes[id]["child_color"];
-	
 	
 	document.getElementById("name").value = name;
 	document.getElementById("sprite").style.backgroundColor = color;
