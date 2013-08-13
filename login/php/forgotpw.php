@@ -39,15 +39,16 @@
 		$mail->Port = 465;
 		$mail->SMTPAuth = true; // turn on SMTP authentication
 		/*NEED TO GET FROM SHIREN*/
-		$mail->Username = "yourusername@gmail.com"; // SMTP username
-		$mail->Password = "yourpassword"; // SMTP password 
+		$mail->Username = "testing.prek@gmail.com"; // SMTP username
+		$mail->Password = "UW5Tud3nt!"; // SMTP password 
  
  		//Contents in the email
-		$mail->From     = "email address sender"; //sender's email address
+		$mail->From     = "testing.prek@gmail.com"; //sender's email address
+		$mail->FromName = "Pre-K Admin";
 		$mail->AddAddress("$email");  
  
-		$mail->Subject  = "Forgot Password";
-		$mail->Body     = "You have requested that you forgot your password. 
+		$mail->Subject  = "UW Pre-K Forgot Password";
+		$mail->Body     = "You have requested to reset your password. 
 
 Password: ".$temp_pw." 
 
