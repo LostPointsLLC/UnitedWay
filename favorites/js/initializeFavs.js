@@ -130,7 +130,8 @@ function getFavHeap(userID) {
 	
 	$.ajax({
 		type: "POST",
-		url: "http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php",
+		//change url to http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php for phonegap
+		url: "php/getFavHeap.php",
 		data: datastring,
 		async: false,
 		cache: false,

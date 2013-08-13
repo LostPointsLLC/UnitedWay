@@ -37,7 +37,8 @@ function forgotpw(){
 
 	$.ajax({
 		type: "POST",
-		url: "http://unitedway.lostpointsllc.com/login/php/forgotpw.php",
+		//have to change url to http://unitedway.lostpointsllc.com/login/php/forgotpw.php for phonegap
+		url: "php/forgotpw.php",
 		data: params,
 		cache: false,
 		async: false,

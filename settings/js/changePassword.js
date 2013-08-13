@@ -21,7 +21,8 @@ function changePw(){
 	
 	$.ajax({
 		type: "POST",
-		url: "http://unitedway.lostpointsllc.com/settings/php/changepw.php",
+		//change url to http://unitedway.lostpointsllc.com/settings/php/changepw.php for phonegap
+		url: "php/changepw.php",
 		data: params,
 		cache: false,
 		async: false,

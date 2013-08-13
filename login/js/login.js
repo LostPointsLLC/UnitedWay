@@ -18,6 +18,7 @@ function verifyLogin() {
 	if(iPass == "testing") iPass = "test";
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
+		//have to change loginUrl to http://unitedway.lostpointsllc.com/login/php/login.php for Phonegap Android
 		var loginUrl = "php/login.php";
 		var params = "pUser=" + iEmail +"&pPass=" + iPass;
 				

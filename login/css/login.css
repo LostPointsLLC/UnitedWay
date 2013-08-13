@@ -29,7 +29,6 @@ p {
 #result{
 position: absolute;
 padding-left: 25px;
-padding-top: 12px;
 font-family: arial;
 color: white;
 font-weight: bold;
@@ -68,6 +67,7 @@ padding-left:25px;
 #forgotpw{
 padding-left:41px;
 padding-top: 6px;
+padding-bottom:10px;
 color:white;
 font-family:arial;
 text-decoration:underline;
