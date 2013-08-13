@@ -55,7 +55,7 @@ otherTasks_es.push("Mira fotos y luego contar historias");
 otherTasks_es.push("Identificar palabras que riman");
 otherTasks_es.push("Identificar el sonido inicial de algunas palabras");
 otherTasks_es.push("Identificar algunas letras del alfabeto");
-otherTasks_es.push("Reconocer algunas palabras comunes a la vista como el "stop"");
+otherTasks_es.push("Reconocer algunas palabras comunes a la vista como el 'stop'");
 otherTasks_es.push("Ordena objetos similares en color, tamaño y forma");
 otherTasks_es.push("Reconocer los grupos de uno, dos, tres, cuatro y cinco objetos");
 otherTasks_es.push("Cuenta hasta diez");
