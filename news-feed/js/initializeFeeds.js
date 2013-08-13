@@ -26,16 +26,12 @@ function initializeFeed() {
 			source 	= "cpl";
 			break;
 	}
-
-
-
 	linkIdArray = getFavoritedNews();
 	feedData = new rssData(rssurl, limit, title, source);
 	rssfeedsetup();	
 
 
 }
-
 
 function rssfeedsetup(){
 	var feedpointer = new google.feeds.Feed(feedData.rssurl);
