@@ -27,8 +27,12 @@ p {
 }
 
 #result{
-	position:absolute;
-	padding-left:25px;
+position: absolute;
+padding-left: 25px;
+padding-top: 12px;
+font-family: arial;
+color: white;
+font-weight: bold;
 }
 
 #loader {
