@@ -176,5 +176,5 @@
 	else {
 		echo "FAIL|XX";
 	}
-	
+	mysqli_close($dbConnection)
 ?>
