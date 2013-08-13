@@ -32,6 +32,12 @@
 	position:relative;
 	top:55px;
 }
+.ui-collapsible-inset .ui-collapsible-content {
+	line-height: 1.3em;
+}
+.ui-collapsible-content li{
+	color:white;
+}
 .ui-collapsible-content, .ui-collapsible-set .ui-collapsible.ui-last-child {
 	-webkit-border-bottom-right-radius: 0;
 	border-bottom-right-radius: 0;
