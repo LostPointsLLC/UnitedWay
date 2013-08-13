@@ -6,13 +6,16 @@ $(document).ready(function() {
 	changeSettings();
 	
 	$(window).unload(function() {
-		updateSettings();
+		if (sessionStorage.logout != "logout")
+			updateSettings();
 	});
 
 
 });
 
 function logout(){
+	dbSync();
 	localStorage.clear();
+	sessionStorage.logout = "logout";
 	document.location.href = "../..";
 }

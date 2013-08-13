@@ -13,12 +13,18 @@ function updateSettings() {
 		}
 		else {
 			delChildrenObj.push(doomedChild);
+			// Since this is a child that will be deleted from the database, stop tracking it.
+			var childTracker = jQuery.parseJSON(localStorage.childTracker);
+			delete childTracker[doomedChild];
+			localStorage.childTracker = JSON.stringify(childTracker);
 		}
 	}
 	
 	localStorage.childJsonObject = JSON.stringify(childJsonObj);
 	localStorage.newChildren = JSON.stringify(newChildrenObj);
 	localStorage.delChildren = JSON.stringify(delChildrenObj);
+	
+	
 	console.log("=====From updateSettings.js=====");
 	console.log(localStorage.childJsonObject);
 	console.log("=====From new Children=====");
@@ -26,14 +32,4 @@ function updateSettings() {
 	console.log("=====From del Children=====");
 	console.log(localStorage.delChildren);
 	
-	/*
-	$.ajax({
-		type: "POST",
-		url: "php/updateChildren.php",
-		data: jsonString,
-		cache: false,
-		async: false,
-	});
-	
-	*/
 }

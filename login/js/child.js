@@ -163,7 +163,10 @@ function editDB() {
 	console.log(JSON.stringify(editedChild));
 	localStorage.childJsonObject = JSON.stringify(childJsonObj);
 	console.log(localStorage.childJsonObject);
-	localStorage.dirty = '1';
+	// Indicate that this child has been modified
+	var childTracker = jQuery.parseJSON(localStorage.childTracker);
+	childTracker[localStorage.edit_childID] = true;
+	localStorage.childTracker = JSON.stringify(childTracker);
 	
 	/*
     var dataString = getDataString(name, birthday, color, boy_gender);

@@ -34,7 +34,9 @@ function verifyRegistration() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				/* Incorrect code */
 				if(typeof(Storage) !== "undefined"){
-					localStorage.pid = ret;	
+					localStorage.pid = ret;
+					var tipObjStr = '{"growth":[[],[],[],[],[],[],[],[],[],[]],"safety":[[],[],[],[],[],[],[],[],[],[]],"playtime":[[],[],[],[],[],[],[],[],[],[]],"health":[[],[],[],[],[],[],[],[],[],[]]}';
+					initUserData(ret, '{}', tipObjStr, '{}');
 					document.location.href="child.html";
 				}
 				else {
