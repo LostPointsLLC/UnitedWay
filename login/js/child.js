@@ -187,7 +187,7 @@ function editDB() {
 	
 
     
-    document.location.href="../settings/";
+    document.location.href="../settings/index.html";
     
 }
 
@@ -299,5 +299,5 @@ function finish() {
 function settings() {
 	if(updateDB(false) == -1) return;
 	localStorage.fromSettings = '0';
-	document.location.href="../settings/";
+	document.location.href="../settings/index.html";
 }

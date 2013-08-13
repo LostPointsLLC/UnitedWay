@@ -25,9 +25,9 @@ function generateHomeHeader(text, fav, settings, help) {
 		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img class='head-bt' id = 'help-bt' src='../images/help-button.png'/></a></div>");
 		
 	if(settings)
-		document.write("<div class='settings'><a href='../settings/'><img class='head-bt' id = 'settings-bt' src='images/settings-button.png'/></a></div>");
+		document.write("<div class='settings'><a href='../settings/index.html'><img class='head-bt' id = 'settings-bt' src='images/settings-button.png'/></a></div>");
 	if(fav) 
-		document.write("<div class='fav'><a href='../favorites/'><img class='head-bt' id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
+		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
 
 	document.write("</div>");	
 	

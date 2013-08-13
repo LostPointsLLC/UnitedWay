@@ -130,7 +130,7 @@ function getFavHeap(userID) {
 	
 	$.ajax({
 		type: "POST",
-		url: "php/getFavHeap.php",
+		url: "http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php",
 		data: datastring,
 		async: false,
 		cache: false,

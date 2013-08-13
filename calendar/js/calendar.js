@@ -101,7 +101,7 @@ function linkTopage(param)
 //function to go back to home page
 function goHome()
 {
-    document.location.href = "../home/";
+    document.location.href = "../home/index.html";
 }
 
 //function to go to help page

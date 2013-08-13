@@ -37,7 +37,7 @@ function forgotpw(){
 
 	$.ajax({
 		type: "POST",
-		url: "php/forgotpw.php",
+		url: "http://unitedway.lostpointsllc.com/login/php/forgotpw.php",
 		data: params,
 		cache: false,
 		async: false,

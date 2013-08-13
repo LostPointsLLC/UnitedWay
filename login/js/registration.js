@@ -17,7 +17,7 @@ function verifyRegistration() {
 
 	$.ajax({
 		type: "POST",
-		url: "php/registration.php",
+		url: "http://unitedway.lostpointsllc.com/login/php/registration.php",
 		data: params,
 		cache: false,
 		async: false,

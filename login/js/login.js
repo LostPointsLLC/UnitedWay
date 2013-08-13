@@ -110,7 +110,7 @@ function verifyLogin() {
 					// etc...
 					localStorage.remember=1;
 					setDefaultStorage();
-					document.location.href = "../home/";
+					document.location.href = "../home/index.html";
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 

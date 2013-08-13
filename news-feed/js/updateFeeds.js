@@ -118,7 +118,7 @@ function getRemoveString() {
 
 
 function onExit() {
-	document.location.href="../home/";
+	document.location.href="../home/index.html";
 }
 
 function onHelp() {

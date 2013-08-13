@@ -21,7 +21,7 @@ function changePw(){
 	
 	$.ajax({
 		type: "POST",
-		url: "php/changepw.php",
+		url: "http://unitedway.lostpointsllc.com/settings/php/changepw.php",
 		data: params,
 		cache: false,
 		async: false,
@@ -43,7 +43,7 @@ function changePw(){
 			else {
 				alert("Server Error");
 			}
-			document.location.href = "../settings";
+			document.location.href = "../settings/index.html";
 			return;
 		}
 	});
