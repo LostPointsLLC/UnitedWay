@@ -16,6 +16,9 @@ $(document).ready(function() {
 function logout(){
 	dbSync();
 	localStorage.clear();
+<<<<<<< HEAD
 	sessionStorage.logout = "logout";
+=======
+>>>>>>> 97fdf03493af141f7ac8b64ad390891c69660f5c
 	document.location.href = "../index.html";
 }
