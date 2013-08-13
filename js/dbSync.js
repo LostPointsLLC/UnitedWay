@@ -65,7 +65,7 @@ function dbSync() {
 	dataString += "&unfav_tips=";
 	dataString += unfavTips;
 	dataString += "&add_rss=";
-	dataString += addRss.replace(/\'/g, "_");
+	dataString += addRss.replace(/\'/g, "`");
 	dataString += "&del_rss=";
 	dataString += delRss;
 	console.log("Right before Sync");
