@@ -54,6 +54,7 @@ function verifyLogin() {
 					initUserData(str[1].trim(), str[2], str[3], str[4]);
 					localStorage.remember=1;
 					document.location.href = "../home/index.html";
+					setDefaultStorage();
 
 				}
 				else {
