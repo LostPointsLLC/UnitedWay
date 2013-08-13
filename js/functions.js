@@ -96,7 +96,12 @@ function calcCat(monthcount) {
 
 function initUserData(pid, childJs, tipJs, rssJs) {
 	localStorage.pid = pid; // pid
-	localStorage.childJsonObject = childJs; // Child JSON Object
+	if (childJs == "[]") {
+		localStorage.childJsonObject = "{}"; // Child JSON Object
+	}
+	else {
+		localStorage.childJsonObject = childJs;
+	}
 	localStorage.tipJsonObject = tipJs; // Tip JSON Object
 	
 	var linkIdArray = {};
