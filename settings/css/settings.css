@@ -154,10 +154,17 @@ right:5px;
 .ui-body-c, .ui-overlay-c {
 text-shadow: none;
 }
+.ui-shadow{
+	-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
 .ui-btn-up-a {
 	background-image:linear-gradient(to bottom, #ffc579, #fb9d23);
 	border: 1px solid #ffad41;
 	left:20px;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 }
 
 .ui-btn-hover-a {
