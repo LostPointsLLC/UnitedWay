@@ -58,9 +58,9 @@
 
 
 
-
+/*
 .ui-icon{
-/*display:none !important;*/
+
 
 }
 .ui-btn-text{
@@ -77,14 +77,14 @@
 	border-radius: 0;
 }
 .ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner {
-	/*padding-left:25px;*/
+
 }
 
 .ui-collapsible-inset .ui-collapsible-content p{
 	font-weight:normal;
 }
 .ui-btn-up-c {
-	/*background-image:none;*/
+
 	background:#00549b;
 	color:white;
 	text-shadow:none;
@@ -105,4 +105,4 @@
 	text-shadow:none;
 	font-size:16px;
 	font-family:arial;
-}
+}*/
