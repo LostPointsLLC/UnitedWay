@@ -151,6 +151,9 @@ right:5px;
 .ui-checkbox, .ui-radio {
 	top:10px;
 }
+.ui-body-c, .ui-overlay-c {
+text-shadow: none;
+}
 .ui-btn-up-a {
 	background-image:linear-gradient(to bottom, #ffc579, #fb9d23);
 	border: 1px solid #ffad41;
