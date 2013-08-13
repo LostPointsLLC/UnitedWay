@@ -19,6 +19,7 @@ ul{
 #checklist{
 	-webkit-margin-before: 0;
 -webkit-margin-after:0;
+font-family: arial;
 }
 
 #health-well-being-wrapper {
@@ -50,7 +51,7 @@ ul{
 	padding-left: 30px;	
 	vertical-align: middle;
 	line-height: normal;
-	font-size: 18px;
+	font-size: 25px;
 	font-family: Chunkfive, arial, helvetica, sans-serif;	
 }
 

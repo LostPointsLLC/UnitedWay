@@ -12,11 +12,14 @@
 }
 
 .item-text-box {
-	display: block;
-	float: left;
-	margin-right: 45px;
-
-	
+display: block;
+width: 92%;
+float: left;
+margin-right: 45px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+color: white;
 }
 
 .item-text-box a {
