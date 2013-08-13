@@ -60,7 +60,7 @@
 .ui-btn-text{
 	font-size: 16px;
 	font-weight: normal;
-	left:30px;
+	margin-left:30px;
 }
 .ui-content{
 	padding:0px !important;
