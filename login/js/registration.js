@@ -18,7 +18,7 @@ function verifyRegistration() {
 	$.ajax({
 		type: "POST",
 		//change url to http://unitedway.lostpointsllc.com/login/php/registration.php for phonegap
-		url: "registration.php",
+		url: loginUrl,
 		data: params,
 		cache: false,
 		async: false,
