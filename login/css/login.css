@@ -61,6 +61,13 @@ position: relative;
 top: 65px;
 padding-left:25px;
 }
+#forgotpw{
+padding-left:41px;
+padding-top: 6px;
+color:white;
+font-family:arial;
+text-decoration:underline;
+}
 
 @media only screen and (max-device-width: 380px){
 #login {
