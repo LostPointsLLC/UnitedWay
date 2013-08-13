@@ -21,6 +21,7 @@ function changePw(){
 	
 	$.ajax({
 		type: "POST",
+		//change url to http://unitedway.lostpointsllc.com/settings/php/changepw.php for phonegap
 		url: "php/changepw.php",
 		data: params,
 		cache: false,
@@ -43,7 +44,7 @@ function changePw(){
 			else {
 				alert("Server Error");
 			}
-			document.location.href = "../settings";
+			document.location.href = "../settings/index.html";
 			return;
 		}
 	});

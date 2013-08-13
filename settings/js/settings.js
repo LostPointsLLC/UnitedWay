@@ -17,5 +17,5 @@ function logout(){
 	dbSync();
 	localStorage.clear();
 	sessionStorage.logout = "logout";
-	document.location.href = "../..";
+	document.location.href = "../index.html";
 }

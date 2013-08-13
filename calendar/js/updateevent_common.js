@@ -26,7 +26,7 @@ function updateDate(d,m)
 }
 //go back to home page
 function goHome(){
-	document.location.href = "../home/";
+	document.location.href = "../home/index.html";
 }
 
 //go to help page

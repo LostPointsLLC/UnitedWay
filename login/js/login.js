@@ -18,6 +18,7 @@ function verifyLogin() {
 	if(iPass == "testing") iPass = "test";
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
+		//have to change loginUrl to http://unitedway.lostpointsllc.com/login/php/login.php for Phonegap Android
 		var loginUrl = "php/login.php";
 		var params = "pUser=" + iEmail +"&pPass=" + iPass;
 				
@@ -51,7 +52,9 @@ function verifyLogin() {
 				if(typeof(Storage) !== "undefined"){
 					// Assign Local Objects used throughout app
 					initUserData(str[1].trim(), str[2], str[3], str[4]);
-					document.location.href = "../home/";
+					localStorage.remember=1;
+					document.location.href = "../home/index.html";
+
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
