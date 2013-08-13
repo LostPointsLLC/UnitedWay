@@ -390,4 +390,4 @@ dec_es.push("No hay actividad para hoy");
 dec_es.push("Cuenta atrás! Cuente hacia atrás desde 10.");
 dec_es.push("Noche Vieja");
 
-var tipsArray = [jan_es, feb_es, mar_es, apr_es, may_es, jun_es, jul_es, aug_es, sept_es, oct_es, nov_es, dec_es];
+var tipsArray_ESP = [jan_es, feb_es, mar_es, apr_es, may_es, jun_es, jul_es, aug_es, sept_es, oct_es, nov_es, dec_es];

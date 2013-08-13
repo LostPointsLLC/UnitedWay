@@ -41,7 +41,10 @@ function goToCalendar(){
 
 //returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31
 function getActivity(day,month){
-	return tipsArray[month][day];
+    if(localStorage.lang=="ENG")
+	   return tipsArray[month][day];
+    else
+        return tipsArray_ESP[month][day];
 }
 
 
