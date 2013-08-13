@@ -75,20 +75,44 @@ function displayTips(param) {
 	var tipArray;
 	switch(tipCategory) {
 		case "health":
+		if(localStorage.lang=="ENG"){
 			tipArray = healthArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = healthArray_es[ageIndex];
+			break;
+		}
 			
 		case "growth":
+		if(localStorage.lang=="ENG"){
 			tipArray = growthArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = growthArray_es[ageIndex];
+			break;
+		}
 			
 		case "safety":
+		if(localStorage.lang=="ENG"){
 			tipArray = safetyArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = safetyArray_es[ageIndex];
+			break;
+		}
 			
 		case "playtime":
+		if(localStorage.lang=="ENG"){
 			tipArray = playtimeArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = playtimeArray_es[ageIndex];
+			break;
+		}
 	}
 	
 	// Parse Favorites Array Here

@@ -27,7 +27,7 @@ if(localStorage.lang=="ENG"){
 	if(settings)
 		document.write("<div class='settings'><a href='../settings/index.html'><img class='head-bt' id = 'settings-bt' src='images/settings-button.png'/></a></div>");
 	if(fav) 
-		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
+		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='images/favorites-button.png'/></a></div>");
 }
 else{
 	if(help) 

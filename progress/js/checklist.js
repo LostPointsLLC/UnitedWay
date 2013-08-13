@@ -85,17 +85,41 @@ function initializeTasks(checkString, tid) {
 	var texts;
 	switch(tid) {
 		case "1":
+		if(localStorage.lang=="ENG"){
 			texts = healthTasks;
 			break;
+		}
+		else{
+			texts = healthTasks_es;
+			break;
+		}
 		case "2":
+		if(localStorage.lang=="ENG"){
 			texts = languageTasks;
 			break;
+		}
+		else{
+			texts = languageTasks_es;
+			break;
+		}
 		case "3":
+		if(localStorage.lang=="ENG"){
 			texts = socialTasks;
 			break;
+		}
+		else{
+			texts = socialTasks_es;
+			break;
+		}
 		case "4":
+		if(localStorage.lang=="ENG"){
 			texts = otherTasks;
 			break;
+		}
+		else{
+			texts = otherTasks_es;
+			break;
+		}
 	}
 
 

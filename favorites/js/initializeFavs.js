@@ -97,8 +97,11 @@ function displayFavTips() {
 					last = "last-item";
 				var divID = category + i + j
 				outputString += "<div class='list-item " +  parity + " " + last + "' id='" + divID + "'>"
-				outputString += "<div class='item-text-box'>";	
-				outputString += "<a class='tip-content'>" + tipPackage[category][i][tipObj[category][i][j]] + "</a>";
+				outputString += "<div class='item-text-box'>";
+				if(localStorage.lang=="ENG")	
+					outputString += "<a class='tip-content'>" + tipPackage[category][i][tipObj[category][i][j]] + "</a>";
+				else
+					outputString += "<a class='tip-content'>" + tipPackage_es[category][i][tipObj[category][i][j]] + "</a>";
 				outputString += "</div>";
 				outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavoriteTips(&quot;" + category + "&quot;, &quot;" + i + "&quot;, &quot;" + j + "&quot;)'/></div>";
 				outputString += "</div>";
