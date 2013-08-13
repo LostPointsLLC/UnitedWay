@@ -54,12 +54,6 @@ function verifyLogin() {
 					initUserData(str[1].trim(), str[2], str[3], str[4]);
 					localStorage.remember=1;
 					document.location.href = "../home/index.html";
-					setDefaultStorage();
-<<<<<<< HEAD
-
-=======
-					document.location.href = "../home/index.html";
->>>>>>> 97fdf03493af141f7ac8b64ad390891c69660f5c
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
