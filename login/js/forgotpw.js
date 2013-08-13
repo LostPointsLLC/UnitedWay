@@ -31,7 +31,7 @@ function forgotpw(){
 	for(var i=0;i<8;i++){ 
 		temp_pw+=password_characters.charAt(Math.floor(Math.random()*password_characters.length))
 	}
-	alert(temp_pw);
+	//alert(temp_pw);
 	var params = "pEmail=" + email + "&pPassword=" + temp_pw;
 	//alert(params);
 
@@ -44,7 +44,7 @@ function forgotpw(){
 		async: false,
 		success: function(data) {
 			var res = data.trim();
-			alert(res);
+			//alert(res);
 			//temp pw successfully sent to user email
 			if(localStorage.lang=="ENG"){
 				if(res==-1){
