@@ -6,6 +6,9 @@ function checkEmail(email) {
 }
 
 function forgotpw(){
+	//lets the user know their request is being processed
+	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+	
 	//takes email address
 	var email = document.getElementById("email").value;
 	//checks if the email field is empty
@@ -31,8 +34,6 @@ function forgotpw(){
 			return;
 		}
 	}
-	//lets the user know their request is being processed
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
 	
 	//generates a random 8 char long pw
 	//source: http://www.latestcode.net/2012/12/javascript-random-password-generator.html
