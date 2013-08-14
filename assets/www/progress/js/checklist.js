@@ -28,29 +28,6 @@ $(document).ready(function() {
 	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
 	var binStr = jObj[childID][category]; // fetch binary string from object
 	console.log(binStr);
-	/*
-	dataString = "childID=" + childID + "&taskID=" + taskCat;
-
-	$.ajax({
-		type: "POST",
-		url: "php/fetchChecked.php",
-		data: dataString,
-		cache: false,
-		success: function(data){ // retrieved data is a binary string
-			initializeTasks(data, taskCat);
-			$("input").change(function(){
-				if (!$(this).is(':checked')) {
-					var clickedID = $(this).attr('id');
-					gBin[parseInt(clickedID)] = "b";
-				}
-				else {
-					var clickedID = $(this).attr('id');
-					gBin[parseInt(clickedID)] = "a";
-				}
-			});
-		}
-	});
-	*/
 	initializeTasks(binStr, taskCat);
 	$("input").change(function(){
 		if (!$(this).is(':checked')) {
@@ -100,46 +77,6 @@ $(window).unload( function () {
 	parsedCurrentJsonStr[childID][category] = newProgressStr;
 	localStorage.childJsonObject = JSON.stringify(parsedCurrentJsonStr);
 	console.log(localStorage.childTracker);
-
-	/*
-	var newProgressStr = gBin.join('');				// Converts the global array into a string
-	
-	// First update current session variables, to correctly print percentages
-	var	currentJsonStr = localStorage.jsonString;
-	var	catStorage = localStorage.cat.toString();
-	var	childID = localStorage.cid.toString();
-
-	var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
-	
-	// Figure out what category check list this is
-	var category = "";
-	switch(catStorage) {
-		case "1":
-			category = "health_code";
-			break;
-		case "2":
-			category = "language_code";
-			break;
-		case "3":
-			category = "social_code";
-			break;
-		case "4":
-			category = "other_code";
-			break;
-	}
-	parsedCurrentJsonStr[childID][category] = newProgressStr;
-	localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-	var updateString = dataString + "&newString=" + newProgressStr;
-	
-	$.ajax({ // update database with new check binary string
-		type: "POST",
-		url: "php/updateChecked.php",
-		data: updateString,
-		cache: false,
-		async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
-	});
-	
-	*/
 });
 
 // Iterate through array of task bits, create list of tasks based off of this
@@ -148,17 +85,41 @@ function initializeTasks(checkString, tid) {
 	var texts;
 	switch(tid) {
 		case "1":
+		if(localStorage.lang=="ENG"){
 			texts = healthTasks;
 			break;
+		}
+		else{
+			texts = healthTasks_es;
+			break;
+		}
 		case "2":
+		if(localStorage.lang=="ENG"){
 			texts = languageTasks;
 			break;
+		}
+		else{
+			texts = languageTasks_es;
+			break;
+		}
 		case "3":
+		if(localStorage.lang=="ENG"){
 			texts = socialTasks;
 			break;
+		}
+		else{
+			texts = socialTasks_es;
+			break;
+		}
 		case "4":
+		if(localStorage.lang=="ENG"){
 			texts = otherTasks;
 			break;
+		}
+		else{
+			texts = otherTasks_es;
+			break;
+		}
 	}
 
 

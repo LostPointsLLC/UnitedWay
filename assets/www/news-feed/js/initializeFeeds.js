@@ -26,16 +26,12 @@ function initializeFeed() {
 			source 	= "cpl";
 			break;
 	}
-
-
-
 	linkIdArray = getFavoritedNews();
 	feedData = new rssData(rssurl, limit, title, source);
 	rssfeedsetup();	
 
 
 }
-
 
 function rssfeedsetup(){
 	var feedpointer = new google.feeds.Feed(feedData.rssurl);
@@ -208,7 +204,7 @@ function getOptions() {
  */
 function checkIfFavorited(entry) {
 	if(entry.link in linkIdArray)
-		return linkIdArray[entry.link];
+		return linkIdArray[entry.link][0];
 	return -1;
 }
 

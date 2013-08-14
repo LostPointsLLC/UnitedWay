@@ -26,7 +26,7 @@ function updateDate(d,m)
 }
 //go back to home page
 function goHome(){
-	document.location.href = "../home/";
+	document.location.href = "../home/index.html";
 }
 
 //go to help page
@@ -41,7 +41,10 @@ function goToCalendar(){
 
 //returns the tip associated with the given day and month; month = 0(jan), 1(feb); day = 1,2..,31
 function getActivity(day,month){
-	return tipsArray[month][day];
+    if(localStorage.lang=="ENG")
+	   return tipsArray[month][day];
+    else
+        return tipsArray_ESP[month][day];
 }
 
 

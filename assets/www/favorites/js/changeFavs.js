@@ -1,33 +1,107 @@
-/* Uses the deleteArray to store which items should be
- * deleted from the database
- */
-function changeFavs() {
-	return;
-
-}
-function unfavorite(fav_id) {
-	if(promptUser(fav_id)) {
-		deleteArray.push(fav_id);
-		$("#" + String(fav_id)).hide();
+// Callback function, receives string, int, int
+function unfavoriteTips(taskCat, ageIndex, fav_typeID) {
+	var divID = taskCat + ageIndex + fav_typeID;
+	if(promptUserTips(divID)) {
+		$("#" + String(divID)).hide();
+		var aInd = parseInt(ageIndex);
+		fav_typeID;
+		// Logic here handles tips that are deleted
+		var jObj = jQuery.parseJSON(localStorage.tipJsonObject);
+		var tipArr = jObj[taskCat][aInd];
 		
-		var parent = document.getElementById(fav_id).parentNode;
-		var list = parent.getElementsByClassName("list-item");
-		if(allAreHidden(list)) {
-			var header = parent.previousSibling;
-			switch(header.id) {
-				case "news-feed-header":
-					parent.innerHTML = "<p>No news to display!</p>";
-					break;
-				case "tips-header":
-					parent.innerHTML = "<p>No tips to display!</p>";
-					break;
-				case "events-header":
-					parent.innerHTML = "<p>No events to display!</p>";
-					break;
-			}
+		// Initialize addFavArr and delFavArr
+		var addObj = jQuery.parseJSON(localStorage.addObj);
+		var addFavArr = addObj[taskCat][aInd];
+		
+		var delObj = jQuery.parseJSON(localStorage.delObj);
+		var delFavArr = delObj[taskCat][aInd];
+		
+		// If tip is in localStorage.childJsonObject, remove (splice) it
+		var tipIndex = tipArr.indexOf(fav_typeID);
+		tipArr.splice(tipIndex, 1);
+		
+		// If tip is in addFavArr, remove (splice) it
+		var addIndex = addFavArr.indexOf(fav_typeID);
+		if (addIndex > -1){
+			addFavArr.splice(addIndex, 1);
+		}
+		else { // else, add the tip to delFavArr
+			delFavArr.push(fav_typeID);
 		}
 		
+		// Seal the deal
+		localStorage.tipJsonObject = JSON.stringify(jObj);
+		localStorage.addObj = JSON.stringify(addObj);
+		localStorage.delObj = JSON.stringify(delObj);
+		console.log("=== current tips object === ");
+		console.log(localStorage.tipJsonObject);
+		console.log("=== addObj === ");
+		console.log(localStorage.addObj);
+		console.log("=== delObj === ");
+		console.log(localStorage.delObj);
+	
+		var parent = document.getElementById(divID).parentNode;
+		var list = parent.getElementsByClassName("list-item");
+		if(allAreHidden(list)) {
+			parent.innerHTML = "<p>No tips to display!</p>";
+		}
 	}
+}
+
+// Callback function, receives string, string, string
+function unfavoriteRss (rssKey, rssTitle, rssUrl) {
+	if(!promptUserRss(rssTitle)) { // prompt the user on touch
+		return;
+	}
+	$("#" + rssKey).hide();
+	// Initialize necessary Objects
+	var remObj = jQuery.parseJSON(localStorage.rssRemObj);
+	var addObj = jQuery.parseJSON(localStorage.rssAddObj);
+	var rssObj = jQuery.parseJSON(localStorage.rssJsonObject);
+	
+	// INDEX USING rssUrl (common key amongst the three objects)
+	if (rssUrl in addObj)
+		delete addObj[rssUrl];
+	else  {
+		var bObj = jQuery.parseJSON(localStorage.rssBackupObject);
+		if (rssUrl in bObj)
+			remObj[rssUrl] = bObj[rssUrl];
+		else
+			remObj[rssUrl] = rssObj[rssUrl];
+	}
+	// Update localStorage.rssJsonObject (Delete from it)
+	delete rssObj[rssUrl];
+	
+	// Re-Stringify JSON objects back to local storage
+	localStorage.rssJsonObject = JSON.stringify(rssObj);
+	localStorage.rssAddObj = JSON.stringify(addObj);
+	localStorage.rssRemObj = JSON.stringify(remObj);
+}
+function promptUserRss(rssTitle) {
+	try {
+		var text = rssTitle;
+		var newText = text.substring(0, 50);
+		if (newText.length > 50)
+			text += "...";
+	}	
+	catch(error) {
+		console.log("Note: Trying to delete an undefined div");
+	}
+	return confirm("Delete Feed: \"" + newText + "\"?");
+}
+
+function promptUserTips(div_id) {
+	try {
+		var anchor = document.getElementById(String(div_id)).firstChild.firstChild;
+		var text = anchor.innerHTML;
+		var newText = text.substring(0, 50);
+		if (newText.length > 50)
+			text += "...";
+	}	
+	catch(error) {
+		console.log("Note: Trying to delete an undefined div_id");
+	}
+	return confirm("Delete Tip: \"" + newText + "\"?");
 }
 
 function allAreHidden(list) {
@@ -37,16 +111,4 @@ function allAreHidden(list) {
 			return false;
 	}
 	return true;
-}
-
-function promptUser(fav_id) {
-	try {
-		var anchor = document.getElementById(String(fav_id)).firstChild.firstChild;
-		var text = anchor.innerHTML;
-	}
-	
-	catch(error) {
-		console.log("Note: Trying to delete an undefined fav_id");
-	}
-	return confirm("Delete \"" + text + "\"?");
 }

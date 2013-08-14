@@ -20,15 +20,24 @@ function generateHomeHeader(text, fav, settings, help) {
 	// Writes the header to the DOM
 	document.write("<div class='title' style='color: white'>" + text + "</div>");
 				
-
+if(localStorage.lang=="ENG"){
 	if(help) 
-		document.write("<div class='help'><a href='../help/index.html" + text + ".html" + "'><img class='head-bt' id = 'help-bt' src='../images/help-button.png'/></a></div>");
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img class='head-bt' id = 'help-bt' src='../images/help-button.png'/></a></div>");
 		
 	if(settings)
 		document.write("<div class='settings'><a href='../settings/index.html'><img class='head-bt' id = 'settings-bt' src='images/settings-button.png'/></a></div>");
 	if(fav) 
-		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='images/favorites-button-small.png'/></a></div>");
-
+		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='images/favorites-button.png'/></a></div>");
+}
+else{
+	if(help) 
+		document.write("<div class='help'><a href='../help/" + text + ".html" + "'><img class='head-bt' id = 'help-bt' src='../images/ayuda(help)-button.png'/></a></div>");
+		
+	if(settings)
+		document.write("<div class='settings'><a href='../settings/index.html'><img class='head-bt' id = 'settings-bt' src='../images/Ajuste(settings)-button.png'/></a></div>");
+	if(fav) 
+		document.write("<div class='fav'><a href='../favorites/index.html'><img class='head-bt' id = 'fav-bt' src='../images/favoritos(favorites)-button.png'/></a></div>");
+}
 	document.write("</div>");	
 	
 	console.log("===== Child JSON Object =====");

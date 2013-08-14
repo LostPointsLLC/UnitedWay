@@ -36,7 +36,7 @@ function updateFeeds() {
 		var newURL = newAddObj[i][0];
 		var fakeID = "0" + fakeIdNum; // Append zero to the front. No existing 'real' ID's start with zero (they are practically used as strings, anyway) 
 		fakeIdNum++; // Increment fakeIdIncrement
-		rssFeedObj[newURL] = fakeID;
+		rssFeedObj[newURL] = [fakeID, newAddObj[i][1], newAddObj[i][2], "X"]; // "URL" : [(fake)ID, TITLE, SOURCE, fav ID (use fakeID)]
 		
 		// Add to rssAddObj. 
 		if ( newURL in rssRemObj) { // If an item that is in the add string is already in rssRemObj, remove the item from rssRemObj
@@ -118,7 +118,7 @@ function getRemoveString() {
 
 
 function onExit() {
-	document.location.href="../home/";
+	document.location.href="../home/index.html";
 }
 
 function onHelp() {

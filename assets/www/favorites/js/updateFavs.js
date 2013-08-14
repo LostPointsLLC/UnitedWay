@@ -2,12 +2,12 @@
  *
  */
 function updateFavs() {
-
+/*
 	var jsonString = "jsonString=" + JSON.stringify(deleteArray);	
 	//alert(jsonString);
 	$.ajax({
 		type: "POST",
-		url: "http://unitedway.lostpointsllc.com/favoritesphp/updateFavs.php",
+		url: "php/updateFavs.php",
 		data: jsonString,
 		cache: false,
 		async: false,
@@ -16,5 +16,5 @@ function updateFavs() {
 
 		}
 	});
-
+*/
 }

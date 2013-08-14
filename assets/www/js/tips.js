@@ -301,12 +301,8 @@ healthArray.push(health_3years);
 healthArray.push(health_4years);
 healthArray.push(health_5years);
 
-
-
-
-
-
-
-
-
-
+var tipPackage = {};
+tipPackage["health"] = healthArray;
+tipPackage["growth"] = growthArray;
+tipPackage["safety"] = safetyArray;
+tipPackage["playtime"] = playtimeArray;

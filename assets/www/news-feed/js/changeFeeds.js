@@ -71,10 +71,11 @@ function removeFeed(id, url) {
 		// add real ID if possible
 		//removeFromDb.push(id);
 		var bObj = jQuery.parseJSON(localStorage.rssBackupObject);
+		var jObj = jQuery.parseJSON(localStorage.rssJsonObject);
 		if (url in bObj)
 			removeFromDb[url] = bObj[url];
 		else
-			removeFromDb[url] = id;
+			removeFromDb[url] = jObj[url];
 	}
 	else {
 		var index = addToDb.indexOf(id);

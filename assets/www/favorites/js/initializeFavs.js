@@ -1,10 +1,10 @@
 
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-	var favHeap = getFavHeap(parseInt(localStorage.pid));
-	displayFavNews(favHeap.rssArray);
-	displayFavTips(favHeap.tipsArray);
-	displayFavEvents(favHeap.eventsArray);
+	//var favHeap = getFavHeap(parseInt(localStorage.pid));
+	displayFavNews();
+	displayFavTips();
+	//displayFavEvents(favHeap.eventsArray);
 	
 	assignDataRoles();
 	$('#set').collapsibleset('refresh');
@@ -27,26 +27,26 @@ function assignDataRoles() {
 
 
 
-/* Displays the favorited rss feeds using
- * the rssArray.
+/* Displays the favorited rss feeds using localStorage.rssJsonObject
+ * Displayall 
  */
-function displayFavNews(rssArray) {
-
+ 
+ // "http://host5.evanced.info/champaign/evanced/eventsignup.asp?ID=8005":
+ // ["294","FriendShop Bookstore: Members' Half-Price Sale","Champaign Public Library Events","483"],
+ 
+ // {a, b, c, d}
+function displayFavNews() {
+	var rssObj = jQuery.parseJSON(localStorage.rssJsonObject);
 	var rssPointer = document.getElementById("news-feed");
-
-	/* Ideally, each div should look like this:
-	 *
-	 *	<div class="list-item parity" id="fav_id">
-	 *		<div class="item-text-box">
-	 *	 		<a href="rss_url">rss_title</a>
-	 *		</div>
-			<div><a class="delete" onClick="unfavorite(fav_id)"></div>
-	 *	</div>
-	 *
-	 * We don't have the content from the scraper yet, so we'll let that one rest.
-	 */
 	var outputString = "";
-	if(!rssArray.length) {
+	var isEmpty = true;
+	var numFeeds = 0;
+	// Check if there are any rss feeds at all
+	for (var testEmpty in rssObj) {
+		isEmpty = false;
+		numFeeds++;
+	}
+	if(isEmpty) {	
 		if(localStorage.lang=="ENG")
 			outputString += "<p>No news to display!</p>";
 		else
@@ -56,139 +56,70 @@ function displayFavNews(rssArray) {
 		return;
 	}	 
 	
-	for(var i = 0; i < rssArray.length ; i++) {
-		var rss = rssArray[i];
-		var last 	= (i == rssArray.length-1) ? "last-item" : "";
-		outputString += "<div class='list-item " + last + "' id='" + rss.fav_id +"'>"
+	for (var feed in rssObj) {
+		numFeeds--;
+		var rssKey = rssObj[feed][0];
+		var rssUrl = feed;
+		var rssTitle = rssObj[feed][1];
+		rssTitle = rssTitle.replace(/\'/g, "&#39;");
+		rssTitle = rssTitle.replace(/\"/g, "&#34;");
+		var last = (numFeeds == 0) ? "last-item" : "";
+		outputString += "<div class='list-item " + last + "' id='" + rssKey +"'>"
 		outputString += "<div class='item-text-box'>";
-		outputString += "<a href='" + rss.rss_url +"'>" + rss.rss_title + "</a>";
+		outputString += "<a href='" + rssUrl +"'>" + rssTitle + "</a>";
 		outputString += "</div>";
-		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + rss.fav_id + ")'/></div>";
+		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavoriteRss(&quot;" + rssKey + " &quot; , &quot; " + rssTitle + " &quot; , &quot;" + rssUrl + "&quot;)'/></div>";
 		outputString += "</div>";
 	}
 	rssPointer.innerHTML += outputString;
 }
 
 
-/* Displays the favorited tips using the
- * tipsArray.
+/* Displays the favorited tips using localStorage.tipJsonObject
  */
-function displayFavTips(tipsArray) {
+function displayFavTips() {
+	var tipObj = jQuery.parseJSON(localStorage.tipJsonObject);
 	var tipsPointer = document.getElementById("tips");
-
-	/* Ideally, each div should look like this:
-	 *
-	 *	<div class="list-item parity" id="fav_id">
-	 *		<div class="item-text-box">
-	 *	 		<a>tip content</a>
-	 *		</div>
-			<div><a class="delete-box" onClick="unfavorite(fav_id)"></div>
-	 *	</div>
-	 *
-	 */
-	 
 	var outputString = "";
-	if(!tipsArray.length) {
+	
+	// Else, loop through localStorage.tipJsonObject and display tips.
+	var parity = "even";
+	var catCount = 0;
+	var last = "";
+	var noTips = true;
+	for (var category in tipObj) {
+		catCount++; // To catch last category, for the sake of giving it the class "last-item".
+		for (var i = 0; i < tipObj[category].length; i++) {
+			for (var j = 0; j < tipObj[category][i].length; j++) {
+				//tipPackage[category][i][j] // this is the actual tip! i is the age category, j is the fav_typeID
+				noTips = false;
+				if (catCount == 4 && (i == tipObj[category].length - 1) && (j == tipObj[category][i].length - 1))
+					last = "last-item";
+				var divID = category + i + j
+				outputString += "<div class='list-item " +  parity + " " + last + "' id='" + divID + "'>"
+				outputString += "<div class='item-text-box'>";
+				if(localStorage.lang=="ENG")	
+					outputString += "<a class='tip-content'>" + tipPackage[category][i][tipObj[category][i][j]] + "</a>";
+				else
+					outputString += "<a class='tip-content'>" + tipPackage_es[category][i][tipObj[category][i][j]] + "</a>";
+				outputString += "</div>";
+				outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavoriteTips(&quot;" + category + "&quot;, &quot;" + i + "&quot;, &quot;" + j + "&quot;)'/></div>";
+				outputString += "</div>";
+				parity = (parity == "even") ? "odd" : "even";
+			}
+		}
+	}
+	// If no tips have been favoured, display so
+	if(noTips) {
 		if(localStorage.lang=="ENG")
 			outputString += "<p>No tips to display!</p>";
 		else
 			outputString += "<p>No hay consejos para mostrar!</p>";
 		tipsPointer.innerHTML += outputString;
 		return;
-	}	
-	for(var i = 0; i < tipsArray.length; i++) {
-		var tip = tipsArray[i];
-		var tipArray;
-		switch(tip.tip_category) { // Get tip content
-			case "health":
-				tipArray = healthArray[parseInt(tip.tip_age)];
-				break;
-				
-			case "growth":
-				tipArray = growthArray[parseInt(tip.tip_age)];
-				break;
-				
-			case "safety":
-				tipArray = safetyArray[parseInt(tip.tip_age)];
-				break;
-				
-			case "playtime":
-				tipArray = playtimeArray[parseInt(tip.tip_age)];
-				break;
-		}
-		var parity = (i % 2 == 0) ? "even" : "odd";
-		var last 	= (i == tipsArray.length-1) ? "last-item" : "";
-
-		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + tip.fav_id +"'>"
-		outputString += "<div class='item-text-box'>";
-		outputString += "<a class='tip-content' title='" + tip.tip_id + "'>" + tipArray[parseInt(tip.tip_id)] + "</a>";
-		outputString += "</div>";
-		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + tip.fav_id + ")'/></div>";
-		outputString += "</div>";
 	}
-	
-	
+	// Else, inject HTML and leave
 	tipsPointer.innerHTML += outputString;
-
-}
-
-/* Displays the favorited events using the
- * eventsArray
- */
-function displayFavEvents(eventsArray) {
-
-	var eventsPointer = document.getElementById("events");
-	var outputString = "";
-	/* Ideally, each div should look like this:
-	 *
-	 *	<div class="list-item parity" id="fav_id">
-	 *		<div class="item-text-box">
-	 *	 		<a href="events_url">events.title</a>
-				<br><p><b>Where: </b>event_place</p>
-				<br><p><b>When: </b>event_date, event_time</p>
-	 *		</div>
-			<div><a class="delete-box" onClick="unfavorite(fav_id)"></div>
-	 *	</div>
-	 *
-	 * We don't have the content from the scraper yet, so we'll let that one rest.
-	 */
-	if(!eventsArray.length) {
-		if(localStorage.lang=="ENG")
-			outputString += "<p>No events to display!</p>";
-		else
-			outputString += "<p>No hay eventos para mostrar!</p>";
-		eventsPointer.innerHTML += outputString;
-		return;
-	}
-	
-	for(var i = 0; i < eventsArray.length && i < fav_limit; i++) {
-		var event = eventsArray[i];
-		var parity = (i % 2 == 0) ? "even" : "odd";
-		var last 	= (i == eventsArray.length-1) ? "last-item" : "";
-		outputString += "<div class='list-item " +  parity + " " + last + "' id='" + event.fav_id +"'>"
-		outputString += "<div class='item-text-box'>";
-		outputString += "<a href='" + event.event_url +"'>" + event.event_title + "</a>";
-		outputString += "<br><p><b>Where: </b>" + event.event_place + "</p>";
-		outputString += "<br><p><b>When: </b>" + event.event_date + ", " + event.event_time + "</p>";
-		outputString += "</div>";
-		outputString += "<div class='delete-box'><img class='delete' src='../images/remove-button-blkoutline.png' class='delete' onClick='unfavorite(" + event.fav_id + ")'/></div>";
-		outputString += "</div>";
-	 
-	}
-	
-	if(i < eventsArray.length) {
-		var parity 		= (i % 2 == 0) ? "even" : "odd";
-		var last 	= "last-item";
-		outputString += "<div class='list-item " +  parity + " " + last + "' id='seeMore'>"
-		outputString += "<div class='item-text-box'>";
-		outputString += "<a>See More</a>";
-		outputString += "</div>";
-		outputString += "<div class='delete-box'></div>";
-		outputString += "</div>";		
-	
-	}	
-	
-	eventsPointer.innerHTML += outputString;
 }
 
 // Function that returns an array of all of the favorite objects.
@@ -202,15 +133,17 @@ function getFavHeap(userID) {
 	
 	$.ajax({
 		type: "POST",
+		//change url to http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php for phonegap
 		url: "http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php",
 		data: datastring,
 		async: false,
 		cache: false,
 		success: function(data) {
-	
+
 			// Makes the JSON string into a workable string
 			var query_output = jQuery.parseJSON(data);
-
+			console.log("This is what favorites look like");
+			console.log(data);
 			// First make an array full of RSS objects
 			$.each(query_output[0], function(index_of_row, row) {
 				rssArray.push(new rss(row));

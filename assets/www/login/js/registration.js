@@ -17,7 +17,8 @@ function verifyRegistration() {
 
 	$.ajax({
 		type: "POST",
-		url: "http://unitedway.lostpointsllc.com/login/php/registration.php",
+		//change url to http://unitedway.lostpointsllc.com/login/php/registration.php for phonegap
+		url: loginUrl,
 		data: params,
 		cache: false,
 		async: false,
@@ -34,7 +35,9 @@ function verifyRegistration() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				/* Incorrect code */
 				if(typeof(Storage) !== "undefined"){
-					localStorage.pid = ret;	
+					localStorage.pid = ret;
+					var tipObjStr = '{"growth":[[],[],[],[],[],[],[],[],[],[]],"safety":[[],[],[],[],[],[],[],[],[],[]],"playtime":[[],[],[],[],[],[],[],[],[],[]],"health":[[],[],[],[],[],[],[],[],[],[]]}';
+					initUserData(ret, '{}', tipObjStr, '{}');
 					document.location.href="child.html";
 				}
 				else {

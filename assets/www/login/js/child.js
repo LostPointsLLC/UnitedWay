@@ -1,12 +1,11 @@
-﻿/* Updates the database */
-function updateDB(addAnotherChild) {
+﻿function updateDB(addAnotherChild) {
 	var posts = $("#form").serialize();									// Finds the checked items, then concatenates as a datastring
 	var name = document.getElementById("name").value;					// Don't know why this wasn't added in the serialize()
 	var color = document.getElementById("sprite").style.backgroundColor; // Sorry I have to hardcode this in. 
 	var bday = document.getElementById("bday").value;
 	var gender = posts.split("=")[1];
 	var bdayArray = String(bday).split("/");
-	color = (color != "") ? color : 'rgb(100, 100, 100)';
+	color = (color != "") ? color : 'rgb(255, 255, 255)'; // This is why color is grey
 	posts = "name=" + name + "&child_parentID=" + localStorage.pid + "&" + posts + "&color=" + color + "&birthday=20" + bdayArray[1] + "-" + bdayArray[0] + "-" + 00;	
 	console.log(localStorage.edit_childID);
 	// Checks if the user already has a child with the same name (this cannot be allowed)
@@ -136,7 +135,6 @@ function showDuplicateNamePrompt (name) {
 	return -1;
 }
 
-
 // Uses a query to update the database
 function editDB() {
     console.log("THIS IS EDIT");
@@ -147,7 +145,7 @@ function editDB() {
 	console.log("Birthday " + birthday);
     if(showFailPrompt(name, birthday) == -1) return;
     
-    var color = document.getElementById("color").style.backgroundColor;
+    var color = document.getElementById("sprite").style.backgroundColor;
     var boy_gender = document.getElementById("boy").value;
 	var dataArr = getDataString(name, birthday, color, boy_gender);
 	console.log(dataArr);
@@ -163,7 +161,10 @@ function editDB() {
 	console.log(JSON.stringify(editedChild));
 	localStorage.childJsonObject = JSON.stringify(childJsonObj);
 	console.log(localStorage.childJsonObject);
-	localStorage.dirty = '1';
+	// Indicate that this child has been modified
+	var childTracker = jQuery.parseJSON(localStorage.childTracker);
+	childTracker[localStorage.edit_childID] = true;
+	localStorage.childTracker = JSON.stringify(childTracker);
 	
 	/*
     var dataString = getDataString(name, birthday, color, boy_gender);
@@ -187,7 +188,7 @@ function editDB() {
 	
 
     
-    document.location.href="../settings/";
+    document.location.href="../settings/index.html";
     
 }
 
@@ -299,5 +300,5 @@ function finish() {
 function settings() {
 	if(updateDB(false) == -1) return;
 	localStorage.fromSettings = '0';
-	document.location.href="../settings/";
+	document.location.href="../settings/index.html";
 }

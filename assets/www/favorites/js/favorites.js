@@ -50,13 +50,8 @@ var deleteArray = new Array();
  * 3. Updating the database
  */
 $(document).ready(function() {
-
 	initializeFavs();
-	changeFavs();
-	
 	$(window).unload(function() {
 		updateFavs();
-	
 	});
-	
 });
