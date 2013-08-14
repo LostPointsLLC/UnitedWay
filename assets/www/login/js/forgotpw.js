@@ -1,4 +1,13 @@
+function checkEmail(email) {
+	// http://stackoverflow.com/a/46181/11236
+  
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 function forgotpw(){
+	//lets the user know their request is being processed
+	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+	
 	//takes email address
 	var email = document.getElementById("email").value;
 	//checks if the email field is empty
@@ -24,6 +33,8 @@ function forgotpw(){
 			return;
 		}
 	}
+	
+
 	//generates a random 8 char long pw
 	//source: http://www.latestcode.net/2012/12/javascript-random-password-generator.html
 	var temp_pw='';
@@ -31,7 +42,7 @@ function forgotpw(){
 	for(var i=0;i<8;i++){ 
 		temp_pw+=password_characters.charAt(Math.floor(Math.random()*password_characters.length))
 	}
-	alert(temp_pw);
+	//alert(temp_pw);
 	var params = "pEmail=" + email + "&pPassword=" + temp_pw;
 	//alert(params);
 
@@ -44,7 +55,7 @@ function forgotpw(){
 		async: false,
 		success: function(data) {
 			var res = data.trim();
-			alert(res);
+			//alert(res);
 			//temp pw successfully sent to user email
 			if(localStorage.lang=="ENG"){
 				if(res==-1){
