@@ -14,12 +14,12 @@ function initializeFeed() {
 			source	= "cm";
 			break;
 
-		case 'uw':		// United Way Blogs
+	/*	case 'uw':		// United Way Blogs <-- Not using this anymore!
 			rssurl	= "http://www.uwayhelps.org/blogs/rss";
 			title	= "United Way Blog";
 			source	= "uw";
 			break;
-
+*/
 		default:		// Default is champaign public library
 			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
 			title 	= "Champaign Public Library Events";
@@ -83,25 +83,32 @@ function displayfeed(result){
 function getRSSItem(entry, i) {
 
 	// Checks whether an item has been favorited or not
-	var favorite;
 	var rss_id = checkIfFavorited(entry);
 	if(rss_id != -1) {
-		favorite = 'fav';
+		var favorite = 'fav';
 	}
 
 	else {
-		favorite = 'nofav';
+		var favorite = 'nofav';
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
 	
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
-	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+	
+	if(feedData.source == 'cpl')
+		var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+	
+	else
+		var content	= "<a href='" + entry.link + "'><p style='margin: 0; font-size: 18'>" + entry.title + "</p></a>";
+	
 	if(feedData.source == 'cpl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
 	
-	else if(feedData.source == 'uw')
-		content += "<p style='margin: 0'>" + getBlogTimes(entry.publishedDate);
+	/*else if(feedData.source == 'uw')
+		content += "<p style='margin: 0'>" + getBlogTimes(entry.publishedDate);*/
+		
+		
 	return outerdiv + innerdiv + content;
 
 }
@@ -154,15 +161,13 @@ function getOptions() {
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
-				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option>"
+				<option value='cm'>Chambanamoms</option>"
 			else
 				return " \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
-				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option>"
+				<option value='cm'>Chambanamoms</option>"
 
-		case 'uw':
+	/*	case 'uw':
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='uw'>United Way Blog</option> \
@@ -173,17 +178,15 @@ function getOptions() {
 				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option>"
-
+*/
 		case 'cm':
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option>"
 			else
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>"
 
 		default:
