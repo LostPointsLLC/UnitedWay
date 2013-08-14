@@ -24,9 +24,7 @@ body{
 
 .rss-item {
 	width: 100%;
-	height: 50px;
-	
-	/*	border-top: 1px solid #003366;*/
+	padding: 5px 0 5px 0;
 	border-top: 1px solid #cccccc;
 }
 #content{
@@ -50,22 +48,23 @@ body{
 
 .item-text-box {
 
-	width: 70%;
-	margin-top: 5px;
 	margin-left: 25px;
 	margin-right: 50px;
 }
 
 .item-text-box h3{
 	overflow: hidden;
+	
+	/*
 text-overflow: ellipsis;
-white-space: nowrap;
+white-space: nowrap;*/
 }
 
 .item-text-box p{
 	overflow: hidden;
+	/*
 text-overflow: ellipsis;
-white-space: nowrap;
+white-space: nowrap;*/
 }
 /*
 .even {
@@ -82,9 +81,9 @@ white-space: nowrap;
 
 /* Preliminary settings */
 a {
-color: white;
+	color: white;
 	text-decoration: none;
-	font-family: helvetica, geneva, sans serif
+	font-family: arial, geneva, sans serif
 }
 
 a:hover{
