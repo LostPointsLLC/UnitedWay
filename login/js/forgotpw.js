@@ -6,8 +6,6 @@ function checkEmail(email) {
 }
 
 function forgotpw(){
-	//lets the user know their request is being processed
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
 	
 	//takes email address
 	var email = document.getElementById("email").value;
@@ -45,6 +43,7 @@ function forgotpw(){
 	//alert(temp_pw);
 	var params = "pEmail=" + email + "&pPassword=" + temp_pw;
 	//alert(params);
+	
 
 	$.ajax({
 		type: "POST",
