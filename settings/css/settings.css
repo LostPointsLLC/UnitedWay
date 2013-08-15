@@ -78,12 +78,11 @@ left: 0px;
 .ageCell {
 position: relative;
 font-size: 1em;
-border: 1px solid #00549b;
 padding: 3px 7px 2px 7px;
 width: 130px;
 float: right;
-margin-right: 55px;
-left:-40%;
+left:-50%;
+text-align:center;
 }
 
 /*******************************************************************/
