@@ -46,7 +46,7 @@
 	$query->store_result();
 
 	// Make this function echo a user_id
-	echo $query->insert_id;		
+	echo $query->insert_id;
 
 	// Close database connections
 	$query->close();

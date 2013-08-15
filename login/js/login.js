@@ -35,46 +35,46 @@ function verifyLogin() {
 					
 		// Handle PHP returns
 		httpRequest.onreadystatechange=function() {
-		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-			var response = httpRequest.responseText.trim();
-			var str = response.split("|");
-			console.log("===== Raw User Data brought from login.php =====");
-			console.log(response);
-			var ret = str[0].trim();
-			if (ret == "FAIL") { // unSuccessful Login
-				if(localStorage.lang=="ENG")
-					document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
-				else
-				document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
-			}
-			else if(ret=="SUCCESS"){ // Successful login	
-				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
-				if(typeof(Storage) !== "undefined"){
-					// Assign Local Objects used throughout app
-					initUserData(str[1].trim(), str[2], str[3], str[4]);
-					localStorage.remember=1;
-					document.location.href = "../home/index.html";
-				}
-				else {
-					// Add old client support (cookies) later, browser share for IE 7- 
+			if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+				var response = httpRequest.responseText.trim();
+				var str = response.split("|");
+				console.log("===== Raw User Data brought from login.php =====");
+				console.log(response);
+				var ret = str[0].trim();
+				if (ret == "FAIL") { // unSuccessful Login
 					if(localStorage.lang=="ENG")
-						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+						document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
 					else
-						document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
+					document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
+				}
+				else if(ret=="SUCCESS"){ // Successful login	
+					// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
+					if(typeof(Storage) !== "undefined"){
+						// Assign Local Objects used throughout app
+						initUserData(str[1].trim(), str[2], str[3], str[4]);
+						localStorage.remember=1;
+						document.location.href = "../home/index.html";
+					}
+					else {
+						// Add old client support (cookies) later, browser share for IE 7- 
+						if(localStorage.lang=="ENG")
+							document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+						else
+							document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
+					}
+				}
+				else{
+					if(localStorage.lang=="ENG")
+						document.getElementById("result").innerHTML = "Server error. Please try again later";
+					else
+						document.getElementById("result").innerHTML = "Error del servidor. Por favor, vuelve a intentarlo m&aacute;s tarde ...";
 				}
 			}
-			else{
-				if(localStorage.lang=="ENG")
-					document.getElementById("result").innerHTML = "Server error. Please try again later";
-				else
-					document.getElementById("result").innerHTML = "Error del servidor. Por favor, vuelve a intentarlo m&aacute;s tarde ...";
-			}
-		}
-	}	
-	// Send the request to server!
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
-	httpRequest.open("POST",loginUrl,true);
-	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	httpRequest.send(params);	
+		}	
+		// Send the request to server!
+		document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+		httpRequest.open("POST",loginUrl,true);
+		httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		httpRequest.send(params);	
 }	
 
