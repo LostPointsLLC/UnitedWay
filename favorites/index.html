@@ -5,53 +5,61 @@
 		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<title>Favorites</title>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<link rel="stylesheet" href="css/favorites-jqueryui.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 		<link rel="stylesheet" href="css/favorites.css" type="text/css"/>
+
 		<script src="../js/generator.js"></script>
+
+		<!--<script src="../js/jqueryui.js"></script>-->
 		<script src="../js/jquery-1.10.1.min.js"></script>
-		<script src="../js/jqueryui.js"></script>
+		<script src="../js/jquery.mobile-1.3.2.js"></script>
 		<script src="../js/tips.js"></script>
+		<script src="../js/tips_es.js"></script>
 		<script src="../js/functions.js"></script>
-		
 		<script src="js/initializeFavs.js"></script>
 		<script src="js/changeFavs.js"></script>
 		<script src="js/updateFavs.js"></script>
 		<script src="js/favorites.js"></script>
-
+  		<script src="../js/hideaddressbar.js"></script> 		
 	</head>
 
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Favorites", true, true);
+			if(localStorage.lang=="ENG")
+				generateHeader("Favorites", true, true);
+			else
+				generateHeader("Favoritos", true, true);
 			</script>
-			<br><br><br>
-			<div id="content">
-				<h3 id="news-feed-head">News Feed</h3>
-				<div id="news-feed-content">
-				</div>
-				
-				<h3 id="tips-head">Tips</h3>
-				<div id="tips-content">
-				</div>
-				
-				
-				<h3 id="events-head">Events</h3>
-				<div id="events-content">
-				</div>
-			</div> <!-- End content -->
 			
-			
-		</div> <!-- End wrapper div -->
-		
-		
+			<div id='title-box'>
 	
-		<script>
-		$("#content").accordion({collapsible: true, heightStyle: "content"});
-		</script>
-		
+			</div>
+			
+			<div id='content' data-role='content'>
+				<div id='set' data-role='collapsible-set'>
+				
+					<!-- Set 1 -->
+					<div id="news-feed" class='section' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r" data-content-theme='c'>
+						<h3 id='news-feed-header'>News Feed</h3>
+					</div>
+					
+					
+					<!-- Set 2 -->
+					<div id="tips" class='section' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r" data-content-theme='c'>
+						<h3 id='tips-header'>Tips</h3>
+					</div>
+					
+					<!-- Set 3 -->
+					<!--
+					<div id="events" class='section' >
+						<h3 id='events-header'>Events</h3>
+
+					</div>
+					-->
+				</div>
+			</div> <!-- End content -->	
+		</div> <!-- End wrapper div -->
 	</body>
-
-
 </html>

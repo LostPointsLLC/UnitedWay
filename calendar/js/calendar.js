@@ -101,7 +101,7 @@ function linkTopage(param)
 //function to go back to home page
 function goHome()
 {
-    document.location.href = "../home/";
+    document.location.href = "../home/index.html";
 }
 
 //function to go to help page
@@ -115,7 +115,7 @@ function getActivity(day,month){
     if(localStorage.lang=="ENG")
 	   return tipsArray[month][day];
     else
-        return tipsArray_spanish[month][day];
+        return tipsArray_ESP[month][day];
 }
 
 //function to display today's event below the main calendar

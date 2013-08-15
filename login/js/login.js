@@ -18,6 +18,7 @@ function verifyLogin() {
 	if(iPass == "testing") iPass = "test";
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
+		//have to change loginUrl to http://unitedway.lostpointsllc.com/login/php/login.php for Phonegap Android
 		var loginUrl = "php/login.php";
 		var params = "pUser=" + iEmail +"&pPass=" + iPass;
 				
@@ -37,6 +38,7 @@ function verifyLogin() {
 		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
 			var response = httpRequest.responseText.trim();
 			var str = response.split("|");
+			console.log("===== Raw User Data brought from login.php =====");
 			console.log(response);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
@@ -49,44 +51,9 @@ function verifyLogin() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
 					// Assign Local Objects used throughout app
-					localStorage.pid = str[1]; // pid
-					localStorage.childJsonObject = str[2]; // Child JSON Object
-					localStorage.tipJsonObject = str[3]; // Tip JSON Object
-					localStorage.rssJsonObject = str[4]; // Rss JSON Object
-					/*
-					 * Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
-					 * These objects MUST be cleared and re-initialized after syncing with the database (this is handled in update script).
-					 */
-					 
-					// Keep an associative array of child ID's
-					var childDB = {}; // new object
-					var childJObj = jQuery.parseJSON(str[2]);
-					for (var key in childJObj) {
-						childDB[key] = false; // every untouched child is initialized as false.
-					}
-					localStorage.childTracker = JSON.stringify(childDB);
-					
-					// Keep addFavArr and delFavArr for favouring/unfavouring tips.
-					var addFavArr = {};
-					var delFavArr = {};
-					addFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
-					addFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
-					addFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
-					addFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
-					
-					delFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
-					delFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
-					delFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
-					delFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
-					
-					localStorage.addObj = JSON.stringify(addFavArr);
-					localStorage.delObj = JSON.stringify(delFavArr); 
-					console.log(localStorage.addObj);
-					console.log(localStorage.delObj);
-					// etc...
+					initUserData(str[1].trim(), str[2], str[3], str[4]);
 					localStorage.remember=1;
-					setDefaultStorage();								
-					document.location.href = "../home/";
+					document.location.href = "../home/index.html";
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
@@ -111,9 +78,3 @@ function verifyLogin() {
 	httpRequest.send(params);	
 }	
 
-function setDefaultStorage() {
-	localStorage.rss = 'cpl';				// For the news feed page.
-	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.jsonString variable is dirty
-	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-	localStorage.fromSettings = '0';	
-}

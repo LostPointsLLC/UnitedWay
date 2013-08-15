@@ -69,7 +69,7 @@ function initializeProgress(param) {
 			var anchor = document.createElement('div');
 			var tableString = new Array(8);
 			var i = 0;
-			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")'>";
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(&quot;" + obj[key]["child_id"] + "&quot;)'>";
 			// First Row
 			tableString[++i] = "<tr><td class = 'cell' rowspan = '3'><img id='" + key + "' src = '../images/" + genderImg + ".png' height='42' width='42' style='background-color: " + obj[key]['child_color'] + "'></td>";
 			tableString[++i] = "<td class = 'cell' colspan = '4'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";

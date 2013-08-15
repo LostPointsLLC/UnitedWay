@@ -41,7 +41,7 @@ function favHeap(rssArray, tipsArray, eventsArray) {
 }
 
 var deleteArray = new Array();
-var fav_limit = 8;				// The number of items to be shown per feed
+
 /* Main method of favorites.
  * 
  * This function is broken down ino three phases
@@ -50,13 +50,8 @@ var fav_limit = 8;				// The number of items to be shown per feed
  * 3. Updating the database
  */
 $(document).ready(function() {
-
 	initializeFavs();
-	changeFavs();
-	
 	$(window).unload(function() {
 		updateFavs();
-	
 	});
-	
 });

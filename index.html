@@ -11,9 +11,10 @@
 		<script src="js/langselect.js"></script>
 		<script src="js/persistentlogin.js"></script>
 		<script>
-			checkPersist();
-			localStorage.lang="ENG";//set language to english as default
+		checkPersist();
+		localStorage.lang="ENG";//set language to english as default
 		</script>
+		<script src="js/hideaddressbar.js"></script>
 	</head>
 
 	<body>
@@ -37,11 +38,11 @@
 			
 	
 			<script>
-				generateButton('Get Started!', 'get-started', 'bt-yellow', 'getStarted()');
-				function getStarted() {
-					document.location.href='login/';
-				
-				}
+			generateButton('Get Started!', 'get-started', 'bt-yellow', 'getStarted()');
+			function getStarted() {
+				document.location.href='login/index.html';
+			
+			}
 			</script>
 			<!--<a id="login-button" href="login/"><img id="get-started" src="images/get-started-button.png"/></a>-->
 

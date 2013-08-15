@@ -15,7 +15,7 @@ function editChild(id) {
 function deleteChild(name, id) {
 
 	// In case of undoing a delete
-	if($("#age" + String(id)).hasClass("black-white-text")) {
+	if($("#age" + id).hasClass("black-white-text")) {
 		changeWhite(id);
 		var index = deleteFromDb.indexOf(id);
 		deleteFromDb.splice(index, 1);
@@ -47,22 +47,22 @@ function changeBlack(id) {
 }
 
 function makeWhite(element, id) {
-	$("#" + element + String(id)).removeClass("black-white");
+	$("#" + element + id).removeClass("black-white");
 }
 
 function makeBlackWhiteText(element, id) {
-	$("#" + element + String(id)).removeClass("white-text").addClass("black-white-text");
+	$("#" + element + id).removeClass("white-text").addClass("black-white-text");
 
 }
 
 function makeWhiteText(element, id) {
-	$("#" + element + String(id)).removeClass("black-white-text").addClass("white-text");
+	$("#" + element + id).removeClass("black-white-text").addClass("white-text");
 
 }
 
 
 function makeBlackWhite(element, id) {
-	$("#" + element + String(id)).addClass("black-white");
+	$("#" + element + id).addClass("black-white");
 }
 
 

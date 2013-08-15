@@ -2,8 +2,14 @@ var linkIdArray;		// Global array containing pairs of url-rssID pairs
 var feedData;			// Global object containing feed data
 var entries;			// Contains the feed items
 
-var removeFromDb	= new Array();	// Will contain items already in the db
-var addToDb 		= new Array();	// Will contain items not in the db
+//var removeFromDb	= new Array();	// Will contain items already in the db
+//var addToDb 		= new Array();	// Will contain items not in the db
+
+
+var removeFromDb	= {};
+var addToDb 		=  new Array();
+
+
 
 function rssData(url, limit, title, source) {
 

@@ -37,10 +37,10 @@
 			$childQuery = "SELECT child_id, child_birthday, child_color, child_name, child_gender, health_code, language_code, social_code, other_code 
 								FROM children 
 								WHERE child_parentID = $pid;\n";
-			$tipQuery = "SELECT fav_typeID, tip_age, tip_category 
+			$tipQuery = "SELECT fav_typeID, tip_age, tip_category
 							  FROM favorites 
 							  WHERE fav_type = 'tip' AND fav_userID = $pid AND fav_kept = 1;\n";
-			$rssQuery = "SELECT rss.rss_id, rss.rss_url
+			$rssQuery = "SELECT rss.rss_id, rss.rss_url, rss_title, rss_source, favorites.fav_id 
 							  FROM (favorites JOIN rss ON (favorites.fav_typeID = rss.rss_id AND favorites.fav_type = 'rss')) 
 							  WHERE favorites.fav_userID = $pid AND favorites.fav_kept = 1;\n";
 			$multiQuery = $childQuery.$tipQuery.$rssQuery;
@@ -83,7 +83,7 @@
 					while($row = mysqli_fetch_row($result)) {
 						// Each pair represents a rss_id - rss_url pair
 						$pair = array();
-						array_push($pair, $row[0], $row[1]);
+						array_push($pair, $row[0], $row[1], $row[2], $row[3], $row[4]);
 						array_push($rssResult, $pair);
 					}
 				}

@@ -2,6 +2,7 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
+	/*
 	var parentID = localStorage.pid.toString();
 	var dataString = "parentID=" + parentID;
 	
@@ -15,6 +16,8 @@ $(document).ready(function() {
 			listChildren(data);
 		}
 	 });	 
+	 */
+	 listChildren(localStorage.childJsonObject);
 });
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
@@ -22,15 +25,11 @@ function listChildren(param) {
 	var obj = jQuery.parseJSON(param);
 	var content = document.getElementById("content");
 	
-	if(obj.length == 0) {
-		content.innerHTML = "<p style='position: relative; left: 25px; padding-right: 35px;'>It seems like you haven't registered any children. Click <a href='../settings/' style='color: red'>here</a> to register a few children!</a></p>";
-		return;
-	
-	}
-	
 	var fragment = document.createDocumentFragment();
 	
 	for (var key in obj) {
+	
+		/* Henry: Do we really need the below if statement? */
 		if (obj.hasOwnProperty(key)) {
 		
 			//Calculate child's age
@@ -52,7 +51,7 @@ function listChildren(param) {
 
 
 			var i = 0;
-			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(" + obj[key]["child_id"] + ")' >";
+			tableString[i] = "<table class = 'ch' onClick = 'linkToCategory(&quot;" + obj[key]["child_id"] + "&quot;)' >";
 			tableString[++i] = "<tr><td class = 'cell'><img height='50' width='50' src = '../images/" + genderImg + ".png' style='background-color: " + obj[key]['child_color'] + "'/></td>";
 			tableString[++i] = "<td class = 'nameCell'><span class='child-name'>" + obj[key]["child_name"] + "</span></td>";
 			tableString[++i] = "<td class = 'ageCell'><span class='age-text'>" + ageFormatted + "</span></td></tr>" ;

@@ -26,6 +26,6 @@ body{
 
 .nextarrow{
 
-	position:relative;
-	right:-94%;
+	position:fixed;
+	right:14px;
 }

@@ -5,11 +5,13 @@
  * delFavArr
  *
  */
-var addFavArr;
-var delFavArr;
+var addFavArr = new Array();
+var delFavArr = new Array();
 
 var addObj;
 var delObj;
+var addFavArrTarget;
+var delFavArrTarget;
 
 var ageIndex;
 var taskCat;
@@ -31,10 +33,10 @@ $(document).ready(function() {
 	
 	// Initialize addFavArr and delFavArr
 	addObj = jQuery.parseJSON(localStorage.addObj);
-	addFavArr = addObj[taskCat][ageIndex];
+	addFavArrTarget = addObj[taskCat][ageIndex];
 	
 	delObj = jQuery.parseJSON(localStorage.delObj);
-	delFavArr = delObj[taskCat][ageIndex];
+	delFavArrTarget = delObj[taskCat][ageIndex];
 	
 	/*
 	var dataString = "pid=" + pid + "&taskCat=" + taskCat + "&ageIndex=" + ageIndex;
@@ -73,20 +75,44 @@ function displayTips(param) {
 	var tipArray;
 	switch(tipCategory) {
 		case "health":
+		if(localStorage.lang=="ENG"){
 			tipArray = healthArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = healthArray_es[ageIndex];
+			break;
+		}
 			
 		case "growth":
+		if(localStorage.lang=="ENG"){
 			tipArray = growthArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = growthArray_es[ageIndex];
+			break;
+		}
 			
 		case "safety":
+		if(localStorage.lang=="ENG"){
 			tipArray = safetyArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = safetyArray_es[ageIndex];
+			break;
+		}
 			
 		case "playtime":
+		if(localStorage.lang=="ENG"){
 			tipArray = playtimeArray[ageIndex];
 			break;
+		}
+		else{
+			tipArray = playtimeArray_es[ageIndex];
+			break;
+		}
 	}
 	
 	// Parse Favorites Array Here
@@ -109,44 +135,50 @@ function displayTips(param) {
 			ctnClass = "tip-ctn-odd";
 			ppClass = "pp-odd";
 		}
+		
+		// Determines whether an item is the last one or not. If it is, assign it the "last-item" class
+		var last;
+		if(i == tipArray.length - 1) 
+			last = "";
+		else last = "last-item";
+		
+		
 			
 		var entry;
 		if (jQuery.inArray(i, favArray) != -1) {
-			entry = "<div id = '" + i + "' class='" + ctnClass + "-fav' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div id = '" + i + "' class='" + ctnClass + "-fav tip-item " + last + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
 		}
 		else {
-			entry = "<div id = '" + i + "' class='" + ctnClass + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
+			entry = "<div id = '" + i + "' class='" + ctnClass + " tip-item " + last + "' ><div class='tip'><p class='" + ppClass + "'>" + tipArray[i] + "</p></div></div>";
 		}
+		
+
 		$("#frontpiece").append(entry);
 	}
 	// Bind tips (.on, live method)
 	// WHEN USER CLICKS TO FAVORITE
 	$(document).on("click", ".tip-ctn-even", function() {
-		$(this).attr("class","tip-ctn-even-fav");
+		$(this).removeClass("tip-ctn-even").addClass("tip-ctn-even-fav"); 
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
 	$(document).on("click", ".tip-ctn-odd", function() {
-		$(this).attr("class","tip-ctn-odd-fav");
+		$(this).removeClass("tip-ctn-odd").addClass("tip-ctn-odd-fav");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		addToFavArr(favIndex);
 	});
 	
 	// WHEN USER CLICKS TO UNFAVORITE
 	$(document).on("click", ".tip-ctn-even-fav", function() {
-		$(this).attr("class","tip-ctn-even");
+		$(this).removeClass("tip-ctn-even-fav").addClass("tip-ctn-even");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 
 	$(document).on("click", ".tip-ctn-odd-fav", function() {
-		$(this).attr("class","tip-ctn-odd");
+		$(this).removeClass("tip-ctn-odd-fav").addClass("tip-ctn-odd");
 		var favIndex = $(this).attr('id');
-		var favIndex = favIndex;
 		delToFavArr(favIndex);
 	});
 }
@@ -187,11 +219,18 @@ function goBack() {
 }
 
 $(window).unload( function () {
+console.log("=== debug tips === ");
+console.log(JSON.stringify(addFavArr));
 	// Loop through tip JSON object, adjust changes in add/delFavArrs
 	var tipMasterArr = jQuery.parseJSON(localStorage.tipJsonObject);
 	var tipArray = tipMasterArr[taskCat][ageIndex];
 	for (var i = 0; i < addFavArr.length; i++) {
 		tipArray.push(addFavArr[i]);
+		var dIndex = delFavArrTarget.indexOf(addFavArr[i]);
+		if (dIndex > -1 )
+			delFavArrTarget.splice(dIndex, 1);
+		else
+			addFavArrTarget.push(addFavArr[i]);
 	}
 	
 	for (var i = 0; i < delFavArr.length; i++) {
@@ -199,13 +238,21 @@ $(window).unload( function () {
 		if (index != -1) { // element exists
 			tipArray.splice(index, 1);
 		}
+		var aIndex = addFavArrTarget.indexOf(delFavArr[i]);
+		if (aIndex > -1 )
+			addFavArrTarget.splice(aIndex, 1);
+		else
+			delFavArrTarget.push(delFavArr[i]);
 	}
 	// seal the deal
 	localStorage.tipJsonObject = JSON.stringify(tipMasterArr);
 	localStorage.addObj = JSON.stringify(addObj);
 	localStorage.delObj = JSON.stringify(delObj);
+	console.log("=== current tips object === ");
 	console.log(localStorage.tipJsonObject);
+	console.log("=== addObj === ");
 	console.log(localStorage.addObj);
+	console.log("=== delObj === ");
 	console.log(localStorage.delObj);
 	/*
 	var addStr = JSON.stringify(addFavArr);

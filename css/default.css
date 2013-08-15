@@ -5,7 +5,7 @@
     font-family: 'Chunkfive';
     src: url('../fonts/chunkfive-webfont.eot');
     src: url('../fonts/chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/chunkfive-webfont.woff') format('woff'),
+/*         url('../fonts/chunkfive-webfont.woff') format('woff'),*/
          url('../fonts/chunkfive-webfont.ttf') format('truetype'),
          url('../fonts/chunkfive-webfont.svg#chunkfive') format('svg');
     font-weight: normal;
@@ -47,24 +47,42 @@ a:hover{
 	color: #EE9A00;
 }
 
-
+/*
 .even {
 
 	width: 100%;
+<<<<<<< HEAD
+	height: 51px;
+	border-top: 2px solid #003366;
+	font-family: arial;	
+	font-size: 20px;
+	text-indent: 25px;
+
+=======
 	height: 45px;
 	border-top: 1px solid #FFFFFF;
+>>>>>>> 1a6115429f032b0c010fa3292c86f2d615fe75b9
 
 }
 
 .odd {
 
 	width: 100%;
+<<<<<<< HEAD
+	height: 51px;
+	border-top: 2px solid #003366;
+	background-color: #9999FF;
+	font-family: arial;	
+	font-size: 20px;
+	text-indent: 25px;
+=======
 	height: 45px;
 	border-top: 1px solid #FFFFFF;
+>>>>>>> 1a6115429f032b0c010fa3292c86f2d615fe75b9
 
 
 }
-
+*/
 /* styling for the icons in the help pages */
 .icon{
 
@@ -96,11 +114,11 @@ a:hover{
 /**/	height: auto;
 	width: 100%;
 /**/	position: fixed;
-/**/	background-color: #7ca3dc;
+/**/	background-color: #7CA3D3;/*used to be #7ca3dc*/
 	z-index: 10;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);	
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1);	
 /**/}
 /**/
 /**/.title {

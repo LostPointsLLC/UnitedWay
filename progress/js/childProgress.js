@@ -7,9 +7,7 @@
 $(document).ready(function() {
 
 	var	childID = localStorage.cid.toString();
-	var	jsonStr = localStorage.childJsonObject;
-
-	var jObj = jQuery.parseJSON(jsonStr);
+	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
 	
 	// Print picture of child based on gender
 	var gender = jObj[childID]["child_gender"];
@@ -61,7 +59,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	updateProgress(childID, jsonStr);
+	updateProgress(childID, localStorage.childJsonObject);
 });
 
 function updateProgress(cid, param) {
