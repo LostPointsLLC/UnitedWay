@@ -2,13 +2,8 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
-	var parentID;
-	if(localStorage.remember==1){
-		parentID = localStorage.pid.toString();
-	}
-	else{
-		parentID = sessionStorage.pid.toString();
-	}
+	/*
+	var parentID = localStorage.pid.toString();
 	var dataString = "parentID=" + parentID;
 	
 	$.ajax({
@@ -17,15 +12,14 @@ $(document).ready(function() {
 		data: dataString,
 		cache: false,
 		success: function(data){
-			if(localStorage.remember==1){
-				localStorage.jsonString = data; // store database data string as a persistent variable
-			}
-			else{
-				sessionStorage.jsonString = data; // store database data string as a session variable
-			}
+			localStorage.jsonString = data; // store database data string as a persistent variable
 			initializeProgress(data);
 		}
 	 });	 
+	 */
+	 initializeProgress(localStorage.childJsonObject);
+	 
+	 
 });
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
@@ -100,11 +94,6 @@ function initializeProgress(param) {
 }
 
 function linkToCategory(inChildID) {
-	if(localStorage.remember==1){
-		localStorage.cid = inChildID;
-	}
-	else{
-		sessionStorage.cid = inChildID;
-	}
+	localStorage.cid = inChildID;
 	document.location.href = "childProgress.html";
 }

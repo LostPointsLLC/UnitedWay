@@ -7,17 +7,21 @@
     <script src="../js/generator.js"></script>
     <script src="../js/jquery-1.10.1.min.js"></script>
     <script src="js/jquery.ui.datepicker.min.js"></script>
-
     <script src="js/fetchevent_common.js"></script>
     <script src="js/generatecalendar_common.js"></script>
     <script src="js/tipsarray.js"></script>
+    <script src="js/tipsarray_spanish.js"></script>
 
   </head>
 
 <body>
 <div class = "wrapper">
   <script type="text/javascript">
-    generateHeader("Calendar", true, true); 
+  if(localStorage.lang=="ENG")
+    generateHeader("Calendar", true, true);
+  else{
+    generateHeader("calendario", true, true);
+  }
     generateMainCal();  
     generateEvent();
   </script>

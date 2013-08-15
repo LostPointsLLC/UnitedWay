@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Changed from: <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<!-- A VERY temporary solution to a actual rss file until we can get one running -->
+<html lang = "en">
+
+<head>
+	<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/default.css" type="text/css"/>
+
+	
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
+		<link rel="stylesheet" href="css/books.css" type="text/css"/>
+	<script src="../js/generator.js"></script>
+	<script src="../js/jquery-1.10.1.min.js"></script>
+	<script src="../js/jquery.mobile-1.3.2.js"></script>
+	<script src='js/books.js'></script>
+  <script>
+    function checkLang(){
+      if(localStorage.lang=="ENG")
+        document.location.href = "/index.html";
+    }
+    checkLang();
+  </script>
+	<title>Books</title> 
+</head>
+  
+<body>
+<script>
+	generateHeader("libros", true, true);
+</script>
+<div class="wrapper">
+	<div id="page1">
+		<div data-role="content">
+			<div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed="false">
+					<h5>Leer con su hijo</h5>
+					<p><i>Dubi Dubi Muu (Dooby Dooby Moo)</i> por Doreen Cronin</p>
+          <p><i>Jaja, Jiji, Cuac (Giggle, Giggle, Quack)</i> por Doreen Cronin</p>
+					<p><i>La Gallinita Roja (Little Red Hen)</i> por Byron Barton</p>
+					<p><i>El Pez Aro Iris Al Rescate (Rainbow Fish)</i> por Marcus Pfister</p>
+				</div>
+      			<div data-role="collapsible">
+        			<h3>Escuela herramientas-l&aacute;pices de colores, tijeras, etc</h3>
+        			<p><i>Suena Con Maisy (Maisy&lsquo;s Rainbow Dream)</i> por Lucy Cousins</p>
+        			<p><i>Mis Colores, Mi Mundo (My Colors, My World)</i> por Maya Gonzalez</p>
+        			<p><i>Si Propio Color (Color of His Own)</i> por Leo Lionni</p>
+        			<p><i>Los Colores Y Los Figuras (Colors and Shapes)</i> por Gladys Rosa-Mendoza</p>
+      			</div>
+      			
+    		</div>
+  		</div>
+	</div>
+</div>
+</body>
+</html>

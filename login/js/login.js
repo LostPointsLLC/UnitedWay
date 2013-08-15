@@ -9,10 +9,12 @@ function registration() {
 function verifyLogin() {
 	var iEmail = document.getElementById("email").value;
 	var iPass = document.getElementById("password").value;
+	/* I think everybody saw this by now (should delete in next rev)
 	if(iEmail == "test" && iPass != "testing") {
 		document.getElementById("result").innerHTML = "<p id='fail'>Sorry, don't use this account anymore. You should test this app using your own account.</p>";
 		return;
 	}
+	*/
 	if(iPass == "testing") iPass = "test";
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
@@ -33,37 +35,69 @@ function verifyLogin() {
 		// Handle PHP returns
 		httpRequest.onreadystatechange=function() {
 		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-			var str = httpRequest.responseText.trim().split(":");
-			console.log(str);
+			var response = httpRequest.responseText.trim();
+			var str = response.split("|");
+			console.log(response);
 			var ret = str[0].trim();
 			if (ret == "FAIL") { // unSuccessful Login
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "<p id='fail'>Login failed. Please verify that your email and password are correct</p>";
 				else
 				document.getElementById("result").innerHTML = "<p id='fail'>Error de acceso. Por favor, verifique que su correo electr&oacute;nico y la contrase&ntilde;a son correctos</p>";
 			}
 			else if(ret=="SUCCESS"){ // Successful login	
-				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
+				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ AND ALL OTHER BROWSERS
 				if(typeof(Storage) !== "undefined"){
-					if(localStorage.remember == 1){
-						localStorage.pid = str[1];
-					}	
-					else{
-						sessionStorage.pid = str[1];
+					// Assign Local Objects used throughout app
+					localStorage.pid = str[1]; // pid
+					localStorage.childJsonObject = str[2]; // Child JSON Object
+					localStorage.tipJsonObject = str[3]; // Tip JSON Object
+					localStorage.rssJsonObject = str[4]; // Rss JSON Object
+					/*
+					 * Assign 'dirty bit' objects to keep track if a certain JSON Object has been changed
+					 * These objects MUST be cleared and re-initialized after syncing with the database (this is handled in update script).
+					 */
+					 
+					// Keep an associative array of child ID's
+					var childDB = {}; // new object
+					var childJObj = jQuery.parseJSON(str[2]);
+					for (var key in childJObj) {
+						childDB[key] = false; // every untouched child is initialized as false.
 					}
+					localStorage.childTracker = JSON.stringify(childDB);
+					
+					// Keep addFavArr and delFavArr for favouring/unfavouring tips.
+					var addFavArr = {};
+					var delFavArr = {};
+					addFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
+					addFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
+					
+					delFavArr["health"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["growth"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["safety"] = [[], [], [], [], [], [], [], [], [], []];
+					delFavArr["playtime"] = [[], [], [], [], [], [], [], [], [], []];
+					
+					localStorage.addObj = JSON.stringify(addFavArr);
+					localStorage.delObj = JSON.stringify(delFavArr); 
+					console.log(localStorage.addObj);
+					console.log(localStorage.delObj);
+					// etc...
+					localStorage.remember=1;
 					setDefaultStorage();								
 					document.location.href = "../home/";
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
-					if(sessionStorage.lang=="ENG")
+					if(localStorage.lang=="ENG")
 						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 					else
 						document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web ...";	
 				}
 			}
 			else{
-				if(sessionStorage.lang=="ENG")
+				if(localStorage.lang=="ENG")
 					document.getElementById("result").innerHTML = "Server error. Please try again later";
 				else
 					document.getElementById("result").innerHTML = "Error del servidor. Por favor, vuelve a intentarlo m&aacute;s tarde ...";
@@ -71,32 +105,15 @@ function verifyLogin() {
 		}
 	}	
 	// Send the request to server!
+	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
 	httpRequest.open("POST",loginUrl,true);
 	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	httpRequest.send(params);	
 }	
 
 function setDefaultStorage() {
-	if(localStorage.remember==1){
-		localStorage.rss = 'cpl';				// For the news feed page.
-		localStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		localStorage.fromSettings = '0';	
-	}
-	else{
-		sessionStorage.rss = 'cpl';				// For the news feed page.
-		sessionStorage.dirty = '0';				// A dirty bit indicating whether the sessionStorage.jsonString variable is dirty
-		sessionStorage.edit_childID = '-1';		// Indicates that we're not editing a child
-		sessionStorage.fromSettings = '0';
-	}	
-}
-var count = 0;
-//function to rmb login settings
-function rmblogin(){
-	count++;//count is used to check if user checks or unchecks the box.
-	localStorage.remember = 1;
-	if(count==2){
-		localStorage.clear();//clears the bit of remembering pid.
-		count = 0;
-}	
+	localStorage.rss = 'cpl';				// For the news feed page.
+	localStorage.dirty = '0';				// A dirty bit indicating whether the localStorage.jsonString variable is dirty
+	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
+	localStorage.fromSettings = '0';	
 }

@@ -34,11 +34,7 @@ function initializeFeed() {
     rssfeedsetup();	
 =======
 
-	var feed;
-	if(localStorage.remember==1)
-		feed = localStorage.rss;
-	else
-		feed = sessionStorage.rss;
+	var feed = localStorage.rss;
 	var rssurl;
 	var limit = 8;
 	var title;
@@ -199,6 +195,7 @@ function displayfeed(result){
 *		<a class='item-text'> Title of Headline </a>
 *		</div>
 *	</div>
+*
 */
 function getRSSItem(entry, i) {
 	// Binds a class to items based upon parity numbered rss items
@@ -218,9 +215,10 @@ function getRSSItem(entry, i) {
 
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(" + rss_id + ")' class='" + favorite + " " + parity + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
-	var content	= "<a href='" + entry.link + "'>" + entry.title + "</a>";
-	content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
-	return outerdiv + innerdiv + content + "<br><br>";
+	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+	if(feedData.source == 'cpl')
+		content += "<p style='margin: 0'>" + getTimes(entry.content) + " at the " + getLocation(entry.content) + "</p>";
+	return outerdiv + innerdiv + content;
 
 }
 
@@ -317,6 +315,7 @@ function checkIfFavorited(entry) {
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     var datastring = "user_id=" + sessionStorage.pid;
     console.log(datastring);
     var linkIdArray = new Array();
@@ -345,6 +344,9 @@ function getFavoritedNews() {
 		datastring = "user_id=" + localStorage.pid;
 	else
 		datastring = "user_id=" + sessionStorage.pid;
+=======
+	var datastring = "user_id=" + localStorage.pid;
+>>>>>>> 79a391519325bfd1d1ac01adee252c92bf45c936
 	var linkIdArray = new Array();
 	$.ajax({ 
 		type: "POST",

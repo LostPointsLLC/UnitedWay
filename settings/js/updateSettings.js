@@ -8,10 +8,5 @@ function updateSettings() {
 		cache: false,
 		async: false,
 	});
-	if(localStorage.remember==1){
-		localStorage.dirty = 1;
-	}
-	else
-	sessionStorage.dirty = 1;
-
+	localStorage.dirty = 1;
 }

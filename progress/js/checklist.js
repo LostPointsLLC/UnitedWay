@@ -8,16 +8,27 @@ var gBin;
 var dataString;
 
 $(document).ready(function() {
-	var childID; // session current child ID
-	var taskCat; // session current task category
-	if(localStorage.remember==1){
-		childID = localStorage.cid.toString(); // persistent current child ID
-		taskCat = localStorage.cat.toString(); // persistent current task category
+	
+	var childID = localStorage.cid.toString(); // localStorage current child ID
+	var taskCat = localStorage.cat.toString(); // localStorage current task category
+	switch(taskCat) {
+		case "1":
+			category = "health_code";
+			break;
+		case "2":
+			category = "language_code";
+			break;
+		case "3":
+			category = "social_code";
+			break;
+		case "4":
+			category = "other_code";
+			break;
 	}
-	else{
-		childID = sessionStorage.cid.toString(); // session current child ID
-		taskCat = sessionStorage.cat.toString(); // session current task category
-	}
+	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
+	var binStr = jObj[childID][category]; // fetch binary string from object
+	console.log(binStr);
+	/*
 	dataString = "childID=" + childID + "&taskID=" + taskCat;
 
 	$.ajax({
@@ -39,25 +50,65 @@ $(document).ready(function() {
 			});
 		}
 	});
+	*/
+	initializeTasks(binStr, taskCat);
+	$("input").change(function(){
+		if (!$(this).is(':checked')) {
+			var clickedID = $(this).attr('id');
+			gBin[parseInt(clickedID)] = "b";
+		}
+		else {
+			var clickedID = $(this).attr('id');
+			gBin[parseInt(clickedID)] = "a";
+		}
+	});
+	
 });
 			
 // Called when page is being exited	
 $(window).unload( function () {
 	var newProgressStr = gBin.join('');				// Converts the global array into a string
-	var currentJsonStr;
-	var catStorage;
-	var childID;
+	
 	// First update current session variables, to correctly print percentages
-	if(localStorage.remember==1){
-		currentJsonStr = localStorage.jsonString;
-		catStorage = localStorage.cat.toString();
-		childID = localStorage.cid.toString();
+	var	catStorage = localStorage.cat.toString();
+	var	childID = localStorage.cid.toString();
+
+	var parsedCurrentJsonStr = jQuery.parseJSON(localStorage.childJsonObject);
+	
+	// Figure out what category check list this is
+	var category = "";
+	switch(catStorage) {
+		case "1":
+			category = "health_code";
+			break;
+		case "2":
+			category = "language_code";
+			break;
+		case "3":
+			category = "social_code";
+			break;
+		case "4":
+			category = "other_code";
+			break;
 	}
-	else{
-		currentJsonStr = sessionStorage.jsonString;
-		catStorage = sessionStorage.cat.toString();
-		childID = sessionStorage.cid.toString();
-	}
+	// Configure child dirty bit collection, used later when sync with online database
+	var childDB = jQuery.parseJSON(localStorage.childTracker);
+	childDB[childID] = true;
+	localStorage.childTracker = JSON.stringify(childDB);
+	
+	// Store final version back into child JSON object
+	parsedCurrentJsonStr[childID][category] = newProgressStr;
+	localStorage.childJsonObject = JSON.stringify(parsedCurrentJsonStr);
+	console.log(localStorage.childTracker);
+
+	/*
+	var newProgressStr = gBin.join('');				// Converts the global array into a string
+	
+	// First update current session variables, to correctly print percentages
+	var	currentJsonStr = localStorage.jsonString;
+	var	catStorage = localStorage.cat.toString();
+	var	childID = localStorage.cid.toString();
+
 	var parsedCurrentJsonStr = jQuery.parseJSON(currentJsonStr);
 	
 	// Figure out what category check list this is
@@ -77,12 +128,7 @@ $(window).unload( function () {
 			break;
 	}
 	parsedCurrentJsonStr[childID][category] = newProgressStr;
-	if(localStorage.remember == 1){
-		localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-	}
-	else{
-		sessionStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
-	}
+	localStorage.jsonString = JSON.stringify(parsedCurrentJsonStr);
 	var updateString = dataString + "&newString=" + newProgressStr;
 	
 	$.ajax({ // update database with new check binary string
@@ -92,6 +138,8 @@ $(window).unload( function () {
 		cache: false,
 		async: false // must be asynchronous so the bars would be updated on previous page. Sorry!
 	});
+	
+	*/
 });
 
 // Iterate through array of task bits, create list of tasks based off of this

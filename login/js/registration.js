@@ -34,7 +34,7 @@ function verifyRegistration() {
 				// USE HTML5 WEB STORAGE : SUPPORTED BY IE 8+ 
 				/* Incorrect code */
 				if(typeof(Storage) !== "undefined"){
-					sessionStorage.pid = ret;	
+					localStorage.pid = ret;	
 					document.location.href="child.html";
 				}
 				else {
@@ -52,4 +52,5 @@ function verifyRegistration() {
 		}
 
 	});
+	localStorage.remember=1;
 }

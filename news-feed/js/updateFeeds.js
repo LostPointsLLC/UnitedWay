@@ -1,6 +1,7 @@
 /* Phase three of the page
  */
 function updateFeeds() {
+<<<<<<< HEAD
     if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
     var removeString = getRemoveString();
     var addString = getAddString();
@@ -18,6 +19,24 @@ function updateFeeds() {
 	cache: false,
 	async: false, // must be synchronous, sorry! 
     });
+=======
+
+	if(!removeFromDb.length && !addToDb.length) return;	// Quickly exits page if nothing to be modified
+	var removeString = getRemoveString();
+	var addString = getAddString();
+	var category = "rss";
+	// Appends the user ID to the query
+	var	datastring = "user_id=" + localStorage.pid + "&removeString=" + removeString + "&addString=" + addString +  "&category=" + category;
+	console.log(datastring);
+	
+	$.ajax({ 
+		type: "POST",
+		url: "../php/updateFavorites.php",
+		data: datastring,
+		cache: false,
+		async: false, // must be synchronous, sorry! 
+	});
+>>>>>>> 79a391519325bfd1d1ac01adee252c92bf45c936
 }
 
 // Uses the addToDb array to create a JSON string of array objects
