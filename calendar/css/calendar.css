@@ -38,11 +38,10 @@ float:right;
 
 #events{
     position: relative;
-
-	padding-right: 25px;
-	margin-left: 25px;
-	margin-right: 25px;
-	
+    padding-right: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
     /*background:#7ca3dc!important;*/
     color: white;
     font: 17px arial;
