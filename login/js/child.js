@@ -50,20 +50,7 @@
 	var newChildrenObj = jQuery.parseJSON(localStorage.newChildren);
 	newChildrenObj[newChild["child_id"]] = newChild;
 	localStorage.newChildren = JSON.stringify(newChildrenObj);
- 
-	/*
-    // Executes if one of the buttons is pressed
-    $.ajax({
-		type: "POST",
-		url: "php/child.php",
-		data: posts,
-		cache: false,
-		async: false,
-		
-    });
-	*/
     return 0;
-    
 }
 
 
@@ -165,29 +152,6 @@ function editDB() {
 	var childTracker = jQuery.parseJSON(localStorage.childTracker);
 	childTracker[localStorage.edit_childID] = true;
 	localStorage.childTracker = JSON.stringify(childTracker);
-	
-	/*
-    var dataString = getDataString(name, birthday, color, boy_gender);
-    
-    if(dataString) {
-	
-		$.ajax({
-			type: "POST",
-			url: "php/editChild.php",
-				data: dataString,
-			cache: false,
-			async: false,
-			success: function(data){
-			alert(data);
-			
-			}
-		});
-		localStorage.dirty = '1';
-    }
-    */
-	
-
-    
     document.location.href="../settings/index.html";
     
 }

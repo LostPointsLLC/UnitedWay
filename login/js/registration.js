@@ -35,7 +35,10 @@ function verifyRegistration() {
 			var response = httpRequest.responseText.trim();
 			var ret = parseInt(response);
 			if(ret == -1) {
-				document.getElementById("result").innerHTML = "<p class='fail'>Sorry, this email has already been used.</p>";
+				if(localStorage.lang=="ENG")
+					document.getElementById("result").innerHTML = "<p class='fail'>Sorry, this email has already been used.</p>";
+				else
+					document.getElementById("result").innerHTML = "<p class='fail'>Lo sentimos, la direcci&on de correo electr&onico ya ha sido utilizado.</p>";
 				return;
 			}
 			// Returns an int >= 0 that represents the user ID
@@ -50,14 +53,16 @@ function verifyRegistration() {
 				}
 				else {
 					// Add old client support (cookies) later, browser share for IE 7- 
-					document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+					if(localStorage.lang=="ENG")
+						document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+					else
+						document.getElementById("result").innerHTML = "Lo sentimos, su navegador no soporta almacenamiento web...";
 				}
 				
 			}
 			// Otherwise we have an error
 			else {
-				alert("Strange error occurred. Please contact UnitedWay");
-			}
+				alert("Strange error occurred. Please contact UnitedWay! ");
 		}
 	}	
 	// Send the request to server!
