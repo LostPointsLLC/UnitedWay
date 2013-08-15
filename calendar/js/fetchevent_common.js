@@ -12,8 +12,6 @@ function getLibraryEvent(day, month){
 	 * function, to 1. Scrape the data, and 2. display the data on the screen.
 	 */ 
     grabData(function(events) {
-
-
 		for(var i=0;i<events.length;i++) {
 			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
 			{
@@ -29,27 +27,17 @@ function getLibraryEvent(day, month){
 					events[i].title		   
 				]));
 				eventLink.appendChild(eventTitle);
-
 				eventDiv.appendChild(eventLink);
 
 				/* Displays the start and end times on the screen */
 				var time = document.createElement("p");
 				time.style.margin = "0";
 				var timeText = "";
-				timeText += "<span>From</span> " + getCentralTime(events[i].startTime) + " <span>to</span> " + getCentralTime(events[i].endTime);
-				//timeText += "<p><span>End time:</span> " + getCentralTime(events[i].endTime) + "</p>";
+				timeText += "<span>Time:</span> " + getCentralTime(events[i].startTime) + " <span>~</span> " + getCentralTime(events[i].endTime);
 				console.log(timeText);
 				time.innerHTML = timeText;
 				eventDiv.appendChild(time);
 
-				/*
-				var enttime = document.createElement('p');
-				enttime.appendChild(document.createTextNode([
-					events[i].startTime.toString(),
-					events[i].endTime.toString()
-				]));
-				eventDiv.appendChild(enttime);
-				*/
 				/* Displays the event's location */
 				var entlocation = document.createElement('p');
 				var locText = "";
@@ -64,7 +52,7 @@ function getLibraryEvent(day, month){
 				entdes.innerHTML = desText;
 				eventDiv.appendChild(entdes);
 
-				//$div.appendChild(eventTitle);
+	
 				$div.appendChild(eventDiv);
 			}
 		}
@@ -96,31 +84,29 @@ function grabData(callback)
 	google.load('feeds','1',{
 		'callback': function(){
 			var feed = new google.feeds.Feed('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2');
-			feed.setNumEntries(50);
-			feed.includeHistoricalEntries();
+			feed.setNumEntries(50); // total number of entries fetched
+			feed.includeHistoricalEntries(); //include the historical entries so the user can check the past ones
 			feed.load(function(res){
 			if(res.error){
-				throw new Error('Problem occurred updating the event feed.');
+			    throw new Error('Problem occurred updating the event feed.');
 			}
 			else{
 				var events = [];
 				var ents = res.feed.entries;
 				for (var i = 0; i < ents.length; i++){
-					//all obj here are actually an array of subtrings
-					//split <-> join
-					//grab date/time
+					/*all obj here are actually an array of subtrings
+					 *first split & process, then join*/
 
 					/* Each one of the entries has a 'content' field which pulls from the <description> xml tag.
 					 * Read the google feeds API documentation to understand what's going on:
-					 *
 					 * https://developers.google.com/feed/v1/reference
-					 *
 					 * If you don't understand xml, xml is similar to html (html is actually a type of xml), and so
 					 * xml has the same tree structure. The Google API is simply a way to parse the xml into a "nicer" form.
-					 *
 					 * So correction: The person who wrote the crux of this code didn't write a scraper. The google API created a 
 					 * scraper, and he's just using that.
 					 */
+				    
+				    	//grab date/time
 					var timeobj = ents[i].content.split('<br>')[0].split(' ');
 					var startTime = new Date();
 					var endTime = new Date();
