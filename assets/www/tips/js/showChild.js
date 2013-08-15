@@ -25,15 +25,11 @@ function listChildren(param) {
 	var obj = jQuery.parseJSON(param);
 	var content = document.getElementById("content");
 	
-	if(obj.length == 0) {
-		content.innerHTML = "<p style='position: relative; left: 25px; padding-right: 35px;'>It seems like you haven't registered any children. Click <a href='../settings/' style='color: red'>here</a> to register a few children!</a></p>";
-		return;
-	
-	}
-	
 	var fragment = document.createDocumentFragment();
 	
 	for (var key in obj) {
+	
+		/* Henry: Do we really need the below if statement? */
 		if (obj.hasOwnProperty(key)) {
 		
 			//Calculate child's age
@@ -46,10 +42,10 @@ function listChildren(param) {
 			var genderImg;
 			switch(gender) {
 				case 'boy':
-					genderImg = 'child/boy-darkblue-small';
+					genderImg = 'child/boy-darkblue-big';
 					break;
 				default:
-					genderImg = 'child/girl-darkblue-small';
+					genderImg = 'child/girl-darkblue-big';
 					break;
 			}
 

@@ -1,18 +1,14 @@
 .arrow {
 	position: absolute;
 	top: 55px;
-
-
 }
 
 .right {
 	right: 0px;
-
 }
 
 .left {
 	left: 12px;
-
 }
 
 .title-box {
@@ -55,54 +51,3 @@
 .ui-body-c{
 	text-shadow:none;
 }
-
-
-
-/*
-.ui-icon{
-
-
-}
-.ui-btn-text{
-	font-size: 16px;
-	font-weight: normal;
-	margin-left:30px;
-}
-.ui-content{
-	padding:0px !important;
-}
-
-.ui-collapsible-heading{
-	-webkit-border-radius: 0;
-	border-radius: 0;
-}
-.ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner {
-
-}
-
-.ui-collapsible-inset .ui-collapsible-content p{
-	font-weight:normal;
-}
-.ui-btn-up-c {
-
-	background:#00549b;
-	color:white;
-	text-shadow:none;
-	font-family:arial;
-}
-.ui-btn-hover-c{
-	background:none;
-	color:white;
-	background-image:none;
-}
-.ui-btn-down-c:visited,
-.ui-btn-down-c:hover,
-.ui-btn-down-c a.ui-link-inherit,
-.ui-btn-hover-c:visited,
-.ui-btn-hover-c:hover,
-.ui-btn-hover-c a.ui-link-inherit {
-	color: white;
-	text-shadow:none;
-	font-size:16px;
-	font-family:arial;
-}*/

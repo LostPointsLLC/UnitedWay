@@ -52,10 +52,10 @@ function listChildren(param) {
 			var genderImg;
 			switch(gender) {
 				case 'boy':
-					genderImg = 'child/boy-darkblue-small';
+					genderImg = 'child/boy-darkblue-big';
 					break;
 				default:
-					genderImg = 'child/girl-darkblue-small';
+					genderImg = 'child/girl-darkblue-big';
 					break;
 			}
 			/*	<table id="key" class="ch">

@@ -24,7 +24,7 @@ function changeFeeds(sel) {
 
 // Decides what to do with an element that has chosen to be favorited
 function favorite(id, url) {
-	
+
 	// If changing nofav -> fav
 	if(shouldBeFavorited(id)) 	addFeed(id, url);
 	else 						removeFeed(id, url);
@@ -88,4 +88,3 @@ function addNofavClass(id) {
 	$("#" + id).removeClass("fav").addClass("nofav");
 
 }
-

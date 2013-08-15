@@ -16,25 +16,34 @@ function changePw(){
 		alert("Please enter a new password that is different from your current password.");
 		return;
 	}
-
+	
+	var httpRequest;
+	var phpUrl = "http://unitedway.lostpointsllc.com/php/changepw.php";
 	var params = "pid=" + id +"&curr_pw=" + curr_pw +"&new_pw=" +new_pw;
 	
-	$.ajax({
-		type: "POST",
-		//change url to http://unitedway.lostpointsllc.com/settings/php/changepw.php for phonegap
-		url: "http://unitedway.lostpointsllc.com/settings/php/changepw.php",
-		data: params,
-		cache: false,
-		async: false,
-		success: function(data) {
-			//there might be whitspaces in the return value from php
-			var result = data.trim();
-			
+	/*
+	 * Make Ajax Call here
+	 */ 
+	
+	// Create XML/HTTP Request object.
+	// Different browsers use different objects!
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		httpRequest= new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	// Handle PHP returns
+	httpRequest.onreadystatechange=function() {
+		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+			var result = httpRequest.responseText.trim();
 			//Success
 			if(result == "Password Changed") {
 				alert("Password Changed");
 			}
-			
+
 			//password authentication failed
 			else if(result =="AUTH FAILED") {
 				alert("Authentication Failed");
@@ -45,7 +54,10 @@ function changePw(){
 				alert("Server Error");
 			}
 			document.location.href = "../settings/index.html";
-			return;
 		}
-	});
+	}	
+	// Send the request to server!
+	httpRequest.open("POST", phpUrl, true);
+	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	httpRequest.send(params);
 }

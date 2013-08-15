@@ -4,9 +4,8 @@ function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
+
 function forgotpw(){
-	//lets the user know their request is being processed
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
 	
 	//takes email address
 	var email = document.getElementById("email").value;
@@ -34,7 +33,6 @@ function forgotpw(){
 		}
 	}
 	
-
 	//generates a random 8 char long pw
 	//source: http://www.latestcode.net/2012/12/javascript-random-password-generator.html
 	var temp_pw='';
@@ -42,23 +40,29 @@ function forgotpw(){
 	for(var i=0;i<8;i++){ 
 		temp_pw+=password_characters.charAt(Math.floor(Math.random()*password_characters.length))
 	}
-	//alert(temp_pw);
+	
+	// Variables used for XML/HTTP Request.
+	var httpRequest;
 	var params = "pEmail=" + email + "&pPassword=" + temp_pw;
-	//alert(params);
+	var phpUrl = "http://unitedway.lostpointsllc.com/php/forgotpw.php";
 
-	$.ajax({
-		type: "POST",
-		//have to change url to http://unitedway.lostpointsllc.com/login/php/forgotpw.php for phonegap
-		url: "http://unitedway.lostpointsllc.com/login/php/forgotpw.php",
-		data: params,
-		cache: false,
-		async: false,
-		success: function(data) {
-			var res = data.trim();
-			//alert(res);
+	// Create XML/HTTP Request object.
+	// Different browsers use different objects!
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		httpRequest= new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	// Handle PHP returns
+	httpRequest.onreadystatechange=function() {
+		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+			var res = httpRequest.responseText.trim();
 			//temp pw successfully sent to user email
+			console.log(res);
 			if(localStorage.lang=="ENG"){
-				if(res==-1){
+				if(res == -1){
 					document.getElementById("result").innerHTML = "A temporary password has been sent to your email.";
 				}
 				//email was not found on database
@@ -68,7 +72,7 @@ function forgotpw(){
 				}
 			}
 			else{
-				if(res==-1){
+				if(res == -1){
 					document.getElementById("result").innerHTML = "Una contrase&ntilde;a temporal ha sido enviada a su correo electr&oacute;nico.";
 				}
 				//email was not found on database
@@ -78,8 +82,13 @@ function forgotpw(){
 				}
 			}
 		}
-	});
-
+	}	
+	// Send the request to server!
+	document.getElementById("result").innerHTML = '<img src="../images/loader.gif" id = "loader" height="40" width="40"/>';
+	httpRequest.open("POST", phpUrl, true);
+	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	httpRequest.send(params);
+	
 	//saves it to send to user
 	//hash password
 	//change pw in database

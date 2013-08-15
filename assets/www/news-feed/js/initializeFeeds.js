@@ -14,12 +14,6 @@ function initializeFeed() {
 			source	= "cm";
 			break;
 
-		case 'uw':		// United Way Blogs
-			rssurl	= "http://www.uwayhelps.org/blogs/rss";
-			title	= "United Way Blog";
-			source	= "uw";
-			break;
-
 		default:		// Default is champaign public library
 			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
 			title 	= "Champaign Public Library Events";
@@ -43,7 +37,6 @@ function rssfeedsetup(){
  * Uses the google API.
  */
 function displayfeed(result){
-
 	if (result.error) {
 		alert("Error fetching feeds!");
 		return;
@@ -66,7 +59,7 @@ function displayfeed(result){
 		feedContainer.innerHTML += getRSSItem(entries[i], i);
 	}	
 
-	
+
 }
 
 // Puts all of the rss feed items on the page, and highlights them
@@ -83,25 +76,28 @@ function displayfeed(result){
 function getRSSItem(entry, i) {
 
 	// Checks whether an item has been favorited or not
-	var favorite;
 	var rss_id = checkIfFavorited(entry);
 	if(rss_id != -1) {
-		favorite = 'fav';
+		var favorite = 'fav';
 	}
 
 	else {
-		favorite = 'nofav';
+		var favorite = 'nofav';
 		rss_id = -1 * (i+1); // Represents an ID who isn't in the db yet, always a negative number
 	}
-	
+
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
-	var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+
+	if(feedData.source == 'cpl')
+		var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+
+	else
+		var content	= "<a href='" + entry.link + "'><p style='margin: 0; font-size: 18'>" + entry.title + "</p></a>";
+
 	if(feedData.source == 'cpl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
-	
-	else if(feedData.source == 'uw')
-		content += "<p style='margin: 0'>" + getBlogTimes(entry.publishedDate);
+
 	return outerdiv + innerdiv + content;
 
 }
@@ -131,7 +127,7 @@ function getTimes(content) {
 
 	datestring = [(timeobj.slice(2,5)).join(' '), timeobj.slice(9,11).join(' ')].join(' ');
 	endTime.setTime(Date.parse(datestring));
-	
+
 	return timeobj[1] + " " + timeobj[2] + " " + timeobj[3].slice(0, timeobj.indexOf(",")) + " from " + getCentralTime(startTime) + " to " + getCentralTime(endTime);
 }
 
@@ -154,23 +150,9 @@ function getOptions() {
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
-				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option>"
-			else
-				return " \
-				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
-				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option>"
-
-		case 'uw':
-			if(localStorage.lang=="ENG")
-				return " \
-				<option value='uw'>United Way Blog</option> \
-				<option value='cpl'>Champaign Public Library Events</option> \
 				<option value='cm'>Chambanamoms</option>"
 			else
 				return " \
-				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option>"
 
@@ -178,12 +160,10 @@ function getOptions() {
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Public Library Events</option>"
 			else
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>"
 
 		default:
@@ -194,8 +174,6 @@ function getOptions() {
 				<option value='uw'>United Way Blog</option>"
 	}
 }
-
-
 
 /* Checks whether the entry is in the global feedArray
  * Currently, I can only do a O(n) algorithm for this, but
@@ -208,30 +186,10 @@ function checkIfFavorited(entry) {
 	return -1;
 }
 
-
-
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + localStorage.pid.toString();
 	var linkIdArray = jQuery.parseJSON(localStorage.rssJsonObject);
-	/*
-	$.ajax({
-		type: "POST",
-		url: "php/getFavoritedNews.php",
-		data: datastring,
-		cache: false,
-		async: false, // must be synchronous, sorry! 
-		success: function(idArray) {
-
-			var pairArray = jQuery.parseJSON(idArray);
-			for(var i = 0; i < pairArray.length; i++) {
-				var link = pairArray[i][1];
-				var id = pairArray[i][0];
-				linkIdArray[link] = id;		// Stores everything as a link-id pair
-			}
-		}
-	});
-	*/
 	console.log(linkIdArray);
 	return linkIdArray;
 

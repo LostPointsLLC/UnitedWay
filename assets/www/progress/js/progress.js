@@ -2,24 +2,7 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
-	/*
-	var parentID = localStorage.pid.toString();
-	var dataString = "parentID=" + parentID;
-	
-	$.ajax({
-		type: "POST",
-		url: "../php/fetchSummary.php",
-		data: dataString,
-		cache: false,
-		success: function(data){
-			localStorage.jsonString = data; // store database data string as a persistent variable
-			initializeProgress(data);
-		}
-	 });	 
-	 */
 	 initializeProgress(localStorage.childJsonObject);
-	 
-	 
 });
 
 // called by .ready() to parse retrieved JSON string into Javascript objects.
@@ -59,10 +42,10 @@ function initializeProgress(param) {
 			var genderImg;
 			switch(gender) {
 				case 'boy':
-					genderImg = 'child/boy-darkblue-small';
+					genderImg = 'child/boy-darkblue-big';
 					break;
 				default:
-					genderImg = 'child/girl-darkblue-small';
+					genderImg = 'child/girl-darkblue-big';
 					break;
 			}
 
