@@ -12,7 +12,7 @@ function verifyRegistration() {
 
 	// Variables used for XML/HTTP Request.
 	var httpRequest;
-	var phpUrl = "php/registration.php";
+	var phpUrl = "../php/registration.php";
 	var params = "pFname=" + first + "&pLname=" + last+ "&pEmail=" + email +"&pPass=" + pass;
 
 	/*
@@ -63,10 +63,11 @@ function verifyRegistration() {
 			// Otherwise we have an error
 			else {
 				alert("Strange error occurred. Please contact UnitedWay! ");
+			}
 		}
 	}	
 	// Send the request to server!
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+	document.getElementById("result").innerHTML = '<img src="../images/loader.gif" id = "loader" height="40" width="40"/>';
 	httpRequest.open("POST", phpUrl, true);
 	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	httpRequest.send(params);

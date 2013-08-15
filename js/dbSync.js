@@ -71,16 +71,28 @@ function dbSync() {
 	console.log("Right before Sync");
 	console.log(dataString);
 	
+	var httpRequest;
+	var phpUrl = "../php/dbSync.php";
 	
-	$.ajax({
-		type: "POST",
-		url: "../php/dbSync.php",
-		data: dataString,
-		cache: false,
-		success: function(data){
-			// data should be a return value of FAIL:XX
-			// or SUCCESS: NEW RSS DATA
-			var str = data.split("|");
+	/*
+	 * Make Ajax Call here
+	 */ 
+	
+	// Create XML/HTTP Request object.
+	// Different browsers use different objects!
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		httpRequest= new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	// Handle PHP returns
+	httpRequest.onreadystatechange=function() {
+		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+			var result = httpRequest.responseText.trim();
+			var str = result.split("|");
 			var ret = str[0].trim();
 			if (ret == "FAIL") {
 				console.log("Failed to sync with cloud. Check internet connection");
@@ -92,7 +104,11 @@ function dbSync() {
 			}
 			
 		}
-	 });
+	}	
+	// Send the request to server!
+	httpRequest.open("POST", phpUrl, true);
+	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	httpRequest.send(dataString);
 	 console.log("Sync Complete");
 }
 

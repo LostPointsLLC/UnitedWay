@@ -1,7 +1,7 @@
 <?php
 	require("class.phpmailer.php");
-	require("../../php/connect.php");
-	require("../../php/phpass-0.3/PasswordHash.php");
+	require("connect.php");
+	require("phpass-0.3/PasswordHash.php");
 
 	$email = mysqli_real_escape_string($dbConnection, $_POST['pEmail']);
 	$temp_pw = strip_tags(get_post_var('pPassword'));

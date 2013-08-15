@@ -10,8 +10,8 @@
 	 * Updates tables: users
 	 */
 	 
-	require("../../php/connect.php");
-	require("../../php/phpass-0.3/PasswordHash.php");
+	require("connect.php");
+	require("phpass-0.3/PasswordHash.php");
 	$first 	= strip_tags(get_post_var('pFname')); 
 	$last	= strip_tags(get_post_var('pLname'));
 	$pass	= strip_tags(get_post_var('pPass'));

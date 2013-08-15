@@ -14,12 +14,6 @@ function initializeFeed() {
 			source	= "cm";
 			break;
 
-	/*	case 'uw':		// United Way Blogs <-- Not using this anymore!
-			rssurl	= "http://www.uwayhelps.org/blogs/rss";
-			title	= "United Way Blog";
-			source	= "uw";
-			break;
-*/
 		default:		// Default is champaign public library
 			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
 			title 	= "Champaign Public Library Events";
@@ -43,7 +37,6 @@ function rssfeedsetup(){
  * Uses the google API.
  */
 function displayfeed(result){
-
 	if (result.error) {
 		alert("Error fetching feeds!");
 		return;
@@ -105,10 +98,6 @@ function getRSSItem(entry, i) {
 	if(feedData.source == 'cpl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
 
-	/*else if(feedData.source == 'uw')
-		content += "<p style='margin: 0'>" + getBlogTimes(entry.publishedDate);*/
-
-
 	return outerdiv + innerdiv + content;
 
 }
@@ -167,18 +156,6 @@ function getOptions() {
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option>"
 
-	/*	case 'uw':
-			if(localStorage.lang=="ENG")
-				return " \
-				<option value='uw'>United Way Blog</option> \
-				<option value='cpl'>Champaign Public Library Events</option> \
-				<option value='cm'>Chambanamoms</option>"
-			else
-				return " \
-				<option value='uw'>United Way Blog</option> \
-				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
-				<option value='cm'>Chambanamoms</option>"
-*/
 		case 'cm':
 			if(localStorage.lang=="ENG")
 				return " \
@@ -198,8 +175,6 @@ function getOptions() {
 	}
 }
 
-
-
 /* Checks whether the entry is in the global feedArray
  * Currently, I can only do a O(n) algorithm for this, but
  * I definitely want to find a nice way to do this in the future.
@@ -211,30 +186,10 @@ function checkIfFavorited(entry) {
 	return -1;
 }
 
-
-
 // Returns back an array of ids of favorited news items
 function getFavoritedNews() {
 	var datastring = "user_id=" + localStorage.pid.toString();
 	var linkIdArray = jQuery.parseJSON(localStorage.rssJsonObject);
-	/*
-	$.ajax({
-		type: "POST",
-		url: "php/getFavoritedNews.php",
-		data: datastring,
-		cache: false,
-		async: false, // must be synchronous, sorry! 
-		success: function(idArray) {
-
-			var pairArray = jQuery.parseJSON(idArray);
-			for(var i = 0; i < pairArray.length; i++) {
-				var link = pairArray[i][1];
-				var id = pairArray[i][0];
-				linkIdArray[link] = id;		// Stores everything as a link-id pair
-			}
-		}
-	});
-	*/
 	console.log(linkIdArray);
 	return linkIdArray;
 

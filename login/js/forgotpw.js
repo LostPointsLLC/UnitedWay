@@ -44,7 +44,7 @@ function forgotpw(){
 	// Variables used for XML/HTTP Request.
 	var httpRequest;
 	var params = "pEmail=" + email + "&pPassword=" + temp_pw;
-	var phpUrl = "php/forgotpw.php";
+	var phpUrl = "../php/forgotpw.php";
 
 	// Create XML/HTTP Request object.
 	// Different browsers use different objects!
@@ -84,7 +84,7 @@ function forgotpw(){
 		}
 	}	
 	// Send the request to server!
-	document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+	document.getElementById("result").innerHTML = '<img src="../images/loader.gif" id = "loader" height="40" width="40"/>';
 	httpRequest.open("POST", phpUrl, true);
 	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	httpRequest.send(params);

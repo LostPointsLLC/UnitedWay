@@ -19,7 +19,7 @@ function verifyLogin() {
 		// Variables used for XML/HTTP Request.
 		var httpRequest;
 		//have to change loginUrl to http://unitedway.lostpointsllc.com/login/php/login.php for Phonegap Android
-		var loginUrl = "php/login.php";
+		var loginUrl = "../php/login.php";
 		var params = "pUser=" + iEmail +"&pPass=" + iPass;
 				
 		// Create XML/HTTP Request object.
@@ -72,7 +72,7 @@ function verifyLogin() {
 			}
 		}	
 		// Send the request to server!
-		document.getElementById("result").innerHTML = '<img src="images/loader.gif" id = "loader" height="40" width="40"/>';
+		document.getElementById("result").innerHTML = '<img src="../images/loader.gif" id = "loader" height="40" width="40"/>';
 		httpRequest.open("POST",loginUrl,true);
 		httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		httpRequest.send(params);	

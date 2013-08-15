@@ -10,8 +10,8 @@
 	 * Updates tables: users
 	 */
 	 
-	require("../../php/connect.php");
-	require("../../php/phpass-0.3/PasswordHash.php");
+	require("connect.php");
+	require("phpass-0.3/PasswordHash.php");
 	// Prevent Cross Site Scripting Attacks
     $user_email = strip_tags(get_post_var('pUser'));
     $user_pass = strip_tags(get_post_var('pPass'));

@@ -194,10 +194,10 @@ function changeGender(gender) {
 	var sprite = document.getElementById("sprite");
 	switch(gender) {
 		case 1:
-			sprite.src ="images/child/boy-darkblue-mid.png";
+			sprite.src ="../images/child/boy-darkblue-big.png";
 			break;
 		case 2:
-			sprite.src = "images/child/girl-darkblue-mid.png"
+			sprite.src = "../images/child/girl-darkblue-big.png"
 			break;
 	}
 

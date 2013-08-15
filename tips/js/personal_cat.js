@@ -11,10 +11,10 @@ $(document).ready(function() {
 	var genderImg;
 	switch(gender) {
 		case 'boy':
-			genderImg = 'child/boy-darkblue-small.png';
+			genderImg = 'child/boy-darkblue-big.png';
 			break;
 		default:
-			genderImg = 'child/girl-darkblue-small.png';
+			genderImg = 'child/girl-darkblue-big.png';
 			break;
 	}	
 	/*	<div id='child'>

@@ -1,7 +1,7 @@
 <?php
 
-	require("../../php/connect.php");
-	require("../../php/phpass-0.3/PasswordHash.php");
+	require("connect.php");
+	require("phpass-0.3/PasswordHash.php");
 
 	$user_id = strip_tags(get_post_var('pid'));
 	$user_currpw = strip_tags(get_post_var('curr_pw'));	//current password
