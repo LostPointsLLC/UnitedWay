@@ -1,4 +1,3 @@
-
 .wrapper {
     background: #00549b;
     width: 100%;
@@ -6,17 +5,35 @@
     margin: 0 auto;
     position:relative;
 }
-/*Calendar button*/
-.calbtnwrap{
-    text-align:center;
-    position:relative;
-    left: 0;
-    right:0;
-    bottom:0;
+
+#help {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
-#calbtn{
-    width:50px;
-    height:50px;
+
+#home {
+	position: absolute;
+	right: 50px;
+	top: 0;
+	width: 50px;
+	height: 50px;
+
+}
+
+p {
+	margin-right: 35px;
+	word-wrap: break-word;
+
+}
+
+#cal-bt {
+	position: absolute;
+	right: 100px;
+	top: 0;
+	width: 50px;
+	height: 50px;
+
 }
 
 #calendar-title {
@@ -30,15 +47,17 @@
     height: 50px;
     width: 100%;
 }
+/*
 #home-help-buttons {
     height: 50px;
     width: 101px;
     float: right;
-}
+}*/
+/*
 #home-help-buttons img {
     padding: 0px;
     float: right;
-}
+}*/
 
 
 body {
@@ -57,7 +76,7 @@ body {
     margin-top: 50px;
     padding-bottom: 15px;
     display: inline-block;
-    background: #F0502F;
+   /* background: #F0502F;*/
     width: 100%;
     
 }
@@ -80,11 +99,10 @@ body {
 }
 
 #activity {
-    text-align: center;
-    font: 17px arial;
+    font: 16px arial;
     color: #FFF;
     padding-top: 20px;
-    padding-left: 0;
+    margin-left: 25px;
     word-wrap: break-word;
     overflow:auto;
     height:115px;
@@ -98,20 +116,20 @@ body {
 #event-head {
     font-family: Chunkfive;
     font-size: 26px;
+	margin-left: 25px;
     color: white;
     display: block;
-    text-align: center;
     position: relative;
 }
 
 #events{
     height:215px;
     width:100%;
-    overflow-y:auto;
-    text-align: center;
     position: relative;
+	margin-top: 10px;
+	margin-left: 25px;
     color: white;
-    font: 17px arial;
+    font: 16px arial;
 }
 
 .events-wrapper{

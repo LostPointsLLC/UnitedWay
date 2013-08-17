@@ -28,8 +28,7 @@ float:right;
 #event-head {
     position: relative;
 	display: block;
-	text-align: center;
-	
+	margin-left: 25px;
     font-family: Chunkfive;
     font-size: 26px;
     color: white;
@@ -38,13 +37,12 @@ float:right;
 
 #events{
     position: relative;
-    padding-right: 25px;
     margin-left: 25px;
-    margin-right: 25px;
-    text-align: center;
+    margin-right: 35px;
+
     /*background:#7ca3dc!important;*/
     color: white;
-    font: 17px arial;
+    font: 16px arial;
 }
 
 #events p {
@@ -69,13 +67,10 @@ float:right;
 #activity{
     position: relative;
 	display: block;
-	text-align: center;
-	
-    
     color: white;
-    font: 17px arial;
+    font: 16px arial;
     word-wrap: break-word;
-   
+   margin-left: 25px;
 }
 
 #activity-head {
@@ -272,7 +267,7 @@ ndar td {
 @media only screen and (max-width: 320px),(max-device-width: 320px) {
  .ui-datepicker td,tr{
   font-size:14px !important;
-  line-height:17px !important;
+  line-height:16px !important;
  }
  .ui-state-default {
   width:35px !important;

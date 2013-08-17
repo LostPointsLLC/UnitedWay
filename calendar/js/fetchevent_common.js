@@ -41,13 +41,14 @@ function getLibraryEvent(day, month){
 				/* Displays the event's location */
 				var entlocation = document.createElement('p');
 				var locText = "";
-				locText += "<span>Location:</span> " + events[i].location;
+				locText += "<span>Location:</span> " + getLocation(events[i].location);
 				entlocation.innerHTML = locText;
 				eventDiv.appendChild(entlocation);
 
 				/* Displays the Event's description */
 				var entdes = document.createElement('p');
 				var desText = "";
+				console.log(events[i].description);
 				desText += "<div><span>Description:</span> " + events[i].description + "</div>";
 				entdes.innerHTML = desText;
 				eventDiv.appendChild(entdes);
@@ -72,6 +73,12 @@ function getLibraryEvent(day, month){
 function getCentralTime(date) {
 	var time = date.toLocaleTimeString();
 	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+}
+
+function getLocation(location) {
+	var output = location.split("St. at ")[1];
+	return "Champaign Public Library: " + output;
+
 }
 
 
@@ -126,7 +133,7 @@ function grabData(callback)
 
 					var description = new String(desobj);
 					var shortDesc = description.substr(0, 150);
-					if(description.length != shortDesc.length) shortDesc += "...";
+					if(description.length != shortDesc.length) shortDesc += "... click <a href=" + ents[i].link + ">here</a> for further information";
 
 					/* Pushes the just-defined event object into an array
 					 * called 'events'
