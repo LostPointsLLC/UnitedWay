@@ -132,8 +132,8 @@ function grabData(callback)
 					var desobj = ents[i].content.split('<br>')[3];
 
 					var description = new String(desobj);
-					var shortDesc = description.substr(0, 150);
-					if(description.length != shortDesc.length) shortDesc += "... click <a href=" + ents[i].link + ">here</a> for further information";
+					var shortDesc = description.substr(0, 200);
+					if(description.length != shortDesc.length) shortDesc += "... (click <a href=" + ents[i].link + ">here</a> for further information)";
 
 					/* Pushes the just-defined event object into an array
 					 * called 'events'

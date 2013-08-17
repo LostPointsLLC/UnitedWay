@@ -24,6 +24,11 @@ display:inline-block;
 color:white;
 float:right;
 }
+
+a {
+	color: #f0502f;
+}
+
 /*****************************************/
 #event-head {
     position: relative;
@@ -39,7 +44,7 @@ float:right;
     position: relative;
     margin-left: 25px;
     margin-right: 35px;
-
+	margin-top: 10px;
     /*background:#7ca3dc!important;*/
     color: white;
     font: 16px arial;
