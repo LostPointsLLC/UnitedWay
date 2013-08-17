@@ -99,13 +99,13 @@ function getRSSItem(entry, i) {
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 
-	if(feedData.source == 'cpl')
+	if(feedData.source == 'cpl' || feedData.source == 'upl')
 		var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
 
 	else
 		var content	= "<a href='" + entry.link + "'><p style='margin: 0; font-size: 18'>" + entry.title + "</p></a>";
 
-	if(feedData.source == 'cpl')
+	if(feedData.source == 'cpl' || feedData.source == 'upl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
 
 	return outerdiv + innerdiv + content;
