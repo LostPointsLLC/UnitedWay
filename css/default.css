@@ -13,6 +13,11 @@
 
 }
 
+.ui-collapsible-content {
+box-shadow: 3px 3px 10px #001135 inset;
+
+}
+
 /* Setting the DEFAULT settings for a paragraph
  * used in this app. Do NOT touch this without permission.
  */
