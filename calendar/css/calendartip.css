@@ -93,6 +93,9 @@ body {
     font-size: 120px;
     color: white;
     height: 110px;	
+
+text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 4px 4px #001135;
+
 }
 
 #month-text{
@@ -100,7 +103,9 @@ body {
     text-align: center;
     font-family: Chunkfive;
     font-size: 40px;
-    color: white;
+ text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 4px 4px #001135;  
+color: white;
+
 }
 
 #activity {
