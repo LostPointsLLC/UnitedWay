@@ -6,7 +6,6 @@ function initializeFeed() {
 	var limit = 8;
 	var title;
 	var source;
-
 	/* Note: We might need to change the rssData data structure later so that 
 	 * we could accommodate adding more feeds more easily.
 	 */
@@ -60,7 +59,7 @@ function displayfeed(result){
 
 	// Places the headline on the page
 	var headline = "<div class='rss-head'>"; 
-	var selector = "<select id='change-feeds' onClick='changeFeeds(this)'>" + getOptions() + "</select></div>";
+	var selector = "<select id='change-feeds' onChange='changeFeeds(this)'>" + getOptions() + "</select></div>";
 	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 
@@ -68,7 +67,6 @@ function displayfeed(result){
 	for(var i = 0; i < entries.length; i++) {
 		feedContainer.innerHTML += getRSSItem(entries[i], i);
 	}	
-
 
 }
 
@@ -147,14 +145,21 @@ function getTimes(content) {
  */
 function getCentralTime(date) {
 	var time = date.toLocaleTimeString();
-	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+	console.log(time);
+	var timeArray = time.split(":");
+	if(timeArray[0] % 12 != timeArray[0]) {
+		return parseInt((timeArray[0] - 12),10) + ":" + timeArray[1] + " PM";
+	}
+	return parseInt(timeArray[0], 10) + ":" + timeArray[1] + " AM";//time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+	/*
+	var time = date.toLocaleTimeString();
+	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);*/
 }
 
 
 function getOptions() {
 
 	feed = feedData.source;
-
 	/* If we use a data structure to hold the name / option value pairs, then
 	   we wouldn't need this lengthy code */
 	switch(feed) {
