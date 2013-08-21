@@ -2,10 +2,15 @@ var deleteFromDb = new Array();
 
 $(document).ready(function() {
 	if (checkEmptyChild()) {
-		if(localStorage.lang=="ENG")
-			document.getElementById("no_child_left_behind").innerHTML = "You currently have no children registered. Register a child here!";
-		else
-			document.getElementById("no_child_left_behind").innerHTML = "Actualmente no tienes ni&nos registrados. Registrar un ni&no aqu&i!";
+		var child = document.getElementById("no_child_left_behind");
+		if(localStorage.lang=="ENG") 
+			child.innerHTML = "You currently have no children registered. Register a child here!";
+		
+		else 
+			child.innerHTML = "Actualmente no tienes ni&nos registrados. Registrar un ni&no aqu&i!";
+		
+		child.style.paddingTop = "20px";
+		child.style.paddingBottom = "20px";
 	}
 	initializeSettings();
 	changeSettings();

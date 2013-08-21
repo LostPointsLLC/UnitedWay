@@ -44,7 +44,6 @@ a {
     position: relative;
     margin-left: 25px;
     margin-right: 35px;
-	margin-top: 10px;
     /*background:#7ca3dc!important;*/
     color: white;
     font: 16px arial;
@@ -247,6 +246,7 @@ ndar td {
 	border: 1px solid #ffffff;
 	height: 35px;
 	padding-top: 10px;
+	background-color: #7ca3d3;
 }
 
 /*active state*/
