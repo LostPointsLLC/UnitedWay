@@ -3,6 +3,12 @@
 
 
 */
+
+#no_child_left_behind {
+	text-align: left;
+	margin-left: 25px;
+}
+
 html{
 	background:#00549b;
 }
@@ -13,6 +19,22 @@ body{
 	height:20px;
 	background:#40E823;
 	border-radius: 10px;
+
+
+background-image: linear-gradient(top, #40E823 0%, #228A0F 100%);
+background-image: -o-linear-gradient(top, #40E823 0%, #228A0F 100%);
+background-image: -moz-linear-gradient(top, #40E823 0%, #228A0F 100%);
+background-image: -webkit-linear-gradient(top, #40E823 0%, #228A0F 100%);
+background-image: -ms-linear-gradient(top, #40E823 0%, #228A0F 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #40E823),
+	color-stop(1, #228A0F)
+);
+
 
 }
 #content{

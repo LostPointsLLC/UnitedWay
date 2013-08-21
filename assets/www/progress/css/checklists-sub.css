@@ -9,6 +9,9 @@ html{
 ul{
 	display:inherit;
 }
+
+
+
 .checklist-item-text {
 	color: #FFF;
 	font: 12px/16px Arial, Helvetica, sans-serif;
@@ -82,7 +85,7 @@ font-family: arial;
 
 .label-for-check {
 	color: white;
-	font-size: 20px;
+	font-size: 16px;
 	position: relative;
 }
 

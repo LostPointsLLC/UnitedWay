@@ -1,11 +1,8 @@
 
 /* Grabs the feeds from the database and displays them */
 function initializeFavs() {
-	//var favHeap = getFavHeap(parseInt(localStorage.pid));
 	displayFavNews();
 	displayFavTips();
-	//displayFavEvents(favHeap.eventsArray);
-	
 	assignDataRoles();
 	$('#set').collapsibleset('refresh');
 	
@@ -121,46 +118,3 @@ function displayFavTips() {
 	// Else, inject HTML and leave
 	tipsPointer.innerHTML += outputString;
 }
-
-// Function that returns an array of all of the favorite objects.
-// Returns a favHeap object.
-function getFavHeap(userID) {
-	var datastring = 'userID=' + userID;
-	
-	var rssArray = new Array();
-	var tipsArray = new Array();
-	var eventsArray = new Array();
-	
-	$.ajax({
-		type: "POST",
-		//change url to http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php for phonegap
-		url: "http://unitedway.lostpointsllc.com/favorites/php/getFavHeap.php",
-		data: datastring,
-		async: false,
-		cache: false,
-		success: function(data) {
-
-			// Makes the JSON string into a workable string
-			var query_output = jQuery.parseJSON(data);
-			console.log("This is what favorites look like");
-			console.log(data);
-			// First make an array full of RSS objects
-			$.each(query_output[0], function(index_of_row, row) {
-				rssArray.push(new rss(row));
-			});
-			
-			$.each(query_output[1], function(index_of_row, row) {
-				tipsArray.push(new tip(row));
-			});
-			
-			$.each(query_output[2], function(index_of_row, row) {
-				eventsArray.push(new _event(row));
-			});
-		}
-	
-	});
-	
-	return new favHeap(rssArray, tipsArray, eventsArray);
-}
-
-

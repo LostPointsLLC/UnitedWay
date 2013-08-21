@@ -2,21 +2,18 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
-	/*
-	var parentID = localStorage.pid.toString();
-	var dataString = "parentID=" + parentID;
-	
-	$.ajax({
-		type: "POST",
-		url: "../php/fetchSummary.php",
-		data: dataString,
-		cache: false,
-		success: function(data){
-			localStorage.jsonString = data; // store database data string as a session variable
-			listChildren(data);
-		}
-	 });	 
-	 */
+	if (checkEmptyChild()) {
+		var child = document.getElementById("no_child_left_behind");
+		if(localStorage.lang=="ENG")
+			child.innerHTML = "You currently have no children registered. Check the settings page to register children.";
+		else
+			child.innerHTML = "Actualmente no tienes ni&nos registrados.";
+		
+		child.style.paddingTop = "20px";
+		child.style.paddingBottom = "20px";
+		child.style.marginLeft = "25px";
+		child.style.textShadow = "0";
+	}
 	 listChildren(localStorage.childJsonObject);
 });
 

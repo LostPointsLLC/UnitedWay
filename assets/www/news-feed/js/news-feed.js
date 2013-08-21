@@ -30,7 +30,7 @@ $(document).ready(function() {
     initializeFeed();	// Stage 1		
     changeFeeds();	// Stage 2
     $(window).unload(function() {
-	updateFeeds();	// Stage 3
+		updateFeeds();	// Stage 3
 	});
 });
 

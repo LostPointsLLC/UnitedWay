@@ -6,13 +6,22 @@ function initializeFeed() {
 	var limit = 8;
 	var title;
 	var source;
-
+	/* Note: We might need to change the rssData data structure later so that 
+	 * we could accommodate adding more feeds more easily.
+	 */
 	switch(feed) {
 		case 'cm':		// Chambana moms
 			rssurl	= "http://www.chambanamoms.com/feed";
 			title	= "Chambana Moms News Feed";
 			source	= "cm";
 			break;
+
+		case 'upl':
+			rssurl	= "http://host6.evanced.info/urbana/evanced/eventsxml.asp?ag=Early+Childhood%2C+Elementary%2C+Family%2C+Parents&et=Arts+%26+Music%2C+Children%2C+Craft+%26+Game%2C+Family%2C+Outreach&lib=0&nd=30&feedtitle=The+Urbana+Free+Library%3CBR%3ECalendar+of+Events&dm=rss2&LangType=0";
+			title	= "Urbana Public Library Events";
+			source	= "upl";
+			break;
+
 
 		default:		// Default is champaign public library
 			rssurl 	= "http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2";
@@ -50,7 +59,7 @@ function displayfeed(result){
 
 	// Places the headline on the page
 	var headline = "<div class='rss-head'>"; 
-	var selector = "<select id='change-feeds' onClick='changeFeeds(this)'>" + getOptions() + "</select></div>";
+	var selector = "<select id='change-feeds' onChange='changeFeeds(this)'>" + getOptions() + "</select></div>";
 	feedContainer.innerHTML = feedContainer.innerHTML + headline + selector;
 
 
@@ -58,7 +67,6 @@ function displayfeed(result){
 	for(var i = 0; i < entries.length; i++) {
 		feedContainer.innerHTML += getRSSItem(entries[i], i);
 	}	
-
 
 }
 
@@ -89,13 +97,13 @@ function getRSSItem(entry, i) {
 	var outerdiv = "<div id='" + rss_id + "' onClick='favorite(&quot;" + rss_id + "&quot;, &quot;" + entry.link + "&quot;)' class='" + favorite + " rss-item'>";
 	var innerdiv = "<div class='item-text-box'>";
 
-	if(feedData.source == 'cpl')
-		var content	= "<a href='" + entry.link + "'><h3 style='margin: 0'>" + entry.title + "</h3></a>";
+/*	if(feedData.source == 'cpl' || feedData.source == 'upl')*/
+		var content	= "<a href='" + entry.link + "'><h3 style='margin: 0; color: white'>" + entry.title + "</h3></a>";
 
-	else
+/*	else
 		var content	= "<a href='" + entry.link + "'><p style='margin: 0; font-size: 18'>" + entry.title + "</p></a>";
-
-	if(feedData.source == 'cpl')
+*/
+	if(feedData.source == 'cpl' || feedData.source == 'upl')
 		content += "<p style='margin: 0'>" + getTimes(entry.content);
 
 	return outerdiv + innerdiv + content;
@@ -137,41 +145,65 @@ function getTimes(content) {
  */
 function getCentralTime(date) {
 	var time = date.toLocaleTimeString();
-	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+	console.log(time);
+	var timeArray = time.split(":");
+	if(timeArray[0] % 12 != timeArray[0]) {
+		return parseInt((timeArray[0] - 12),10) + ":" + timeArray[1] + " PM";
+	}
+	return parseInt(timeArray[0], 10) + ":" + timeArray[1] + " AM";//time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
 }
 
 
 function getOptions() {
 
 	feed = feedData.source;
-
+	/* If we use a data structure to hold the name / option value pairs, then
+	   we wouldn't need this lengthy code */
 	switch(feed) {
 		case 'cpl':
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
-				<option value='cm'>Chambanamoms</option>"
+				<option value='cm'>Chambanamoms</option> \
+				<option value='upl'>Urbana Public Library Events</option>";
 			else
 				return " \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
-				<option value='cm'>Chambanamoms</option>"
+				<option value='cm'>Chambanamoms</option> \
+				<option value='upl'>Urbana Public Library Events</option>";
+
+		case 'upl':
+			if(localStorage.lang=="ENG")
+				return " \
+				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='cpl'>Champaign Public Library Events</option> \
+				<option value='cm'>Chambanamoms</option>";
+
+			else
+				return " \
+				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
+				<option value='cm'>Chambanamoms</option>";
 
 		case 'cm':
 			if(localStorage.lang=="ENG")
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='cpl'>Champaign Public Library Events</option>"
+				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='cpl'>Champaign Public Library Events</option>";
 			else
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>"
+				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>";
+
 
 		default:
 			console.log("Get henry to debug this page. It's not working right!!");
 			return " \
 				<option value='cpl'>Champaign Public Library Events</option> \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='uw'>United Way Blog</option>"
+				<option value='upl'>Urbana Public Library Events</option>";
 	}
 }
 

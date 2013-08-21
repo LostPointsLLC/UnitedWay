@@ -137,7 +137,15 @@ text-align:center;
 position: relative;
 width: 120px;
 float: right;
-right:5px;
+right: 5px;
+	  text-align: left;
+}
+
+#inputbox > label {
+	text-align: left;
+position: relative;
+left: 40px;
+
 }
 #addChild {
 	position: relative;

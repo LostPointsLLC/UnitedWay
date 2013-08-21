@@ -192,3 +192,12 @@ function setDefaultStorage() {
 	localStorage.edit_childID = '-1';		// Indicates that we're not editing a child
 	localStorage.fromSettings = '0';	
 }
+
+function checkEmptyChild() {
+	var obj = jQuery.parseJSON(localStorage.childJsonObject);
+	for (var child in obj) {
+		if (obj.hasOwnProperty(child))
+			return false;
+	}
+	return true;
+}

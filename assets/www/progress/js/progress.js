@@ -2,6 +2,14 @@
 // JQuery on load function that makes an POST request to the server
 // to retrieve information on all the children a parent has in JSON format.
 $(document).ready(function() {
+	if (checkEmptyChild()) {
+		var child = document.getElementById("no_child_left_behind");
+		if(localStorage.lang=="ENG")
+			child.innerHTML = "You currently have no children registered. Register a child in the settings page.";
+		else
+			child.innerHTML = "Actualmente no tienes ni&nos registrados.";
+		
+	}
 	 initializeProgress(localStorage.childJsonObject);
 });
 
