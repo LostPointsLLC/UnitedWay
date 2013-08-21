@@ -50,8 +50,13 @@ a {
 }
 
 #events p {
-
+	margin: 0;
 	padding-right: 25px;
+}
+
+.event {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .events-wrapper{

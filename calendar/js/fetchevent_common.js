@@ -4,93 +4,27 @@
  */
 function getLibraryEvent(day, month){
 
-    var $div =  document.getElementById('events');
-   
-    $div.innerHTML = "";
+
 
 	/* Uses the grabData function defined below, as well as the defined lambda
 	 * function, to 1. Scrape the data, and 2. display the data on the screen.
 	 */ 
-    grabData(function(events) {
-		for(var i=0;i<events.length;i++) {
-			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
-			{
-
-				var eventDiv = document.createElement("div");
-
-				/* Displays the event's title */
-				var eventLink = document.createElement("a");
-				eventLink.setAttribute("href", events[i].url);
-				var eventTitle = document.createElement("h3");
-				eventTitle.style.margin = "0";
-				eventTitle.appendChild(document.createTextNode([
-					events[i].title		   
-				]));
-				eventLink.appendChild(eventTitle);
-				eventDiv.appendChild(eventLink);
-
-				/* Displays the start and end times on the screen */
-				var time = document.createElement("p");
-				time.style.margin = "0";
-				var timeText = "";
-				timeText += "<span>Time:</span> " + getCentralTime(events[i].startTime) + " <span>~</span> " + getCentralTime(events[i].endTime);
-				console.log(timeText);
-				time.innerHTML = timeText;
-				eventDiv.appendChild(time);
-
-				/* Displays the event's location */
-				var entlocation = document.createElement('p');
-				var locText = "";
-				locText += "<span>Location:</span> " + getLocation(events[i].location);
-				entlocation.innerHTML = locText;
-				eventDiv.appendChild(entlocation);
-
-				/* Displays the Event's description */
-				var entdes = document.createElement('p');
-				var desText = "";
-				console.log(events[i].description);
-				desText += "<div><span>Description:</span> " + events[i].description + "</div>";
-				entdes.innerHTML = desText;
-				eventDiv.appendChild(entdes);
-
-	
-				$div.appendChild(eventDiv);
-			}
-		}
-		if($div.innerHTML == "")
-			if(localStorage.lang=="ENG")
-				$div.innerHTML = "No Events for Today.";
-			else
-				$div.innerHTML = "No hay eventos para hoy.";
-
-    });
+    grabData('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2', displayEvents, day, month, "Champaign Public Library");
+	grabData('http://host6.evanced.info/urbana/evanced/eventsxml.asp?ag=Early+Childhood%2C+Elementary%2C+Family%2C+Parents&et=Arts+%26+Music%2C+Children%2C+Craft+%26+Game%2C+Family%2C+Outreach&lib=0&nd=30&feedtitle=The+Urbana+Free+Library%3CBR%3ECalendar+of+Events&dm=rss2&LangType=0', displayEvents, day, month, "Urbana Public Library");
    
 }
 
-/* Returns the time of the event in central time.
- * Formats the time correctly.
- */
-function getCentralTime(date) {
-	var time = date.toLocaleTimeString();
-	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
-}
-
-function getLocation(location) {
-	var output = location.split("St. at ")[1];
-	return "Champaign Public Library: " + output;
-
-}
 
 
 /* Scrapes the data provided from the rss link, and uses the callback function
  * to display these events onto the page
  */
-function grabData(callback)
+function grabData(url, displayEvents, day, month, library)
 {
     //loading the Google's Feed API
 	google.load('feeds','1',{
 		'callback': function(){
-			var feed = new google.feeds.Feed('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2');
+			var feed = new google.feeds.Feed(url);
 			feed.setNumEntries(50); // total number of entries fetched
 			feed.includeHistoricalEntries(); //include the historical entries so the user can check the past ones
 			feed.load(function(res){
@@ -148,9 +82,87 @@ function grabData(callback)
 					});
 				}
 
-				callback(events);
+				displayEvents(events, day, month, library);
 			}
 			});
 		}
     });  
+}
+
+
+
+
+function displayEvents(events, day, month, library) {
+    var $div =  document.getElementById('events');
+   
+    $div.innerHTML = "";
+	
+		for(var i=0;i<events.length;i++) {
+			if (((events[i].startTime.getDate()) == day) && (events[i].startTime.getMonth() == month))
+			{
+
+				var eventDiv = document.createElement("div");
+				eventDiv.className = "event";
+
+				/* Displays the event's title */
+				var eventLink = document.createElement("a");
+				eventLink.setAttribute("href", events[i].url);
+				var eventTitle = document.createElement("h3");
+				eventTitle.style.margin = "0";
+				eventTitle.appendChild(document.createTextNode([
+					events[i].title		   
+				]));
+				eventLink.appendChild(eventTitle);
+				eventDiv.appendChild(eventLink);
+
+				/* Displays the start and end times on the screen */
+				var time = document.createElement("p");
+				time.style.margin = "0";
+				var timeText = "";
+				timeText += "<span>Time:</span> " + getCentralTime(events[i].startTime) + " <span>~</span> " + getCentralTime(events[i].endTime);
+				console.log(timeText);
+				time.innerHTML = timeText;
+				eventDiv.appendChild(time);
+
+				/* Displays the event's location */
+				var entlocation = document.createElement('p');
+				var locText = "";
+				locText += "<span>Location:</span> " + getLocation(events[i].location, library);
+				entlocation.innerHTML = locText;
+				eventDiv.appendChild(entlocation);
+
+				/* Displays the Event's description */
+				var entdes = document.createElement('p');
+				var desText = "";
+				console.log(events[i].description);
+				desText += "<div><span>Description:</span> " + events[i].description + "</div>";
+				entdes.innerHTML = desText;
+				eventDiv.appendChild(entdes);
+
+	
+				$div.appendChild(eventDiv);
+			}
+		}
+		if($div.innerHTML == "")
+			if(localStorage.lang=="ENG")
+				$div.innerHTML = "No Events for Today.";
+			else
+				$div.innerHTML = "No hay eventos para hoy.";
+
+
+}
+
+/* Returns the time of the event in central time.
+ * Formats the time correctly.
+ */
+function getCentralTime(date) {
+	var time = date.toLocaleTimeString();
+	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+}
+
+function getLocation(location, library) {
+	if(library == "Urbana Public Library") return library;
+	var output = location.split("St. at ")[1];
+	return "Champaign Public Library: " + output;
+
 }

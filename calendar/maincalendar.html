@@ -24,8 +24,14 @@
     generateHeader("calendario", true, true);
   }
     generateMainCal();  
-    generateEvent();
-  </script>
+	
+	if(localStorage.lang=="ENG")
+		document.write("<span id='event-head'>Events</span>");
+	else
+		document.write("<span id='event-head'>Eventos</span>");
+		
+	</script>
+	<div id = 'events'></div>
 </div>
 <script src="js/calendar.js"></script>
 
