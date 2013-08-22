@@ -229,6 +229,10 @@ vertical-align: middle;
 	
 }
 
+.tip-item:last-child {
+border-bottom: 1px solid #cccccc;
+}
+
 .tip-ctn-even-fav, .tip-ctn-even{
 
 
