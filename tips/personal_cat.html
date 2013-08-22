@@ -3,55 +3,72 @@
 	<head>
 		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<title>Personalized Categories</title>
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="../css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/tips.css" />
 		<link rel='stylesheet' type='text/css' href='css/cat.css' />
+
 		<script src="../js/jquery-1.10.1.min.js"></script>
+		<script src="../js/jquery.mobile-1.3.2.js"></script>	
 		<script src="../js/generator.js"></script>
 		<script src='js/personal_cat.js'></script>
 		<script src="../js/hideaddressbar.js"></script>		
 	</head>
 	<body>
 		<script type="text/javascript">
-			if(localStorage.lang=="ENG")
-				generateHeader("Tips", true, true);
-			else
-				generateHeader("Consejos", true, true);
-			</script>
+		if(localStorage.lang=="ENG")
+			generateHeader("Tips", true, true);
+		else
+			generateHeader("Consejos", true, true);
+		</script>
 		<div class="wrapper">
 			<div id="child-wrapper">
-				<div id="left-arrow"><img src="../images/left-arrow.png" width="50" height="50"/>
-				</div>
+			
+				<div id="left-arrow"><img src="../images/left-arrow.png" width="50" height="50"/></div>
 				<!-- end of left-arrow -->
-				<div id="right-arrow"><img src="../images/right-arrow.png" width="50" height="50"/>
-				</div>
+				<div id="right-arrow"><img src="../images/right-arrow.png" width="50" height="50"/></div>
 				<!-- end of right-arrow -->
 				<div id="child"></div>
 				<!-- end of child -->
 				
+				<!-- TODO: Check whether a user only has one child. If so, hide the arrows -->
+				
 			</div>
 			<div>
-				<script type="text/javascript">
-				//health and well being button
-				if(localStorage.lang=="ENG")
-					generateButton("Health and Well Being", "health", "bt-health", "healthTips()");
-				else
-					generateButton("Salud y bienestar", "health", "bt-health", "healthTips()");
-				//growth and development button
-				if(localStorage.lang=="ENG")
-					generateButton("Growth and Development", "growth", "bt-grow", "growthTips()");
-				else
-					generateButton("El crecimiento y el desarrollo", "growth", "bt-grow", "growthTips()");
-				//safety button
-				if(localStorage.lang=="ENG")
-					generateButton("Safety", "safety", "bt-safe", "safetyTips()");
-				else
-					generateButton("seguridad", "safety", "bt-safe", "safetyTips()");
-				//playtime button
-				if(localStorage.lang=="ENG")
-					generateButton("Playtime", "playtime", "bt-play", "playTips()");
-				else
-					generateButton("recreo", "playtime", "bt-play", "playTips()");
+			
+			<div class="content" data-role='content'>
+				<div id='set' style='margin-top: 0' data-role='collapsible-set'>
+				
+				
+					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 class='ui-disabled'>Health and Well Being</h3>
+
+					</div>
+
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 class='ui-disabled'>Growth and Development</h3>
+
+					</div>
+					
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 class='ui-disabled'>Safety</h3>
+
+					</div>
+
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3 class='ui-disabled'>Playtime</h3>
+
+					</div>
+				</div>
+			</div>
+				<script>
+				
+				var headers = document.getElementsByTagName("h3");
+				headers[0].parentNode.setAttribute("onmousedown", "healthTips()");
+				headers[1].parentNode.setAttribute("onmousedown", "growthTips()");
+				headers[2].parentNode.setAttribute("onmousedown", "safetyTips()");
+				headers[3].parentNode.setAttribute("onmousedown", "playTips()");
+				
 				</script>
 			</div>
 		</div>

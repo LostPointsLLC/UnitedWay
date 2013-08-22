@@ -5,13 +5,17 @@ html, body {
 	background:#00549b;
 }
 
-
-
 .ch {
 	border: 1px solid #00549b;
 	padding: 3px 7px 2px 7px;
 	width:100%;
 }
+
+.ui-disabled {
+
+	opacity: 1;
+}
+
 
 .cell {
 	font-size:1em;
@@ -57,14 +61,14 @@ color: white;
 
 
 #child-wrapper {
-	height: 125px;
+	height: 100px;
 	width: 100%;
-	margin-bottom: 10px;
 
 }
 
 
 /****************THE HEALTH BUTTON*******************/
+/*
 .button-text{
 
 vertical-align: middle;
@@ -104,9 +108,9 @@ vertical-align: middle;
 	position:relative;
 	top:1px;
 }
-
+*/
 /****************THE GROWTH BUTTON*******************/
-
+/*
 .bt-grow {
 	width: auto;
 	height: 47px;
@@ -137,10 +141,10 @@ vertical-align: middle;
 }.bt-grow:active {
 	position:relative;
 	top:1px;
-}
+}*/
 
 /****************THE SAFETY BUTTON*******************/
-
+/*
 .bt-safe {
 	width: auto;
 	height: 47px;
@@ -173,9 +177,9 @@ vertical-align: middle;
 	position:relative;
 	top:1px;
 }
-
+*/
 /****************THE PLAY TIME BUTTON*******************/
-
+/*
 .bt-play {
 	width: auto;
 	height: 47px;
@@ -208,7 +212,7 @@ vertical-align: middle;
 	position:relative;
 	top:1px;
 }
-
+*/
 #frontpiece {
 	width: 100%;
 
