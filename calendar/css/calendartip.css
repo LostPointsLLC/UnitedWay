@@ -121,12 +121,14 @@ color: white;
 #activity-head {
     font-family: Chunkfive;
     font-size: 26px;
+    margin-bottom: 10px;
 }
 
 #event-head {
     font-family: Chunkfive;
     font-size: 26px;
-	margin-left: 25px;
+    margin-left: 25px;
+    margin-bottom: 10px;
     color: white;
     display: block;
     position: relative;

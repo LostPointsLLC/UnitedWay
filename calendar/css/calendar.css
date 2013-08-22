@@ -32,8 +32,9 @@ a {
 /*****************************************/
 #event-head {
     position: relative;
-	display: block;
-	margin-left: 25px;
+    display: block;
+    margin-left: 25px;
+    margin-bottom: 10px;
     font-family: Chunkfive;
     font-size: 26px;
     color: white;
@@ -44,7 +45,6 @@ a {
     position: relative;
     margin-left: 25px;
     margin-right: 35px;
-    /*background:#7ca3dc!important;*/
     color: white;
     font: 16px arial;
 }
@@ -75,16 +75,17 @@ a {
 
 #activity{
     position: relative;
-	display: block;
+    display: block;
     color: white;
     font: 16px arial;
     word-wrap: break-word;
-   margin-left: 25px;
+    margin-left: 25px;
 }
 
 #activity-head {
     font-family: Chunkfive;
     font-size: 26px;
+    margin-bottom: 10px;
 }
 
 p span {
