@@ -19,7 +19,10 @@
 	<body>
 		<div class = "wrapper">
 		<script type="text/javascript">
-		generateCalendarHeader("Calendar");
+		if(localStorage.lang=="ENG")
+			generateCalendarHeader("Calendar");
+		else
+			generateCalendarHeader("Calendario");
 		generateDailyActivity();	
 		
 		if(localStorage.lang=="ENG")
