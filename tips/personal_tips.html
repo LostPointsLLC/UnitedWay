@@ -31,25 +31,24 @@
 					switch (category) {
 						case "health":
 							textString = "Health and Well Being";
-							btnClass = "bt-health";
 							break;
 						case "growth":
 							textString = "Growth and Development";
-							btnClass = "bt-grow";
 							break;
 						case "safety":
 							textString = "Safety";
-							btnClass = "bt-safe";
 							break;
 						case "playtime":
-							textString = "Playtime";
-							btnClass = "bt-play";
 							break;
 					}
-					generateButton(textString, "back", btnClass, "goBack()");
+					document.write("<h1 style='margin-left: 25px; font-family: Chunkfive'>" + textString + "</h1>");
+
 				</script>
 			</div>
 			<div id = "frontpiece"></div>
+			<a href='personal_cat.html'><img src='../images/left-arrow.png' style='margin-left: 10px'/></a>
+			
+			
 		</div>
 	</body>
 </html>
