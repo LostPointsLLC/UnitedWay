@@ -23,6 +23,11 @@ margin-left: 25px;
 }
 
 
+.text-input {
+	width: 290px;
+
+}
+
 /*************************************************************/
 #name-input-box {
 	display: block;
@@ -101,7 +106,7 @@ width: 170px;
 	font-size: 15px;
 	text-indent: 10px;
 	color: white;
-	width:250px;
+	width:255px;
 }
 
 #gender-line > p {
@@ -156,53 +161,27 @@ label {
 }
 
 
-/*
-#gender-select {
-
-    margin: 0 auto;
-    border: 2px white solid;
-    top: 200px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-#gender-select p {
-	margin: 0;
-
-	font-family: arial;
-}
-
-#gender-select #gender-choices {
-	position: relative;
-
-}
-
-
-label {
-	position: relative;
-	left: 10px;
-		  font-size: 16px;
-color: white;
-}
-*/
 /****************************************************************************/
 /*************************************************************/
 
 
 #color-select {
-	position: relative;
-	top: 10px;
-	left: 20px;
+	margin-top: 10px;
+	width: 280px;
+	height: 50px;
 }
 
 #color-select > p:first-child {
 	margin-bottom: 10px;
 }
 
+
 #color-box{
+/*
 	margin: 0 auto;
 	display: block;
-	width: 55px;
+	width: 55px;*/
+	float: right;
 }
 
 
@@ -249,14 +228,14 @@ position: absolute;
 
 #options-list {	
 position: absolute;
-top: 430px;
+top: 400px;
 left: 25px;
 width:100%;
 }
 
 #result {
-	position: absolute;
-	top: 490px;
+	position: relative;
+	top: 50px;
 	margin-left: 25px;
 
 }

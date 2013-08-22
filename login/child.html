@@ -30,7 +30,7 @@
 					headerTitle = "Register Children";
 				
 				generateHeader(headerTitle, false, false);
-				generateMainText("<br><p id=\"mainText\" style='font-weight: bold'>Fill in your child's information below.</p>");
+				generateMainText("<br><p id=\"mainText\" style='font-weight: bold'>Fill in information for one of your children below.</p>");
 			}
 			else{
 				var headerTitle = "";
@@ -49,15 +49,15 @@
 					<script>
 					// Note: DO NOT DELETE "name", OTHERWISE THE DB IS GOING TO FAIL
 					if(localStorage.lang=="ENG")
-					generateInputText("Your child&#39s firstname", "name-input-box", "name", "text");
+					generateInputText("Child&#39s firstname", "name-input-box", "name", "text");
 					else
-					generateInputText("Nombre de su hijo", "name-input-box", "name", "text");
+					generateInputText("Nombre", "name-input-box", "name", "text");
 					</script>
 					<div id="birthday-select" class='input-box' >
 						<div id="birthday" >
 							<script>
 							if(localStorage.lang=="ENG")
-								generateInputBlurText("Your child&#39s birthday (mm/yy)", "", "bday", "text", "checkLegalBday()");
+								generateInputBlurText("Child&#39s Birthday (mm/yy)", "", "bday", "text", "checkLegalBday()");
 							else
 								generateInputBlurText("El cumplea&ntilde;os de su hijo", "", "bday", "text", "checkLegalBday()");
 							</script>
@@ -69,7 +69,7 @@
 							<div class='pencil'></div>
 							<div id='gender-line' class='text-input' width='255px'>
 
-								<p>Your child&#39s gender</p>
+								<p>Child&#39s gender</p>
 								<div id='gender'> 
 									<input id='boy' value='boy' type='radio' name='gender' onClick='changeGender(1)' checked />
 									<label id='boy-label' for="boy">Boy</label><br>
@@ -82,48 +82,14 @@
 
 							<!--<input type="text" class='text-input' />-->
 						</div>
-					<!--
-						<script>
-
-						if(localStorage.lang=="ENG") {
-							generateInputFocusBlurText("Your child&#39s gender", "", "gender", "text", "showGenderInputs()", "");
-							
+					
+					</div>
+					
+					<div id ="color-select" class='input'>
+						<p style='opacity: .85; font-size: 15px; display: inline; position: relative; left: 40px;'>CHILD'S COLOR</p>
 						
-							//generateMainText("<p>Select your child's gender</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Boy</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Girl</label></div>");
-						}
-						else {
-							generateInputText("Elija el sexo de su hijo", "", "", "text", "");
-						}
-							//generateMainText("<p>Elija el sexo de su hijo</p><div id='gender-choices'><input id=\"boy\" value=\"'boy'\" type=\"radio\" name=\"gender\" onClick='changeGender(1)' checked/><label for=\"boy\">Chico</label><br><input id=\"girl\" value=\"'girl'\" type=\"radio\" name=\"gender\" onClick=\"changeGender(2)\"/><label for=\"girl\">Chica</label></div>");
-
-						</script>
-						-->
-					</div>
-					
-					<!-- A possible option for our colorpicker to look like -->
-					<!--
-					<div id ="color-select" class='input'>
-					
-
-						<div class='input'>
-							<div class='pencil'></div>
-							<div id='gender-line' class='text-input' width='255px'>
-
-								<p>Choose your child&#39s favorite color!</p>
-							
-							</div>
-							<input class="color {slider: false, required: false, valueElement: ''}">
-						</div>																
-
-					
-					
-						<p>Choose your child's favorite color!</p>
-						<input class="color {slider: false, required: false, valueElement: ''}">
-					</div>
-					-->
-					
-					<div id ="color-select" class='input'>
-						<p>Choose your child's favorite color!</p>
+						
+						
 						<div id='color-box'>
 							<input type='text' id="color" />
 							<script>
