@@ -27,7 +27,6 @@ $(document).ready(function() {
 	}
 	var jObj = jQuery.parseJSON(localStorage.childJsonObject);
 	var binStr = jObj[childID][category]; // fetch binary string from object
-	console.log(binStr);
 	initializeTasks(binStr, taskCat);
 	$("input").change(function(){
 		if (!$(this).is(':checked')) {
