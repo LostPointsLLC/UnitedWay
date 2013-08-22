@@ -7,10 +7,13 @@
 		<meta name="viewport" http-equiv="Content-Type" content="width=device-width, text/html; charset=utf-8,user-scalable=no, initial-scale=1, maximum-scale=1" />
 		<link rel="stylesheet" href="../css/default.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/reset.css" type="text/css"/>
-		<link rel="stylesheet" href="css/homehelp.css" type="text/css"/>	
+		<link rel="stylesheet" href="css/homehelp.css" type="text/css"/>
+		<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.css" type="text/css"/>
+	
 		<script src="../js/generator.js"></script>
 		<script src="js/navigation.js"></script>
-		<script src="../js/hideaddressbar.js"></script>			
+		<script src="../js/hideaddressbar.js"></script>	
+		<script src="../js/jquery.mobile-1.3.2.js"></script>
 	</head>
 
 	<body>
@@ -18,16 +21,24 @@
 			<script>
 			generateHeader("Help", true, false);
 			</script>
+			<!-- <div id="button-wrapper">
+			     <script>
+			       generateButton("How to Use", "how-to-use", "how-to-use", "how()")
+			       generateButton("Contact Us", "contact", "contact", "contact()");
+			     </script> -->
 			
-			<div id="button-wrapper">
-				<script>
-					generateButton("How to Use", "how-to-use", "how-to-use", "how()");
-					generateButton("Contact Us", "contact", "contact", "contact()");
-				</script>
-			<div>
 
-		</div>
-
+			<div id= "theaccordion" data-role = "content">
+			  <div data-role='collapsible-set'>			    
+			    <div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3><a href = "introduction.html">How to Use</a></h3>
+			    </div>
+			    
+			    <div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3><a href = "help_contactUs.html">Contact Us</a></h3>  
+			    </div>
+			  </div>
+			</div>
 
 	</body>
 

@@ -11,7 +11,7 @@
 		<script src="../js/jquery-1.10.1.min.js"></script>
 		<script src="../js/jquery.mobile-1.3.2.js"></script>	
 		<script src="../js/generator.js"></script>
-		<script src='js/personal_cat.js'></script>
+		<script src="js/personal_cat.js"></script>
 		<script src="../js/hideaddressbar.js"></script>		
 	</head>
 	<body>
@@ -37,39 +37,34 @@
 			<div>
 			
 			<div class="content" data-role='content'>
-				<div id='set' style='margin-top: 0' data-role='collapsible-set'>
-				
-				
-					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3 class='ui-disabled'>Health and Well Being</h3>
+			  <div id='set' style='margin-top: 0' data-role='collapsible-set'>
+			    <div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3 class='ui-disabled'>Health and Well Being</h3>
+			    </div>
+			    <div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3 class='ui-disabled'>Growth and Development</h3>  
+			    </div>
+			    
+			    <div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3 class='ui-disabled'>Safety</h3>
 
-					</div>
-
-					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3 class='ui-disabled'>Growth and Development</h3>
-
-					</div>
-					
-					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3 class='ui-disabled'>Safety</h3>
-
-					</div>
-
-					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3 class='ui-disabled'>Playtime</h3>
-
-					</div>
-				</div>
+			    </div>
+			    
+			    <div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+			      <h3 class='ui-disabled'>Playtime</h3>
+			      
+			    </div>
+			  </div>
 			</div>
-				<script>
-				
-				var headers = document.getElementsByTagName("h3");
-				headers[0].parentNode.setAttribute("onmousedown", "healthTips()");
-				headers[1].parentNode.setAttribute("onmousedown", "growthTips()");
-				headers[2].parentNode.setAttribute("onmousedown", "safetyTips()");
-				headers[3].parentNode.setAttribute("onmousedown", "playTips()");
-				
-				</script>
+			<script>
+			  
+			  var headers = document.getElementsByTagName("h3");
+			  headers[0].parentNode.setAttribute("onmousedown", "healthTips()");
+			  headers[1].parentNode.setAttribute("onmousedown", "growthTips()");
+			  headers[2].parentNode.setAttribute("onmousedown", "safetyTips()");
+			  headers[3].parentNode.setAttribute("onmousedown", "playTips()");
+			  
+			</script>
 			</div>
 		</div>
 	</body>
