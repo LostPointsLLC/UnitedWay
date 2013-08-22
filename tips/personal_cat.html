@@ -56,6 +56,7 @@
 			    </div>
 			  </div>
 			</div>
+<<<<<<< HEAD
 			<script>
 			  
 			  var headers = document.getElementsByTagName("h3");
@@ -65,6 +66,24 @@
 			  headers[3].parentNode.setAttribute("onmousedown", "playTips()");
 			  
 			</script>
+=======
+				<script>
+				
+				var headers = document.getElementsByTagName("h3");
+				headers[0].parentNode.setAttribute("onmousedown", "healthTips()");
+				headers[1].parentNode.setAttribute("onmousedown", "growthTips()");
+				headers[2].parentNode.setAttribute("onmousedown", "safetyTips()");
+				headers[3].parentNode.setAttribute("onmousedown", "playTips()");
+				generateButton("Go Back", "back", "bt-yellow", "goBack()");
+				function goBack() {
+					document.location.href="index.html";
+				
+				}
+				</script>
+				
+				
+				
+>>>>>>> More styling changes to make the app more consistent
 			</div>
 		</div>
 	</body>
