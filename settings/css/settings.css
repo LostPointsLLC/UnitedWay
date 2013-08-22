@@ -43,7 +43,7 @@
 .language{
 	padding-top:33px;
 	padding-left:25px;
-	padding-bottom:35px;
+	padding-bottom:20px;
 }
 /*******************************************************************/
 .spritecell {
@@ -82,26 +82,27 @@ padding: 3px 7px 2px 7px;
 width: 130px;
 float: right;
 left:-50%;
-text-align:center;
+top: 30px;
+
+}
+
+.ageCell > span {
+font-family: arial;
 }
 
 /*******************************************************************/
 .editCell {
 	position: absolute;
 	right: 50px;
-
+	top: 25px;
 }
 
 
 .edit {
 	width: 50px;
 	height: 50px;
-
+	
 }
-
-
-
-
 
 /*******************************************************************/
 
@@ -110,6 +111,7 @@ text-align:center;
 .deleteCell {
 	position: absolute;
 	right: 0;
+	top: 25px;
 
 }
 
@@ -126,25 +128,24 @@ text-align:center;
 	top: 20px;
 	
 	width: 230px;
-	margin: 0 auto;
+	margin-left: 25px;
 	display: block;
 }
 
 #langname{
-	float:left;
+
 }
 #inputbox{
 position: relative;
 width: 120px;
-float: right;
 right: 5px;
-	  text-align: left;
 }
 
 #inputbox > label {
-	text-align: left;
-position: relative;
-left: 40px;
+	position: relative;
+	left: 40px;
+	font-size: 20px;
+	margin-bottom: 10px;
 
 }
 #addChild {
@@ -165,6 +166,10 @@ text-shadow: none;
 	-moz-box-shadow: none;
 -webkit-box-shadow: none;
 box-shadow: none;
+}
+
+.ui-btn-text {
+	font-size: 18px;
 }
 
 .ui-btn-up-a {
