@@ -9,7 +9,7 @@
 	 * Queries from tables: users
 	 * Updates tables: users
 	 */
-	 
+	require("class.phpmailer.php"); 
 	require("connect.php");
 	require("phpass-0.3/PasswordHash.php");
 	$first 	= strip_tags(get_post_var('pFname')); 
@@ -45,8 +45,39 @@
 	if(!$query->execute()) die("Error: " . mysqli_error($dbConnection) . ". Query was " . $querystring);
 	$query->store_result();
 
+	$mail = new PHPMailer();  
+ 
+		$mail->IsSMTP();  // telling the class to use SMTP
+		$mail->Mailer = "smtp";
+		/*NEED TO GET FROM SHIREN*/
+		//sender's details. e.g. Admin
+		$mail->Host = "ssl://smtp.gmail.com";
+		$mail->Port = 465;
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		/*NEED TO GET FROM SHIREN*/
+		$mail->Username = "testing.prek@gmail.com"; // SMTP username
+		$mail->Password = "UW5Tud3nt!"; // SMTP password 
+ 
+ 		//Contents in the email
+		$mail->From     = "testing.prek@gmail.com"; //sender's email address
+		$mail->FromName = "Pre-K Admin";
+		$mail->AddAddress("$email");  
+ 
+		$mail->Subject  = "UW Pre-K New Account";
+		$mail->Body     = "Thank you for signing up with United Way of Champaign Pre K app.
+
+We hope this will help in your child's preparation for pre-kindergarten readiness.";
+		// step 3. print out a statement saying a password has been sent using an echo value
+		if(!$mail->Send()) {
+			echo 'Message was not sent.';
+			echo 'Mailer error: ' . $mail->ErrorInfo;
+		}
+		else {
+			echo $query->insert_id;
+			//mysqli_close($dbConnection);
+		}
 	// Make this function echo a user_id
-	echo $query->insert_id;
+	//echo $query->insert_id;
 
 	// Close database connections
 	$query->close();
