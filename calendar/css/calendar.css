@@ -49,6 +49,11 @@ a {
     font: 16px arial;
 }
 
+#events > div {
+	margin-bottom: 20px;
+
+}
+
 #events p {
 	margin: 0;
 	padding-right: 25px;
