@@ -10,7 +10,7 @@ function getLibraryEvent(day, month){
 	 * function, to 1. Scrape the data, and 2. display the data on the screen.
 	 */ 
     grabData('http://host5.evanced.info/champaign/evanced/eventsxml.asp?lib=ALL&nd=30&feedtitle=Champaign+Public+Library+Events&dm=rss2', displayEvents, day, month, "Champaign Public Library");
-	grabData('http://host6.evanced.info/urbana/evanced/eventsxml.asp?ag=Early+Childhood%2C+Elementary%2C+Family%2C+Parents&et=Arts+%26+Music%2C+Children%2C+Craft+%26+Game%2C+Family%2C+Outreach&lib=0&nd=30&feedtitle=The+Urbana+Free+Library%3CBR%3ECalendar+of+Events&dm=rss2&LangType=0', displayEvents, day, month, "Urbana Public Library");
+	//grabData('http://host6.evanced.info/urbana/evanced/eventsxml.asp?ag=Early+Childhood%2C+Elementary%2C+Family%2C+Parents&et=Arts+%26+Music%2C+Children%2C+Craft+%26+Game%2C+Family%2C+Outreach&lib=0&nd=30&feedtitle=The+Urbana+Free+Library%3CBR%3ECalendar+of+Events&dm=rss2&LangType=0', displayEvents, day, month, "Urbana Public Library");
    
 }
 
@@ -143,12 +143,14 @@ function displayEvents(events, day, month, library) {
 				$div.appendChild(eventDiv);
 			}
 		}
+		
+		/*
 		if($div.innerHTML == "")
 			if(localStorage.lang=="ENG")
 				$div.innerHTML = "No Events for Today.";
 			else
 				$div.innerHTML = "No hay eventos para hoy.";
-
+*/
 
 }
 
