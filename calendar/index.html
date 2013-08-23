@@ -18,20 +18,46 @@
 
 	<body>
 		<div class = "wrapper">
+		
 		<script type="text/javascript">
 		if(localStorage.lang=="ENG")
 			generateCalendarHeader("Calendar");
 		else
 			generateCalendarHeader("Calendario");
+		</script>
+		
+
+		
+		
+		
+
+		
+
+		<script>
 		generateDailyActivity();	
 		
 		if(localStorage.lang=="ENG")
 			document.write("<span id='event-head'>Events</span>");
 		else
 			document.write("<span id='event-head'>Eventos</span>");
-			
+		
+
+
+		
 		</script>
+		
+
+		
+		
 		<div id = 'events'></div>
+		
+		<script>
+		generateButton("Go to Main Calendar", "main-cal", "bt-yellow", "mainCal()");
+		function mainCal() {
+			document.location.href='maincalendar.html';
+		}
+		</script>
+		
 		
 		</div>
 	</body>

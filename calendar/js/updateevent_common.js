@@ -19,11 +19,14 @@ function updateDate(d,m)
     //has to offset by 1 because array index starts at 0.
     
     document.getElementById('activity').innerHTML = 
-	"<span id='activity-head'>"+activity+"</span> <br></div>" + 
-	getActivity(d-1,m) + "<br><br>";
+	"<span id='activity-head'>"+activity+"</span></div>" + 
+	getActivity(d-1,m);
     getLibraryEvent(d,m);
     
 }
+
+
+
 //go back to home page
 function goHome(){
 	document.location.href = "../home/index.html";

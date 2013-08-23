@@ -118,27 +118,28 @@ color: white;
     margin-left: 25px;
     word-wrap: break-word;
     overflow:auto;
-    height:115px;
+	margin-bottom: 20px;
 }
 
 #activity-head {
     font-family: Chunkfive;
     font-size: 26px;
-    margin-bottom: 20px;
+    margin-bottom: 4px;
+	display: block;
 }
 
 #event-head {
     font-family: Chunkfive;
     font-size: 26px;
     margin-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     color: white;
     display: block;
     position: relative;
 }
 
 #events{
-    height:215px;
+	margin-bottom: 20px;
     width:100%;
     position: relative;
 	margin-left: 25px;
@@ -163,3 +164,9 @@ color: white;
     
 
 }
+
+#main-cal {
+	position: relative;
+	left: 25px;
+}
+
