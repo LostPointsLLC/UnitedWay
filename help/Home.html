@@ -29,17 +29,23 @@
 			     </script> -->
 			
 
-			<div id= "theaccordion" data-role = "content">
-			  <div data-role='collapsible-set'>			    
-			    <div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-			      <h3><a href = "introduction.html">How to Use</a></h3>
-			    </div>
+			<div id= "theaccordion" data-role = "content" style='padding-top: 60px'>
+				<div data-role='collapsible-set'>			    
+					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3>How to Use</h3>
+					</div>
 			    
-			    <div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-			      <h3><a href = "help_contactUs.html">Contact Us</a></h3>  
-			    </div>
-			  </div>
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3>Contact Us</h3>  
+					</div>
+				</div>
 			</div>
+			
+			<script>
+			var headers = document.getElementsByTagName("h3");
+			headers[0].parentNode.setAttribute("onmousedown", "how()");
+			headers[1].parentNode.setAttribute("onmousedown", "contact()");	
+			</script>
 
 	</body>
 
