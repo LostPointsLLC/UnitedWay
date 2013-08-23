@@ -18,16 +18,12 @@ function generateCalendarHeader(text) {
 					
 	if(localStorage.lang=="ENG"){
 			document.write("<div><a href='../help/" + text + ".html" + "'><img class='head-bt' id = 'help' src='../images/help-button.png'/></a></div>");
-			
 			document.write("<div><a href='../home/index.html'><img id='home' src='../images/home-button.png'/></a></div>");
-
-			 document.write("<div><a href='../calendar/maincalendar.html'><img id='cal-bt' src='images/calendar-icon2.png'/></a></div>");
+			document.write("<div><a href='../calendar/maincalendar.html'><img id='cal-bt' src='images/calendar-icon2.png'/></a></div>");
 	}
 	else{
 			document.write("<div><a href='../help/" + text + ".html" + "'><img class='head-bt' id = 'help' src='../images/ayuda(help)-button.png'/></a></div>");
-			
 			document.write("<div><a href='../home/index.html'><img id = 'home' src='../images/casa(home)-button.png'/></a></div>");
-
 			document.write("<div><a href='../calendar/maincalendar.html'><img id='cal-bt' src='images/calendar-icon2.png'/></a></div>");
 	}
 		document.write("</div>");	

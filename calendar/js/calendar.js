@@ -125,7 +125,7 @@ function displayTE(m,d)
         var activity = "Activity";
     else
         var activity = "actividad";
-    document.getElementById('activity').innerHTML = "<span id='activity-head'>"+activity+"</span> <br>" + 
+    document.getElementById('activity').innerHTML = "<span id='activity-head'>"+activity+"</span>" + 
     getActivity(d,m) + "<br><br>";
     getLibraryEvent(d+1,m);
 }

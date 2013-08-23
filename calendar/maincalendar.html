@@ -17,13 +17,17 @@
 
 <body>
 <div class = "wrapper">
-  <script type="text/javascript">
-  if(localStorage.lang=="ENG")
-    generateHeader("Calendar", true, true);
-  else{
-    generateHeader("Calendario", true, true);
-  }
-    generateMainCal();  
+	<script type="text/javascript">
+	if(localStorage.lang=="ENG")
+		generateHeader("Calendar", true, true);
+		
+	else{
+		generateHeader("Calendario", true, true);
+	}
+	
+	generateMainCal();  
+	
+
 	
 	if(localStorage.lang=="ENG")
 		document.write("<span id='event-head'>Events</span>");

@@ -80,12 +80,14 @@ a {
     font: 16px arial;
     word-wrap: break-word;
     margin-left: 25px;
+	margin-bottom: 10px;
 }
 
 #activity-head {
     font-family: Chunkfive;
     font-size: 26px;
     margin-bottom: 10px;
+	display: block;
 }
 
 p span {
