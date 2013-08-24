@@ -19,7 +19,10 @@
 <body>
 	<div class = "wrapper">
 		<script>
-		generateCalendarHeader("Calendar");
+		if(localStorage.lang=="ENG")
+			generateCalendarHeader("Calendar");
+		else
+			generateCalendarHeader("Calendario");
 		generateDailyActivity();
 		
 		if(localStorage.lang=="ENG")
@@ -33,7 +36,10 @@
 				<div id = 'events'></div>
 		
 		<script>
-		generateButton("Go to Main Calendar", "main-cal", "bt-yellow", "mainCal()");
+		if(localStorage.lang=="ENG")
+			generateButton("Go to Main Calendar", "main-cal", "bt-yellow", "mainCal()");
+		else
+			generateButton("Calendario", "main-cal", "bt-yellow", "mainCal()");
 		function mainCal() {
 			document.location.href='maincalendar.html';
 		}
