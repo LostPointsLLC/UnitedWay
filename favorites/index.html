@@ -39,18 +39,20 @@
 			
 			<div id='content' data-role='content'>
 				<div id='set' data-role='collapsible-set'>
-				
-					<!-- Set 1 -->
-					<div id="news-feed" class='section' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r" data-content-theme='c'>
-						<h3 id='news-feed-header'>News Feed</h3>
-					</div>
-					
-					
-					<!-- Set 2 -->
-					<div id="tips" class='section' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r" data-content-theme='c'>
-						<h3 id='tips-header'>Tips</h3>
-					</div>
-					
+				<script>
+				if(localStorage.lang=="ENG"){
+					// Set 1 -->
+					document.write("<div id=\"news-feed\" class='section' data-theme='b' data-iconpos=\"right\" data-collapsed-icon=\"arrow-r\" data-content-theme='c'><h3 id='news-feed-header'>News Feed</h3></div>");
+					// Set 2 -->
+					document.write("<div id=\"tips\" class='section' data-theme='b' data-iconpos=\"right\" data-collapsed-icon=\"arrow-r\" data-content-theme='c'><h3 id='tips-header'>Tips</h3></div>");
+				}
+				else{
+					// Set 1 -->
+					document.write("<div id=\"news-feed\" class='section' data-theme='b' data-iconpos=\"right\" data-collapsed-icon=\"arrow-r\" data-content-theme='c'><h3 id='news-feed-header'>Noticias RSS</h3></div>");
+					// Set 2 -->
+					document.write("<div id=\"tips\" class='section' data-theme='b' data-iconpos=\"right\" data-collapsed-icon=\"arrow-r\" data-content-theme='c'><h3 id='tips-header'>Consejos</h3></div>");
+				}
+				</script>	
 					<!-- Set 3 -->
 					<!--
 					<div id="events" class='section' >
