@@ -16,14 +16,19 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Resources", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Resources", true, false);
+			else
+				generateHeader("Recursos", true, false);
 			</script>
 
 			<div class="help-content">
-
-				<p>The resources page is where you can find helpful links to local parenting organizations, educational resources, and United Way contact information. Simply select the resource you would like to view, and  and an external link will take you to the website of your selected resource.
-				</p>
-
+				<script>
+				if(localStorage.lang=="ENG")
+					document.write("<p>The resources page is where you can find helpful links to local parenting organizations, educational resources, and United Way contact information. Simply select the resource you would like to view, and  and an external link will take you to the website of your selected resource.</p>");
+				else
+					document.write("<p>La p&aacute;gina de recursos es donde usted puede encontrar enlaces &uacute;tiles a las organizaciones locales para padres, recursos educativos, y la informaci&oacute;n de contacto de United Way. Simplemente seleccione el recurso que desea ver y, y un enlace externo le llevar&aacute; a la p&aacute;gina web de su recurso seleccionado.</p>");
+				</script>
 			<div>
 				<a class="backarrow" href = "howToUse-books.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-tips.html"><img src="../images/right-arrow.png"/></a>

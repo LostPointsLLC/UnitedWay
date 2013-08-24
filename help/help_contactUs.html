@@ -17,11 +17,18 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Contact Us", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Contact Us", true, false);
+			else
+				generateHeader("Cont&aacute;ctenos", true, false);
 			</script>
 		<div class="help-content" style='padding-top: 80px'>
-
-			<p style="font-weight:bold; font-size:24px; line-height: 24px; "> We want to hear from you! </p>
+			<script>
+			if(localStorage.lang=="ENG")
+				document.write("<p style=\"font-weight:bold; font-size:24px; line-height: 24px; \"> We want to hear from you! </p>");
+			else
+				document.write("<p style=\"font-weight:bold; font-size:24px; line-height: 24px; \"> Queremos saber de ti! </p>");
+			</script>
 			<p>
 				United Way of Champaign County<br/>
 				404 West Church Street<br/>
@@ -30,11 +37,12 @@
 
 				MTD: 7W Grey or 6W Orange, Church & Elm stop<br/><br/>
 			</p>
-			<p style = "font-size: 16px">
-				**If you are in need of immediate assistance (food, shelter, clothing, utilities) <br/> please contact First Call for Help at 217-352-6300 or visit their web site <br/>
-				<a href = "http://helpbook.famservcc.org/"> <p style = "font-size: 16px"> http://helpbook.famservcc.org/.**</p> </a>
-			</p>
-
+			<script>
+			if(localStorage.lang=="ENG")
+				document.write("<p style = \"font-size: 16px\">**If you are in need of immediate assistance (food, shelter, clothing, utilities) <br/> please contact First Call for Help at 217-352-6300 or visit their web site <br/><a href = \"http://helpbook.famservcc.org/\"> <p style = \"font-size: 16px\"> http://helpbook.famservcc.org/.**</p></a></p>");
+			else
+				document.write("<p style = \"font-size: 16px\">**Si usted est&aacute; en necesidad de asistencia inmediata (alimentos, vivienda, vestido, servicios p&uacute;blicos) p&oacute;ngase en contacto con First Call for Help al 217-352-6300 o visite su sitio web <br/><a href = \"http://helpbook.famservcc.org/\"> <p style = \"font-size: 16px\"> http://helpbook.famservcc.org/.**</p></a></p>");
+			</script>
 			<div>
 				<a class="backarrow" href = "Home.html"><img src="../images/left-arrow.png"/></a>
 			</div>

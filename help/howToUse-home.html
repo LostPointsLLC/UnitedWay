@@ -16,14 +16,23 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Home", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Home", true, false);
+			else
+				generateHeader("Casa", true, false);
 			</script>
 
 			<div class="help-content">
-				<img class="icon" src='../images/home-button.png' style='float: right; margin: 0 0 10px 10px'/> 
-				<p>The home page is the central area from which you can access all of the other pages in the app. If, at any time, you wish to return to the home page, simply press the home button on the upper right hand corner of the screen.
-				</p>
-
+				<script>
+				if(localStorage.lang=="ENG"){
+					document.write("<img class=\"icon\" src='../images/home-button.png' style='float: right; margin: 0 0 10px 10px; width:50px; height:50px'/>"); 
+					document.write("<p>The home page is the central area from which you can access all of the other pages in the app. If, at any time, you wish to return to the home page, simply press the home button on the upper right hand corner of the screen.</p>");
+				}
+				else{
+					document.write("<img class=\"icon\" src='../images/casa(home)-button.png' style='float: right; margin: 0 0 10px 10px; width:50px; height:50px'/>");
+					document.write("<p>La p&aacute;gina principal es la zona central desde donde se puede acceder a todas las dem&aacute;s p&aacute;ginas de la aplicaci&oacute;n. Si en cualquier momento desea volver a la p&aacute;gina principal, pulse el icono de la casa en la esquina superior derecha de la pantalla.</p>");
+				}
+				</script>
 			<div>
 				<a class="backarrow" href = "howToUse-tips.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-help.html"><img src="../images/right-arrow.png"/></a>

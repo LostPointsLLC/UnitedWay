@@ -16,12 +16,19 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Books", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Books", true, false);
+			else
+				generateHeader("Libros", true, false);
 			</script>
 
 			<div class="help-content">
-			<p>The books page is where you can see the recommended books for your child. Categorized by child's age and book genres, you would be able to see what books are appropriate and recommended for your child's kindergarten readiness. </p>
-
+			<script>
+			if(localStorage.lang=="ENG")
+				document.write("<p>The books page is where you can see the recommended books for your child. Categorized by child's age and book genres, you would be able to see what books are appropriate and recommended for your child's kindergarten readiness. </p>");
+			else
+				document.write("<p>La p&aacute;gina de los libros es el lugar donde se pueden ver los libros recomendados clasificados por edad. </p>");
+			</script>
 			<div>
 				<a class="backarrow" href = "howToUse-progress.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-resources.html"><img src="../images/right-arrow.png"/></a>

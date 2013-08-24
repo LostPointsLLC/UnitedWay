@@ -16,14 +16,19 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Calendar", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Calendar", true, false);
+			else
+				generateHeader("Calendario", true, false);
 			</script>
 
 			<div class="help-content">
-
-				<p>When selected, the calendar page will always go to the current day first, and will display the suggested activity of the day and any events that are tailored to fit your child or children. To go to the full month display, simply press the calendar button near the bottom. To view past or future days, or to go back to the present day, simply select the date while in the full month display. To switch between months, take your finger and swipe to the left or to the right to go either forward or backward in months. Note: The calendar is non-editable, and customized entries cannot be entered into the calendar.
-				</p>
-
+				<script>
+				if(localStorage.lang=="ENG")
+					document.write("<p>When selected, the calendar page will always go to the current day first, and will display the suggested activity of the day and any events that are tailored to fit your child or children. To go to the full month display, simply press the calendar button near the bottom. To view past or future days, or to go back to the present day, simply select the date while in the full month display. To switch between months, take your finger and swipe to the left or to the right to go either forward or backward in months. Note: The calendar is non-editable, and customized entries cannot be entered into the calendar.</p>");
+				else
+					document.write("<p>Cuando se selecciona, la p&aacute;gina del calendario siempre ir&aacute; hasta el d&iacute;a corriente primero y mostrar&aacute; la actividad sugerida del d&iacute;a y cualquier eventos eventos que est&aacute;n dise&ntilde;ados para adaptarse a su hijo o hijos. Para ir a la pantalla completa del mes, s&oacute;lo tiene que pulsar el bot&oacute;n de calendario en en el fondo. Para ver los d&iacute;as anteriores o futuros, o para volver a la actualidad, simplemente seleccione la fecha, mientras mientras en la pantalla del mes completa. Para cambiar de mes, tome su dedo y deslizar hacia la izquierda o hacia la derecha para ir hacia adelante o hacia atr&aacute;s en el mes. Nota: el calendario no es editable y entradas personalizadas no se pueden introducir en el calendario.</p>");
+				</script>
 			<div>
 				<a class="backarrow" href = "introduction.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-newsfeed.html"><img src="../images/right-arrow.png"/></a>
