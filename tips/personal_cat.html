@@ -39,20 +39,38 @@
 				<div class="content" data-role='content'>
 				  <div id='set' style='margin-top: 0' data-role='collapsible-set'>
 					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-					  <h3 class='ui-disabled'>Health and Well Being</h3>
+						<script>
+						if(localStorage.lang=="ENG")
+					 		document.write("<h3 class='ui-disabled'>Health and Well Being</h3>");
+					 	else
+					 		document.write("<h3 class='ui-disabled'>Salud y Bienestar</h3>");
+					  </script>
 					</div>
 					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-					  <h3 class='ui-disabled'>Growth and Development</h3>  
+						<script>
+						if(localStorage.lang=="ENG")
+					  		document.write("<h3 class='ui-disabled'>Growth and Development</h3>");
+					  	else
+					  	 	document.write("<h3 class='ui-disabled'>Crecimiento y Desarrollo</h3>");
+					  	</script> 
 					</div>
 					
 					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-					  <h3 class='ui-disabled'>Safety</h3>
-
+						<script>
+						if(localStorage.lang=="ENG")
+					 		document.write("<h3 class='ui-disabled'>Safety</h3>");
+					 	else
+					 		document.write("<h3 class='ui-disabled'>seguridad</h3>");
+					  	</script>
 						</div>
 					
 						<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
-						<h3 class='ui-disabled'>Playtime</h3>
-					  
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<h3 class='ui-disabled'>Playtime</h3>");
+						else
+							document.write("<h3 class='ui-disabled'>recreo</h3>");
+					  	</script>
 						</div>
 					</div>
 				</div>
@@ -64,7 +82,10 @@
 				headers[1].parentNode.setAttribute("onmousedown", "growthTips()");
 				headers[2].parentNode.setAttribute("onmousedown", "safetyTips()");
 				headers[3].parentNode.setAttribute("onmousedown", "playTips()");
-				generateButton("Go Back", "back", "bt-yellow", "goBack()");
+				if(localStorage.lang=="ENG")
+					generateButton("Go Back", "back", "bt-yellow", "goBack()");
+				else
+					generateButton("espalda", "back", "bt-yellow", "goBack()");
 				function goBack() {
 					document.location.href="index.html";
 				
