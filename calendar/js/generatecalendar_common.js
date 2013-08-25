@@ -32,10 +32,10 @@ function generateCalendarHeader(text) {
 /* Generates the div boxes for date, activity and events on the daily tips page in calendar*/
 function generateDailyActivity(){
     document.write("<div id='date'> \
-						<div id = 'day'><h1 id='day-text'></h1></div> \
-						<div id = 'month'><h2 id='month-text'></h2></div> \
+						<div id = 'day' class= 'notranslate'><h1 id='day-text'></h1></div> \
+						<div id = 'month' class= 'notranslate'><h2 id='month-text'></h2></div> \
 					</div> \
-					<div id = 'activity'></div>");
+					<div id = 'activity' class= 'notranslate'></div>");
 }
 
 /*Generates the div boxes for champaign public library events on the daily tips page*/
@@ -52,5 +52,5 @@ function generateEvent(){
 /* Generates the div boxes for the main calendar*/
 
 function generateMainCal(){
-    document.write("<div id = 'calendar'></div><div id = 'activity'></div>");
+    document.write("<div id = 'calendar' class =notranslate></div><div id = 'activity'></div>");
 }

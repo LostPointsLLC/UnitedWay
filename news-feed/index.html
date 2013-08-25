@@ -21,12 +21,25 @@
 
 	</head>
 	<body>
+		<div id="google_translate_element"></div>
 		<script>
-		if(localStorage.lang=="ENG")
+		if(localStorage.lang=="ENG") 
 			generateHeader("News Feeds", true, false);
-		else
+		else {
 			generateHeader("Noticias RSS", true, false);
+		}
+		
+		function googleTranslateElementInit() {
+			if (localStorage.lang != "ENG") {
+			  new google.translate.TranslateElement({
+				pageLanguage: 'en',
+				includedLanguages: 'es',
+				layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+				}, 'google_translate_element');
+			}
+		}
 		</script>
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 		<div class="wrapper">			
 			<div id="content">
 				<div id="feed"></div>

@@ -13,6 +13,7 @@
     <script src="js/tipsarray.js"></script>
     <script src="js/tipsarray_spanish.js"></script>
     <script src="../js/hideaddressbar.js"></script> 
+	<script src="js/calendar.js"></script>
   </head>
 
 <body>
@@ -33,12 +34,24 @@
 		document.write("<span id='event-head'>Events</span>");
 	else
 		document.write("<span id='event-head'>Eventos</span>");
+	
+	function googleTranslateElementInit() {
+			if (localStorage.lang != "ENG") {
+			  new google.translate.TranslateElement({
+				pageLanguage: 'en',
+				includedLanguages: 'es',
+				layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+				}, 'google_translate_element');
+			}
+		}
 		
 	</script>
+	
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	<div id = 'events'></div>
 </div>
-<script src="js/calendar.js"></script>
 
+<div id="google_translate_element"></div>
 </body>
 
 
