@@ -103,7 +103,7 @@ font-size: 1em;
 padding: 3px 7px 2px 7px;
 left: 60px;
 right: 100px;
-bottom: 0px;
+
 /*float:left;*/
 }
 
@@ -118,14 +118,9 @@ display: block;
 .editCell {
 	position: absolute;
 	right: 60px;
-	bottom: 0;
 
-/*
-<<<<<<< Updated upstream
-	float:right;
-=======
 
->>>>>>> Stashed changes*/
+
 }
 
 
@@ -139,15 +134,8 @@ display: block;
 .deleteCell {
 	position: absolute;
 	right: 10px;
-	bottom: 0;
-/*
-<<<<<<< Updated upstream
-	float:right;
-=======
-	position: absolute;
-	right: 10px;
-	bottom: 0;
->>>>>>> Stashed changes
+
+
 */
 }
 
