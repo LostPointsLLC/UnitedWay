@@ -58,10 +58,8 @@ function getLibraryEvent(day, month){
 			}
 		}
 		if($div.innerHTML == "")
-			if(localStorage.lang=="ENG")
-				$div.innerHTML = "No Events for Today.";
-			else
-				$div.innerHTML = "No hay eventos para hoy.";
+			$div.innerHTML = "No Events for Today.";
+
 
     });
    
