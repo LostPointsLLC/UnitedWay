@@ -133,8 +133,16 @@ function editDB() {
     if(showFailPrompt(name, birthday) == -1) return;
     
     var color = document.getElementById("sprite").style.backgroundColor;
-    var boy_gender = document.getElementById("boy").value;
-	var dataArr = getDataString(name, birthday, color, boy_gender);
+	
+	var isBoy = document.getElementById("boy").checked;
+	var isGirl = document.getElementById("girl").checked;
+	var c_gender= "";
+	if (isBoy)
+		c_gender = "boy";
+	else
+		c_gender = "girl";
+	
+	var dataArr = getDataString(name, birthday, color, c_gender);
 	console.log(dataArr);
 	// Edit child in localStorage.childJsonObject Object
 	var childJsonObj = jQuery.parseJSON(localStorage.childJsonObject);
@@ -169,10 +177,12 @@ function getDataString(name, birthday, color, boy_gender) {
 	editAttributes["child_name"] = name;
 	editAttributes["child_birthday"] = packDateFormat(birthday);
 	editAttributes["child_color"] = color;
-	if((attributes[id]["child_gender"] == 'boy') == boy_gender) {
+	if('boy' == boy_gender) {
+		editAttributes["child_gender"] = "boy";
+	}
+	else {
 		editAttributes["child_gender"] = "girl";
 	}
-	editAttributes["child_gender"] = "boy";
 	editAttributes["child_id"] = id;
 	
 	return editAttributes;
