@@ -85,7 +85,7 @@ left: 0px;
 #separator {
 background-color: #cccccc; 
 height: 2px; 
-width: 150px; 
+width: 100%;
 position: relative; 
 top: 10px; 
 margin: 0 auto;
@@ -97,16 +97,14 @@ top: 20px;
 
 /*******************************************************************/
 .ageCell {
-/*
-position: relative;
+
+position: absolute;
 font-size: 1em;
 padding: 3px 7px 2px 7px;
-width: 130px;
-float: right;
-left:-50%;
-top: 30px;
-*/
-float:left;
+left: 60px;
+right: 100px;
+bottom: 0px;
+/*float:left;*/
 }
 
 .ageCell > span {
@@ -116,8 +114,18 @@ display: block;
 }
 
 /*******************************************************************/
+
 .editCell {
+	position: absolute;
+	right: 60px;
+	bottom: 0;
+
+/*
+<<<<<<< Updated upstream
 	float:right;
+=======
+
+>>>>>>> Stashed changes*/
 }
 
 
@@ -128,12 +136,19 @@ display: block;
 }
 
 /*******************************************************************/
-
-
-
 .deleteCell {
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+/*
+<<<<<<< Updated upstream
 	float:right;
-
+=======
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+>>>>>>> Stashed changes
+*/
 }
 
 .delete {
@@ -142,6 +157,11 @@ display: block;
 
 }
 
+.click-icon {
+	width: 40px;
+	height: 40px;
+
+}
 
 /*******************************************************************/
 #options {
