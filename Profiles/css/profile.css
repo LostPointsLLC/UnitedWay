@@ -1,0 +1,27 @@
+#content {
+	position: relative;
+	top: 60px;
+}
+
+#content > p {
+	text-indent: 25px;
+}
+
+h2 {
+	font-family: Chunkfive;
+	text-shadow: 0px 1px 0px #999, 0px 2px 4px #888;
+	margin-bottom: 10px;
+	text-indent: 25px;
+}
+
+.profiles {
+	margin-bottom: 20px;
+
+}
+
+h3 {
+	font-family: arial;
+	color: white;
+	margin: 10px 0 10px 0;
+
+}
