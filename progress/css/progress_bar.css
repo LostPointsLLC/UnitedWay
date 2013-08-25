@@ -384,6 +384,7 @@ background-image: -webkit-gradient(
 	font-family: Chunkfive;
 	font-size: 20px;	
 	color: white;
+	text-overflow: ellipsis;
 }
 
 .age-text {

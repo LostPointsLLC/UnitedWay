@@ -50,6 +50,8 @@
 					generateInputText("Apellido", "lastname-box", "lastname", "text");
 
 				}
+				document.getElementById("firstname").setAttribute("maxlength", "20");
+				document.getElementById("lastname").setAttribute("maxlength", "20");
 				</script>
 			</div>
 			<div id="login-info">
@@ -70,6 +72,9 @@
 					document.write("<br>");
 					generateInputText("Confirmar contrase&ntilde;a", "", "confirm", "password");
 				}
+				document.getElementById("email").setAttribute("maxlength", "256");
+				document.getElementById("password").setAttribute("maxlength", "20");
+				document.getElementById("confirm").setAttribute("maxlength", "20");
 				</script>
 			</div>
 					

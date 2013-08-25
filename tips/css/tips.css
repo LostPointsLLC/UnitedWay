@@ -55,8 +55,9 @@ html, body {
 .child-name {
 	font-size: 20px;
 	font-family: Chunkfive;
-color: white;
-	   text-align: center;
+	color: white;
+	text-align: center;
+	text-overflow: ellipsis;
 }
 
 
