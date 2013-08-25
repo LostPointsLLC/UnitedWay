@@ -15,16 +15,21 @@
 
 	<body>
 			<script>
-			generateHeader("News Feeds", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("News Feeds", true, false);
+			else
+				generateHeader("Noticias RSS", true, false);
 			</script>
 		<div class="wrapper">
 		
 
 			<div class="help-content">
-
-				<p>The news feed page is where you can view the latest RSS posts from CU and CU area organizations, such as ChambanaMoms.com, Champaign Park District, Champaign Public Library, and more!
-				</p>
-
+				<script>
+				if(localStorage.lang=="ENG")
+					document.write("<p>The news feed page is where you can view the latest RSS posts from CU and CU area organizations, such as ChambanaMoms.com, Champaign Park District, Champaign Public Library, and more!</p>");
+				else
+					document.write("<p>La p&aacute;gina de noticias es donde se pueden ver las &uacute;ltimas entradas RSS de CU y organizaciones de la zona de CU, como ChambanaMoms.com, Champaign Park District, Champaign Biblioteca P&uacute;blica, y mucho m&aacute;s!</p>");
+				</script>
 			<div>
 				<a class="backarrow" href = "howToUse-calendar.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-favorites.html"><img src="../images/right-arrow.png"/></a>

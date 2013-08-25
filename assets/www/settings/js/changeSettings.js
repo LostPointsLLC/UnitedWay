@@ -14,6 +14,7 @@ function editChild(id) {
 
 function deleteChild(name, id) {
 
+
 	// In case of undoing a delete
 	if($("#age" + id).hasClass("black-white-text")) {
 		changeWhite(id);
@@ -21,13 +22,27 @@ function deleteChild(name, id) {
 		deleteFromDb.splice(index, 1);
 	}
 
-
 	else if(promptDelete(name)) {
 		changeBlack(id);
 		deleteFromDb.push(id);
 	}
 	console.log(JSON.stringify(deleteFromDb));
+	
+	
+	/*
+	if(promptDelete(name)) {
+		hideChild(id);
+		deleteFromDb.push(id);
+	
+	}*/
 }
+
+/* A function that hides the child that was just deleted */
+function hideChild(id) {
+	return;
+
+}
+
 
 function changeWhite(id) {
 	
@@ -68,7 +83,7 @@ function makeBlackWhite(element, id) {
 
 /* Asks user whether he/she actually wants to kill the kid */
 function promptDelete(name) {
-	return confirm("Do you really want to delete " + name + "?"); 
+	return confirm("Do you really want to remove " + name + "? You will lose all information pertaining to " + name + " if you do."); 
 }
 
 

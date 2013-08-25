@@ -22,10 +22,12 @@
 	</head>
 	<body>
 		<script>
-		if(localStorage.lang=="ENG")
-			generateHeader("News Feeds", true, true);
-		else
-			generateHeader("Noticias RSS", true, true);
+		if(localStorage.lang=="ENG") 
+			generateHeader("News Feeds", true, false);
+		else {
+			generateHeader("Noticias RSS", true, false);
+		}
+		
 		</script>
 		<div class="wrapper">			
 			<div id="content">

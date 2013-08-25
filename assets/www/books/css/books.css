@@ -28,6 +28,11 @@
 	position:relative;
 	top:55px;
 }
+
+.ui-content {
+	padding-top: 0;
+}
+
 .ui-collapsible-inset .ui-collapsible-content {
 	line-height: 1.3em;
 }

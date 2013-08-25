@@ -20,8 +20,9 @@ ul{
 }
 
 #checklist{
-	-webkit-margin-before: 0;
--webkit-margin-after:0;
+/*-webkit-margin-before: 0;
+-webkit-margin-after:0;*/
+margin-left: -20px;
 font-family: arial;
 }
 
@@ -41,17 +42,19 @@ font-family: arial;
 	background: #7ca3dc;
 }
 #content-title {
-	height: 60px;
+	min-height: 60px;
 	width: 100%;
-	padding-top:75px;
-	border-bottom: thin solid #769ECF;
+	padding-top: 60px;
+	border-bottom: thin solid #cccccc;
 }
 
 
 .title-text {
 	display: inline-block;
 	padding-top:10px;
-	padding-left: 30px;	
+
+	padding-left: 25px;
+	padding-bottom: 20px;
 	vertical-align: middle;
 	line-height: normal;
 	font-size: 25px;

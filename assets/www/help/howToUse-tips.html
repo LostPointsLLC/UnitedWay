@@ -16,13 +16,19 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Tips", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Tips", true, false);
+			else
+				generateHeader("Consejos", true, false);
 			</script>
 
 			<div class="help-content">
-
-				<p>The tips section is tailored to your child's specific age and development. When selected, the tips button will take you to the child selection screen, where you will select the child you would like to see tailored tips for. Simply select the desired child, and this will take you to the tips screen for that child. There are four categories of tips: Health and Well Being, Growth and Development, Safety, and Playtime. Each category will contain helpful tips to strengthen your child in that particular area. If, at any time, you wish to  switch the category of tips that you are currently viewing, simply press the back arrow in the colored category bar at the top of the screen. If, at any time, you wish to switch the child you are viewing tips on, simply press the back arrow by your child's icon, and this will take you back to the child selection page.
-				</p>
+				<script>
+				if(localStorage.lang=="ENG")
+					document.write("<p>The tips section is tailored to your child's specific age and development. When selected, the tips button will take you to the child selection screen, where you will select the child you would like to see tailored tips for. Simply select the desired child, and this will take you to the tips screen for that child. There are four categories of tips: Health and Well Being, Growth and Development, Safety, and Playtime. Each category will contain helpful tips to strengthen your child in that particular area. If, at any time, you wish to  switch the category of tips that you are currently viewing, simply press the back arrow in the colored category bar at the top of the screen. If, at any time, you wish to switch the child you are viewing tips on, simply press the back arrow by your child's icon, and this will take you back to the child selection page.</p>");
+				else
+					document.write("<p>La secci&oacute;n de consejos est&aacute; adaptado a la edad y el desarrollo espec&iacute;fico de su hijo. Cuando se selecciona, el bot&oacute;n de consejos le llevar&aacute; a la pantalla de selecci&oacute;n de ni&ntilde;o, en la que deber&aacute; seleccionar al ni&ntilde;o que le gustar&iacute;a ver consejos personalizados para. Simplemente seleccionar el ni&ntilde;o lo deseado, y esto le llevar&aacute; a la pantalla de consejos para ese ni&ntilde;o. Hay cuatro categor&iacute;as de consejos: salud y el bienestar, crecimiento y desarrollo, la seguridad, y los juegos. Cada categor&iacute;a contiene consejos &uacute;tiles para fortalecer a su hijo en esa &aacute;rea en particular. Si en alg&uacute;n momento desea cambiar la categor&iacute;a de consejos que usted est&aacute; viendo, pulse la flecha atr&aacute;s en la barra de la categor&iacute;a coloreada en la parte superior de la pantalla. Si en alg&uacute;n momento desea cambiar al ni&ntilde;o que est&aacute; viendo consejos para, simplemente pulse la flecha atr&aacute;s por el icono de su hijo, y esto le llevar&aacute; a la p&aacute;gina de selecci&oacute;n de ni&ntilde;o.</p>");
+				</script>
 
 			<div>
 				<a class="backarrow" href = "howToUse-resources.html"><img src="../images/left-arrow.png"/></a>

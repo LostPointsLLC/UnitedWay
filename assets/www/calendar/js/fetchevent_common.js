@@ -53,7 +53,7 @@ function getLibraryEvent(day, month){
 				entdes.innerHTML = desText;
 				eventDiv.appendChild(entdes);
 
-	
+
 				$div.appendChild(eventDiv);
 			}
 		}
@@ -62,6 +62,7 @@ function getLibraryEvent(day, month){
 				$div.innerHTML = "No Events for Today.";
 			else
 				$div.innerHTML = "No hay eventos para hoy.";
+
 
     });
    
@@ -112,7 +113,7 @@ function grabData(callback)
 					 * So correction: The person who wrote the crux of this code didn't write a scraper. The google API created a 
 					 * scraper, and he's just using that.
 					 */
-				    
+
 				    	//grab date/time
 					var timeobj = ents[i].content.split('<br>')[0].split(' ');
 					var startTime = new Date();

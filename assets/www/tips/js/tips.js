@@ -141,7 +141,7 @@ safety_18months.push("Limit access to rooms, drawers and dangerous objects so bl
 
 var playtime_18months = new Array();
 playtime_18months.push("This is a wonderful time to help your child's rapidly growing vocabulary by talking to him/her about everything and reading together every day.");
-playtime_18months.push("You child will play with toys for longer periods of time and will enjoy doing things for himself/herself. Play simple recognition games and place three familiar objects in front of your child and say, \"please give me the…\". Encourage your child to play by himself/herself but be available to help out if an activity seems too difficult.  Arrange play dates and they can be rocky but it is good for toddlers to learn about interaction with other children. Remember, toddlers are just learning how to play with someone else and should not always be expected to share.");
+playtime_18months.push("Your child will play with toys for longer periods of time and will enjoy doing things for himself/herself. Play simple recognition games and place three familiar objects in front of your child and say, \"please give me the...\". Encourage your child to play by himself/herself but be available to help out if an activity seems too difficult.  Arrange play dates and they can be rocky but it is good for toddlers to learn about interaction with other children. Remember, toddlers are just learning how to play with someone else and should not always be expected to share.");
 
 var health_18months = new Array();
 health_18months.push("Usually shots are completed by the 18th month and therefore no shots will be needed at 24 months. Typical immunizations at this age will include: Datp or DTP, Hepatitis B, Polio, Chicken Pox.");
@@ -304,12 +304,8 @@ healthArray.push(health_3years);
 healthArray.push(health_4years);
 healthArray.push(health_5years);
 
-
-
-
-
-
-
-
-
-
+var tipPackage = {};
+tipPackage["health"] = healthArray;
+tipPackage["growth"] = growthArray;
+tipPackage["safety"] = safetyArray;
+tipPackage["playtime"] = playtimeArray;

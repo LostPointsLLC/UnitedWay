@@ -90,19 +90,23 @@ body {
     margin: 0;
     text-align: center;
     font-family: Chunkfive;
-    font-size: 120px;
+    font-size: 80px;
     color: white;
-    height: 110px;	
 
 text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 4px 4px #001135;
 
+}
+
+#month {
+	position: relative;
+	bottom: 20px;
 }
 
 #month-text{
     margin: 0;
     text-align: center;
     font-family: Chunkfive;
-    font-size: 40px;
+    font-size: 27px;
  text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 4px 4px #001135;  
 color: white;
 
@@ -111,29 +115,31 @@ color: white;
 #activity {
     font: 16px arial;
     color: #FFF;
-    padding-top: 20px;
     margin-left: 25px;
     word-wrap: break-word;
     overflow:auto;
-    height:115px;
+	margin-bottom: 20px;
 }
 
 #activity-head {
     font-family: Chunkfive;
     font-size: 26px;
+    margin-bottom: 4px;
+	display: block;
 }
 
 #event-head {
     font-family: Chunkfive;
     font-size: 26px;
-	margin-left: 25px;
+    margin-left: 25px;
+    margin-bottom: 4px;
     color: white;
     display: block;
     position: relative;
 }
 
 #events{
-    height:215px;
+	margin-bottom: 20px;
     width:100%;
     position: relative;
 	margin-left: 25px;
@@ -158,3 +164,9 @@ color: white;
     
 
 }
+
+#main-cal {
+	position: relative;
+	left: 25px;
+}
+

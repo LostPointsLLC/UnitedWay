@@ -29,23 +29,33 @@
 	<body>
 		<script>
 		if(localStorage.lang=="ENG")
-			generateHeader("Settings", true, true);
+			generateHeader("Settings", true, false);
 		else
-			generateHeader("Ajuste", true, true);
+			generateHeader("Ajuste", true, false);
 		</script>
 		<div class="wrapper">
 			<div id='content'>
 				<p id='no_child_left_behind'></p>
 			</div>
-			<script>
-				if(localStorage.lang=="ENG"){
-					document.write("<div class = \"text white-text language\"><span id=\"langname\">Language</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
-				}
+			
+			<div id='separator' ></div>
+			
+			
+			<div class = "white-text language"> 
+				<h1 style='font-family: Chunkfive; margin-bottom: 15px; font-size: 24px'>Language</h1>
+				<div id="inputbox">
+					<script>
+					if(localStorage.lang=="ENG")
+						document.write("<input type='radio' id = 'eng' name='language' value=\"ENG\" checked onclick = \"handleclick(this)\"/><label for=\"english\">ENGLISH</label><div style='height: 15px'></div><input type='radio' id='esp' name='language' value=\"ESP\" onclick =\"handleclick(this)\"/><label for=\"spanish\">ESPA&Ntilde;OL</label>");
+					else
+						document.write("<input type='radio' id = 'eng' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">ENGLISH</label><div style='height: 15px'></div><input type='radio' id='esp' name='language' value=\"ESP\" checked onclick =\"handleclick(this)\"/><label for=\"spanish\">ESPA&Ntilde;OL</label>");
+					</script>
 					
-				else
-					document.write("<div class = \"text white-text language\"><span id=\"langname\">Idioma</span><div id=\"inputbox\"><input type='radio' name='language' value=\"ENG\" onclick = \"handleclick(this)\"/><label for=\"english\">EN</label><input type='radio' name='language' value=\"ESP\" checked onclick = \"handleclick(this)\"/><label for=\"spanish\">ESP</label></div></div>");
-			</script>
-			<a id = "changepwtitle" href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-icon="check" data-theme="a" data-transition="pop"></a>
+				</div>
+			</div>
+		
+		
+			<a id = "changepwtitle" href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-theme="a" data-transition="pop"></a>
 				<div data-role="popup" id="popupMenu" data-theme="a">
     				<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
         				<form>

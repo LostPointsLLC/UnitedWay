@@ -16,14 +16,19 @@
 	<body>
 		<div class="wrapper">
 			<script>
-			generateHeader("Introduction", true, false);
+			if(localStorage.lang=="ENG")
+				generateHeader("Introduction", true, false);
+			else
+				generateHeader("Introducci&oacute;n", true, false);
 			</script>
 
 			<div class="help-content">
-
-				<p>This app is intended for use in getting your child or children, ready for kindergarten. In this app, you will find daily tips on activities you can do with your child or children, an event calendar tailored to your child or children, and much more! It is recommended that you use the United Way of Champaign, IL Pre-K app on a daily basis to achieve the best results.
-				</p>
-
+				<script>
+				if(localStorage.lang=="ENG")
+					document.write("<p>This app is intended for use in getting your child or children, ready for kindergarten. In this app, you will find daily tips on activities you can do with your child or children, an event calendar tailored to your child or children, and much more! It is recommended that you use the United Way of Champaign, IL Pre-K app on a daily basis to achieve the best results.</p>");
+				else
+					document.write("<p>Esta aplicaci&oacute;n est&aacute; dise&ntilde;ada para utilizarla para lograr que su hijo o hijos, listo para el kindergarten. En esta aplicaci&oacute;n, usted encontrar&aacute; consejos diarios sobre las actividades que puede hacer con su hijo o hijos, un calendario de eventos adaptados a su hijo o hijos, y mucho m&aacute;s! Se recomienda que utilice el United Way de Champaign, IL Pre-K aplicaci&oacute;n cada d&iacute;a para lograr los mejores resultados.</p>");
+				</script>
 			<div>
 				<a class="backarrow" href = "Home.html"><img src="../images/left-arrow.png"/></a>
 				<a class="nextarrow" href = "howToUse-calendar.html"><img src="../images/right-arrow.png"/></a>

@@ -30,26 +30,38 @@
 					
 					switch (category) {
 						case "health":
-							textString = "Health and Well Being";
-							btnClass = "bt-health";
+							if(localStorage.lang=="ENG")
+								textString = "Health and Well Being";
+							else
+								textString = "Salud y Bienestar";
 							break;
 						case "growth":
-							textString = "Growth and Development";
-							btnClass = "bt-grow";
+							if(localStorage.lang=="ENG")
+								textString = "Growth and Development";
+							else
+								textString = "Crecimiento y Desarrollo";
 							break;
 						case "safety":
-							textString = "Safety";
-							btnClass = "bt-safe";
+							if(localStorage.lang=="ENG")
+								textString = "Safety";
+							else
+								textString = "seguridad";
 							break;
 						case "playtime":
-							textString = "Playtime";
-							btnClass = "bt-play";
+							if(localStorage.lang=="ENG")
+								textString = "Playtime";
+							else
+								textString = "recreo";
 							break;
 					}
-					generateButton(textString, "back", btnClass, "goBack()");
+					document.write("<h1 style='margin-left: 25px; font-family: Chunkfive'>" + textString + "</h1>");
+
 				</script>
 			</div>
 			<div id = "frontpiece"></div>
+			<a href='personal_cat.html'><img src='../images/left-arrow.png' style='margin-left: 10px'/></a>
+			
+			
 		</div>
 	</body>
 </html>
