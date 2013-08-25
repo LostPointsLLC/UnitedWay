@@ -68,14 +68,27 @@
 						<div class='input'>
 							<div class='pencil'></div>
 							<div id='gender-line' class='text-input' width='255px'>
-
-								<p>Child&#39s gender</p>
+								<script>
+								if(localStorage.lang=="ENG")
+									document.write("<p>Child&#39s gender</p>");
+								else
+									document.write("<p>G&eacute;nero del ni&ntilde;o</p>");
+								</script>
 								<div id='gender'> 
 									<input id='boy' value='boy' type='radio' name='gender' onClick='changeGender(1)' checked />
-									<label id='boy-label' for="boy">Boy</label><br>
-									
+									<script>
+									if(localStorage.lang=="ENG")
+										document.write("<label id='boy-label' for=\"boy\">Boy</label><br>");
+									else
+										document.write("<label id='boy-label' for=\"boy\">chico</label><br>");
+									</script>
 									<input id="girl" value='girl' type='radio' name='gender' onClick="changeGender(2)"/>
-									<label id='girl-label' for='girl'>Girl</label>
+									<script>
+									if(localStorage.lang=="ENG")
+										document.write("<label id='girl-label' for='girl'>Girl</label>");
+									else
+										document.write("<label id='girl-label' for='girl'>chica</label>");
+									</script>
 								</div>
 							</div>
 															
@@ -86,8 +99,12 @@
 					</div>
 					
 					<div id ="color-select" class='input'>
-						<p style='opacity: .85; font-size: 15px; display: inline; position: relative; left: 40px;'>CHILD'S COLOR</p>
-						
+						<script>
+						if(localStorage.lang=="ENG")
+							document.write("<p style='opacity: .85; font-size: 15px; display: inline; position: relative; left: 40px;'>CHILD'S COLOR</p>");
+						else
+							document.write("<p style='opacity: .85; font-size: 15px; display: inline; position: relative; left: 40px;'>COLOR DEL NI&Ntilde;O</p>");
+						</script>
 						
 						
 						<div id='color-box'>
