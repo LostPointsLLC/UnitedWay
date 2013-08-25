@@ -15,3 +15,11 @@ function contact() {
 	document.location.href = "help_contactUs.html";
 
 }
+
+function sponsors() {
+	document.location.href = "sponsors.html";
+}
+
+function about() {
+	document.location.href = "about.html";
+}
