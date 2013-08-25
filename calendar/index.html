@@ -52,7 +52,10 @@
 		<div id = 'events'></div>
 		
 		<script>
-		generateButton("Main Calendar", "main-cal", "bt-yellow", "mainCal()");
+		if(localStorage.lang=="ENG")
+			generateButton("Main Calendar", "main-cal", "bt-yellow", "mainCal()");
+		else
+			generateButton("Calendario", "main-cal", "bt-yellow", "mainCal()");
 		function mainCal() {
 			document.location.href='maincalendar.html';
 		}
