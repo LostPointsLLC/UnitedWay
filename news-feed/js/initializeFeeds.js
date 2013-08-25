@@ -173,7 +173,7 @@ function getOptions() {
 				return " \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='upl'>Urbana Public Library Events</option>";
+				<option value='upl'>Urbana Public Library Eventos</option>";
 
 		case 'upl':
 			if(localStorage.lang=="ENG")
@@ -184,7 +184,7 @@ function getOptions() {
 
 			else
 				return " \
-				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='upl'>Urbana Public Library Eventos</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option> \
 				<option value='cm'>Chambanamoms</option>";
 
@@ -197,7 +197,7 @@ function getOptions() {
 			else
 				return " \
 				<option value='cm'>Chambanamoms</option> \
-				<option value='upl'>Urbana Public Library Events</option> \
+				<option value='upl'>Urbana Public Library Eventos</option> \
 				<option value='cpl'>Champaign Biblioteca P&uacute;blica de eventos</option>";
 
 

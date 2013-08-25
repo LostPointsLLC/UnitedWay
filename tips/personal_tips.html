@@ -30,16 +30,28 @@
 					
 					switch (category) {
 						case "health":
-							textString = "Health and Well Being";
+							if(localStorage.lang=="ENG")
+								textString = "Health and Well Being";
+							else
+								textString = "Salud y Bienestar";
 							break;
 						case "growth":
-							textString = "Growth and Development";
+							if(localStorage.lang=="ENG")
+								textString = "Growth and Development";
+							else
+								textString = "Crecimiento y Desarrollo";
 							break;
 						case "safety":
-							textString = "Safety";
+							if(localStorage.lang=="ENG")
+								textString = "Safety";
+							else
+								textString = "seguridad";
 							break;
 						case "playtime":
-							textString = "Playtime";
+							if(localStorage.lang=="ENG")
+								textString = "Playtime";
+							else
+								textString = "recreo";
 							break;
 					}
 					document.write("<h1 style='margin-left: 25px; font-family: Chunkfive'>" + textString + "</h1>");

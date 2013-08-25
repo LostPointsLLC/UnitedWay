@@ -35,7 +35,7 @@ function generateDailyActivity(){
 						<div id = 'day' class= 'notranslate'><h1 id='day-text'></h1></div> \
 						<div id = 'month' class= 'notranslate'><h2 id='month-text'></h2></div> \
 					</div> \
-					<div id = 'activity' class= 'notranslate'></div>");
+					<div class= 'notranslate' id = 'activity'></div>");
 }
 
 /*Generates the div boxes for champaign public library events on the daily tips page*/
