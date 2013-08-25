@@ -47,7 +47,8 @@
 }
 /*******************************************************************/
 .spritecell {
-position: relative;
+float:left;
+width:57px;
 left: 0px;
 	font-size:1em;
 	border:1px solid #00549b;
@@ -105,11 +106,7 @@ float: right;
 left:-50%;
 top: 30px;
 */
-
-position: absolute;
-left: 70px;
-right: 100px;
-bottom: 0;
+float:left;
 }
 
 .ageCell > span {
@@ -120,9 +117,7 @@ display: block;
 
 /*******************************************************************/
 .editCell {
-	position: absolute;
-	right: 50px;
-	top: 25px;
+	float:right;
 }
 
 
@@ -137,9 +132,7 @@ display: block;
 
 
 .deleteCell {
-	position: absolute;
-	right: 0;
-	top: 25px;
+	float:right;
 
 }
 
