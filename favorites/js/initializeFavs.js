@@ -71,6 +71,11 @@ function displayFavNews() {
 	rssPointer.innerHTML += outputString;
 }
 
+$(document).on("click", ".tip-content", function() {
+	sessionStorage.currTip = $(this).text();
+	alert(sessionStorage.currTip);
+	//document.location.href = "singleTip.html";
+});
 
 /* Displays the favorited tips using localStorage.tipJsonObject
  */
