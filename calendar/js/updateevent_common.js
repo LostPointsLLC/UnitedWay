@@ -19,8 +19,10 @@ function updateDate(d,m)
     //has to offset by 1 because array index starts at 0.
     
     document.getElementById('activity').innerHTML = 
-	"<span id='activity-head'>"+activity+"</span></div>" + 
+	"<span id='activity-head' class= 'notranslate'>"+activity+"</span></div>" + 
 	getActivity(d-1,m);
+	document.getElementById('activity').className = "notranslate";
+	
     getLibraryEvent(d,m);
     
 }
