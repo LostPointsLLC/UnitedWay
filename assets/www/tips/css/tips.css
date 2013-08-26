@@ -55,8 +55,9 @@ html, body {
 .child-name {
 	font-size: 20px;
 	font-family: Chunkfive;
-color: white;
-	   text-align: center;
+	color: white;
+	text-align: center;
+	text-overflow: ellipsis;
 }
 
 
@@ -146,5 +147,5 @@ border-bottom: 1px solid #cccccc;
 }
 
 .wrapper{
-	padding-top:50px;
+
 }

@@ -29,14 +29,19 @@
 			     </script> -->
 			
 
-			<div id= "theaccordion" data-role = "content" style='padding-top: 60px'>
+			<div id= "theaccordion" data-role = "content" style='padding-top: 10px'>
 				<div data-role='collapsible-set'>			    
 					<div data-role='collapsible'  data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
 						<h3>How to Use</h3>
 					</div>
-			    
 					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
 						<h3>Contact Us</h3>  
+					</div>
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3>Sponsors</h3>  
+					</div>
+					<div data-role='collapsible' data-theme='b' data-iconpos="right" data-collapsed-icon="arrow-r">
+						<h3>About</h3>  
 					</div>
 				</div>
 			</div>
@@ -44,7 +49,9 @@
 			<script>
 			var headers = document.getElementsByTagName("h3");
 			headers[0].parentNode.setAttribute("onmousedown", "how()");
-			headers[1].parentNode.setAttribute("onmousedown", "contact()");	
+			headers[1].parentNode.setAttribute("onmousedown", "contact()");
+			headers[2].parentNode.setAttribute("onmousedown", "sponsors()");	
+			headers[3].parentNode.setAttribute("onmousedown", "about()");	
 			</script>
 
 	</body>

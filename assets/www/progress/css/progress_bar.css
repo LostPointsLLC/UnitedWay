@@ -52,7 +52,6 @@ background-image: -webkit-gradient(
 }
 .wrapper{
 	text-align:center;
-	padding-top:57px;
 }
 .cell {
 	font-size:1em;
@@ -384,6 +383,7 @@ background-image: -webkit-gradient(
 	font-family: Chunkfive;
 	font-size: 20px;	
 	color: white;
+	text-overflow: ellipsis;
 }
 
 .age-text {

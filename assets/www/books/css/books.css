@@ -15,7 +15,6 @@
 	height: 50px;
 	text-align: center;
 	position:relative;
-	top:55px;
 }
 
 .title-text {
@@ -26,7 +25,6 @@
 }
 #page1 ,#page2{
 	position:relative;
-	top:55px;
 }
 
 .ui-content {
