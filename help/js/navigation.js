@@ -21,5 +21,5 @@ function sponsors() {
 }
 
 function about() {
-	document.location.href = "../profiles/index.html";
+	document.location.href = "../Profiles/index.html";
 }

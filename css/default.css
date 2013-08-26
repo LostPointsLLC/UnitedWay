@@ -84,7 +84,7 @@ a:hover{
 /**/.header {
 /**/	height: auto;
 	width: 100%;
-/**/	position: fixed;
+/**/	/*position: fixed;*/
 /**/	background-color: #7CA3D3;/*used to be #7ca3dc*/
 	z-index: 10;
 
