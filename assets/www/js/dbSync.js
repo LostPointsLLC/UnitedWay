@@ -106,7 +106,7 @@ function dbSync() {
 		}
 	}	
 	// Send the request to server!
-	httpRequest.open("POST", phpUrl, true);
+	httpRequest.open("POST", phpUrl, false);
 	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	httpRequest.send(dataString);
 	 console.log("Sync Complete");
