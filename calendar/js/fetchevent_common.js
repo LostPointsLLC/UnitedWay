@@ -73,7 +73,12 @@ function getLibraryEvent(day, month){
  */
 function getCentralTime(date) {
 	var time = date.toLocaleTimeString();
-	return time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
+	console.log(time);
+	var timeArray = time.split(":");
+	if(timeArray[0] % 12 != timeArray[0]) {
+		return parseInt((timeArray[0] - 12),10) + ":" + timeArray[1] + " PM";
+	}
+	return parseInt(timeArray[0], 10) + ":" + timeArray[1] + " AM";//time.substr(0, time.lastIndexOf(":")) + " " + time.substr(time.indexOf(" ") + 1, time.length);
 }
 
 function getLocation(location) {
