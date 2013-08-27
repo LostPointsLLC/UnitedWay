@@ -6,6 +6,7 @@ function initializeFeed() {
 	var limit = 8;
 	var title;
 	var source;
+	
 	/* Note: We might need to change the rssData data structure later so that 
 	 * we could accommodate adding more feeds more easily.
 	 */
